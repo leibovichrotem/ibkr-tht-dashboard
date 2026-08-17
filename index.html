@@ -21,8 +21,25 @@
     .tab-btn.active { background: #334155; color: #f1f5f9; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
+    .logo-wrap {
+      display: inline-flex;
+      width: 28px; height: 28px;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
     .logo-badge {
-      width: 26px; height: 26px; border-radius: 50%;
+      width: 28px; height: 28px; border-radius: 50%;
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
       border: 1px solid rgba(255,255,255,0.08);
@@ -206,10 +223,8 @@
     };
     function badge(sym) {
       const pair = LOGO[sym] || ["#475569", sym[0]];
-      // Finnhub stock logos (same source as Tradesh). Letter badge as fallback.
-      return '<span class="logo-wrap" style="display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center">' +
-        '<img src="https://financialmodelingprep.com/image-stock/' + sym + '.png" width="26" height="26" ' +
-        'style="border-radius:50%;object-fit:contain;background:#1e293b;border:1px solid rgba(255,255,255,0.08)" ' +
+      return '<span class="logo-wrap">' +
+        '<img src="https://financialmodelingprep.com/image-stock/' + sym + '.png" alt="' + sym + '" ' +
         'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-flex\'" />' +
         '<span class="logo-badge" style="display:none;background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>' +
         '</span>';
