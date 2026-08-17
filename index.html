@@ -630,6 +630,7 @@
     setPerf('perf-s-ytd', PERF.spx.ytd);
     setPerf('perf-s-1y', PERF.spx.y1);
 
+    
     (function initCharts() {
       const pieColors = [
         '#3b82f6','#8b5cf6','#14b8a6','#f59e0b','#ec4899','#06b6d4','#a855f7',
@@ -713,13 +714,11 @@
         });
       }
 
-      // Sector exposure — GICS-style map (explicit so you can verify)
       const SECTOR = {
         NFLX:'Communication', META:'Communication', RBLX:'Communication',
         APP:'Information Technology', ENPH:'Information Technology', NOW:'Information Technology',
         POET:'Information Technology', MSTR:'Information Technology',
-        HOOD:'Financials',
-        UBER:'Consumer Discretionary',
+        HOOD:'Financials', UBER:'Consumer Discretionary',
         HNST:'Consumer Staples', CELH:'Consumer Staples',
         MMM:'Industrials', RKLB:'Industrials', TE:'Industrials'
       };
@@ -777,8 +776,6 @@
         });
       }
 
-
-      // Closed-trade equity path (running realized P&L) — not in KPI cards
       const byDate = closed.slice().sort(function(a,b){ return (a.date < b.date ? -1 : 1); });
       let run = 0;
       const pathLabels = [];
@@ -817,14 +814,9 @@
         });
       }
 
-
-      
-      // Portfolio vs S&P — real cumulative % (IBKR TWR cps + SPY)
-      const EQUITY_LABELS = ["06-04", "06-05", "06-08", "06-09", "06-10", "06-11", "06-12", "06-15", "06-16", "06-17", "06-18", "06-19", "06-22", "06-23", "06-24", "06-25", "06-26", "06-29", "06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20", "07-21", "07-22", "07-23", "07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17"];
+const EQUITY_LABELS = ["06-04", "06-05", "06-08", "06-09", "06-10", "06-11", "06-12", "06-15", "06-16", "06-17", "06-18", "06-19", "06-22", "06-23", "06-24", "06-25", "06-26", "06-29", "06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20", "07-21", "07-22", "07-23", "07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17"];
 const EQUITY_PORT = [-0.0, -6.95, -5.78, -9.03, -12.4, -8.89, -9.68, -7.54, -9.05, -9.63, -6.14, -6.14, -9.99, -13.28, -14.86, -17.19, -19.18, -17.42, -16.61, -18.77, -21.63, -21.63, -19.13, -21.54, -19.44, -18.29, -18.56, -21.13, -19.55, -19.45, -23.41, -24.89, -25.02, -22.6, -22.94, -25.94, -28.86, -28.47, -28.55, -31.58, -27.61, -24.47, -20.48, -17.64, -17.07, -15.29, -12.25, -12.36, -11.82, -12.98, -11.36, -11.51, -12.89];
 const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, -2.13, -1.37, -1.37, -1.68, -3.11, -3.15, -3.01, -3.71, -2.13, -1.36, -1.5, -1.63, -1.63, -0.77, -1.24, -1.54, -0.71, -0.28, -1.05, -0.69, -0.3, -0.84, -1.82, -1.98, -1.16, -1.28, -2.5, -2.4, -2.38, -2.14, -3.65, -2.03, -1.33, 0.08, 1.88, 1.68, 1.52, 2.14, 2.11, 1.78, 2.03, 2.75, 2.54, 2.06];
-
-      
       const eqCtx = document.getElementById('chartEquity');
       if (eqCtx && typeof Chart !== 'undefined') {
         new Chart(eqCtx, {
@@ -836,7 +828,7 @@ const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, 
                 label: 'Portfolio',
                 data: EQUITY_PORT,
                 borderColor: '#6366f1',
-                backgroundColor: 'rgba(99,102,241,0.08)',
+                backgroundColor: 'transparent',
                 fill: false,
                 tension: 0.25,
                 borderWidth: 2.5,
@@ -884,158 +876,7 @@ const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, 
           }
         });
       }
-
-// Closed-trade equity path (running realized P&L) — not in KPI cards
-      const byDate = closed.slice().sort(function(a,b){ return (a.date < b.date ? -1 : 1); });
-      let run = 0;
-      const pathLabels = [];
-      const pathData = [];
-      byDate.forEach(function(c) {
-        run += c.pnl;
-        pathLabels.push(c.date.slice(5) + ' ' + c.sym);
-        pathData.push(+run.toFixed(2));
-      });
-      const pathCtx = document.getElementById('chartTradePath');
-      if (pathCtx && typeof Chart !== 'undefined') {
-        new Chart(pathCtx, {
-          type: 'line',
-          data: {
-            labels: pathLabels,
-            datasets: [{
-              label: 'Cumulative realized $',
-              data: pathData,
-              borderColor: '#818cf8',
-              backgroundColor: 'rgba(129,140,248,0.12)',
-              fill: true,
-              tension: 0.25,
-              pointRadius: 2,
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-              x: { ticks: { color: '#64748b', maxRotation: 45, font: { size: 9 } }, grid: { display: false } },
-              y: { ticks: { color: '#94a3b8', callback: function(v){ return '$'+v; } }, grid: { color: '#33415555' } }
-            }
-          }
-        });
-      }
-
-
-      // Portfolio vs S&P — real cumulative % series (IBKR TWR cps + SPY)
-const EQUITY_LABELS = ["06-04", "06-05", "06-08", "06-09", "06-10", "06-11", "06-12", "06-15", "06-16", "06-17", "06-18", "06-19", "06-22", "06-23", "06-24", "06-25", "06-26", "06-29", "06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20", "07-21", "07-22", "07-23", "07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17"];
-const EQUITY_PORT = [-0.0, -6.95, -5.78, -9.03, -12.4, -8.89, -9.68, -7.54, -9.05, -9.63, -6.14, -6.14, -9.99, -13.28, -14.86, -17.19, -19.18, -17.42, -16.61, -18.77, -21.63, -21.63, -19.13, -21.54, -19.44, -18.29, -18.56, -21.13, -19.55, -19.45, -23.41, -24.89, -25.02, -22.6, -22.94, -25.94, -28.86, -28.47, -28.55, -31.58, -27.61, -24.47, -20.48, -17.64, -17.07, -15.29, -12.25, -12.36, -11.82, -12.98, -11.36, -11.51, -12.89];
-const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, -2.13, -1.37, -1.37, -1.68, -3.11, -3.15, -3.01, -3.71, -2.13, -1.36, -1.5, -1.63, -1.63, -0.77, -1.24, -1.54, -0.71, -0.28, -1.05, -0.69, -0.3, -0.84, -1.82, -1.98, -1.16, -1.28, -2.5, -2.4, -2.38, -2.14, -3.65, -2.03, -1.33, 0.08, 1.88, 1.68, 1.52, 2.14, 2.11, 1.78, 2.03, 2.75, 2.54, 2.06];
-
-      const eqCtx = document.getElementById('chartEquity');
-      if (eqCtx && typeof Chart !== 'undefined') {
-        new Chart(eqCtx, {
-          type: 'line',
-          data: {
-            labels: EQUITY_LABELS,
-            datasets: [
-              {
-                label: 'Portfolio',
-                data: EQUITY_PORT,
-                borderColor: '#6366f1',
-                backgroundColor: 'rgba(99,102,241,0.08)',
-                fill: false,
-                tension: 0.25,
-                borderWidth: 2.5,
-                pointRadius: 0,
-                pointHoverRadius: 4
-              },
-              {
-                label: 'S&P 500',
-                data: EQUITY_SPY,
-                borderColor: '#94a3b8',
-                backgroundColor: 'transparent',
-                fill: false,
-                tension: 0.25,
-                borderWidth: 2,
-                pointRadius: 0,
-                pointHoverRadius: 4
-              }
-            ]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: {
-              legend: {
-                display: true,
-                labels: { color: '#94a3b8', boxWidth: 12 }
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(c) {
-                    const v = c.raw;
-                    return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
-                  }
-                }
-              }
-            },
-            scales: {
-              x: {
-                ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } },
-                grid: { color: '#33415533' }
-              },
-              y: {
-                ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
-                grid: { color: '#33415555' }
-              }
-            }
-          }
-        });
-      }
-            ]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: true,
-                labels: { color: '#94a3b8', boxWidth: 12 }
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(c) {
-                    const v = c.raw;
-                    if (v == null) return c.dataset.label + ': —';
-                    return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
-                  }
-                }
-              }
-            },
-            scales: {
-              x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
-              y: {
-                ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
-                grid: { color: '#33415555' }
-              }
-            }
-          }
-        });
-      }
     })();
-
-
-    // Performance table helpers (filled by automation; placeholders until next IBKR run)
-    function setPerf(id, pct) {
-      const el = document.getElementById(id);
-      if (!el || pct == null || isNaN(pct)) return;
-      const s = (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%';
-      el.textContent = s;
-      el.classList.remove('text-emerald-400', 'text-red-400');
-      el.classList.add(pct >= 0 ? 'text-emerald-400' : 'text-red-400');
-    }
-    // Snapshot placeholders — automation overwrites with live IBKR cps/nav periods
-    
 
 // ——— Live prices via Finnhub (same as Tradesh) · every 60s ———
     const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
