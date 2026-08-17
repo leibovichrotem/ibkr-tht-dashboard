@@ -423,44 +423,32 @@
         '</div></div>';
     });
 
-    // ——— Live price refresh (~1 min) for Last / Chg% / Unrealized ———
-    // Cost basis, qty, scores, KPIs, scanner, history come from hourly IBKR automation.
-    const CASH_SNAP = 967.97;
-    function fmtMoney(n) {
-      const s = (n >= 0 ? "" : "-") + "$" + Math.abs(n).toFixed(0);
-      return n >= 0 && n !== 0 ? "+" + s.replace("+", "") : s;
-    }
-    async function fetchQuote(sym) {
-      const url = "https://query1.finance.yahoo.com/v8/finance/chart/" + encodeURIComponent(sym) + "?interval=1d&range=1d";
-      const proxies = [
-        url,
-        "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-        "https://corsproxy.io/?" + encodeURIComponent(url)
-      ];
-      for (let i = 0; i < proxies.length; i++) {
-        try {
-          const res = await fetch(proxies[i], { signal: AbortSignal.timeout(8000) });
-          if (!res.ok) continue;
-          const data = await res.json();
-          const meta = data.chart && data.chart.result && data.chart.result[0] && data.chart.result[0].meta;
-          if (!meta || meta.regularMarketPrice == null) continue;
-          const last = meta.regularMarketPrice;
-          const prev = meta.chartPreviousClose || meta.previousClose || last;
-          const chg = prev ? ((last - prev) / prev) * 100 : 0;
-          return { last: last, chg: chg };
-        } catch (e) { /* try next */ }
+    
+    // ——— Live prices via Finnhub (same as Tradesh) · every 60s ———
+    const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
+
+    async function fetchFinnhubQuote(sym) {
+      try {
+        const r = await fetch('https://finnhub.io/api/v1/quote?symbol=' + encodeURIComponent(sym) + '&token=' + FINNHUB_KEY);
+        if (!r.ok) return null;
+        const d = await r.json();
+        if (d.c == null || d.c <= 0) return null;
+        const last = d.c;
+        const prev = d.pc > 0 ? d.pc : last;
+        const chg = d.dp != null ? d.dp : ((last - prev) / prev) * 100;
+        return { last: last, chg: chg };
+      } catch (e) {
+        return null;
       }
-      return null;
     }
+
     async function refreshLiveQuotes() {
-      const elLive = document.getElementById("hdr-live");
-      if (elLive) elLive.textContent = "updating…";
-      let totalUpnl = 0;
+      const elLive = document.getElementById('hdr-live');
+      if (elLive) elLive.textContent = 'updating…';
       let ok = 0;
-      for (let i = 0; i < positions.length; i++) {
-        const p = positions[i];
-        const q = await fetchQuote(p.symbol);
-        if (!q) continue;
+      await Promise.all(positions.map(async function(p) {
+        const q = await fetchFinnhubQuote(p.symbol);
+        if (!q) return;
         ok++;
         p.last = q.last;
         p.chg = q.chg;
@@ -468,37 +456,43 @@
         p.upnlPct = p.avg ? ((p.last - p.avg) / p.avg) * 100 : 0;
         p.mv = p.last * p.qty;
         p.pctNet = NET_LIQ ? (p.mv / NET_LIQ) * 100 : 0;
-        totalUpnl += p.upnl;
         const row = document.querySelector('tr[data-sym="' + p.symbol + '"]');
-        if (!row) continue;
-        const set = function(field, text, cls) {
+        if (!row) return;
+        function set(field, text, cls) {
           const cell = row.querySelector('[data-f="' + field + '"]');
           if (!cell) return;
           cell.textContent = text;
-          if (cls) { cell.classList.remove("text-emerald-400", "text-red-400"); cell.classList.add(cls); }
-        };
-        const upCls = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
-        const chCls = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
-        set("last", "$" + p.last.toFixed(2));
-        set("chg", (p.chg >= 0 ? "+" : "") + p.chg.toFixed(1) + "%", chCls);
-        set("upnl", "$" + p.upnl.toFixed(0), upCls);
-        set("upnlPct", (p.upnlPct >= 0 ? "+" : "") + p.upnlPct.toFixed(1) + "%", upCls);
-        set("pctNet", p.pctNet.toFixed(1) + "%");
-      }
-      const hdrUpnl = document.getElementById("hdr-upnl");
-      if (hdrUpnl && ok > 0) {
-        hdrUpnl.textContent = (totalUpnl >= 0 ? "+$" : "-$") + Math.abs(totalUpnl).toFixed(0);
-        hdrUpnl.classList.remove("text-emerald-400", "text-red-400");
-        hdrUpnl.classList.add(totalUpnl >= 0 ? "text-emerald-400" : "text-red-400");
+          if (cls) {
+            cell.classList.remove('text-emerald-400', 'text-red-400');
+            cell.classList.add(cls);
+          }
+        }
+        const upCls = p.upnl >= 0 ? 'text-emerald-400' : 'text-red-400';
+        const chCls = p.chg >= 0 ? 'text-emerald-400' : 'text-red-400';
+        set('last', '$' + p.last.toFixed(2));
+        set('chg', (p.chg >= 0 ? '+' : '') + p.chg.toFixed(1) + '%', chCls);
+        set('upnl', '$' + p.upnl.toFixed(0), upCls);
+        set('upnlPct', (p.upnlPct >= 0 ? '+' : '') + p.upnlPct.toFixed(1) + '%', upCls);
+        set('pctNet', p.pctNet.toFixed(1) + '%');
+      }));
+      const totalUpnl = positions.reduce(function(s, p) { return s + (p.upnl || 0); }, 0);
+      const hdrUpnl = document.getElementById('hdr-upnl');
+      if (hdrUpnl) {
+        hdrUpnl.textContent = (totalUpnl >= 0 ? '+$' : '-$') + Math.abs(totalUpnl).toFixed(0);
+        hdrUpnl.classList.remove('text-emerald-400', 'text-red-400');
+        hdrUpnl.classList.add(totalUpnl >= 0 ? 'text-emerald-400' : 'text-red-400');
       }
       if (elLive) {
         const t = new Date();
-        elLive.textContent = ok ? (ok + "/" + positions.length + " · " + t.toLocaleTimeString()) : "quotes unavailable";
+        elLive.textContent = ok
+          ? (ok + '/' + positions.length + ' · Finnhub · ' + t.toLocaleTimeString())
+          : 'Finnhub unavailable';
       }
     }
-    // First refresh after short delay, then every 60s
-    setTimeout(refreshLiveQuotes, 2500);
+
+    setTimeout(refreshLiveQuotes, 1500);
     setInterval(refreshLiveQuotes, 60000);
+
 
   </script>
 </body>
