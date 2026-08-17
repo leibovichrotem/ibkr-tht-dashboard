@@ -64,14 +64,8 @@
   </style>
 </head>
 <body class="p-4 md:p-8">
-  <div class="max-w-7xl mx-auto space-y-6">  <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <div>
-        <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
-        <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 23:23 IDT</span> · <span class="text-slate-600">Prices refresh ~1 min</span></p>
-      </div>
-      <div class="flex flex-wrap gap-3 text-sm">
+  <div class="max-w-7xl mx-auto space-y-6">
+        <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Cash</div>
           <div id="hdr-cash" class="font-medium text-slate-200">$968</div>
@@ -139,6 +133,7 @@
       <p class="text-xs text-slate-500 mt-3">Sample size still building. Process &gt; short-term P&amp;L. Keep equal weight and only take rule-based trades.</p>
     </div>
 
+
     <!-- Tabs -->
     <div class="flex gap-1 p-1 rounded-xl card w-fit">
       <button class="tab-btn active" data-tab="holdings" onclick="switchTab('holdings')">Holdings</button>
@@ -148,7 +143,7 @@
 
     <!-- Holdings panel -->
     <div id="panel-holdings" class="tab-panel active">
-      <div class="card overflow-x-auto">
+<div class="card overflow-x-auto">
         <div class="p-4 border-b border-slate-700 flex justify-between items-center">
           <h2 class="font-semibold text-white">Positions (ordered by Cost Basis)</h2>
           <span class="text-xs text-slate-500">15 holdings</span>
@@ -184,63 +179,6 @@
               <div class="text-xs text-slate-500 uppercase tracking-wide">Gross Positions</div>
               <div class="font-semibold text-white mt-0.5">$12,256</div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <br/>
-
-      <!-- Portfolio performance vs benchmark -->
-      <div class="card overflow-x-auto mt-2">
-        <div class="p-4 border-b border-slate-700">
-          <h2 class="font-semibold text-white">Performance</h2>
-          <p class="text-xs text-slate-500 mt-1">As of last automation snapshot · portfolio vs S&amp;P 500 (approx)</p>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Performance</th>
-              <th class="num">1 Month</th>
-              <th class="num">MTD</th>
-              <th class="num">YTD</th>
-              <th class="num">1 Year</th>
-              <th class="num">Since tracked*</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="font-medium text-white">Portfolio (NAV)</td>
-              <td class="num" id="perf-p-1m">—</td>
-              <td class="num" id="perf-p-mtd">—</td>
-              <td class="num" id="perf-p-ytd">—</td>
-              <td class="num" id="perf-p-1y">—</td>
-              <td class="num" id="perf-p-all">—</td>
-            </tr>
-            <tr class="bg-slate-800/40">
-              <td class="font-medium text-slate-300">S&amp;P 500 (approx)</td>
-              <td class="num" id="perf-s-1m">—</td>
-              <td class="num" id="perf-s-mtd">—</td>
-              <td class="num" id="perf-s-ytd">—</td>
-              <td class="num" id="perf-s-1y">—</td>
-              <td class="num text-slate-500">—</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="text-xs text-slate-500 p-3">*Since tracked = from available IBKR performance window in automation. Updated on hourly IBKR run.</p>
-      </div>
-
-      <!-- Charts row -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <div class="card p-4">
-          <h3 class="text-sm font-semibold text-white mb-3">Holdings allocation</h3>
-          <div class="relative" style="height:260px">
-            <canvas id="pieHoldings"></canvas>
-          </div>
-        </div>
-        <div class="card p-4">
-          <h3 class="text-sm font-semibold text-white mb-3">Closed trades · win vs loss</h3>
-          <div class="relative" style="height:260px">
-            <canvas id="chartWinLoss"></canvas>
           </div>
         </div>
       </div>
@@ -284,6 +222,104 @@
         </div>
         <p class="text-xs text-slate-500 mb-4">Observable only: Fib SMZ + swing structure (+ volume if available). No FVB/BX without TradingView.</p>
         <div id="scanner-list" class="space-y-2"></div>
+      </div>
+    </div>
+
+
+    <!-- Analytics below table/tabs: performance, allocation, equity curve, exposure -->
+    <div class="space-y-4 mt-6">
+
+      <!-- Performance table -->
+      <div class="card overflow-x-auto">
+        <div class="p-4 border-b border-slate-700">
+          <h2 class="font-semibold text-white">Performance</h2>
+          <p class="text-xs text-slate-500 mt-1">Portfolio (IBKR TWR) vs S&amp;P 500 proxy (SPY)</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Performance</th>
+              <th class="num">1 Month</th>
+              <th class="num">MTD</th>
+              <th class="num">YTD</th>
+              <th class="num">1 Year</th>
+              <th class="num">Since tracked*</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-medium text-white">Portfolio (NAV)</td>
+              <td class="num" id="perf-p-1m">—</td>
+              <td class="num" id="perf-p-mtd">—</td>
+              <td class="num" id="perf-p-ytd">—</td>
+              <td class="num" id="perf-p-1y">—</td>
+              <td class="num" id="perf-p-all">—</td>
+            </tr>
+            <tr class="bg-slate-800/40">
+              <td class="font-medium text-slate-300">S&amp;P 500 (SPY)</td>
+              <td class="num" id="perf-s-1m">—</td>
+              <td class="num" id="perf-s-mtd">—</td>
+              <td class="num" id="perf-s-ytd">—</td>
+              <td class="num" id="perf-s-1y">—</td>
+              <td class="num text-slate-500">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 p-3">*Since tracked = IBKR account window.</p>
+      </div>
+
+      <!-- Equity curve: Portfolio vs S&P (GRNY-style) -->
+      <div class="card p-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div>
+            <h3 class="text-sm font-semibold text-white">Portfolio vs S&amp;P 500</h3>
+            <p class="text-xs text-slate-500">Same periods as the table above · Portfolio vs SPY (no freehand curve)</p>
+          </div>
+
+        </div>
+        <div class="relative" style="height:260px">
+          <canvas id="chartEquity"></canvas>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- HOLDINGS ALLOCATION Tradesh doughnut -->
+        <div class="card p-4">
+          <div class="text-xs uppercase tracking-widest text-slate-500 mb-4">Holdings allocation</div>
+          <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap">
+            <div style="position:relative;width:200px;height:200px;flex-shrink:0;margin:0 auto">
+              <canvas id="pieHoldings"></canvas>
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
+                <div id="pv-comb" style="font-family:ui-monospace,monospace;font-size:1.25rem;font-weight:600;color:#f1f5f9;line-height:1">—</div>
+                <div style="font-family:ui-monospace,monospace;font-size:0.58rem;color:#64748b;margin-top:4px;letter-spacing:0.06em">total</div>
+              </div>
+            </div>
+            <div id="leg-comb" style="flex:1;min-width:240px;display:grid;grid-template-columns:1fr;gap:6px;max-height:280px;overflow-y:auto"></div>
+          </div>
+        </div>
+
+        <!-- Exposure by sector -->
+        <div class="card p-4">
+          <div class="flex items-start justify-between gap-2 mb-3">
+            <div>
+              <h3 class="text-sm font-semibold text-white">Exposure breakdowns</h3>
+              <p class="text-xs text-slate-500">Sector · % of position market value</p>
+            </div>
+          </div>
+          <div class="relative" style="height:280px">
+            <canvas id="chartExposure"></canvas>
+          </div>
+          <p class="text-xs text-slate-500 mt-2">Hover a sector bar to see which holdings are included.</p>
+        </div>
+      </div>
+
+      <!-- Trade performance alternative: cumulative closed-trade P&L path -->
+      <div class="card p-4">
+        <h3 class="text-sm font-semibold text-white mb-1">Closed-trade equity path</h3>
+        <p class="text-xs text-slate-500 mb-3">Running sum of realized P&amp;L by close date — not shown in KPI cards</p>
+        <div class="relative" style="height:220px">
+          <canvas id="chartTradePath"></canvas>
+        </div>
       </div>
     </div>
 
@@ -578,104 +614,11 @@
     
     
     // ——— Charts: holdings pie + win/loss ———
-    (function initCharts() {
-      const pieColors = [
-        '#e50914','#00b4d8','#ff0000','#81b5a1','#0866ff','#64748b','#7c3aed',
-        '#84cc16','#000000','#0a84ff','#00c853','#e2231a','#ff6b00','#10b981','#f7931a'
-      ];
-      const pieLabels = positions.map(function(p) { return p.symbol; });
-      const pieData = positions.map(function(p) { return Math.max(p.mv || (p.last * p.qty), 0); });
-      const pieCtx = document.getElementById('pieHoldings');
-      if (pieCtx && typeof Chart !== 'undefined') {
-        new Chart(pieCtx, {
-          type: 'pie',
-          data: {
-            labels: pieLabels,
-            datasets: [{
-              data: pieData,
-              backgroundColor: pieColors.slice(0, pieLabels.length),
-              borderColor: '#0f172a',
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: 'right',
-                labels: { color: '#94a3b8', boxWidth: 12, font: { size: 11 } }
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(ctx) {
-                    const v = ctx.raw || 0;
-                    const tot = ctx.dataset.data.reduce(function(a,b){ return a+b; }, 0);
-                    const pct = tot ? (v / tot * 100).toFixed(1) : 0;
-                    return ctx.label + ': $' + v.toFixed(0) + ' (' + pct + '%)';
-                  }
-                }
-              }
-            }
-          }
-        });
-      }
-
-      const wins = closed.filter(function(c) { return c.pnl > 0; });
-      const losses = closed.filter(function(c) { return c.pnl <= 0; });
-      const grossW = wins.reduce(function(s,c){ return s + c.pnl; }, 0);
-      const grossL = Math.abs(losses.reduce(function(s,c){ return s + c.pnl; }, 0));
-      const wlCtx = document.getElementById('chartWinLoss');
-      if (wlCtx && typeof Chart !== 'undefined') {
-        new Chart(wlCtx, {
-          type: 'bar',
-          data: {
-            labels: ['Wins ($)', 'Losses ($)', 'Win count', 'Loss count'],
-            datasets: [{
-              label: 'Closed trades',
-              data: [grossW, grossL, wins.length, losses.length],
-              backgroundColor: ['#34d399', '#f87171', '#34d39988', '#f8717188'],
-              borderRadius: 6
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  label: function(ctx) {
-                    const i = ctx.dataIndex;
-                    if (i < 2) return '$' + Number(ctx.raw).toFixed(0);
-                    return String(ctx.raw);
-                  }
-                }
-              }
-            },
-            scales: {
-              x: { ticks: { color: '#94a3b8' }, grid: { color: '#33415555' } },
-              y: { ticks: { color: '#94a3b8' }, grid: { color: '#33415555' } }
-            }
-          }
-        });
-      }
-    })();
-
-    // Performance table helpers (filled by automation; placeholders until next IBKR run)
-    function setPerf(id, pct) {
-      const el = document.getElementById(id);
-      if (!el || pct == null || isNaN(pct)) return;
-      const s = (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%';
-      el.textContent = s;
-      el.classList.remove('text-emerald-400', 'text-red-400');
-      el.classList.add(pct >= 0 ? 'text-emerald-400' : 'text-red-400');
-    }
-    // Snapshot placeholders — automation overwrites with live IBKR cps/nav periods
+    
     // From IBKR TWR cps (last point in each window), 2026-08-17
     const PERF = {
       portfolio: { m1: 14.49, mtd: 16.09, ytd: -12.32, y1: -12.32, all: -12.32 },
-      spx: { m1: null, mtd: null, ytd: null, y1: null }
+      spx: { m1: 3.95, mtd: 3.95, ytd: 13.10, y1: 20.11 }
     };
     setPerf('perf-p-1m', PERF.portfolio.m1);
     setPerf('perf-p-mtd', PERF.portfolio.mtd);
@@ -687,6 +630,262 @@
     setPerf('perf-s-ytd', PERF.spx.ytd);
     setPerf('perf-s-1y', PERF.spx.y1);
 
+    (function initCharts() {
+      const pieColors = [
+        '#3b82f6','#8b5cf6','#14b8a6','#f59e0b','#ec4899','#06b6d4','#a855f7',
+        '#10b981','#f97316','#f43f5e','#84cc16','#fb923c','#6366f1','#eab308','#22d3ee'
+      ];
+      const pieLabels = positions.map(function(p) { return p.symbol; });
+      const pieData = positions.map(function(p) { return Math.max(p.mv || (p.last * p.qty), 0); });
+      const pieTotal = pieData.reduce(function(a,b){ return a+b; }, 0);
+      const pv = document.getElementById('pv-comb');
+      if (pv) {
+        pv.textContent = pieTotal >= 1000 ? ('$' + (pieTotal/1000).toFixed(1) + 'k') : ('$' + pieTotal.toFixed(0));
+      }
+      const pieCtx = document.getElementById('pieHoldings');
+      if (pieCtx && typeof Chart !== 'undefined') {
+        new Chart(pieCtx, {
+          type: 'doughnut',
+          data: {
+            labels: pieLabels,
+            datasets: [{
+              data: pieData,
+              backgroundColor: pieColors.slice(0, pieLabels.length),
+              borderColor: '#0f172a',
+              borderWidth: 2,
+              hoverOffset: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '62%',
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#141921',
+                callbacks: {
+                  label: function(ctx) {
+                    const v = ctx.raw || 0;
+                    const pct = pieTotal ? (v / pieTotal * 100).toFixed(1) : 0;
+                    return ' $' + v.toFixed(0) + ' (' + pct + '%)';
+                  }
+                }
+              }
+            }
+          }
+        });
+      }
+      const leg = document.getElementById('leg-comb');
+      if (leg) {
+        leg.innerHTML = '';
+        const indexed = positions.map(function(p, i) {
+          return { p: p, i: i, value: Math.max(p.mv || (p.last * p.qty), 0) };
+        }).sort(function(a, b) { return b.value - a.value; });
+        indexed.forEach(function(item) {
+          const p = item.p;
+          const value = item.value;
+          const pct = pieTotal ? (value / pieTotal * 100) : 0;
+          const color = pieColors[item.i % pieColors.length];
+          const upnlPct = p.upnlPct != null ? p.upnlPct : (p.avg ? ((p.last - p.avg) / p.avg) * 100 : null);
+          const isUp = upnlPct != null && upnlPct >= 0;
+          const isDown = upnlPct != null && upnlPct < 0;
+          const pnlColor = isUp ? '#10b981' : isDown ? '#f87171' : '#475569';
+          const pnlArrow = isUp ? '▲' : isDown ? '▼' : '';
+          const pnlText = upnlPct != null ? (pnlArrow + ' ' + Math.abs(upnlPct).toFixed(1) + '%') : '';
+          const d = document.createElement('div');
+          d.style.cssText = 'display:flex;flex-direction:column;gap:5px;padding:8px 10px;border-radius:10px;border:1px solid transparent';
+          d.innerHTML =
+            '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">' +
+              '<div style="display:flex;align-items:center;gap:8px">' +
+                '<span style="font-size:.82rem;font-weight:700;color:' + color + '">' + p.symbol + '</span>' +
+                '<span style="font-family:ui-monospace,monospace;font-size:.58rem;color:#94a3b8;background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px">' + pct.toFixed(1) + '%</span>' +
+              '</div>' +
+              '<div style="display:flex;align-items:center;gap:6px">' +
+                (pnlText ? '<span style="font-family:ui-monospace,monospace;font-size:.6rem;color:' + pnlColor + '">' + pnlText + '</span>' : '') +
+                '<span style="font-size:.8rem;font-weight:600;color:#f1f5f9">$' + value.toLocaleString('en-US',{maximumFractionDigits:0}) + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden">' +
+              '<div style="height:100%;background:' + color + ';width:' + Math.min(pct,100) + '%;opacity:.75"></div>' +
+            '</div>';
+          leg.appendChild(d);
+        });
+      }
+
+      // Sector exposure — GICS-style map (explicit so you can verify)
+      const SECTOR = {
+        NFLX:'Communication', META:'Communication', RBLX:'Communication',
+        APP:'Information Technology', ENPH:'Information Technology', NOW:'Information Technology',
+        POET:'Information Technology', MSTR:'Information Technology',
+        HOOD:'Financials',
+        UBER:'Consumer Discretionary',
+        HNST:'Consumer Staples', CELH:'Consumer Staples',
+        MMM:'Industrials', RKLB:'Industrials', TE:'Industrials'
+      };
+      const sectorMap = {};
+      const sectorTickers = {};
+      positions.forEach(function(p) {
+        const s = SECTOR[p.symbol] || 'Other';
+        const v = Math.max(p.mv || (p.last * p.qty), 0);
+        sectorMap[s] = (sectorMap[s] || 0) + v;
+        if (!sectorTickers[s]) sectorTickers[s] = [];
+        sectorTickers[s].push(p.symbol);
+      });
+      const secEntries = Object.keys(sectorMap).map(function(k){
+        return { k: k, v: sectorMap[k], tickers: (sectorTickers[k] || []).sort() };
+      }).sort(function(a,b){ return b.v - a.v; });
+      const secTotal = secEntries.reduce(function(a,b){ return a+b.v; }, 0) || 1;
+      const expCtx = document.getElementById('chartExposure');
+      if (expCtx && typeof Chart !== 'undefined') {
+        new Chart(expCtx, {
+          type: 'bar',
+          data: {
+            labels: secEntries.map(function(e){ return e.k; }),
+            datasets: [{
+              data: secEntries.map(function(e){ return +(e.v/secTotal*100).toFixed(2); }),
+              backgroundColor: '#eab308',
+              borderRadius: 4,
+              barThickness: 14
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  afterLabel: function(c) {
+                    const e = secEntries[c.dataIndex];
+                    return e ? ('Holdings: ' + e.tickers.join(', ')) : '';
+                  },
+                  label: function(c){ return c.raw + '% of positions'; }
+                }
+              }
+            },
+            scales: {
+              x: {
+                max: Math.max(40, Math.ceil(Math.max.apply(null, secEntries.map(function(e){ return e.v/secTotal*100; })) / 5) * 5),
+                ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
+                grid: { color: '#33415566', borderDash: [4,4] }
+              },
+              y: { ticks: { color: '#cbd5e1', font: { size: 11 } }, grid: { display: false } }
+            }
+          }
+        });
+      }
+
+
+      // Closed-trade equity path (running realized P&L) — not in KPI cards
+      const byDate = closed.slice().sort(function(a,b){ return (a.date < b.date ? -1 : 1); });
+      let run = 0;
+      const pathLabels = [];
+      const pathData = [];
+      byDate.forEach(function(c) {
+        run += c.pnl;
+        pathLabels.push(c.date.slice(5) + ' ' + c.sym);
+        pathData.push(+run.toFixed(2));
+      });
+      const pathCtx = document.getElementById('chartTradePath');
+      if (pathCtx && typeof Chart !== 'undefined') {
+        new Chart(pathCtx, {
+          type: 'line',
+          data: {
+            labels: pathLabels,
+            datasets: [{
+              label: 'Cumulative realized $',
+              data: pathData,
+              borderColor: '#818cf8',
+              backgroundColor: 'rgba(129,140,248,0.12)',
+              fill: true,
+              tension: 0.25,
+              pointRadius: 2,
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { ticks: { color: '#64748b', maxRotation: 45, font: { size: 9 } }, grid: { display: false } },
+              y: { ticks: { color: '#94a3b8', callback: function(v){ return '$'+v; } }, grid: { color: '#33415555' } }
+            }
+          }
+        });
+      }
+
+      // Portfolio vs S&P — same numbers as Performance table (no invented path)
+      const eqCtx = document.getElementById('chartEquity');
+      if (eqCtx && typeof Chart !== 'undefined' && typeof PERF !== 'undefined') {
+        const labels = ['1 Month', 'MTD', 'YTD', '1 Year'];
+        const port = [PERF.portfolio.m1, PERF.portfolio.mtd, PERF.portfolio.ytd, PERF.portfolio.y1];
+        const spy = [PERF.spx.m1, PERF.spx.mtd, PERF.spx.ytd, PERF.spx.y1];
+        new Chart(eqCtx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Portfolio',
+                data: port,
+                backgroundColor: '#6366f1',
+                borderRadius: 6,
+                maxBarThickness: 36
+              },
+              {
+                label: 'S&P 500',
+                data: spy,
+                backgroundColor: '#94a3b8',
+                borderRadius: 6,
+                maxBarThickness: 36
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: true,
+                labels: { color: '#94a3b8', boxWidth: 12 }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(c) {
+                    const v = c.raw;
+                    if (v == null) return c.dataset.label + ': —';
+                    return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+              y: {
+                ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
+                grid: { color: '#33415555' }
+              }
+            }
+          }
+        });
+      }
+    })();
+
+
+    // Performance table helpers (filled by automation; placeholders until next IBKR run)
+    function setPerf(id, pct) {
+      const el = document.getElementById(id);
+      if (!el || pct == null || isNaN(pct)) return;
+      const s = (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%';
+      el.textContent = s;
+      el.classList.remove('text-emerald-400', 'text-red-400');
+      el.classList.add(pct >= 0 ? 'text-emerald-400' : 'text-red-400');
+    }
+    // Snapshot placeholders — automation overwrites with live IBKR cps/nav periods
+    
 
 // ——— Live prices via Finnhub (same as Tradesh) · every 60s ———
     const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
