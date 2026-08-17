@@ -64,8 +64,15 @@
   </style>
 </head>
 <body class="p-4 md:p-8">
-  <div class="max-w-7xl mx-auto space-y-6">
-        <div class="flex flex-wrap gap-3 text-sm">
+  <div class="max-w-7xl mx-auto space-y-5">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
+        <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-18 00:40 IDT</span> · <span class="text-slate-600">Prices refresh ~1 min</span></p>
+      </div>
+      <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Cash</div>
           <div id="hdr-cash" class="font-medium text-slate-200">$968</div>
@@ -227,7 +234,7 @@
 
 
     <!-- Analytics below table/tabs -->
-    <div class="space-y-6 mt-8 pt-2 border-t border-slate-800">
+    <div class="space-y-5 mt-6">
 
       <!-- Performance table -->
       <div class="card overflow-x-auto">
@@ -941,6 +948,7 @@ const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, 
         elLive.textContent = ok
           ? (ok + '/' + positions.length + ' · Finnhub · ' + t.toLocaleTimeString())
           : 'Finnhub unavailable';
+        elLive.title = ok ? 'Live quotes OK' : 'Check Finnhub key / network / CORS';
       }
     }
 
