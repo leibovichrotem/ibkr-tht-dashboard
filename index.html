@@ -187,6 +187,63 @@
           </div>
         </div>
       </div>
+
+      <br/>
+
+      <!-- Portfolio performance vs benchmark -->
+      <div class="card overflow-x-auto mt-2">
+        <div class="p-4 border-b border-slate-700">
+          <h2 class="font-semibold text-white">Performance</h2>
+          <p class="text-xs text-slate-500 mt-1">As of last automation snapshot · portfolio vs S&amp;P 500 (approx)</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Performance</th>
+              <th class="num">1 Month</th>
+              <th class="num">MTD</th>
+              <th class="num">YTD</th>
+              <th class="num">1 Year</th>
+              <th class="num">Since tracked*</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-medium text-white">Portfolio (NAV)</td>
+              <td class="num" id="perf-p-1m">—</td>
+              <td class="num" id="perf-p-mtd">—</td>
+              <td class="num" id="perf-p-ytd">—</td>
+              <td class="num" id="perf-p-1y">—</td>
+              <td class="num" id="perf-p-all">—</td>
+            </tr>
+            <tr class="bg-slate-800/40">
+              <td class="font-medium text-slate-300">S&amp;P 500 (approx)</td>
+              <td class="num" id="perf-s-1m">—</td>
+              <td class="num" id="perf-s-mtd">—</td>
+              <td class="num" id="perf-s-ytd">—</td>
+              <td class="num" id="perf-s-1y">—</td>
+              <td class="num text-slate-500">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 p-3">*Since tracked = from available IBKR performance window in automation. Updated on hourly IBKR run.</p>
+      </div>
+
+      <!-- Charts row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <div class="card p-4">
+          <h3 class="text-sm font-semibold text-white mb-3">Holdings allocation</h3>
+          <div class="relative" style="height:260px">
+            <canvas id="pieHoldings"></canvas>
+          </div>
+        </div>
+        <div class="card p-4">
+          <h3 class="text-sm font-semibold text-white mb-3">Closed trades · win vs loss</h3>
+          <div class="relative" style="height:260px">
+            <canvas id="chartWinLoss"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Closed Trades panel -->
@@ -519,7 +576,119 @@
 
 
     
-    // ——— Live prices via Finnhub (same as Tradesh) · every 60s ———
+    
+    // ——— Charts: holdings pie + win/loss ———
+    (function initCharts() {
+      const pieColors = [
+        '#e50914','#00b4d8','#ff0000','#81b5a1','#0866ff','#64748b','#7c3aed',
+        '#84cc16','#000000','#0a84ff','#00c853','#e2231a','#ff6b00','#10b981','#f7931a'
+      ];
+      const pieLabels = positions.map(function(p) { return p.symbol; });
+      const pieData = positions.map(function(p) { return Math.max(p.mv || (p.last * p.qty), 0); });
+      const pieCtx = document.getElementById('pieHoldings');
+      if (pieCtx && typeof Chart !== 'undefined') {
+        new Chart(pieCtx, {
+          type: 'pie',
+          data: {
+            labels: pieLabels,
+            datasets: [{
+              data: pieData,
+              backgroundColor: pieColors.slice(0, pieLabels.length),
+              borderColor: '#0f172a',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'right',
+                labels: { color: '#94a3b8', boxWidth: 12, font: { size: 11 } }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(ctx) {
+                    const v = ctx.raw || 0;
+                    const tot = ctx.dataset.data.reduce(function(a,b){ return a+b; }, 0);
+                    const pct = tot ? (v / tot * 100).toFixed(1) : 0;
+                    return ctx.label + ': $' + v.toFixed(0) + ' (' + pct + '%)';
+                  }
+                }
+              }
+            }
+          }
+        });
+      }
+
+      const wins = closed.filter(function(c) { return c.pnl > 0; });
+      const losses = closed.filter(function(c) { return c.pnl <= 0; });
+      const grossW = wins.reduce(function(s,c){ return s + c.pnl; }, 0);
+      const grossL = Math.abs(losses.reduce(function(s,c){ return s + c.pnl; }, 0));
+      const wlCtx = document.getElementById('chartWinLoss');
+      if (wlCtx && typeof Chart !== 'undefined') {
+        new Chart(wlCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Wins ($)', 'Losses ($)', 'Win count', 'Loss count'],
+            datasets: [{
+              label: 'Closed trades',
+              data: [grossW, grossL, wins.length, losses.length],
+              backgroundColor: ['#34d399', '#f87171', '#34d39988', '#f8717188'],
+              borderRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function(ctx) {
+                    const i = ctx.dataIndex;
+                    if (i < 2) return '$' + Number(ctx.raw).toFixed(0);
+                    return String(ctx.raw);
+                  }
+                }
+              }
+            },
+            scales: {
+              x: { ticks: { color: '#94a3b8' }, grid: { color: '#33415555' } },
+              y: { ticks: { color: '#94a3b8' }, grid: { color: '#33415555' } }
+            }
+          }
+        });
+      }
+    })();
+
+    // Performance table helpers (filled by automation; placeholders until next IBKR run)
+    function setPerf(id, pct) {
+      const el = document.getElementById(id);
+      if (!el || pct == null || isNaN(pct)) return;
+      const s = (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%';
+      el.textContent = s;
+      el.classList.remove('text-emerald-400', 'text-red-400');
+      el.classList.add(pct >= 0 ? 'text-emerald-400' : 'text-red-400');
+    }
+    // Snapshot placeholders — automation overwrites with live IBKR cps/nav periods
+    // From IBKR TWR cps (last point in each window), 2026-08-17
+    const PERF = {
+      portfolio: { m1: 14.49, mtd: 16.09, ytd: -12.32, y1: -12.32, all: -12.32 },
+      spx: { m1: null, mtd: null, ytd: null, y1: null }
+    };
+    setPerf('perf-p-1m', PERF.portfolio.m1);
+    setPerf('perf-p-mtd', PERF.portfolio.mtd);
+    setPerf('perf-p-ytd', PERF.portfolio.ytd);
+    setPerf('perf-p-1y', PERF.portfolio.y1);
+    setPerf('perf-p-all', PERF.portfolio.all);
+    setPerf('perf-s-1m', PERF.spx.m1);
+    setPerf('perf-s-mtd', PERF.spx.mtd);
+    setPerf('perf-s-ytd', PERF.spx.ytd);
+    setPerf('perf-s-1y', PERF.spx.y1);
+
+
+// ——— Live prices via Finnhub (same as Tradesh) · every 60s ———
     const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
 
     async function fetchFinnhubQuote(sym) {
