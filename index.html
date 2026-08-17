@@ -216,15 +216,15 @@
       AAPL:"apple.com", QCOM:"qualcomm.com", IREN:"iren.com", AFRM:"affirm.com",
       FSLR:"firstsolar.com", HPQ:"hp.com", BE:"bloomenergy.com", GLW:"corning.com",
       RDW:"redwirespace.com", IONQ:"ionq.com", CCJ:"cameco.com", CLSK:"cleanspark.com",
-      CRWV:"coreweave.com", ONDS:"ondas.com", CRCL:"circle.com", SPCX:"spacex.com"
+      CRWV:"coreweave.com", ONDS:"ondas.com", CRCL:"circle.com", SPCX:"spacex.com",
+      SOUN:"soundhound.com", UPST:"upstart.com", BBAI:"bigbear.ai"
     };
     function badge(sym) {
       const pair = LOGO[sym] || ["#475569", sym[0]];
       const domain = DOMAIN[sym];
-      if (domain) {
-        return '<img src="https://logo.clearbit.com/' + domain + '" class="logo-badge" style="object-fit:contain;background:#1e293b" onerror="this.outerHTML=\'<span class=\\'logo-badge\\' style=\\'background:' + pair[0] + '22;color:' + pair[0] + '\\'>' + pair[1] + '</span>\'">';
-      }
-      return '<span class="logo-badge" style="background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
+      const fallback = '<span class="logo-badge" style="background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
+      if (!domain) return fallback;
+      return '<img src="https://logo.clearbit.com/' + domain + '" width="26" height="26" style="border-radius:50%;object-fit:contain;background:#1e293b;border:1px solid rgba(255,255,255,0.08)" onerror="this.style.display=\'none\';this.insertAdjacentHTML(\'afterend\',\'' + fallback.replace(/'/g, "\'") + '\')" />';
     }
 
     function switchTab(name) {
