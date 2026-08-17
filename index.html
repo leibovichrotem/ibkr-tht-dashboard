@@ -622,6 +622,15 @@
     
     // ——— Charts: holdings pie + win/loss ———
     
+    function setPerf(id, pct) {
+      const el = document.getElementById(id);
+      if (!el || pct == null || isNaN(pct)) return;
+      const s = (pct >= 0 ? '+' : '') + Number(pct).toFixed(2) + '%';
+      el.textContent = s;
+      el.classList.remove('text-emerald-400', 'text-red-400');
+      el.classList.add(pct >= 0 ? 'text-emerald-400' : 'text-red-400');
+    }
+
     // From IBKR TWR cps (last point in each window), 2026-08-17
     const PERF = {
       portfolio: { m1: 13.74, mtd: 15.32, ytd: -12.89, y1: -12.89, all: -12.89 },
