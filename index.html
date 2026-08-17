@@ -222,9 +222,16 @@
     function badge(sym) {
       const pair = LOGO[sym] || ["#475569", sym[0]];
       const domain = DOMAIN[sym];
-      const fallback = '<span class="logo-badge" style="background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
-      if (!domain) return fallback;
-      return '<img src="https://logo.clearbit.com/' + domain + '" width="26" height="26" style="border-radius:50%;object-fit:contain;background:#1e293b;border:1px solid rgba(255,255,255,0.08)" onerror="this.style.display=\'none\';this.insertAdjacentHTML(\'afterend\',\'' + fallback.replace(/'/g, "\'") + '\')" />';
+      if (!domain) {
+        return '<span class="logo-badge" style="background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
+      }
+      // Clean Clearbit logo; on error hide img and show letter badge via sibling
+      return '<span class="logo-wrap" style="display:inline-flex;width:26px;height:26px;position:relative">' +
+        '<img src="https://logo.clearbit.com/' + domain + '" width="26" height="26" ' +
+        'style="border-radius:50%;object-fit:contain;background:#1e293b;border:1px solid rgba(255,255,255,0.08)" ' +
+        'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-flex\'" />' +
+        '<span class="logo-badge" style="display:none;background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>' +
+        '</span>';
     }
 
     function switchTab(name) {
