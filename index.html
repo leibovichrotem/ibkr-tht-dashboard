@@ -13,159 +13,197 @@
     .score-hold { background: #1e3a5f; color: #93c5fd; }
     .score-sell { background: #7f1d1d; color: #fca5a5; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; }
-    th { color: #94a3b8; font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    th, td { padding: 9px 11px; text-align: left; border-bottom: 1px solid #334155; font-size: 0.875rem; }
+    th { color: #94a3b8; font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
     tr:hover { background: #1e293b; }
+    .num { font-variant-numeric: tabular-nums; }
   </style>
 </head>
 <body class="p-4 md:p-8">
   <div class="max-w-7xl mx-auto space-y-6">
 
-    <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       <div>
         <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
-        <p class="text-slate-400 text-sm mt-1">Updated: 17 Aug 2026 · NAV ~$13,218 · Rules-based (Peter DiCarlo THT)</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 15:15 IDT</span></p>
+        <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 15:26 IDT</span></p>
       </div>
-      <div class="flex gap-3 text-sm">
+      <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
-          <div class="text-slate-400 text-xs">Unrealized</div>
-          <div class="font-semibold text-emerald-400">+$325</div>
+          <div class="text-slate-400 text-xs">Net Liquidation</div>
+          <div class="font-semibold text-white">$13,210</div>
         </div>
         <div class="card px-4 py-2">
-          <div class="text-slate-400 text-xs">Positions</div>
-          <div class="font-semibold">15</div>
+          <div class="text-slate-400 text-xs">Cash</div>
+          <div class="font-semibold text-white">$968</div>
+        </div>
+        <div class="card px-4 py-2">
+          <div class="text-slate-400 text-xs">Unrealized</div>
+          <div class="font-semibold text-emerald-400">+$313</div>
         </div>
       </div>
     </div>
 
-    <!-- Rules Reminder -->
     <div class="card p-4">
       <h2 class="text-sm font-semibold text-slate-300 mb-2">Rules & Psychology Reminder</h2>
       <ul class="text-sm text-slate-400 space-y-1 list-disc list-inside">
-        <li>Sample size goal: 100+ closed trades</li>
-        <li>Never cherry-pick — equal weight every qualifying trade</li>
+        <li>Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
         <li>Loss ≠ error. Error = deviation from rules</li>
-        <li>BUY = SMZ / discount + structure bullish · HOLD = IBZ / value · SELL = premium or structure break</li>
-        <li>Exit on structure break or when Monthly BX turns dark red</li>
+        <li><strong>BUY</strong> = SMZ / between SMZ & swing low + structure bullish · <strong>HOLD</strong> = IBZ / value · <strong>SELL</strong> = premium or structure break or claimed swing high</li>
       </ul>
     </div>
 
-    <!-- Positions Table -->
     <div class="card overflow-x-auto">
-      <div class="p-4 border-b border-slate-700">
-        <h2 class="font-semibold text-white">Positions + Score</h2>
+      <div class="p-4 border-b border-slate-700 flex justify-between items-center">
+        <h2 class="font-semibold text-white">Positions (ordered by Cost Basis)</h2>
+        <span class="text-xs text-slate-500">15 holdings</span>
       </div>
       <table>
         <thead>
           <tr>
-            <th>Symbol</th>
-            <th>Qty</th>
-            <th>Avg Cost</th>
-            <th>Last</th>
-            <th>Mkt Value</th>
-            <th>Unrealized</th>
+            <th>Instrument</th>
+            <th class="text-right">Last</th>
+            <th class="text-right">Chg%</th>
+            <th class="text-right">Unrealized P&L</th>
+            <th class="text-right">Unrealized %</th>
+            <th class="text-right">Cost Basis</th>
+            <th class="text-right">Positions</th>
+            <th class="text-right">% Net Liq</th>
             <th>Score</th>
             <th>Peter Note</th>
           </tr>
         </thead>
-        <tbody id="positions-body">
-          <!-- filled by JS -->
-        </tbody>
+        <tbody id="positions-body"></tbody>
       </table>
+      <div class="p-4 border-t border-slate-700 bg-slate-800/40">
+        <div class="flex flex-wrap gap-6 text-sm">
+          <div><span class="text-slate-400">Cash Balance</span><span class="ml-2 font-medium text-white">$967.97</span></div>
+          <div><span class="text-slate-400">Net Liquidation</span><span class="ml-2 font-medium text-white">$13,209.80</span></div>
+          <div><span class="text-slate-400">Gross Position Value</span><span class="ml-2 font-medium text-white">$12,256</span></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Charts -->
     <div class="grid md:grid-cols-2 gap-6">
       <div class="card p-4">
         <h2 class="font-semibold text-white mb-4">Allocation by Market Value</h2>
-        <canvas id="allocationChart" height="220"></canvas>
+        <canvas id="allocationChart" height="240"></canvas>
       </div>
       <div class="card p-4">
         <h2 class="font-semibold text-white mb-4">NAV (Recent)</h2>
-        <canvas id="navChart" height="220"></canvas>
+        <canvas id="navChart" height="240"></canvas>
       </div>
     </div>
 
-    <!-- Peter Watchlist -->
     <div class="card p-4">
-      <h2 class="font-semibold text-white mb-3">Peter Watchlist (recent public mentions)</h2>
-      <div class="text-sm text-slate-400 space-y-2">
-        <p><span class="text-emerald-400 font-medium">CELH</span> — Back in long-term Smart Money Zone. Targeting +80% toward $50 (13 Aug)</p>
-        <p><span class="text-emerald-400 font-medium">NFLX</span> — Compressing inside long-term SMZ. Expecting move toward $90 (14 Aug)</p>
+      <h2 class="font-semibold text-white mb-3">Peter’s Watchlist (public posts)</h2>
+      <div class="text-sm text-slate-300 space-y-2">
+        <p><span class="text-emerald-400 font-medium">CELH</span> — Back in long-term Smart Money Zone. One of the strongest Monthly levels. Targeting +80% toward $50 (13 Aug)</p>
+        <p><span class="text-emerald-400 font-medium">NFLX</span> — Compressing inside long-term SMZ. Expecting move toward $90 area (14 Aug)</p>
         <p><span class="text-blue-400 font-medium">META</span> — Still grinding / coiling. Remains bullish, timing more Sept/Oct (14 Aug)</p>
-        <p class="text-slate-500 text-xs mt-3">Only public posts are shown. Subscribers-only content is not accessible via public tools.</p>
+        <p><span class="text-slate-400 font-medium">QQQ</span> — Compressing inside institutional sell zone. Macro bull cycle intact, cautious short-term (14 Aug)</p>
+        <p class="text-slate-500 text-xs mt-3">Only public posts shown. Subscribers-only content is not accessible via public tools.</p>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <h2 class="font-semibold text-white mb-3">Broad Market / Sector BUY Zone Watchlist</h2>
+      <p class="text-sm text-slate-400 mb-3">Approximate candidates near discount / SMZ-style levels (S&P 500 + major sector ETFs). Full deep scan expands over future runs.</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+        <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-emerald-400 font-medium">CELH</span> · SMZ · BUY</div>
+        <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-emerald-400 font-medium">NFLX</span> · SMZ · BUY</div>
+        <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-emerald-400 font-medium">TE</span> · near SMZ · BUY</div>
+        <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-blue-400 font-medium">ENPH</span> · IBZ · HOLD</div>
+        <div class="bg-slate-800/60 rounded px-3 py-2 text-slate-500">XLE / XLV / XLI / XLF — deeper scan pending</div>
       </div>
     </div>
 
     <footer class="text-center text-slate-500 text-xs py-4">
-      Generated by Grok · ibkr-trade-tracker · THT Bull Cycle rules · Not financial advice
+      Generated by Grok · ibkr-trade-tracker · THT Bull Cycle · Not financial advice<br>
+      Live: <a href="https://leibovichrotem.github.io/ibkr-tht-dashboard/" class="text-slate-400 hover:text-white">leibovichrotem.github.io/ibkr-tht-dashboard</a>
     </footer>
   </div>
 
   <script>
+    const NET_LIQ = 13209.80;
     const positions = [
-      { symbol: "APP", qty: 2, avg: 312.89, last: 320.77, mv: 641.54, upnl: 15.76, score: "HOLD", peter: "—" },
-      { symbol: "CELH", qty: 18, avg: 28.18, last: 28.50, mv: 513.00, upnl: 5.78, score: "BUY", peter: "SMZ – strong Monthly level" },
-      { symbol: "ENPH", qty: 28, avg: 47.74, last: 40.73, mv: 1140.44, upnl: -196.36, score: "HOLD", peter: "—" },
-      { symbol: "HNST", qty: 110, avg: 3.81, last: 4.90, mv: 539.00, upnl: 119.43, score: "HOLD", peter: "—" },
-      { symbol: "HOOD", qty: 7, avg: 94.92, last: 95.92, mv: 671.43, upnl: 7.01, score: "HOLD", peter: "—" },
-      { symbol: "META", qty: 1.7, avg: 609.44, last: 588.97, mv: 1001.25, upnl: -34.79, score: "HOLD", peter: "Coiling, still bullish" },
-      { symbol: "MMM", qty: 7, avg: 178.03, last: 182.40, mv: 1276.80, upnl: 30.61, score: "HOLD", peter: "—" },
-      { symbol: "MSTR", qty: 5, avg: 101.05, last: 94.16, mv: 470.80, upnl: -34.45, score: "HOLD", peter: "—" },
-      { symbol: "NFLX", qty: 22, avg: 73.88, last: 78.38, mv: 1724.36, upnl: 99.11, score: "BUY", peter: "Inside long-term SMZ" },
-      { symbol: "NOW", qty: 9, avg: 114.91, last: 122.80, mv: 1105.20, upnl: 70.98, score: "HOLD", peter: "—" },
-      { symbol: "POET", qty: 70, avg: 8.11, last: 9.81, mv: 686.62, upnl: 118.79, score: "HOLD", peter: "—" },
-      { symbol: "RBLX", qty: 15, avg: 37.89, last: 38.34, mv: 575.10, upnl: 6.80, score: "HOLD", peter: "—" },
-      { symbol: "RKLB", qty: 10, avg: 75.42, last: 80.32, mv: 803.20, upnl: 49.00, score: "HOLD", peter: "—" },
-      { symbol: "TE", qty: 95, avg: 5.28, last: 5.22, mv: 495.90, upnl: -5.83, score: "BUY", peter: "In/near SMZ" },
-      { symbol: "UBER", qty: 8, avg: 68.31, last: 77.32, mv: 618.56, upnl: 72.06, score: "HOLD", peter: "—" }
-    ];
+      { symbol: "NFLX", qty: 22, avg: 73.875, last: 78.45, upnl: 100.65, score: "BUY", peter: "Inside long-term SMZ", chg: 0.8 },
+      { symbol: "MMM", qty: 7, avg: 178.027, last: 182.40, upnl: 30.61, score: "HOLD", peter: "—", chg: -0.1 },
+      { symbol: "ENPH", qty: 28, avg: 47.743, last: 40.80, upnl: -194.40, score: "HOLD", peter: "—", chg: 0.6 },
+      { symbol: "NOW", qty: 9, avg: 114.914, last: 122.80, upnl: 70.98, score: "HOLD", peter: "—", chg: -0.9 },
+      { symbol: "META", qty: 1.7, avg: 609.437, last: 587.48, upnl: -37.33, score: "HOLD", peter: "Coiling, still bullish", chg: -0.3 },
+      { symbol: "RKLB", qty: 10, avg: 75.42, last: 80.84, upnl: 54.20, score: "HOLD", peter: "—", chg: 0.7 },
+      { symbol: "POET", qty: 70, avg: 8.112, last: 9.70, upnl: 111.16, score: "HOLD", peter: "—", chg: 1.2 },
+      { symbol: "HOOD", qty: 7, avg: 94.917, last: 95.76, upnl: 5.90, score: "HOLD", peter: "—", chg: 0.2 },
+      { symbol: "UBER", qty: 8, avg: 68.3125, last: 77.34, upnl: 72.26, score: "HOLD", peter: "—", chg: 1.4 },
+      { symbol: "APP", qty: 2, avg: 312.8875, last: 320.45, upnl: 15.13, score: "HOLD", peter: "—", chg: 1.6 },
+      { symbol: "HNST", qty: 110, avg: 3.814, last: 4.89, upnl: 118.33, score: "HOLD", peter: "—", chg: 1.0 },
+      { symbol: "RBLX", qty: 15, avg: 37.887, last: 38.20, upnl: 4.70, score: "HOLD", peter: "—", chg: -0.4 },
+      { symbol: "CELH", qty: 18, avg: 28.179, last: 28.50, upnl: 5.75, score: "BUY", peter: "SMZ – strong Monthly", chg: -2.0 },
+      { symbol: "TE", qty: 95, avg: 5.281, last: 5.16, upnl: -11.53, score: "BUY", peter: "In/near SMZ", chg: 1.0 },
+      { symbol: "MSTR", qty: 5, avg: 101.05, last: 94.30, upnl: -33.75, score: "HOLD", peter: "—", chg: 1.4 }
+    ].map(p => {
+      const cost = p.avg * p.qty;
+      const mv = p.last * p.qty;
+      const upnlPct = cost !== 0 ? (p.upnl / cost) * 100 : 0;
+      const pctNet = (mv / NET_LIQ) * 100;
+      return { ...p, cost, mv, upnlPct, pctNet };
+    }).sort((a, b) => b.cost - a.cost);
 
     const tbody = document.getElementById("positions-body");
     positions.forEach(p => {
       const scoreClass = p.score === "BUY" ? "score-buy" : p.score === "SELL" ? "score-sell" : "score-hold";
       const upnlClass = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
+      const chgClass = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
       tbody.innerHTML += `
         <tr>
           <td class="font-medium text-white">${p.symbol}</td>
-          <td>${p.qty}</td>
-          <td>$${p.avg.toFixed(2)}</td>
-          <td>$${p.last.toFixed(2)}</td>
-          <td>$${p.mv.toFixed(0)}</td>
-          <td class="${upnlClass}">$${p.upnl.toFixed(0)}</td>
-          <td><span class="px-2 py-1 rounded text-xs font-medium ${scoreClass}">${p.score}</span></td>
-          <td class="text-slate-400 text-sm">${p.peter}</td>
+          <td class="text-right num">$${p.last.toFixed(2)}</td>
+          <td class="text-right num ${chgClass}">${p.chg >= 0 ? "+" : ""}${p.chg.toFixed(1)}%</td>
+          <td class="text-right num ${upnlClass}">$${p.upnl.toFixed(0)}</td>
+          <td class="text-right num ${upnlClass}">${p.upnlPct >= 0 ? "+" : ""}${p.upnlPct.toFixed(1)}%</td>
+          <td class="text-right num">$${p.cost.toFixed(0)}</td>
+          <td class="text-right num">${p.qty}</td>
+          <td class="text-right num">${p.pctNet.toFixed(1)}%</td>
+          <td><span class="px-2 py-0.5 rounded text-xs font-medium ${scoreClass}">${p.score}</span></td>
+          <td class="text-slate-400 text-xs">${p.peter}</td>
         </tr>`;
     });
 
-    // Allocation chart
-    const labels = positions.map(p => p.symbol);
-    const values = positions.map(p => p.mv);
+    // Allocation with percentages
     new Chart(document.getElementById("allocationChart"), {
       type: "doughnut",
       data: {
-        labels,
-        datasets: [{ data: values, backgroundColor: [
-          "#34d399","#60a5fa","#f472b6","#a78bfa","#fbbf24","#2dd4bf","#fb7185","#818cf8",
-          "#4ade80","#38bdf8","#e879f9","#facc15","#22d3ee","#f87171","#c084fc"
-        ]}]
+        labels: positions.map(p => p.symbol),
+        datasets: [{
+          data: positions.map(p => p.mv),
+          backgroundColor: ["#34d399","#60a5fa","#f472b6","#a78bfa","#fbbf24","#2dd4bf","#fb7185","#818cf8","#4ade80","#38bdf8","#e879f9","#facc15","#22d3ee","#f87171","#c084fc"]
+        }]
       },
       options: {
-        plugins: { legend: { position: "right", labels: { color: "#94a3b8", boxWidth: 12 } } },
+        plugins: {
+          legend: { position: "right", labels: { color: "#94a3b8", boxWidth: 11, font: { size: 11 } } },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                const total = ctx.dataset.data.reduce((a,b)=>a+b,0);
+                const pct = ((ctx.raw / total) * 100).toFixed(1);
+                return ctx.label + ": $" + ctx.raw.toFixed(0) + " (" + pct + "%)";
+              }
+            }
+          }
+        },
         cutout: "55%"
       }
     });
 
-    // NAV chart (simplified recent)
     new Chart(document.getElementById("navChart"), {
       type: "line",
       data: {
         labels: ["Jul 31","Aug 3","Aug 7","Aug 10","Aug 14","Aug 17"],
         datasets: [{
           label: "NAV",
-          data: [13822, 14551, 16057, 16037, 13164, 13218],
+          data: [13822, 14551, 16057, 16037, 13164, 13210],
           borderColor: "#34d399",
           backgroundColor: "rgba(52,211,153,0.1)",
           fill: true,
