@@ -204,30 +204,11 @@
       QCOM:["#3253dc","Q"], CRCL:["#3b82f6","C"], AAPL:["#a2aaad","A"],
       ONDS:["#f97316","O"], CCJ:["#0ea5e9","C"], CLSK:["#f59e0b","C"]
     };
-
-    // Domain map for Clearbit logos (Tradesh-style)
-    const DOMAIN = {
-      NFLX:"netflix.com", MMM:"3m.com", ENPH:"enphase.com", NOW:"servicenow.com",
-      META:"meta.com", RKLB:"rocketlabusa.com", POET:"poet-technologies.com",
-      HOOD:"robinhood.com", UBER:"uber.com", APP:"applovin.com", HNST:"honest.com",
-      RBLX:"roblox.com", CELH:"celsius.com", TE:"t1energy.com", MSTR:"microstrategy.com",
-      AVGO:"broadcom.com", ZETA:"zetaglobal.com", BKNG:"bookingholdings.com",
-      GOOGL:"google.com", AMZN:"amazon.com", MSFT:"microsoft.com", NVDA:"nvidia.com",
-      AAPL:"apple.com", QCOM:"qualcomm.com", IREN:"iren.com", AFRM:"affirm.com",
-      FSLR:"firstsolar.com", HPQ:"hp.com", BE:"bloomenergy.com", GLW:"corning.com",
-      RDW:"redwirespace.com", IONQ:"ionq.com", CCJ:"cameco.com", CLSK:"cleanspark.com",
-      CRWV:"coreweave.com", ONDS:"ondas.com", CRCL:"circle.com", SPCX:"spacex.com",
-      SOUN:"soundhound.com", UPST:"upstart.com", BBAI:"bigbear.ai"
-    };
     function badge(sym) {
       const pair = LOGO[sym] || ["#475569", sym[0]];
-      const domain = DOMAIN[sym];
-      if (!domain) {
-        return '<span class="logo-badge" style="background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
-      }
-      // Clean Clearbit logo; on error hide img and show letter badge via sibling
-      return '<span class="logo-wrap" style="display:inline-flex;width:26px;height:26px;position:relative">' +
-        '<img src="https://logo.clearbit.com/' + domain + '" width="26" height="26" ' +
+      // Finnhub stock logos (same source as Tradesh). Letter badge as fallback.
+      return '<span class="logo-wrap" style="display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center">' +
+        '<img src="https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/' + sym + '.png" width="26" height="26" ' +
         'style="border-radius:50%;object-fit:contain;background:#1e293b;border:1px solid rgba(255,255,255,0.08)" ' +
         'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-flex\'" />' +
         '<span class="logo-badge" style="display:none;background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>' +
