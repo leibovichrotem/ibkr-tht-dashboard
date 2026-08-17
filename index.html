@@ -1,241 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>IBKR THT Tracker</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#080b10;--surface:#0e1218;--surface2:#141921;--surface3:#1a2030;
-  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);
-  --text:#e2e8f0;--muted:#4a5568;--muted2:#718096;
-  --green:#10b981;--red:#ef4444;--blue:#3b82f6;
-}
-body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 40% at 10% 10%,rgba(59,130,246,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 90% 80%,rgba(139,92,246,.06) 0%,transparent 60%);pointer-events:none;z-index:0}
-.page{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:1.5rem}
-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
-.logo h1{font-size:1.45rem;font-weight:700;letter-spacing:-.03em}.logo h1 span{color:var(--blue)}
-.logo .sub{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
-.header-stats{display:flex;gap:10px;flex-wrap:wrap}
-.hstat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 14px}
-.hstat .l{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase}
-.hstat .v{font-size:1.05rem;font-weight:700;margin-top:2px}
-.g{color:var(--green)}.r{color:var(--red)}
-
-.tabs{display:flex;gap:4px;margin-bottom:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:4px;width:fit-content}
-.tab{padding:7px 18px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.04em;cursor:pointer;border-radius:7px;border:none;background:transparent;color:var(--muted2);transition:all .2s}
-.tab.active{background:var(--surface3);color:var(--text);border:1px solid var(--border2)}
-.tab:hover:not(.active){color:var(--text)}
-.tab-content{display:none}.tab-content.active{display:block}
-
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px}
-.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
-@media(max-width:700px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
-.kpi{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
-.kpi .l{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase}
-.kpi .v{font-size:1.25rem;font-weight:700;margin-top:4px}
-.kpi .s{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted2);margin-top:2px}
-
-table{width:100%;border-collapse:collapse;font-size:.82rem}
-thead th{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);padding:8px 10px;text-align:left;border-bottom:1px solid var(--border)}
-tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
-tbody tr:hover{background:var(--surface2)}
-tbody td{padding:9px 10px;font-family:'JetBrains Mono',monospace;font-size:.74rem}
-.num{text-align:right;font-variant-numeric:tabular-nums}
-
-.logo-badge{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;border:1px solid rgba(255,255,255,.08)}
-.sym-cell{display:flex;align-items:center;gap:8px}
-.score-buy{background:#065f46;color:#6ee7b7;padding:2px 7px;border-radius:4px;font-size:.65rem;font-weight:500}
-.score-hold{background:#1e3a5f;color:#93c5fd;padding:2px 7px;border-radius:4px;font-size:.65rem;font-weight:500}
-.score-sell{background:#7f1d1d;color:#fca5a5;padding:2px 7px;border-radius:4px;font-size:.65rem;font-weight:500}
-.pill-pos{background:rgba(16,185,129,.12);color:#10b981;padding:2px 8px;border-radius:5px;font-weight:600;font-size:.72rem}
-.pill-neg{background:rgba(239,68,68,.1);color:#f87171;padding:2px 8px;border-radius:5px;font-weight:600;font-size:.72rem}
-
-.scroll-box{max-height:420px;overflow-y:auto}
-.scroll-box::-webkit-scrollbar{width:6px}
-.scroll-box::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:3px}
-
-.footer{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);padding:1.5rem 0;letter-spacing:.04em}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IBKR Portfolio – THT Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background: #0f172a; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; }
+    .score-buy { background: #065f46; color: #6ee7b7; }
+    .score-hold { background: #1e3a5f; color: #93c5fd; }
+    .score-sell { background: #7f1d1d; color: #fca5a5; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 9px 11px; text-align: left; border-bottom: 1px solid #334155; font-size: 0.875rem; }
+    th { color: #94a3b8; font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    tr:hover { background: #1e293b; }
+    .num { font-variant-numeric: tabular-nums; text-align: right; }
+    .tab-btn { padding: 7px 16px; border-radius: 8px; font-size: 0.8rem; color: #94a3b8; background: transparent; border: none; cursor: pointer; }
+    .tab-btn.active { background: #334155; color: #f1f5f9; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .logo-badge {
+      width: 26px; height: 26px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .scroll-box { max-height: 440px; overflow-y: auto; }
+    .scroll-box::-webkit-scrollbar { width: 6px; }
+    .scroll-box::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+  </style>
 </head>
-<body>
-<div class="page">
-  <header>
-    <div class="logo">
-      <h1>IBKR <span>THT</span> Tracker</h1>
-      <div class="sub">Peter DiCarlo · Bull Cycle · Last run 2026-08-17 16:15 IDT</div>
-    </div>
-    <div class="header-stats">
-      <div class="hstat"><div class="l">Net Liq</div><div class="v">$13,210</div></div>
-      <div class="hstat"><div class="l">Cash</div><div class="v">$968</div></div>
-      <div class="hstat"><div class="l">Unrealized</div><div class="v g">+$313</div></div>
-    </div>
-  </header>
+<body class="p-4 md:p-8">
+  <div class="max-w-7xl mx-auto space-y-6">
 
-  <!-- KPI -->
-  <div class="kpi-grid">
-    <div class="kpi"><div class="l">Closed Trades</div><div class="v">51</div><div class="s">Goal: 100+</div></div>
-    <div class="kpi"><div class="l">Win Rate</div><div class="v">45%</div><div class="s">23W / 28L</div></div>
-    <div class="kpi"><div class="l">Profit Factor</div><div class="v r">0.67</div><div class="s">Gross Wins ÷ Losses</div></div>
-    <div class="kpi"><div class="l">Avg Win</div><div class="v g">+$103</div><div class="s">~+10.0% vs cost</div></div>
-    <div class="kpi"><div class="l">Avg Loss</div><div class="v r">–$126</div><div class="s">~–17.5% vs cost</div></div>
-    <div class="kpi"><div class="l">Expectancy</div><div class="v r">–$23</div><div class="s">~–2.6% / trade</div></div>
-  </div>
-  <p style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted2);margin:-.5rem 0 1.25rem">Sample still building. Process > short-term P&amp;L. Equal weight, rule-based only.</p>
-
-  <!-- Tabs -->
-  <div class="tabs">
-    <button class="tab active" onclick="setTab('holdings',this)">Holdings</button>
-    <button class="tab" onclick="setTab('closed',this)">Closed Trades</button>
-    <button class="tab" onclick="setTab('scanner',this)">BUY Scanner</button>
-  </div>
-
-  <!-- Holdings -->
-  <div id="tab-holdings" class="tab-content active">
-    <div class="card" style="overflow-x:auto">
-      <table>
-        <thead>
-          <tr>
-            <th>Instrument</th><th class="num">Last</th><th class="num">Chg%</th>
-            <th class="num">Unrealized</th><th class="num">Unreal %</th>
-            <th class="num">Cost Basis</th><th class="num">Qty</th><th class="num">% Net Liq</th>
-            <th>Score</th><th>Peter</th>
-          </tr>
-        </thead>
-        <tbody id="pos-body"></tbody>
-      </table>
-      <div style="padding:12px 14px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted2);display:flex;gap:1.5rem;flex-wrap:wrap">
-        <span>Cash <b style="color:var(--text)">$967.97</b></span>
-        <span>Net Liq <b style="color:var(--text)">$13,209.80</b></span>
-        <span>Gross Positions <b style="color:var(--text)">$12,256</b></span>
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
+        <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 16:20 IDT</span></p>
+      </div>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <div class="card px-4 py-2">
+          <div class="text-slate-400 text-xs">Net Liquidation</div>
+          <div class="font-semibold text-white">$13,210</div>
+        </div>
+        <div class="card px-4 py-2">
+          <div class="text-slate-400 text-xs">Cash</div>
+          <div class="font-semibold text-white">$968</div>
+        </div>
+        <div class="card px-4 py-2">
+          <div class="text-slate-400 text-xs">Unrealized</div>
+          <div class="font-semibold text-emerald-400">+$313</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Closed Trades -->
-  <div id="tab-closed" class="tab-content">
-    <div class="card">
-      <div style="padding:12px 14px;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase">Last Sell Orders · newest first</div>
-      <div class="scroll-box">
+    <!-- Rules -->
+    <div class="card p-4">
+      <h2 class="text-sm font-semibold text-slate-300 mb-2">Rules & Psychology Reminder</h2>
+      <ul class="text-sm text-slate-400 space-y-1 list-disc list-inside">
+        <li>Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
+        <li>Loss ≠ error. Error = deviation from rules</li>
+        <li><strong>BUY</strong> = SMZ / between SMZ & swing low + structure bullish · <strong>HOLD</strong> = IBZ / value · <strong>SELL</strong> = premium or structure break</li>
+      </ul>
+    </div>
+
+    <!-- KPI cards -->
+    <div>
+      <h2 class="font-semibold text-white mb-3">Performance & Process KPIs</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Closed Trades</div>
+          <div class="text-2xl font-bold text-white mt-1">51</div>
+          <div class="text-xs text-amber-400 mt-1">Goal: 100+</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Win Rate</div>
+          <div class="text-2xl font-bold text-white mt-1">45%</div>
+          <div class="text-xs text-slate-500 mt-1">23W / 28L</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Profit Factor</div>
+          <div class="text-2xl font-bold text-red-400 mt-1">0.67</div>
+          <div class="text-xs text-slate-500 mt-1">Gross Wins ÷ Losses</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Avg Win</div>
+          <div class="text-xl font-bold text-emerald-400 mt-1">+$103</div>
+          <div class="text-xs text-slate-400">~+10.0% vs cost</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Avg Loss</div>
+          <div class="text-xl font-bold text-red-400 mt-1">–$126</div>
+          <div class="text-xs text-slate-400">~–17.5% vs cost</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Expectancy / trade</div>
+          <div class="text-xl font-bold text-red-400 mt-1">–$23</div>
+          <div class="text-xs text-slate-400">~–2.6%</div>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 mt-3">Sample size still building. Process &gt; short-term P&amp;L. Keep equal weight and only take rule-based trades.</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-1 p-1 rounded-xl card w-fit">
+      <button class="tab-btn active" data-tab="holdings" onclick="switchTab('holdings')">Holdings</button>
+      <button class="tab-btn" data-tab="closed" onclick="switchTab('closed')">Closed Trades</button>
+      <button class="tab-btn" data-tab="scanner" onclick="switchTab('scanner')">BUY Scanner</button>
+    </div>
+
+    <!-- Holdings panel -->
+    <div id="panel-holdings" class="tab-panel active">
+      <div class="card overflow-x-auto">
+        <div class="p-4 border-b border-slate-700 flex justify-between items-center">
+          <h2 class="font-semibold text-white">Positions (ordered by Cost Basis)</h2>
+          <span class="text-xs text-slate-500">15 holdings</span>
+        </div>
         <table>
           <thead>
             <tr>
-              <th>Date</th><th>Symbol</th><th class="num">Qty</th><th class="num">Exit</th>
-              <th class="num">P&amp;L $</th><th class="num">P&amp;L %</th><th>Result</th>
+              <th>Instrument</th>
+              <th class="num">Last</th>
+              <th class="num">Chg%</th>
+              <th class="num">Unrealized P&amp;L</th>
+              <th class="num">Unrealized %</th>
+              <th class="num">Cost Basis</th>
+              <th class="num">Positions</th>
+              <th class="num">% Net Liq</th>
+              <th>Score</th>
+              <th>Peter Note</th>
             </tr>
           </thead>
-          <tbody id="closed-body"></tbody>
+          <tbody id="positions-body"></tbody>
         </table>
+        <div class="p-4 border-t border-slate-700 bg-slate-800/40">
+          <div class="flex flex-wrap gap-6 text-sm">
+            <div><span class="text-slate-400">Cash Balance</span><span class="ml-2 font-medium text-white">$967.97</span></div>
+            <div><span class="text-slate-400">Net Liquidation</span><span class="ml-2 font-medium text-white">$13,209.80</span></div>
+            <div><span class="text-slate-400">Gross Position Value</span><span class="ml-2 font-medium text-white">$12,256</span></div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Closed Trades panel -->
+    <div id="panel-closed" class="tab-panel">
+      <div class="card">
+        <div class="p-4 border-b border-slate-700">
+          <h2 class="font-semibold text-white">Closed Trades (newest first)</h2>
+          <p class="text-xs text-slate-500 mt-1">Sell orders with realized P&amp;L vs cost basis</p>
+        </div>
+        <div class="scroll-box">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Symbol</th>
+                <th class="num">Qty</th>
+                <th class="num">Exit</th>
+                <th class="num">P&amp;L $</th>
+                <th class="num">P&amp;L %</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody id="closed-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUY Scanner panel -->
+    <div id="panel-scanner" class="tab-panel">
+      <div class="card p-4">
+        <h2 class="font-semibold text-white mb-3">BUY Scanner</h2>
+        <p class="text-sm text-slate-400 mb-4">Names currently scoring BUY under THT rules (SMZ / near SMZ + structure intact).</p>
+        <div id="scanner-list" class="space-y-2"></div>
+      </div>
+    </div>
+
+    <footer class="text-center text-slate-500 text-xs py-4">
+      Generated by Grok · ibkr-trade-tracker · THT Bull Cycle · Not financial advice<br>
+      <a href="https://leibovichrotem.github.io/ibkr-tht-dashboard/" class="text-slate-400 hover:text-white">leibovichrotem.github.io/ibkr-tht-dashboard</a>
+    </footer>
   </div>
 
-  <!-- BUY Scanner -->
-  <div id="tab-scanner" class="tab-content">
-    <div class="card" style="padding:14px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px">Rule-based BUY candidates (SMZ / near SMZ + structure)</div>
-      <div id="scanner-list" style="display:grid;gap:8px"></div>
-      <p style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);margin-top:12px">Expands daily. Only public Peter notes shown.</p>
-    </div>
-  </div>
+  <script>
+    const LOGO = {
+      NFLX:["#e50914","N"], MMM:["#ff0000","3"], ENPH:["#00b4d8","E"],
+      NOW:["#81b5a1","N"], META:["#0866ff","∞"], RKLB:["#64748b","R"],
+      POET:["#7c3aed","P"], HOOD:["#84cc16","H"], UBER:["#000000","U"],
+      APP:["#0a84ff","A"], HNST:["#00c853","H"], RBLX:["#e2231a","R"],
+      CELH:["#ff6b00","C"], TE:["#10b981","T"], MSTR:["#f7931a","M"],
+      AVGO:["#cc0000","A"], ZETA:["#6366f1","Z"], BKNG:["#003580","B"],
+      SPCX:["#1e3a8a","S"], GOOGL:["#4285f4","G"], AMZN:["#ff9900","a"],
+      MSFT:["#00a2ed","M"], NVDA:["#76b900","N"], CRWV:["#7c3aed","C"],
+      KEEL:["#64748b","K"], BE:["#f59e0b","B"], GLW:["#0ea5e9","G"],
+      HPQ:["#0096d6","H"], FSLR:["#16a34a","F"], AFRM:["#7c3aed","A"],
+      RDW:["#ef4444","R"], IONQ:["#8b5cf6","I"], IREN:["#22d3ee","I"],
+      QCOM:["#3253dc","Q"], CRCL:["#3b82f6","C"], AAPL:["#a2aaad","A"],
+      ONDS:["#f97316","O"], CCJ:["#0ea5e9","C"], CLSK:["#f59e0b","C"]
+    };
 
-  <div class="footer">Grok · ibkr-trade-tracker · THT Bull Cycle · Not financial advice<br>
-  <a href="https://leibovichrotem.github.io/ibkr-tht-dashboard/" style="color:var(--muted2)">leibovichrotem.github.io/ibkr-tht-dashboard</a></div>
-</div>
+    function badge(sym) {
+      const pair = LOGO[sym] || ["#475569", sym[0]];
+      return '<span class="logo-badge" style="background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
+    }
 
-<script>
-const LOGO =  + ",".join(f'"{k}":{v}' for k,v in LOGO.items()) + ;
-const NET = 13209.80;
-const positions = [
-  {symbol:"NFLX",qty:22,avg:73.875,last:78.45,upnl:100.65,score:"BUY",peter:"Inside long-term SMZ",chg:0.8},
-  {symbol:"MMM",qty:7,avg:178.027,last:182.40,upnl:30.61,score:"HOLD",peter:"—",chg:-0.1},
-  {symbol:"ENPH",qty:28,avg:47.743,last:40.80,upnl:-194.40,score:"HOLD",peter:"—",chg:0.6},
-  {symbol:"NOW",qty:9,avg:114.914,last:122.80,upnl:70.98,score:"HOLD",peter:"—",chg:-0.9},
-  {symbol:"META",qty:1.7,avg:609.437,last:587.48,upnl:-37.33,score:"HOLD",peter:"Coiling, still bullish",chg:-0.3},
-  {symbol:"RKLB",qty:10,avg:75.42,last:80.84,upnl:54.20,score:"HOLD",peter:"—",chg:0.7},
-  {symbol:"POET",qty:70,avg:8.112,last:9.70,upnl:111.16,score:"HOLD",peter:"—",chg:1.2},
-  {symbol:"HOOD",qty:7,avg:94.917,last:95.76,upnl:5.90,score:"HOLD",peter:"—",chg:0.2},
-  {symbol:"UBER",qty:8,avg:68.3125,last:77.34,upnl:72.26,score:"HOLD",peter:"—",chg:1.4},
-  {symbol:"APP",qty:2,avg:312.8875,last:320.45,upnl:15.13,score:"HOLD",peter:"—",chg:1.6},
-  {symbol:"HNST",qty:110,avg:3.814,last:4.89,upnl:118.33,score:"HOLD",peter:"—",chg:1.0},
-  {symbol:"RBLX",qty:15,avg:37.887,last:38.20,upnl:4.70,score:"HOLD",peter:"—",chg:-0.4},
-  {symbol:"CELH",qty:18,avg:28.179,last:28.50,upnl:5.75,score:"BUY",peter:"SMZ – strong Monthly",chg:-2.0},
-  {symbol:"TE",qty:95,avg:5.281,last:5.16,upnl:-11.53,score:"BUY",peter:"In/near SMZ",chg:1.0},
-  {symbol:"MSTR",qty:5,avg:101.05,last:94.30,upnl:-33.75,score:"HOLD",peter:"—",chg:1.4}
-].map(p=>{
-  const cost=p.avg*p.qty, mv=p.last*p.qty;
-  return {...p, cost, mv, upnlPct: cost?(p.upnl/cost)*100:0, pctNet:(mv/NET)*100};
-}).sort((a,b)=>b.cost-a.cost);
+    function switchTab(name) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelector('[data-tab="' + name + '"]').classList.add('active');
+      document.getElementById('panel-' + name).classList.add('active');
+    }
 
-const closed = [{"date": "2026-08-13", "sym": "POET", "qty": 50, "exit": 9.37, "pnl": 64.58, "cost": 468, "pct": 13.8}, {"date": "2026-08-12", "sym": "AVGO", "qty": 2.5, "exit": 417.4, "pnl": 91.65, "cost": 835, "pct": 11.0}, {"date": "2026-08-11", "sym": "AVGO", "qty": 2, "exit": 417.95, "pnl": 49.64, "cost": 836, "pct": 5.9}, {"date": "2026-08-11", "sym": "HNST", "qty": 115, "exit": 5.14, "pnl": 156.58, "cost": 435, "pct": 36.0}, {"date": "2026-08-11", "sym": "ZETA", "qty": 100, "exit": 28.54, "pnl": 693.19, "cost": 2160, "pct": 32.1}, {"date": "2026-08-10", "sym": "BKNG", "qty": 6, "exit": 212.73, "pnl": 92.58, "cost": 1180, "pct": 7.8}, {"date": "2026-08-07", "sym": "SPCX", "qty": 5, "exit": 129.74, "pnl": 98.93, "cost": 550, "pct": 18.0}, {"date": "2026-08-07", "sym": "GOOGL", "qty": 3, "exit": 354.37, "pnl": 53.8, "cost": 1009, "pct": 5.3}, {"date": "2026-08-05", "sym": "GOOGL", "qty": 4, "exit": 362.2, "pnl": 28.32, "cost": 1360, "pct": 2.1}, {"date": "2026-08-05", "sym": "HNST", "qty": 155, "exit": 3.91, "pnl": 33.46, "cost": 573, "pct": 5.8}, {"date": "2026-08-05", "sym": "AMZN", "qty": 6, "exit": 275.46, "pnl": 67.4, "cost": 1585, "pct": 4.3}, {"date": "2026-08-04", "sym": "MSFT", "qty": 4, "exit": 497.0, "pnl": 432.2, "cost": 1556, "pct": 27.8}, {"date": "2026-08-04", "sym": "NVDA", "qty": 14, "exit": 211.0, "pnl": 67.78, "cost": 2886, "pct": 2.3}, {"date": "2026-08-03", "sym": "CRWV", "qty": 22, "exit": 78.0, "pnl": 164.26, "cost": 1552, "pct": 10.6}, {"date": "2026-07-31", "sym": "AMZN", "qty": 3, "exit": 270.0, "pnl": 4.35, "cost": 806, "pct": 0.5}, {"date": "2026-07-30", "sym": "CRWV", "qty": 15, "exit": 72.8, "pnl": -391.15, "cost": 1483, "pct": -26.4}, {"date": "2026-07-29", "sym": "KEEL", "qty": 200, "exit": 3.3, "pnl": -106.0, "cost": 761, "pct": -13.9}, {"date": "2026-07-28", "sym": "AVGO", "qty": 3, "exit": 372.76, "pnl": -139.91, "cost": 1258, "pct": -11.1}, {"date": "2026-07-28", "sym": "BE", "qty": 6, "exit": 173.11, "pnl": -58.34, "cost": 1097, "pct": -5.3}, {"date": "2026-07-27", "sym": "GLW", "qty": 6.5, "exit": 144.3, "pnl": -77.05, "cost": 1010, "pct": -7.6}, {"date": "2026-07-24", "sym": "BE", "qty": 5, "exit": 191.12, "pnl": -61.79, "cost": 1017, "pct": -6.1}, {"date": "2026-07-24", "sym": "HPQ", "qty": 35, "exit": 25.53, "pnl": 78.13, "cost": 815, "pct": 9.6}, {"date": "2026-07-24", "sym": "TE", "qty": 60, "exit": 5.145, "pnl": -224.9, "cost": 534, "pct": -42.1}, {"date": "2026-07-24", "sym": "FSLR", "qty": 2, "exit": 203.38, "pnl": -93.9, "cost": 501, "pct": -18.7}, {"date": "2026-07-23", "sym": "ZETA", "qty": 40, "exit": 19.71, "pnl": 0.09, "cost": 788, "pct": 0.0}, {"date": "2026-07-21", "sym": "AFRM", "qty": 13, "exit": 74.34, "pnl": -104.08, "cost": 1070, "pct": -9.7}, {"date": "2026-07-20", "sym": "TE", "qty": 55, "exit": 5.822, "pnl": -169.14, "cost": 489, "pct": -34.6}, {"date": "2026-07-20", "sym": "FSLR", "qty": 2, "exit": 208.5, "pnl": -83.65, "cost": 501, "pct": -16.7}, {"date": "2026-07-17", "sym": "ZETA", "qty": 35, "exit": 22.0, "pnl": 114.72, "cost": 655, "pct": 17.5}, {"date": "2026-07-16", "sym": "RDW", "qty": 60, "exit": 9.019, "pnl": -272.89, "cost": 814, "pct": -33.5}, {"date": "2026-07-13", "sym": "IONQ", "qty": 15, "exit": 41.2, "pnl": -192.13, "cost": 810, "pct": -23.7}, {"date": "2026-07-08", "sym": "AVGO", "qty": 3.5, "exit": 393.6, "pnl": -104.09, "cost": 1378, "pct": -7.6}, {"date": "2026-07-02", "sym": "IREN", "qty": 17, "exit": 37.8, "pnl": -389.03, "cost": 1032, "pct": -37.7}, {"date": "2026-07-02", "sym": "RDW", "qty": 40, "exit": 11.39, "pnl": -182.49, "cost": 638, "pct": -28.6}, {"date": "2026-07-02", "sym": "QCOM", "qty": 6, "exit": 179.51, "pnl": -261.74, "cost": 1339, "pct": -19.5}, {"date": "2026-06-30", "sym": "CRCL", "qty": 10, "exit": 63.5, "pnl": -133.0, "cost": 768, "pct": -17.3}, {"date": "2026-06-25", "sym": "AAPL", "qty": 9.5, "exit": 278.54, "pnl": -62.74, "cost": 2646, "pct": -2.4}, {"date": "2026-06-15", "sym": "NVDA", "qty": 5, "exit": 212.33, "pnl": 64.38, "cost": 997, "pct": 6.5}, {"date": "2026-06-09", "sym": "ZETA", "qty": 40, "exit": 20.19, "pnl": -62.2, "cost": 870, "pct": -7.1}, {"date": "2026-06-09", "sym": "ENPH", "qty": 20, "exit": 50.0, "pnl": -117.0, "cost": 1117, "pct": -10.5}, {"date": "2026-06-09", "sym": "ONDS", "qty": 55, "exit": 9.475, "pnl": -157.05, "cost": 678, "pct": -23.2}, {"date": "2026-06-05", "sym": "CCJ", "qty": 6, "exit": 106.2, "pnl": -18.54, "cost": 656, "pct": -2.8}, {"date": "2026-06-05", "sym": "CLSK", "qty": 60, "exit": 15.95, "pnl": -65.0, "cost": 1022, "pct": -6.4}];
+    const NET_LIQ = 13209.80;
+    const positions = [
+      { symbol: "NFLX", qty: 22, avg: 73.875, last: 78.45, upnl: 100.65, score: "BUY", peter: "Inside long-term SMZ", chg: 0.8 },
+      { symbol: "MMM", qty: 7, avg: 178.027, last: 182.40, upnl: 30.61, score: "HOLD", peter: "—", chg: -0.1 },
+      { symbol: "ENPH", qty: 28, avg: 47.743, last: 40.80, upnl: -194.40, score: "HOLD", peter: "—", chg: 0.6 },
+      { symbol: "NOW", qty: 9, avg: 114.914, last: 122.80, upnl: 70.98, score: "HOLD", peter: "—", chg: -0.9 },
+      { symbol: "META", qty: 1.7, avg: 609.437, last: 587.48, upnl: -37.33, score: "HOLD", peter: "Coiling, still bullish", chg: -0.3 },
+      { symbol: "RKLB", qty: 10, avg: 75.42, last: 80.84, upnl: 54.20, score: "HOLD", peter: "—", chg: 0.7 },
+      { symbol: "POET", qty: 70, avg: 8.112, last: 9.70, upnl: 111.16, score: "HOLD", peter: "—", chg: 1.2 },
+      { symbol: "HOOD", qty: 7, avg: 94.917, last: 95.76, upnl: 5.90, score: "HOLD", peter: "—", chg: 0.2 },
+      { symbol: "UBER", qty: 8, avg: 68.3125, last: 77.34, upnl: 72.26, score: "HOLD", peter: "—", chg: 1.4 },
+      { symbol: "APP", qty: 2, avg: 312.8875, last: 320.45, upnl: 15.13, score: "HOLD", peter: "—", chg: 1.6 },
+      { symbol: "HNST", qty: 110, avg: 3.814, last: 4.89, upnl: 118.33, score: "HOLD", peter: "—", chg: 1.0 },
+      { symbol: "RBLX", qty: 15, avg: 37.887, last: 38.20, upnl: 4.70, score: "HOLD", peter: "—", chg: -0.4 },
+      { symbol: "CELH", qty: 18, avg: 28.179, last: 28.50, upnl: 5.75, score: "BUY", peter: "SMZ – strong Monthly", chg: -2.0 },
+      { symbol: "TE", qty: 95, avg: 5.281, last: 5.16, upnl: -11.53, score: "BUY", peter: "In/near SMZ", chg: 1.0 },
+      { symbol: "MSTR", qty: 5, avg: 101.05, last: 94.30, upnl: -33.75, score: "HOLD", peter: "—", chg: 1.4 }
+    ].map(function(p) {
+      const cost = p.avg * p.qty;
+      const mv = p.last * p.qty;
+      const upnlPct = cost !== 0 ? (p.upnl / cost) * 100 : 0;
+      const pctNet = (mv / NET_LIQ) * 100;
+      return Object.assign({}, p, { cost: cost, mv: mv, upnlPct: upnlPct, pctNet: pctNet });
+    }).sort(function(a, b) { return b.cost - a.cost; });
 
-function badge(sym){{
-  const [bg,letter] = LOGO[sym] || ["#334155", sym[0]];
-  return `<span class="logo-badge" style="background:${{bg}}22;color:${{bg}}">${{letter}}</span>`;
-}}
+    const closed = [
+      { date: "2026-08-13", sym: "POET", qty: 50, exit: 9.37, pnl: 64.58, cost: 468 },
+      { date: "2026-08-12", sym: "AVGO", qty: 2.5, exit: 417.4, pnl: 91.65, cost: 835 },
+      { date: "2026-08-11", sym: "AVGO", qty: 2, exit: 417.95, pnl: 49.64, cost: 836 },
+      { date: "2026-08-11", sym: "HNST", qty: 115, exit: 5.14, pnl: 156.58, cost: 435 },
+      { date: "2026-08-11", sym: "ZETA", qty: 100, exit: 28.54, pnl: 693.19, cost: 2160 },
+      { date: "2026-08-10", sym: "BKNG", qty: 6, exit: 212.73, pnl: 92.58, cost: 1180 },
+      { date: "2026-08-07", sym: "SPCX", qty: 5, exit: 129.74, pnl: 98.93, cost: 550 },
+      { date: "2026-08-07", sym: "GOOGL", qty: 3, exit: 354.37, pnl: 53.80, cost: 1009 },
+      { date: "2026-08-05", sym: "GOOGL", qty: 4, exit: 362.20, pnl: 28.32, cost: 1360 },
+      { date: "2026-08-05", sym: "HNST", qty: 155, exit: 3.91, pnl: 33.46, cost: 573 },
+      { date: "2026-08-05", sym: "AMZN", qty: 6, exit: 275.46, pnl: 67.40, cost: 1585 },
+      { date: "2026-08-04", sym: "MSFT", qty: 4, exit: 497.00, pnl: 432.20, cost: 1556 },
+      { date: "2026-08-04", sym: "NVDA", qty: 14, exit: 211.00, pnl: 67.78, cost: 2886 },
+      { date: "2026-08-03", sym: "CRWV", qty: 22, exit: 78.00, pnl: 164.26, cost: 1552 },
+      { date: "2026-07-31", sym: "AMZN", qty: 3, exit: 270.00, pnl: 4.35, cost: 806 },
+      { date: "2026-07-30", sym: "CRWV", qty: 15, exit: 72.80, pnl: -391.15, cost: 1483 },
+      { date: "2026-07-29", sym: "KEEL", qty: 200, exit: 3.30, pnl: -106.00, cost: 761 },
+      { date: "2026-07-28", sym: "AVGO", qty: 3, exit: 372.76, pnl: -139.91, cost: 1258 },
+      { date: "2026-07-28", sym: "BE", qty: 6, exit: 173.11, pnl: -58.34, cost: 1097 },
+      { date: "2026-07-27", sym: "GLW", qty: 6.5, exit: 144.3, pnl: -77.05, cost: 1010 },
+      { date: "2026-07-24", sym: "BE", qty: 5, exit: 191.12, pnl: -61.79, cost: 1017 },
+      { date: "2026-07-24", sym: "HPQ", qty: 35, exit: 25.53, pnl: 78.13, cost: 815 },
+      { date: "2026-07-24", sym: "TE", qty: 60, exit: 5.145, pnl: -224.90, cost: 534 },
+      { date: "2026-07-24", sym: "FSLR", qty: 2, exit: 203.38, pnl: -93.90, cost: 501 },
+      { date: "2026-07-21", sym: "AFRM", qty: 13, exit: 74.34, pnl: -104.08, cost: 1070 },
+      { date: "2026-07-20", sym: "TE", qty: 55, exit: 5.822, pnl: -169.14, cost: 489 },
+      { date: "2026-07-17", sym: "ZETA", qty: 35, exit: 22.00, pnl: 114.72, cost: 655 },
+      { date: "2026-07-16", sym: "RDW", qty: 60, exit: 9.019, pnl: -272.89, cost: 814 },
+      { date: "2026-07-13", sym: "IONQ", qty: 15, exit: 41.20, pnl: -192.13, cost: 810 },
+      { date: "2026-07-08", sym: "AVGO", qty: 3.5, exit: 393.6, pnl: -104.09, cost: 1378 },
+      { date: "2026-07-02", sym: "IREN", qty: 17, exit: 37.80, pnl: -389.03, cost: 1032 },
+      { date: "2026-07-02", sym: "RDW", qty: 40, exit: 11.39, pnl: -182.49, cost: 638 },
+      { date: "2026-07-02", sym: "QCOM", qty: 6, exit: 179.51, pnl: -261.74, cost: 1339 },
+      { date: "2026-06-30", sym: "CRCL", qty: 10, exit: 63.50, pnl: -133.00, cost: 768 },
+      { date: "2026-06-25", sym: "AAPL", qty: 9.5, exit: 278.54, pnl: -62.74, cost: 2646 },
+      { date: "2026-06-15", sym: "NVDA", qty: 5, exit: 212.33, pnl: 64.38, cost: 997 },
+      { date: "2026-06-09", sym: "ZETA", qty: 40, exit: 20.19, pnl: -62.20, cost: 870 },
+      { date: "2026-06-09", sym: "ENPH", qty: 20, exit: 50.00, pnl: -117.00, cost: 1117 },
+      { date: "2026-06-09", sym: "ONDS", qty: 55, exit: 9.475, pnl: -157.05, cost: 678 },
+      { date: "2026-06-05", sym: "CCJ", qty: 6, exit: 106.20, pnl: -18.54, cost: 656 },
+      { date: "2026-06-05", sym: "CLSK", qty: 60, exit: 15.95, pnl: -65.00, cost: 1022 }
+    ].map(function(c) {
+      c.pct = c.cost ? (c.pnl / c.cost) * 100 : 0;
+      return c;
+    });
 
-function setTab(name, btn){{
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('tab-'+name).classList.add('active');
-}}
+    // Render holdings
+    const tbody = document.getElementById("positions-body");
+    positions.forEach(function(p) {
+      const scoreClass = p.score === "BUY" ? "score-buy" : p.score === "SELL" ? "score-sell" : "score-hold";
+      const upnlClass = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
+      const chgClass = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
+      tbody.innerHTML +=
+        '<tr>' +
+        '<td><div class="flex items-center gap-2">' + badge(p.symbol) + '<span class="font-medium text-white">' + p.symbol + '</span></div></td>' +
+        '<td class="num">$' + p.last.toFixed(2) + '</td>' +
+        '<td class="num ' + chgClass + '">' + (p.chg >= 0 ? "+" : "") + p.chg.toFixed(1) + '%</td>' +
+        '<td class="num ' + upnlClass + '">$' + p.upnl.toFixed(0) + '</td>' +
+        '<td class="num ' + upnlClass + '">' + (p.upnlPct >= 0 ? "+" : "") + p.upnlPct.toFixed(1) + '%</td>' +
+        '<td class="num">$' + p.cost.toFixed(0) + '</td>' +
+        '<td class="num">' + p.qty + '</td>' +
+        '<td class="num">' + p.pctNet.toFixed(1) + '%</td>' +
+        '<td><span class="px-2 py-0.5 rounded text-xs font-medium ' + scoreClass + '">' + p.score + '</span></td>' +
+        '<td class="text-slate-400 text-xs">' + p.peter + '</td>' +
+        '</tr>';
+    });
 
-// Holdings
-const pb = document.getElementById('pos-body');
-positions.forEach(p=>{{
-  const sc = p.score==="BUY"?"score-buy":p.score==="SELL"?"score-sell":"score-hold";
-  const uc = p.upnl>=0?"g":"r";
-  const cc = p.chg>=0?"g":"r";
-  pb.innerHTML += `<tr>
-    <td><div class="sym-cell">${{badge(p.symbol)}}<span style="font-weight:600;color:var(--text)">${{p.symbol}}</span></div></td>
-    <td class="num">$${{p.last.toFixed(2)}}</td>
-    <td class="num ${{cc}}">${{p.chg>=0?"+":""}}${{p.chg.toFixed(1)}}%</td>
-    <td class="num ${{uc}}">$${{p.upnl.toFixed(0)}}</td>
-    <td class="num ${{uc}}">${{p.upnlPct>=0?"+":""}}${{p.upnlPct.toFixed(1)}}%</td>
-    <td class="num">$${{p.cost.toFixed(0)}}</td>
-    <td class="num">${{p.qty}}</td>
-    <td class="num">${{p.pctNet.toFixed(1)}}%</td>
-    <td><span class="${{sc}}">${{p.score}}</span></td>
-    <td style="color:var(--muted2);font-size:.68rem">${{p.peter}}</td>
-  </tr>`;
-}});
+    // Render closed
+    const cbody = document.getElementById("closed-body");
+    closed.forEach(function(c) {
+      const win = c.pnl >= 0;
+      const cls = win ? "text-emerald-400" : "text-red-400";
+      const pill = win
+        ? '<span class="px-2 py-0.5 rounded text-xs font-medium bg-emerald-900/50 text-emerald-400">WIN</span>'
+        : '<span class="px-2 py-0.5 rounded text-xs font-medium bg-red-900/50 text-red-400">LOSS</span>';
+      cbody.innerHTML +=
+        '<tr>' +
+        '<td class="text-slate-400">' + c.date + '</td>' +
+        '<td><div class="flex items-center gap-2">' + badge(c.sym) + '<span class="font-medium">' + c.sym + '</span></div></td>' +
+        '<td class="num">' + c.qty + '</td>' +
+        '<td class="num">$' + c.exit + '</td>' +
+        '<td class="num ' + cls + '">' + (win ? "+" : "") + c.pnl.toFixed(0) + '</td>' +
+        '<td class="num ' + cls + '">' + (win ? "+" : "") + c.pct.toFixed(1) + '%</td>' +
+        '<td>' + pill + '</td>' +
+        '</tr>';
+    });
 
-// Closed
-const cb = document.getElementById('closed-body');
-closed.forEach(c=>{{
-  const win = c.pnl >= 0;
-  cb.innerHTML += `<tr>
-    <td style="color:var(--muted2)">${{c.date}}</td>
-    <td><div class="sym-cell">${{badge(c.sym)}}<span style="font-weight:600">${{c.sym}}</span></div></td>
-    <td class="num">${{c.qty}}</td>
-    <td class="num">$${{c.exit}}</td>
-    <td class="num ${{win?"g":"r"}}">${{win?"+":""}}${{c.pnl.toFixed(0)}}</td>
-    <td class="num"><span class="${{win?"pill-pos":"pill-neg"}}">${{win?"+":""}}${{c.pct}}%</span></td>
-    <td><span class="${{win?"pill-pos":"pill-neg"}}">${{win?"WIN":"LOSS"}}</span></td>
-  </tr>`;
-}});
-
-// Scanner
-const buys = [
-  {{sym:"CELH", note:"Long-term SMZ · strong Monthly level · targeting +80% toward $50"}},
-  {{sym:"NFLX", note:"Compressing inside long-term SMZ · expecting move toward $90"}},
-  {{sym:"TE", note:"In / near SMZ · structure constructive"}},
-];
-const sl = document.getElementById('scanner-list');
-buys.forEach(b=>{{
-  sl.innerHTML += `<div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">
-    ${{badge(b.sym)}}
-    <div style="flex:1">
-      <div style="font-weight:600">${{b.sym}} <span class="score-buy" style="margin-left:6px">BUY</span></div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted2);margin-top:2px">${{b.note}}</div>
-    </div>
-  </div>`;
-}});
-</script>
+    // Scanner
+    const buys = [
+      { sym: "CELH", note: "Long-term SMZ · strong Monthly level · targeting +80% toward $50" },
+      { sym: "NFLX", note: "Compressing inside long-term SMZ · expecting move toward $90" },
+      { sym: "TE", note: "In / near SMZ · structure constructive" }
+    ];
+    const slist = document.getElementById("scanner-list");
+    buys.forEach(function(b) {
+      slist.innerHTML +=
+        '<div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/60 border border-slate-700">' +
+        badge(b.sym) +
+        '<div class="flex-1">' +
+        '<div class="font-medium text-white">' + b.sym + ' <span class="ml-2 px-2 py-0.5 rounded text-xs font-medium score-buy">BUY</span></div>' +
+        '<div class="text-xs text-slate-400 mt-0.5">' + b.note + '</div>' +
+        '</div></div>';
+    });
+  </script>
 </body>
 </html>
