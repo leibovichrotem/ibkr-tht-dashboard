@@ -40,7 +40,7 @@
       <div>
         <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
         <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 16:22 IDT</span></p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 16:26 IDT</span></p>
       </div>
       <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
@@ -73,7 +73,7 @@
       <h2 class="font-semibold text-white mb-3">Performance & Process KPIs</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
         <div class="card p-4">
-          <div class="text-xs text-slate-400">Closed Trades</div>
+          <div class="text-xs text-slate-400">Trades History</div>
           <div class="text-2xl font-bold text-white mt-1">51</div>
           <div class="text-xs text-amber-400 mt-1">Goal: 100+</div>
         </div>
@@ -109,7 +109,7 @@
     <!-- Tabs -->
     <div class="flex gap-1 p-1 rounded-xl card w-fit">
       <button class="tab-btn active" data-tab="holdings" onclick="switchTab('holdings')">Holdings</button>
-      <button class="tab-btn" data-tab="closed" onclick="switchTab('closed')">Closed Trades</button>
+      <button class="tab-btn" data-tab="closed" onclick="switchTab('closed')">Trades History</button>
       <button class="tab-btn" data-tab="scanner" onclick="switchTab('scanner')">BUY Scanner</button>
     </div>
 
@@ -151,8 +151,8 @@
     <div id="panel-closed" class="tab-panel">
       <div class="card">
         <div class="p-4 border-b border-slate-700">
-          <h2 class="font-semibold text-white">Closed Trades (newest first)</h2>
-          <p class="text-xs text-slate-500 mt-1">Sell orders with realized P&amp;L vs cost basis</p>
+          <h2 class="font-semibold text-white">Trades History (newest first)</h2>
+          <p class="text-xs text-slate-500 mt-1">Closed sell orders with realized P&amp;L vs cost basis</p>
         </div>
         <div class="scroll-box">
           <table>
@@ -177,7 +177,7 @@
     <div id="panel-scanner" class="tab-panel">
       <div class="card p-4">
         <h2 class="font-semibold text-white mb-3">BUY Scanner</h2>
-        <p class="text-sm text-slate-400 mb-4">Names currently scoring BUY under THT rules (SMZ / near SMZ + structure intact).</p>
+        <p class="text-sm text-slate-400 mb-4">New BUY candidates from S&amp;P 500, Nasdaq, and sector ETFs (XLE, XLV, XLI, XLF…) using THT rules. Not limited to current holdings.</p>
         <div id="scanner-list" class="space-y-2"></div>
       </div>
     </div>
@@ -205,8 +205,25 @@
       ONDS:["#f97316","O"], CCJ:["#0ea5e9","C"], CLSK:["#f59e0b","C"]
     };
 
+    // Domain map for Clearbit logos (Tradesh-style)
+    const DOMAIN = {
+      NFLX:"netflix.com", MMM:"3m.com", ENPH:"enphase.com", NOW:"servicenow.com",
+      META:"meta.com", RKLB:"rocketlabusa.com", POET:"poet-technologies.com",
+      HOOD:"robinhood.com", UBER:"uber.com", APP:"applovin.com", HNST:"honest.com",
+      RBLX:"roblox.com", CELH:"celsius.com", TE:"t1energy.com", MSTR:"microstrategy.com",
+      AVGO:"broadcom.com", ZETA:"zetaglobal.com", BKNG:"bookingholdings.com",
+      GOOGL:"google.com", AMZN:"amazon.com", MSFT:"microsoft.com", NVDA:"nvidia.com",
+      AAPL:"apple.com", QCOM:"qualcomm.com", IREN:"iren.com", AFRM:"affirm.com",
+      FSLR:"firstsolar.com", HPQ:"hp.com", BE:"bloomenergy.com", GLW:"corning.com",
+      RDW:"redwirespace.com", IONQ:"ionq.com", CCJ:"cameco.com", CLSK:"cleanspark.com",
+      CRWV:"coreweave.com", ONDS:"ondas.com", CRCL:"circle.com", SPCX:"spacex.com"
+    };
     function badge(sym) {
       const pair = LOGO[sym] || ["#475569", sym[0]];
+      const domain = DOMAIN[sym];
+      if (domain) {
+        return '<img src="https://logo.clearbit.com/' + domain + '" class="logo-badge" style="object-fit:contain;background:#1e293b" onerror="this.outerHTML=\'<span class=\\'logo-badge\\' style=\\'background:' + pair[0] + '22;color:' + pair[0] + '\\'>' + pair[1] + '</span>\'">';
+      }
       return '<span class="logo-badge" style="background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
     }
 
@@ -331,10 +348,15 @@
     });
 
     // Scanner
+    // External BUY Scanner – candidates from major indices / sectors (not portfolio holdings)
+    // Expanded daily by automation. Current high-conviction public names:
     const buys = [
-      { sym: "CELH", note: "Long-term SMZ · strong Monthly level · targeting +80% toward $50" },
-      { sym: "NFLX", note: "Compressing inside long-term SMZ · expecting move toward $90" },
-      { sym: "TE", note: "In / near SMZ · structure constructive" }
+      { sym: "CELH", zone: "SMZ", note: "Long-term Smart Money Zone · strong Monthly level (Peter 13 Aug)" },
+      { sym: "NFLX", zone: "SMZ", note: "Compressing inside long-term SMZ · targeting $90 area (Peter 14 Aug)" },
+      { sym: "TE", zone: "near SMZ", note: "In / near SMZ · structure constructive" },
+      { sym: "SOUN", zone: "SMZ", note: "Under smart money discount · long-term buy (Peter small-cap watch)" },
+      { sym: "UPST", zone: "SMZ", note: "Trading under smart money discount (Peter)" },
+      { sym: "BBAI", zone: "watch", note: "Internal structure shift · on Peter small-cap watchlist" }
     ];
     const slist = document.getElementById("scanner-list");
     buys.forEach(function(b) {
@@ -342,7 +364,9 @@
         '<div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/60 border border-slate-700">' +
         badge(b.sym) +
         '<div class="flex-1">' +
-        '<div class="font-medium text-white">' + b.sym + ' <span class="ml-2 px-2 py-0.5 rounded text-xs font-medium score-buy">BUY</span></div>' +
+        '<div class="font-medium text-white">' + b.sym +
+        ' <span class="ml-2 px-2 py-0.5 rounded text-xs font-medium score-buy">BUY</span>' +
+        ' <span class="ml-1 text-xs text-slate-500">' + (b.zone || "") + '</span></div>' +
         '<div class="text-xs text-slate-400 mt-0.5">' + b.note + '</div>' +
         '</div></div>';
     });
