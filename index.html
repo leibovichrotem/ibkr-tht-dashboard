@@ -143,7 +143,7 @@
 
     <!-- Holdings panel -->
     <div id="panel-holdings" class="tab-panel active">
-<div class="card overflow-x-auto">
+      <div class="card overflow-x-auto">
         <div class="p-4 border-b border-slate-700 flex justify-between items-center">
           <h2 class="font-semibold text-white">Positions (ordered by Cost Basis)</h2>
           <span class="text-xs text-slate-500">15 holdings</span>
@@ -226,8 +226,8 @@
     </div>
 
 
-    <!-- Analytics below table/tabs: performance, allocation, equity curve, exposure -->
-    <div class="space-y-4 mt-6">
+    <!-- Analytics below table/tabs -->
+    <div class="space-y-6 mt-8 pt-2 border-t border-slate-800">
 
       <!-- Performance table -->
       <div class="card overflow-x-auto">
@@ -273,7 +273,7 @@
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <div>
             <h3 class="text-sm font-semibold text-white">Portfolio vs S&amp;P 500</h3>
-            <p class="text-xs text-slate-500">Same periods as the table above · Portfolio vs SPY (no freehand curve)</p>
+            <p class="text-xs text-slate-500">Cumulative return % since account track start · IBKR TWR vs SPY</p>
           </div>
 
         </div>
@@ -294,7 +294,7 @@
                 <div style="font-family:ui-monospace,monospace;font-size:0.58rem;color:#64748b;margin-top:4px;letter-spacing:0.06em">total</div>
               </div>
             </div>
-            <div id="leg-comb" style="flex:1;min-width:240px;display:grid;grid-template-columns:1fr;gap:6px;max-height:280px;overflow-y:auto"></div>
+            <div id="leg-comb" style="flex:1;min-width:240px;display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;max-height:320px;overflow-y:auto"></div>
           </div>
         </div>
 
@@ -617,7 +617,7 @@
     
     // From IBKR TWR cps (last point in each window), 2026-08-17
     const PERF = {
-      portfolio: { m1: 14.49, mtd: 16.09, ytd: -12.32, y1: -12.32, all: -12.32 },
+      portfolio: { m1: 13.74, mtd: 15.32, ytd: -12.89, y1: -12.89, all: -12.89 },
       spx: { m1: 3.95, mtd: 3.95, ytd: 13.10, y1: 20.11 }
     };
     setPerf('perf-p-1m', PERF.portfolio.m1);
@@ -817,31 +817,74 @@
         });
       }
 
-      // Portfolio vs S&P — same numbers as Performance table (no invented path)
+
+      // Portfolio vs S&P — real cumulative % series (IBKR TWR cps + SPY)
+const EQUITY_LABELS = ["06-04", "06-05", "06-08", "06-09", "06-10", "06-11", "06-12", "06-15", "06-16", "06-17", "06-18", "06-19", "06-22", "06-23", "06-24", "06-25", "06-26", "06-29", "06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20", "07-21", "07-22", "07-23", "07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17"];
+const EQUITY_PORT = [-0.0, -6.95, -5.78, -9.03, -12.4, -8.89, -9.68, -7.54, -9.05, -9.63, -6.14, -6.14, -9.99, -13.28, -14.86, -17.19, -19.18, -17.42, -16.61, -18.77, -21.63, -21.63, -19.13, -21.54, -19.44, -18.29, -18.56, -21.13, -19.55, -19.45, -23.41, -24.89, -25.02, -22.6, -22.94, -25.94, -28.86, -28.47, -28.55, -31.58, -27.61, -24.47, -20.48, -17.64, -17.07, -15.29, -12.25, -12.36, -11.82, -12.98, -11.36, -11.51, -12.89];
+const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, -2.13, -1.37, -1.37, -1.68, -3.11, -3.15, -3.01, -3.71, -2.13, -1.36, -1.5, -1.63, -1.63, -0.77, -1.24, -1.54, -0.71, -0.28, -1.05, -0.69, -0.3, -0.84, -1.82, -1.98, -1.16, -1.28, -2.5, -2.4, -2.38, -2.14, -3.65, -2.03, -1.33, 0.08, 1.88, 1.68, 1.52, 2.14, 2.11, 1.78, 2.03, 2.75, 2.54, 2.06];
+
       const eqCtx = document.getElementById('chartEquity');
-      if (eqCtx && typeof Chart !== 'undefined' && typeof PERF !== 'undefined') {
-        const labels = ['1 Month', 'MTD', 'YTD', '1 Year'];
-        const port = [PERF.portfolio.m1, PERF.portfolio.mtd, PERF.portfolio.ytd, PERF.portfolio.y1];
-        const spy = [PERF.spx.m1, PERF.spx.mtd, PERF.spx.ytd, PERF.spx.y1];
+      if (eqCtx && typeof Chart !== 'undefined') {
         new Chart(eqCtx, {
-          type: 'bar',
+          type: 'line',
           data: {
-            labels: labels,
+            labels: EQUITY_LABELS,
             datasets: [
               {
                 label: 'Portfolio',
-                data: port,
-                backgroundColor: '#6366f1',
-                borderRadius: 6,
-                maxBarThickness: 36
+                data: EQUITY_PORT,
+                borderColor: '#6366f1',
+                backgroundColor: 'rgba(99,102,241,0.08)',
+                fill: false,
+                tension: 0.25,
+                borderWidth: 2.5,
+                pointRadius: 0,
+                pointHoverRadius: 4
               },
               {
                 label: 'S&P 500',
-                data: spy,
-                backgroundColor: '#94a3b8',
-                borderRadius: 6,
-                maxBarThickness: 36
+                data: EQUITY_SPY,
+                borderColor: '#94a3b8',
+                backgroundColor: 'transparent',
+                fill: false,
+                tension: 0.25,
+                borderWidth: 2,
+                pointRadius: 0,
+                pointHoverRadius: 4
               }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: {
+                display: true,
+                labels: { color: '#94a3b8', boxWidth: 12 }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(c) {
+                    const v = c.raw;
+                    return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } },
+                grid: { color: '#33415533' }
+              },
+              y: {
+                ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
+                grid: { color: '#33415555' }
+              }
+            }
+          }
+        });
+      }
             ]
           },
           options: {
