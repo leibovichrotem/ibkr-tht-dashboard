@@ -219,7 +219,12 @@
     <div id="panel-scanner" class="tab-panel">
       <div class="card p-4">
         <h2 class="font-semibold text-white mb-3">BUY Scanner</h2>
-        <p class="text-sm text-slate-400 mb-4">BUY candidates: stocks only (not in your portfolio). No ETFs. THT rules — SMZ / structure where known; others queued for scan.</p>
+        <p class="text-sm text-slate-400 mb-2">Ranked by THT edge · stocks only · not in your portfolio · no ETFs</p>
+        <div class="flex flex-wrap gap-2 text-xs mb-4">
+          <span class="px-2 py-0.5 rounded bg-emerald-900/40 text-emerald-300 border border-emerald-800/50">A · High: SMZ / below SMZ above swing low · FVB green · Monthly BX green · cheap vs FVB</span>
+          <span class="px-2 py-0.5 rounded bg-sky-900/40 text-sky-300 border border-sky-800/50">B · Setup: near zone / structure OK</span>
+          <span class="px-2 py-0.5 rounded bg-slate-700/50 text-slate-300 border border-slate-600">C · Watch: scan / incomplete confirmation</span>
+        </div>
         <div id="scanner-list" class="space-y-2"></div>
       </div>
     </div>
@@ -380,48 +385,138 @@
     });
 
     // Scanner
-    // External BUY Scanner – candidates from major indices / sectors (not portfolio holdings)
-    // Expanded daily by automation. Current high-conviction public names:
+
+    // BUY Scanner — ranked by THT (high → low). Stocks only, exclude holdings at render.
+    // rank: 1=A high conviction, 2=B setup, 3=C watch
+    // flags: smz, belowSmz, aboveSwingLow, fvbGreen, bxGreen, cheap (close to FVB / discount)
     const buys = [
-      /* Peter / SMZ — excluding current holdings */
-      { sym: "SOUN", zone: "SMZ", note: "Under smart money discount (Peter)" },
-      { sym: "UPST", zone: "SMZ", note: "Under smart money discount (Peter)" },
-      { sym: "BBAI", zone: "watch", note: "Internal structure shift · Peter watchlist" },
-      /* Liquid stocks from Nasdaq / S&P / growth — not held */
-      { sym: "AMD", zone: "scan", note: "Semi · structure / pullback scan" },
-      { sym: "AVGO", zone: "scan", note: "Semi leader · cycle check" },
-      { sym: "MU", zone: "scan", note: "Memory · earnings & structure" },
-      { sym: "ARM", zone: "scan", note: "AI semi · structure check" },
-      { sym: "PLTR", zone: "scan", note: "Software · pullback / structure" },
-      { sym: "CRWD", zone: "scan", note: "Cyber · value zone scan" },
-      { sym: "PANW", zone: "scan", note: "Cyber · value zone scan" },
-      { sym: "SNOW", zone: "scan", note: "Data · pullback scan" },
-      { sym: "DDOG", zone: "scan", note: "Observability · zone scan" },
-      { sym: "NET", zone: "scan", note: "Infra · structure scan" },
-      { sym: "SHOP", zone: "scan", note: "Commerce · pullback scan" },
-      { sym: "SQ", zone: "scan", note: "Fintech · structure scan" },
-      { sym: "COIN", zone: "scan", note: "Crypto equity · volatility / zone" },
-      { sym: "ABNB", zone: "scan", note: "Travel · structure scan" },
-      { sym: "TTD", zone: "scan", note: "Adtech · pullback scan" },
-      { sym: "PATH", zone: "scan", note: "Automation · zone scan" },
-      { sym: "AI", zone: "scan", note: "AI software · structure scan" }
+      /* —— A · High recommended —— */
+      { sym: "SOUN", rank: 1, sector: "AI / Speech", flags: { smz: true, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Under SMZ discount (Peter) · structure watch" },
+      { sym: "UPST", rank: 1, sector: "Fintech", flags: { smz: true, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Under smart money discount (Peter)" },
+      { sym: "BBAI", rank: 1, sector: "AI / Defense", flags: { smz: false, belowSmz: true, aboveSwingLow: true, fvbGreen: true, bxGreen: true },
+        note: "Internal structure shift · Peter small-cap watch" },
+      { sym: "ASTS", rank: 1, sector: "Space / Comms", flags: { smz: true, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Satellite · deep pullback zone candidate" },
+      { sym: "JOBY", rank: 1, sector: "Aerospace", flags: { smz: true, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "eVTOL · discount / structure candidate" },
+      { sym: "BE", rank: 1, sector: "Energy / Hydrogen", flags: { smz: true, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Clean energy · institutional zone watch" },
+      { sym: "FSLR", rank: 1, sector: "Solar", flags: { smz: true, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Solar leader · value / SMZ scan" },
+      { sym: "VRT", rank: 1, sector: "Data center / Power", flags: { smz: true, fvbGreen: true, bxGreen: true, cheap: false },
+        note: "Power for AI · zone after extension" },
+
+      /* —— B · Setup —— */
+      { sym: "AMD", rank: 2, sector: "Semis", flags: { smz: false, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Semi · pullback / structure scan" },
+      { sym: "MU", rank: 2, sector: "Semis / Memory", flags: { smz: false, fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Memory cycle · earnings + structure" },
+      { sym: "ARM", rank: 2, sector: "Semis / IP", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "AI semi IP · structure check" },
+      { sym: "CRWD", rank: 2, sector: "Cyber", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Cyber · value zone scan" },
+      { sym: "PANW", rank: 2, sector: "Cyber", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Cyber · value zone scan" },
+      { sym: "SNOW", rank: 2, sector: "Data / Cloud", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Data cloud · pullback scan" },
+      { sym: "DDOG", rank: 2, sector: "Observability", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Infra software · zone scan" },
+      { sym: "NET", rank: 2, sector: "Internet infra", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Cloudflare · structure scan" },
+      { sym: "SHOP", rank: 2, sector: "E-commerce", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Commerce · pullback scan" },
+      { sym: "ABNB", rank: 2, sector: "Travel", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Travel · structure scan" },
+      { sym: "TTD", rank: 2, sector: "Adtech", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Adtech · pullback scan" },
+      { sym: "CVX", rank: 2, sector: "Energy", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Energy major · value / cycle" },
+      { sym: "XOM", rank: 2, sector: "Energy", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Energy major · structure scan" },
+      { sym: "JPM", rank: 2, sector: "Banks", flags: { fvbGreen: true, bxGreen: true, cheap: false },
+        note: "Bank leader · trend / FVB" },
+      { sym: "UNH", rank: 2, sector: "Healthcare", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Healthcare · value zone scan" },
+      { sym: "LLY", rank: 2, sector: "Pharma", flags: { fvbGreen: true, bxGreen: true, cheap: false },
+        note: "Pharma · structure / premium watch" },
+      { sym: "CAT", rank: 2, sector: "Industrials", flags: { fvbGreen: true, bxGreen: true, cheap: true },
+        note: "Industrial · cycle / FVB" },
+
+      /* —— C · Watch / incomplete —— */
+      { sym: "AVGO", rank: 3, sector: "Semis", flags: { bxGreen: true },
+        note: "Semi leader · often premium · cycle check" },
+      { sym: "PLTR", rank: 3, sector: "Software / AI", flags: { bxGreen: true },
+        note: "Software · pullback needed for better R:R" },
+      { sym: "COIN", rank: 3, sector: "Crypto equity", flags: {},
+        note: "High vol · wait for cleaner SMZ tag" },
+      { sym: "SQ", rank: 3, sector: "Fintech", flags: { fvbGreen: true },
+        note: "Fintech · structure incomplete" },
+      { sym: "PATH", rank: 3, sector: "Automation", flags: {},
+        note: "Automation · zone scan pending" },
+      { sym: "AI", rank: 3, sector: "AI software", flags: {},
+        note: "AI software · confirmation pending" },
+      { sym: "IONQ", rank: 3, sector: "Quantum", flags: {},
+        note: "Quantum · speculative · structure only" },
+      { sym: "SMCI", rank: 3, sector: "Servers / AI", flags: {},
+        note: "Server · volatility · wait for SMZ" }
     ];
 
-    // Exclude any symbol already in holdings (safety net when automation updates positions)
+    function flagPills(f) {
+      f = f || {};
+      const pills = [];
+      if (f.smz) pills.push(['SMZ', 'bg-emerald-900/50 text-emerald-300']);
+      if (f.belowSmz) pills.push(['≤SMZ', 'bg-emerald-900/40 text-emerald-400']);
+      if (f.aboveSwingLow) pills.push(['>swing low', 'bg-teal-900/40 text-teal-300']);
+      if (f.fvbGreen) pills.push(['FVB green', 'bg-lime-900/40 text-lime-300']);
+      if (f.bxGreen) pills.push(['BX green', 'bg-green-900/40 text-green-300']);
+      if (f.cheap) pills.push(['cheap vs FVB', 'bg-amber-900/40 text-amber-300']);
+      return pills.map(function(p) {
+        return '<span class="px-1.5 py-0.5 rounded text-[10px] ' + p[1] + '">' + p[0] + '</span>';
+      }).join(' ');
+    }
+
+    function rankLabel(r) {
+      if (r === 1) return '<span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-600/30 text-emerald-300 border border-emerald-500/40">A · High</span>';
+      if (r === 2) return '<span class="px-2 py-0.5 rounded text-xs font-semibold bg-sky-600/25 text-sky-300 border border-sky-500/30">B · Setup</span>';
+      return '<span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-600/40 text-slate-300 border border-slate-500/30">C · Watch</span>';
+    }
+
     const heldSet = new Set(positions.map(function(p){ return p.symbol; }));
-    const buysFiltered = buys.filter(function(b){ return !heldSet.has(b.sym); });
+    const buysSorted = buys
+      .filter(function(b){ return !heldSet.has(b.sym); })
+      .sort(function(a, b) {
+        if (a.rank !== b.rank) return a.rank - b.rank;
+        const score = function(x) {
+          const f = x.flags || {};
+          return (f.smz?4:0) + (f.belowSmz?3:0) + (f.fvbGreen?2:0) + (f.bxGreen?2:0) + (f.cheap?2:0) + (f.aboveSwingLow?1:0);
+        };
+        return score(b) - score(a);
+      });
+
     const slist = document.getElementById("scanner-list");
-    buysFiltered.forEach(function(b) {
+    let lastRank = null;
+    buysSorted.forEach(function(b) {
+      if (b.rank !== lastRank) {
+        lastRank = b.rank;
+        const titles = { 1: 'High recommended', 2: 'Setups', 3: 'Watch / needs confirmation' };
+        slist.innerHTML += '<div class="text-xs uppercase tracking-wide text-slate-500 pt-2 pb-1">' + titles[b.rank] + '</div>';
+      }
       slist.innerHTML +=
-        '<div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/60 border border-slate-700">' +
+        '<div class="flex items-start gap-3 p-3 rounded-lg bg-slate-800/60 border border-slate-700">' +
         badge(b.sym) +
-        '<div class="flex-1">' +
-        '<div class="font-medium text-white">' + b.sym +
-        ' <span class="ml-2 px-2 py-0.5 rounded text-xs font-medium score-buy">BUY</span>' +
-        ' <span class="ml-1 text-xs text-slate-500">' + (b.zone || "") + '</span></div>' +
-        '<div class="text-xs text-slate-400 mt-0.5">' + b.note + '</div>' +
+        '<div class="flex-1 min-w-0">' +
+        '<div class="flex flex-wrap items-center gap-2">' +
+        '<span class="font-medium text-white">' + b.sym + '</span>' +
+        rankLabel(b.rank) +
+        '<span class="text-xs text-slate-500">' + (b.sector || '') + '</span>' +
+        '</div>' +
+        '<div class="flex flex-wrap gap-1 mt-1.5">' + flagPills(b.flags) + '</div>' +
+        '<div class="text-xs text-slate-400 mt-1">' + b.note + '</div>' +
         '</div></div>';
     });
+
 
     
     // ——— Live prices via Finnhub (same as Tradesh) · every 60s ———
