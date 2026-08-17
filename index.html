@@ -221,10 +221,11 @@
         <h2 class="font-semibold text-white mb-3">BUY Scanner</h2>
         <p class="text-sm text-slate-400 mb-2">Ranked by THT edge · stocks only · not in your portfolio · no ETFs</p>
         <div class="flex flex-wrap gap-2 text-xs mb-4">
-          <span class="px-2 py-0.5 rounded bg-emerald-900/40 text-emerald-300 border border-emerald-800/50">A · High: (1) SMZ or below SMZ & above swing low · (2) FVB green + Monthly BX improving (light red → green)</span>
-          <span class="px-2 py-0.5 rounded bg-sky-900/40 text-sky-300 border border-sky-800/50">B · Setup: near zone / structure OK</span>
-          <span class="px-2 py-0.5 rounded bg-slate-700/50 text-slate-300 border border-slate-600">C · Watch: scan / incomplete confirmation</span>
+          <span class="px-2 py-0.5 rounded bg-emerald-900/40 text-emerald-300 border border-emerald-800/50">A · High: Fib SMZ or ≤SMZ & above swing low · bullish BoS</span>
+          <span class="px-2 py-0.5 rounded bg-sky-900/40 text-sky-300 border border-sky-800/50">B · Setup: near SMZ or recent bullish BoS</span>
+          <span class="px-2 py-0.5 rounded bg-slate-700/50 text-slate-300 border border-slate-600">C · Watch: structure interest only</span>
         </div>
+        <p class="text-xs text-slate-500 mb-4">Observable only: Fib SMZ + swing structure (+ volume if available). No FVB/BX without TradingView.</p>
         <div id="scanner-list" class="space-y-2"></div>
       </div>
     </div>
@@ -395,8 +396,8 @@
         note: "Under SMZ discount (Peter) · structure watch" },
       { sym: "UPST", rank: 1, sector: "Fintech", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
         note: "Under smart money discount (Peter)" },
-      { sym: "BBAI", rank: 1, sector: "AI / Defense", flags: { smz: false, belowSmz: true, aboveSwingLow: true, fvbGreen: true, bxImproving: true },
-        note: "Internal structure shift · Peter small-cap watch" },
+      { sym: "BBAI", rank: 3, sector: "AI / Defense", flags: { bosBull: true },
+        note: "Structure interest only — verify Fib SMZ; BX was deep red on last chart check" },
       { sym: "ASTS", rank: 1, sector: "Space / Comms", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
         note: "Satellite · deep pullback zone candidate" },
       { sym: "JOBY", rank: 1, sector: "Aerospace", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
@@ -466,13 +467,11 @@
     function flagPills(f) {
       f = f || {};
       const pills = [];
-      if (f.smz) pills.push(['SMZ', 'bg-emerald-900/50 text-emerald-300']);
+      if (f.smz) pills.push(['SMZ (Fib)', 'bg-emerald-900/50 text-emerald-300']);
       if (f.belowSmz) pills.push(['≤SMZ', 'bg-emerald-900/40 text-emerald-400']);
       if (f.aboveSwingLow) pills.push(['>swing low', 'bg-teal-900/40 text-teal-300']);
-      if (f.fvbGreen) pills.push(['FVB green', 'bg-lime-900/40 text-lime-300']);
-      // Monthly BX improving = light red or green (turning up), not deep red
-      if (f.bxImproving || f.bxGreen) pills.push(['BX improving', 'bg-green-900/40 text-green-300']);
-      if (f.cheap) pills.push(['near FVB', 'bg-amber-900/40 text-amber-300']);
+      if (f.bosBull) pills.push(['BoS ↑ bullish', 'bg-sky-900/50 text-sky-300']);
+      if (f.volRising) pills.push(['vol rising', 'bg-violet-900/40 text-violet-300']);
       return pills.map(function(p) {
         return '<span class="px-1.5 py-0.5 rounded text-[10px] ' + p[1] + '">' + p[0] + '</span>';
       }).join(' ');
@@ -491,7 +490,7 @@
         if (a.rank !== b.rank) return a.rank - b.rank;
         const score = function(x) {
           const f = x.flags || {};
-          return (f.smz?4:0) + (f.belowSmz?3:0) + (f.aboveSwingLow?3:0) + (f.fvbGreen?3:0) + ((f.bxImproving||f.bxGreen)?3:0) + (f.cheap?1:0);
+          return (f.smz?4:0) + (f.belowSmz?3:0) + (f.aboveSwingLow?3:0) + (f.bosBull?3:0) + (f.volRising?1:0);
         };
         return score(b) - score(a);
       });
@@ -501,7 +500,7 @@
     buysSorted.forEach(function(b) {
       if (b.rank !== lastRank) {
         lastRank = b.rank;
-        const titles = { 1: 'High · SMZ (or ≤SMZ & >swing low) + FVB green + BX improving', 2: 'Setups', 3: 'Watch / needs confirmation' };
+        const titles = { 1: 'High · Fib SMZ + above swing low + bullish structure', 2: 'Setups', 3: 'Watch / needs confirmation' };
         slist.innerHTML += '<div class="text-xs uppercase tracking-wide text-slate-500 pt-2 pb-1">' + titles[b.rank] + '</div>';
       }
       slist.innerHTML +=
