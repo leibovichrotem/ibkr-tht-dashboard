@@ -22,11 +22,12 @@
 <body class="p-4 md:p-8">
   <div class="max-w-7xl mx-auto space-y-6">
 
+    <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       <div>
         <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
         <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 15:26 IDT</span></p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 16:05 IDT</span></p>
       </div>
       <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
@@ -44,15 +45,69 @@
       </div>
     </div>
 
+    <!-- Rules -->
     <div class="card p-4">
       <h2 class="text-sm font-semibold text-slate-300 mb-2">Rules & Psychology Reminder</h2>
       <ul class="text-sm text-slate-400 space-y-1 list-disc list-inside">
         <li>Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
         <li>Loss ≠ error. Error = deviation from rules</li>
-        <li><strong>BUY</strong> = SMZ / between SMZ & swing low + structure bullish · <strong>HOLD</strong> = IBZ / value · <strong>SELL</strong> = premium or structure break or claimed swing high</li>
+        <li><strong>BUY</strong> = SMZ / between SMZ & swing low + structure bullish · <strong>HOLD</strong> = IBZ / value · <strong>SELL</strong> = premium or structure break</li>
       </ul>
     </div>
 
+    <!-- KPI Cards -->
+    <div>
+      <h2 class="font-semibold text-white mb-3">Performance & Process KPIs</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Closed Trades</div>
+          <div class="text-2xl font-bold text-white mt-1">51</div>
+          <div class="text-xs text-amber-400 mt-1">Goal: 100+</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Win Rate</div>
+          <div class="text-2xl font-bold text-white mt-1">45%</div>
+          <div class="text-xs text-slate-500 mt-1">23W / 28L</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Profit Factor</div>
+          <div class="text-2xl font-bold text-red-400 mt-1">0.67</div>
+          <div class="text-xs text-slate-500 mt-1">Gross Wins ÷ Losses</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Avg Win</div>
+          <div class="text-xl font-bold text-emerald-400 mt-1">+$103</div>
+          <div class="text-xs text-slate-400">~+10.0% vs cost</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Avg Loss</div>
+          <div class="text-xl font-bold text-red-400 mt-1">–$126</div>
+          <div class="text-xs text-slate-400">~–17.5% vs cost</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Expectancy / trade</div>
+          <div class="text-xl font-bold text-red-400 mt-1">–$23</div>
+          <div class="text-xs text-slate-400">~–2.6%</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Total Realized</div>
+          <div class="text-xl font-bold text-red-400 mt-1">–$1,153</div>
+          <div class="text-xs text-slate-500 mt-1">YTD closed</div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Largest Win / Loss</div>
+          <div class="text-sm font-medium mt-1"><span class="text-emerald-400">+$693</span> / <span class="text-red-400">–$391</span></div>
+        </div>
+        <div class="card p-4">
+          <div class="text-xs text-slate-400">Open Unrealized</div>
+          <div class="text-xl font-bold text-emerald-400 mt-1">+$313</div>
+          <div class="text-xs text-slate-400">+2.4% of Net Liq</div>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 mt-3">Sample size still building. Process > short-term P&amp;L. Keep equal weight and only take rule-based trades.</p>
+    </div>
+
+    <!-- Positions -->
     <div class="card overflow-x-auto">
       <div class="p-4 border-b border-slate-700 flex justify-between items-center">
         <h2 class="font-semibold text-white">Positions (ordered by Cost Basis)</h2>
@@ -84,6 +139,7 @@
       </div>
     </div>
 
+    <!-- Charts -->
     <div class="grid md:grid-cols-2 gap-6">
       <div class="card p-4">
         <h2 class="font-semibold text-white mb-4">Allocation by Market Value</h2>
@@ -95,26 +151,26 @@
       </div>
     </div>
 
+    <!-- Peter Watchlist -->
     <div class="card p-4">
       <h2 class="font-semibold text-white mb-3">Peter’s Watchlist (public posts)</h2>
       <div class="text-sm text-slate-300 space-y-2">
-        <p><span class="text-emerald-400 font-medium">CELH</span> — Back in long-term Smart Money Zone. One of the strongest Monthly levels. Targeting +80% toward $50 (13 Aug)</p>
+        <p><span class="text-emerald-400 font-medium">CELH</span> — Back in long-term Smart Money Zone. Strongest Monthly levels. Targeting +80% toward $50 (13 Aug)</p>
         <p><span class="text-emerald-400 font-medium">NFLX</span> — Compressing inside long-term SMZ. Expecting move toward $90 area (14 Aug)</p>
         <p><span class="text-blue-400 font-medium">META</span> — Still grinding / coiling. Remains bullish, timing more Sept/Oct (14 Aug)</p>
-        <p><span class="text-slate-400 font-medium">QQQ</span> — Compressing inside institutional sell zone. Macro bull cycle intact, cautious short-term (14 Aug)</p>
-        <p class="text-slate-500 text-xs mt-3">Only public posts shown. Subscribers-only content is not accessible via public tools.</p>
+        <p><span class="text-slate-400 font-medium">QQQ</span> — Compressing inside institutional sell zone. Macro bull cycle intact (14 Aug)</p>
       </div>
     </div>
 
+    <!-- Broad Market -->
     <div class="card p-4">
       <h2 class="font-semibold text-white mb-3">Broad Market / Sector BUY Zone Watchlist</h2>
-      <p class="text-sm text-slate-400 mb-3">Approximate candidates near discount / SMZ-style levels (S&P 500 + major sector ETFs). Full deep scan expands over future runs.</p>
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2 text-sm">
         <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-emerald-400 font-medium">CELH</span> · SMZ · BUY</div>
         <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-emerald-400 font-medium">NFLX</span> · SMZ · BUY</div>
         <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-emerald-400 font-medium">TE</span> · near SMZ · BUY</div>
         <div class="bg-slate-800/60 rounded px-3 py-2"><span class="text-blue-400 font-medium">ENPH</span> · IBZ · HOLD</div>
-        <div class="bg-slate-800/60 rounded px-3 py-2 text-slate-500">XLE / XLV / XLI / XLF — deeper scan pending</div>
+        <div class="bg-slate-800/60 rounded px-3 py-2 text-slate-500">XLE / XLV / XLI / XLF — expanding</div>
       </div>
     </div>
 
@@ -170,28 +226,20 @@
         </tr>`;
     });
 
-    // Allocation with percentages
     new Chart(document.getElementById("allocationChart"), {
       type: "doughnut",
       data: {
         labels: positions.map(p => p.symbol),
-        datasets: [{
-          data: positions.map(p => p.mv),
-          backgroundColor: ["#34d399","#60a5fa","#f472b6","#a78bfa","#fbbf24","#2dd4bf","#fb7185","#818cf8","#4ade80","#38bdf8","#e879f9","#facc15","#22d3ee","#f87171","#c084fc"]
-        }]
+        datasets: [{ data: positions.map(p => p.mv),
+          backgroundColor: ["#34d399","#60a5fa","#f472b6","#a78bfa","#fbbf24","#2dd4bf","#fb7185","#818cf8","#4ade80","#38bdf8","#e879f9","#facc15","#22d3ee","#f87171","#c084fc"] }]
       },
       options: {
         plugins: {
           legend: { position: "right", labels: { color: "#94a3b8", boxWidth: 11, font: { size: 11 } } },
-          tooltip: {
-            callbacks: {
-              label: function(ctx) {
-                const total = ctx.dataset.data.reduce((a,b)=>a+b,0);
-                const pct = ((ctx.raw / total) * 100).toFixed(1);
-                return ctx.label + ": $" + ctx.raw.toFixed(0) + " (" + pct + "%)";
-              }
-            }
-          }
+          tooltip: { callbacks: { label: ctx => {
+            const total = ctx.dataset.data.reduce((a,b)=>a+b,0);
+            return ctx.label + ": $" + ctx.raw.toFixed(0) + " (" + ((ctx.raw/total)*100).toFixed(1) + "%)";
+          }}}
         },
         cutout: "55%"
       }
@@ -201,14 +249,8 @@
       type: "line",
       data: {
         labels: ["Jul 31","Aug 3","Aug 7","Aug 10","Aug 14","Aug 17"],
-        datasets: [{
-          label: "NAV",
-          data: [13822, 14551, 16057, 16037, 13164, 13210],
-          borderColor: "#34d399",
-          backgroundColor: "rgba(52,211,153,0.1)",
-          fill: true,
-          tension: 0.3
-        }]
+        datasets: [{ label: "NAV", data: [13822, 14551, 16057, 16037, 13164, 13210],
+          borderColor: "#34d399", backgroundColor: "rgba(52,211,153,0.1)", fill: true, tension: 0.3 }]
       },
       options: {
         plugins: { legend: { display: false } },
