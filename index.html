@@ -69,20 +69,24 @@
       <div>
         <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
         <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 17:06 IDT</span></p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-17 17:06 IDT</span> · <span class="text-slate-600">Prices refresh ~1 min</span></p>
       </div>
       <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Cash</div>
-          <div class="font-medium text-slate-200">$968</div>
+          <div id="hdr-cash" class="font-medium text-slate-200">$968</div>
         </div>
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Unrealized</div>
-          <div class="font-medium text-emerald-400">+$313</div>
+          <div id="hdr-upnl" class="font-medium text-emerald-400">+$313</div>
         </div>
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Positions</div>
-          <div class="font-medium text-slate-200">15</div>
+          <div id="hdr-pos" class="font-medium text-slate-200">15</div>
+        </div>
+        <div class="card px-4 py-2">
+          <div class="text-slate-500 text-xs">Live quotes</div>
+          <div id="hdr-live" class="font-medium text-slate-400 text-xs">—</div>
         </div>
       </div>
     </div>
@@ -334,22 +338,22 @@
       return c;
     });
 
-    // Render holdings
+    // Render holdings (cells tagged for 1-min live quote updates)
     const tbody = document.getElementById("positions-body");
     positions.forEach(function(p) {
       const scoreClass = p.score === "BUY" ? "score-buy" : p.score === "SELL" ? "score-sell" : "score-hold";
       const upnlClass = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
       const chgClass = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
       tbody.innerHTML +=
-        '<tr>' +
+        '<tr data-sym="' + p.symbol + '">' +
         '<td><div class="flex items-center gap-2">' + badge(p.symbol) + '<span class="font-medium text-white" style="margin-left:2px">' + p.symbol + '</span></div></td>' +
-        '<td class="num">$' + p.last.toFixed(2) + '</td>' +
-        '<td class="num ' + chgClass + '">' + (p.chg >= 0 ? "+" : "") + p.chg.toFixed(1) + '%</td>' +
-        '<td class="num ' + upnlClass + '">$' + p.upnl.toFixed(0) + '</td>' +
-        '<td class="num ' + upnlClass + '">' + (p.upnlPct >= 0 ? "+" : "") + p.upnlPct.toFixed(1) + '%</td>' +
+        '<td class="num" data-f="last">$' + p.last.toFixed(2) + '</td>' +
+        '<td class="num ' + chgClass + '" data-f="chg">' + (p.chg >= 0 ? "+" : "") + p.chg.toFixed(1) + '%</td>' +
+        '<td class="num ' + upnlClass + '" data-f="upnl">$' + p.upnl.toFixed(0) + '</td>' +
+        '<td class="num ' + upnlClass + '" data-f="upnlPct">' + (p.upnlPct >= 0 ? "+" : "") + p.upnlPct.toFixed(1) + '%</td>' +
         '<td class="num">$' + p.cost.toFixed(0) + '</td>' +
         '<td class="num">' + p.qty + '</td>' +
-        '<td class="num">' + p.pctNet.toFixed(1) + '%</td>' +
+        '<td class="num" data-f="pctNet">' + p.pctNet.toFixed(1) + '%</td>' +
         '<td><span class="px-2 py-0.5 rounded text-xs font-medium ' + scoreClass + '">' + p.score + '</span></td>' +
         '<td class="text-slate-400 text-xs">' + p.peter + '</td>' +
         '</tr>';
@@ -418,6 +422,84 @@
         '<div class="text-xs text-slate-400 mt-0.5">' + b.note + '</div>' +
         '</div></div>';
     });
+
+    // ——— Live price refresh (~1 min) for Last / Chg% / Unrealized ———
+    // Cost basis, qty, scores, KPIs, scanner, history come from hourly IBKR automation.
+    const CASH_SNAP = 967.97;
+    function fmtMoney(n) {
+      const s = (n >= 0 ? "" : "-") + "$" + Math.abs(n).toFixed(0);
+      return n >= 0 && n !== 0 ? "+" + s.replace("+", "") : s;
+    }
+    async function fetchQuote(sym) {
+      const url = "https://query1.finance.yahoo.com/v8/finance/chart/" + encodeURIComponent(sym) + "?interval=1d&range=1d";
+      const proxies = [
+        url,
+        "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
+        "https://corsproxy.io/?" + encodeURIComponent(url)
+      ];
+      for (let i = 0; i < proxies.length; i++) {
+        try {
+          const res = await fetch(proxies[i], { signal: AbortSignal.timeout(8000) });
+          if (!res.ok) continue;
+          const data = await res.json();
+          const meta = data.chart && data.chart.result && data.chart.result[0] && data.chart.result[0].meta;
+          if (!meta || meta.regularMarketPrice == null) continue;
+          const last = meta.regularMarketPrice;
+          const prev = meta.chartPreviousClose || meta.previousClose || last;
+          const chg = prev ? ((last - prev) / prev) * 100 : 0;
+          return { last: last, chg: chg };
+        } catch (e) { /* try next */ }
+      }
+      return null;
+    }
+    async function refreshLiveQuotes() {
+      const elLive = document.getElementById("hdr-live");
+      if (elLive) elLive.textContent = "updating…";
+      let totalUpnl = 0;
+      let ok = 0;
+      for (let i = 0; i < positions.length; i++) {
+        const p = positions[i];
+        const q = await fetchQuote(p.symbol);
+        if (!q) continue;
+        ok++;
+        p.last = q.last;
+        p.chg = q.chg;
+        p.upnl = (p.last - p.avg) * p.qty;
+        p.upnlPct = p.avg ? ((p.last - p.avg) / p.avg) * 100 : 0;
+        p.mv = p.last * p.qty;
+        p.pctNet = NET_LIQ ? (p.mv / NET_LIQ) * 100 : 0;
+        totalUpnl += p.upnl;
+        const row = document.querySelector('tr[data-sym="' + p.symbol + '"]');
+        if (!row) continue;
+        const set = function(field, text, cls) {
+          const cell = row.querySelector('[data-f="' + field + '"]');
+          if (!cell) return;
+          cell.textContent = text;
+          if (cls) { cell.classList.remove("text-emerald-400", "text-red-400"); cell.classList.add(cls); }
+        };
+        const upCls = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
+        const chCls = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
+        set("last", "$" + p.last.toFixed(2));
+        set("chg", (p.chg >= 0 ? "+" : "") + p.chg.toFixed(1) + "%", chCls);
+        set("upnl", "$" + p.upnl.toFixed(0), upCls);
+        set("upnlPct", (p.upnlPct >= 0 ? "+" : "") + p.upnlPct.toFixed(1) + "%", upCls);
+        set("pctNet", p.pctNet.toFixed(1) + "%");
+      }
+      const hdrUpnl = document.getElementById("hdr-upnl");
+      if (hdrUpnl && ok > 0) {
+        hdrUpnl.textContent = (totalUpnl >= 0 ? "+$" : "-$") + Math.abs(totalUpnl).toFixed(0);
+        hdrUpnl.classList.remove("text-emerald-400", "text-red-400");
+        hdrUpnl.classList.add(totalUpnl >= 0 ? "text-emerald-400" : "text-red-400");
+      }
+      if (elLive) {
+        const t = new Date();
+        elLive.textContent = ok ? (ok + "/" + positions.length + " · " + t.toLocaleTimeString()) : "quotes unavailable";
+      }
+    }
+    // First refresh after short delay, then every 60s
+    setTimeout(refreshLiveQuotes, 2500);
+    setInterval(refreshLiveQuotes, 60000);
+
   </script>
 </body>
 </html>
