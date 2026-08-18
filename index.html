@@ -171,42 +171,42 @@
       </ul>
     </div>
 
-    <!-- KPI cards -->
+    <!-- KPI cards — filled from closed[] via computeKPIs(); never hardcode -->
     <div>
       <h2 class="font-semibold text-white mb-3">Performance & Process KPIs</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
         <div class="card p-4">
           <div class="text-xs text-slate-400">Trades History</div>
-          <div class="text-2xl font-bold text-white mt-1">53</div>
+          <div id="kpi-n" class="text-2xl font-bold text-white mt-1">—</div>
           <div class="text-xs text-amber-400 mt-1">Goal: 100+</div>
         </div>
         <div class="card p-4">
           <div class="text-xs text-slate-400">Win Rate</div>
-          <div class="text-2xl font-bold text-white mt-1">45%</div>
-          <div class="text-xs text-slate-500 mt-1">23W / 28L</div>
+          <div id="kpi-wr" class="text-2xl font-bold text-white mt-1">—</div>
+          <div id="kpi-wl" class="text-xs text-slate-500 mt-1">—</div>
         </div>
         <div class="card p-4">
           <div class="text-xs text-slate-400">Profit Factor</div>
-          <div class="text-2xl font-bold text-red-400 mt-1">0.67</div>
+          <div id="kpi-pf" class="text-2xl font-bold mt-1">—</div>
           <div class="text-xs text-slate-500 mt-1">Gross Wins ÷ Losses</div>
         </div>
         <div class="card p-4">
           <div class="text-xs text-slate-400">Avg Win</div>
-          <div class="text-xl font-bold text-emerald-400 mt-1">+$103</div>
-          <div class="text-xs text-slate-400">~+10.0% vs cost</div>
+          <div id="kpi-aw" class="text-xl font-bold text-emerald-400 mt-1">—</div>
+          <div id="kpi-awp" class="text-xs text-slate-400">—</div>
         </div>
         <div class="card p-4">
           <div class="text-xs text-slate-400">Avg Loss</div>
-          <div class="text-xl font-bold text-red-400 mt-1">–$126</div>
-          <div class="text-xs text-slate-400">~–17.5% vs cost</div>
+          <div id="kpi-al" class="text-xl font-bold text-red-400 mt-1">—</div>
+          <div id="kpi-alp" class="text-xs text-slate-400">—</div>
         </div>
-        <div class="card p-4" title="Average $ expected per closed trade = (Win% × Avg Win) − (Loss% × Avg Loss). Positive = edge.">
+        <div class="card p-4" title="(Win% × Avg Win) − (Loss% × Avg Loss) on closed trades. Positive = edge.">
           <div class="text-xs text-slate-400">Expectancy / trade</div>
-          <div class="text-xl font-bold text-red-400 mt-1">–$23</div>
-          <div class="text-xs text-slate-400">Avg edge per trade · ~–2.6%</div>
+          <div id="kpi-e" class="text-xl font-bold mt-1">—</div>
+          <div id="kpi-ep" class="text-xs text-slate-400">Avg edge per trade</div>
         </div>
       </div>
-      <p class="text-xs text-slate-500 mt-3">Sample size still building. Process &gt; short-term P&amp;L. Keep equal weight and only take rule-based trades.</p>
+      <p class="text-xs text-slate-500 mt-3">Derived live from Trades History (same source as the table). Sample size goal 100+.</p>
     </div>
 
 
@@ -500,6 +500,46 @@
       { date: "2026-06-05", sym: "CLSK", qty: 60, exit: 15.95, pnl: -65.00, cost: 1022 }
     ].map(function(c) {
       c.pct = c.cost ? (c.pnl / c.cost) * 100 : 0;
+
+    function computeKPIs() {
+      const rows = (typeof closed !== 'undefined' && Array.isArray(closed)) ? closed : [];
+      const wins = rows.filter(t => Number(t.pnl) > 0);
+      const losses = rows.filter(t => Number(t.pnl) < 0);
+      const n = rows.length;
+      const nw = wins.length, nl = losses.length;
+      const gw = wins.reduce((s,t) => s + Number(t.pnl), 0);
+      const gl = losses.reduce((s,t) => s + Number(t.pnl), 0);
+      const aw = nw ? gw / nw : 0;
+      const al = nl ? gl / nl : 0;
+      const denom = nw + nl;
+      const wr = denom ? (100 * nw / denom) : 0;
+      const pf = (gl < 0) ? (gw / Math.abs(gl)) : null;
+      const exp = denom ? (nw/denom)*aw + (nl/denom)*al : 0;
+      const awp = nw ? wins.reduce((s,t) => s + (t.cost ? 100*t.pnl/t.cost : 0), 0) / nw : 0;
+      const alp = nl ? losses.reduce((s,t) => s + (t.cost ? 100*t.pnl/t.cost : 0), 0) / nl : 0;
+      const set = (id, text, cls) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.textContent = text;
+        if (cls) { el.classList.remove('text-emerald-400','text-red-400','text-white'); el.classList.add(cls); }
+      };
+      set('kpi-n', String(n));
+      set('kpi-wr', denom ? (Math.round(wr) + '%') : '—');
+      set('kpi-wl', nw + 'W / ' + nl + 'L');
+      if (pf == null) set('kpi-pf', '—');
+      else set('kpi-pf', pf.toFixed(2), pf >= 1 ? 'text-emerald-400' : 'text-red-400');
+      set('kpi-aw', '+$' + Math.round(aw));
+      set('kpi-awp', '~+' + awp.toFixed(1) + '% vs cost');
+      set('kpi-al', '–$' + Math.round(Math.abs(al)));
+      set('kpi-alp', '~' + alp.toFixed(1) + '% vs cost');
+      set('kpi-e', (exp >= 0 ? '+$' : '–$') + Math.round(Math.abs(exp)), exp >= 0 ? 'text-emerald-400' : 'text-red-400');
+      set('kpi-ep', 'Avg edge · ~' + (denom && rows[0] ? ((exp / (rows.reduce((s,t)=>s+Number(t.cost||0),0)/Math.max(n,1))) * 100).toFixed(1) : '0') + '%');
+      // simpler edge % label
+      const avgCost = n ? rows.reduce((s,t)=>s+Number(t.cost||0),0)/n : 0;
+      const epct = avgCost ? (100 * exp / avgCost) : 0;
+      set('kpi-ep', 'Avg edge per trade · ~' + epct.toFixed(1) + '%');
+    }
+
       return c;
     });
 
