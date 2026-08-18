@@ -894,21 +894,8 @@ const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, 
       }
     })();
 
-// ——— Live prices: prefer Oracle prices.json (5-min), fallback Finnhub ———
+// ——— Live prices via Finnhub · every 60s ———
     const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
-    const PRICES_JSON_URL = 'prices.json?t=' ; // cache-bust appended at fetch time
-
-    async function fetchPricesJson() {
-      try {
-        const r = await fetch(PRICES_JSON_URL + Date.now(), { cache: 'no-store' });
-        if (!r.ok) return null;
-        const d = await r.json();
-        if (!d || !d.quotes) return null;
-        return d;
-      } catch (e) {
-        return null;
-      }
-    }
 
     async function fetchFinnhubQuote(sym) {
       try {
@@ -925,59 +912,39 @@ const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, 
       }
     }
 
-    function applyQuoteToRow(p) {
-      p.upnl = (p.last - p.avg) * p.qty;
-      p.upnlPct = p.avg ? ((p.last - p.avg) / p.avg) * 100 : 0;
-      p.mv = p.last * p.qty;
-      p.pctNet = (typeof NET_LIQ !== 'undefined' && NET_LIQ) ? (p.mv / NET_LIQ) * 100 : 0;
-      const row = document.querySelector('tr[data-sym="' + p.symbol + '"]');
-      if (!row) return;
-      function set(field, text, cls) {
-        const cell = row.querySelector('[data-f="' + field + '"]');
-        if (!cell) return;
-        cell.textContent = text;
-        if (cls) {
-          cell.classList.remove('text-emerald-400', 'text-red-400');
-          cell.classList.add(cls);
-        }
-      }
-      const upCls = p.upnl >= 0 ? 'text-emerald-400' : 'text-red-400';
-      const chCls = p.chg >= 0 ? 'text-emerald-400' : 'text-red-400';
-      set('last', '$' + Number(p.last).toFixed(2));
-      set('chg', (p.chg >= 0 ? '+' : '') + Number(p.chg).toFixed(1) + '%', chCls);
-      set('upnl', '$' + p.upnl.toFixed(0), upCls);
-      set('upnlPct', (p.upnlPct >= 0 ? '+' : '') + p.upnlPct.toFixed(1) + '%', upCls);
-      set('pctNet', p.pctNet.toFixed(1) + '%');
-    }
-
     async function refreshLiveQuotes() {
       const elLive = document.getElementById('hdr-live');
       if (elLive) elLive.textContent = 'updating…';
       let ok = 0;
-      let source = 'Finnhub';
-
-      const file = await fetchPricesJson();
-      if (file && file.quotes) {
-        source = 'Oracle 5m';
-        positions.forEach(function(p) {
-          const q = file.quotes[p.symbol];
-          if (!q || q.last == null) return;
-          ok++;
-          p.last = q.last;
-          p.chg = q.chg != null ? q.chg : 0;
-          applyQuoteToRow(p);
-        });
-      } else {
-        await Promise.all(positions.map(async function(p) {
-          const q = await fetchFinnhubQuote(p.symbol);
-          if (!q) return;
-          ok++;
-          p.last = q.last;
-          p.chg = q.chg;
-          applyQuoteToRow(p);
-        }));
-      }
-
+      await Promise.all(positions.map(async function(p) {
+        const q = await fetchFinnhubQuote(p.symbol);
+        if (!q) return;
+        ok++;
+        p.last = q.last;
+        p.chg = q.chg;
+        p.upnl = (p.last - p.avg) * p.qty;
+        p.upnlPct = p.avg ? ((p.last - p.avg) / p.avg) * 100 : 0;
+        p.mv = p.last * p.qty;
+        p.pctNet = (typeof NET_LIQ !== 'undefined' && NET_LIQ) ? (p.mv / NET_LIQ) * 100 : 0;
+        const row = document.querySelector('tr[data-sym="' + p.symbol + '"]');
+        if (!row) return;
+        function set(field, text, cls) {
+          const cell = row.querySelector('[data-f="' + field + '"]');
+          if (!cell) return;
+          cell.textContent = text;
+          if (cls) {
+            cell.classList.remove('text-emerald-400', 'text-red-400');
+            cell.classList.add(cls);
+          }
+        }
+        const upCls = p.upnl >= 0 ? 'text-emerald-400' : 'text-red-400';
+        const chCls = p.chg >= 0 ? 'text-emerald-400' : 'text-red-400';
+        set('last', '$' + p.last.toFixed(2));
+        set('chg', (p.chg >= 0 ? '+' : '') + p.chg.toFixed(1) + '%', chCls);
+        set('upnl', '$' + p.upnl.toFixed(0), upCls);
+        set('upnlPct', (p.upnlPct >= 0 ? '+' : '') + p.upnlPct.toFixed(1) + '%', upCls);
+        set('pctNet', p.pctNet.toFixed(1) + '%');
+      }));
       const totalUpnl = positions.reduce(function(s, p) { return s + (p.upnl || 0); }, 0);
       const hdrUpnl = document.getElementById('hdr-upnl');
       if (hdrUpnl) {
@@ -987,20 +954,15 @@ const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, 
       }
       if (elLive) {
         const t = new Date();
-        let age = '';
-        if (file && file.updated_at) {
-          const sec = Math.max(0, Math.round((Date.now() - Date.parse(file.updated_at)) / 1000));
-          age = ' · ' + (sec < 60 ? sec + 's ago' : Math.round(sec / 60) + 'm ago');
-        }
         elLive.textContent = ok
-          ? (ok + '/' + positions.length + ' · ' + source + age + ' · ' + t.toLocaleTimeString())
-          : 'quotes unavailable';
-        elLive.title = source + (file && file.updated_at ? (' @ ' + file.updated_at) : '');
+          ? (ok + '/' + positions.length + ' · Finnhub · ' + t.toLocaleTimeString())
+          : 'Finnhub unavailable';
       }
     }
 
-    setTimeout(refreshLiveQuotes, 800);
-    setInterval(refreshLiveQuotes, 30000); // check prices.json every 30s
+    setTimeout(refreshLiveQuotes, 1500);
+    setInterval(refreshLiveQuotes, 60000);
+ // check prices.json every 30s
 
 
   </script>
