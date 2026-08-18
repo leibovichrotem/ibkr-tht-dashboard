@@ -61,36 +61,105 @@
     .scroll-box { max-height: 440px; overflow-y: auto; }
     .scroll-box::-webkit-scrollbar { width: 6px; }
     .scroll-box::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+    .sync-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; border-radius: 999px;
+      background: #1e293b; border: 1px solid #334155;
+      font-size: 0.72rem; color: #cbd5e1; cursor: default;
+      position: relative;
+    }
+    .sync-pill .dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .sync-pill .dot.ok { background: #34d399; box-shadow: 0 0 6px #34d39966; }
+    .sync-pill .dot.warn { background: #fbbf24; }
+    .sync-pill .dot.err { background: #f87171; }
+    .sync-pill .dot.pulse { animation: pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .sync-tip {
+      display: none; position: absolute; top: calc(100% + 8px); right: 0;
+      width: 260px; z-index: 50; padding: 10px 12px;
+      background: #0f172a; border: 1px solid #475569; border-radius: 10px;
+      box-shadow: 0 12px 40px #0008; color: #e2e8f0; font-size: 0.72rem;
+      line-height: 1.45; text-align: left;
+    }
+    .sync-pill:hover .sync-tip { display: block; }
+    .sync-tip strong { color: #f1f5f9; }
+    .mkt-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 600;
+      border: 1px solid transparent;
+    }
+    .mkt-pill.open { background: #064e3b; color: #6ee7b7; border-color: #05966955; }
+    .mkt-pill.pre { background: #1e3a5f; color: #93c5fd; border-color: #3b82f655; }
+    .mkt-pill.after { background: #4c1d95; color: #c4b5fd; border-color: #8b5cf655; }
+    .mkt-pill.closed { background: #1e293b; color: #94a3b8; border-color: #334155; }
+    .range-btn {
+      padding: 6px 12px; border-radius: 999px; font-size: 0.75rem;
+      border: 1px solid #334155; background: transparent; color: #94a3b8; cursor: pointer;
+    }
+    .range-btn.active { background: #6366f1; color: #fff; border-color: #6366f1; }
+    .alloc-grid {
+      display: grid; grid-template-columns: minmax(220px, 280px) 1fr; gap: 1.25rem; align-items: start;
+    }
+    @media (max-width: 900px) {
+      .alloc-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body class="p-4 md:p-8">
   <div class="max-w-7xl mx-auto space-y-5">
     <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
       <div>
-        <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
-        <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-18 18:04 IDT</span> · <span class="text-slate-600">Prices refresh ~1 min</span></p>
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
+          <span id="mkt-pill" class="mkt-pill closed">● Closed</span>
+        </div>
+        <p class="text-slate-400 text-sm">Rules-based · Peter DiCarlo THT Bull Cycle</p>
       </div>
-      <div class="flex flex-wrap gap-3 text-sm">
-        <div class="card px-4 py-2">
-          <div class="text-slate-500 text-xs">Cash</div>
-          <div id="hdr-cash" class="font-medium text-slate-200">$945</div>
+      <div class="flex flex-col items-stretch md:items-end gap-2">
+        <div class="flex flex-wrap gap-2 justify-end">
+          <div class="sync-pill" id="pill-ibkr">
+            <span class="dot ok" id="dot-ibkr"></span>
+            <span class="font-medium text-slate-200">IBKR</span>
+            <span class="text-slate-500" id="pill-ibkr-age">—</span>
+            <div class="sync-tip">
+              <strong>IBKR snapshot</strong> (hourly automation)<br>
+              Last: <span id="tip-ibkr-time">—</span><br>
+              Provides: positions, cost basis, qty, scores, NAV, cash, closed trades, performance series, BUY scanner list.
+            </div>
+          </div>
+          <div class="sync-pill" id="pill-fh">
+            <span class="dot pulse" id="dot-fh"></span>
+            <span class="font-medium text-slate-200">Finnhub</span>
+            <span class="text-slate-500" id="pill-fh-age">—</span>
+            <div class="sync-tip">
+              <strong>Finnhub live</strong> (~60s in browser)<br>
+              Last: <span id="tip-fh-time">waiting…</span><br>
+              Provides: Last price, day Chg%, Unrealized $/% between IBKR runs (RTH-oriented).
+            </div>
+          </div>
         </div>
-        <div class="card px-4 py-2">
-          <div class="text-slate-500 text-xs">Unrealized</div>
-          <div id="hdr-upnl" class="font-medium text-red-400">-$199</div>
-        </div>
-        <div class="card px-4 py-2">
-          <div class="text-slate-500 text-xs">Positions</div>
-          <div id="hdr-pos" class="font-medium text-slate-200">15</div>
-        </div>
-        <div class="card px-4 py-2">
-          <div class="text-slate-500 text-xs">Live quotes</div>
-          <div id="hdr-live" class="font-medium text-slate-400 text-xs">—</div>
+        <div class="flex flex-wrap gap-2 justify-end text-sm">
+          <div class="card px-3 py-1.5">
+            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Cash</div>
+            <div id="hdr-cash" class="font-medium text-slate-200 text-sm">$945</div>
+          </div>
+          <div class="card px-3 py-1.5">
+            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Unrealized</div>
+            <div id="hdr-upnl" class="font-medium text-red-400 text-sm">-$199</div>
+          </div>
+          <div class="card px-3 py-1.5">
+            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Positions</div>
+            <div id="hdr-pos" class="font-medium text-slate-200 text-sm">15</div>
+          </div>
         </div>
       </div>
     </div>
+    <span id="last-run" class="hidden">2026-08-18 18:04 IDT</span>
+    <span id="hdr-live" class="hidden">—</span>
 
     <!-- Rules -->
     <div class="card p-4">
@@ -108,7 +177,7 @@
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
         <div class="card p-4">
           <div class="text-xs text-slate-400">Trades History</div>
-          <div class="text-2xl font-bold text-white mt-1">51</div>
+          <div class="text-2xl font-bold text-white mt-1">53</div>
           <div class="text-xs text-amber-400 mt-1">Goal: 100+</div>
         </div>
         <div class="card p-4">
@@ -275,60 +344,54 @@
         <p class="text-xs text-slate-500 p-3">*Since tracked = IBKR account window.</p>
       </div>
 
-      <!-- Equity curve: Portfolio vs S&P (GRNY-style) -->
+      <!-- Equity curve: Portfolio vs S&P (GRNY-style ranges) -->
       <div class="card p-4">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <div>
             <h3 class="text-sm font-semibold text-white">Portfolio vs S&amp;P 500</h3>
-            <p class="text-xs text-slate-500">Cumulative return % since account track start · IBKR TWR vs SPY</p>
+            <p class="text-xs text-slate-500">Cumulative return % · IBKR TWR vs SPY · <span id="equity-range-note">full available history (~Jun–Aug 2026)</span></p>
           </div>
-
+          <div class="flex gap-1.5" id="equity-range-btns">
+            <button type="button" class="range-btn" data-range="6m">Six Month</button>
+            <button type="button" class="range-btn active" data-range="ytd">Year to Date</button>
+            <button type="button" class="range-btn" data-range="all">Since Inception</button>
+          </div>
         </div>
-        <div class="relative" style="height:260px">
+        <div class="relative" style="height:280px">
           <canvas id="chartEquity"></canvas>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <!-- HOLDINGS ALLOCATION Tradesh doughnut -->
-        <div class="card p-4">
-          <div class="text-xs uppercase tracking-widest text-slate-500 mb-4">Holdings allocation</div>
-          <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap">
-            <div style="position:relative;width:200px;height:200px;flex-shrink:0;margin:0 auto">
-              <canvas id="pieHoldings"></canvas>
-              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
-                <div id="pv-comb" style="font-family:ui-monospace,monospace;font-size:1.25rem;font-weight:600;color:#f1f5f9;line-height:1">—</div>
-                <div style="font-family:ui-monospace,monospace;font-size:0.58rem;color:#64748b;margin-top:4px;letter-spacing:0.06em">total</div>
-              </div>
-            </div>
-            <div id="leg-comb" style="flex:1;min-width:240px;display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;max-height:320px;overflow-y:auto"></div>
-          </div>
-        </div>
-
-        <!-- Exposure by sector -->
-        <div class="card p-4">
-          <div class="flex items-start justify-between gap-2 mb-3">
-            <div>
-              <h3 class="text-sm font-semibold text-white">Exposure breakdowns</h3>
-              <p class="text-xs text-slate-500">Sector · % of position market value</p>
-            </div>
-          </div>
-          <div class="relative" style="height:280px">
-            <canvas id="chartExposure"></canvas>
-          </div>
-          <p class="text-xs text-slate-500 mt-2">Hover a sector bar to see which holdings are included.</p>
-        </div>
-      </div>
-
-      <!-- Trade performance alternative: cumulative closed-trade P&L path -->
+      
+      <!-- HOLDINGS ALLOCATION full width -->
       <div class="card p-4">
-        <h3 class="text-sm font-semibold text-white mb-1">Closed-trade equity path</h3>
-        <p class="text-xs text-slate-500 mb-3">Running sum of realized P&amp;L by close date — not shown in KPI cards</p>
-        <div class="relative" style="height:220px">
-          <canvas id="chartTradePath"></canvas>
+        <div class="mb-3">
+          <h3 class="text-sm font-semibold text-white tracking-wide uppercase">Holdings allocation</h3>
+          <p class="text-xs text-slate-500">All positions by market value</p>
+        </div>
+        <div class="alloc-grid">
+          <div class="relative mx-auto" style="width:240px;height:240px">
+            <canvas id="pieHoldings"></canvas>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
+              <div id="pv-comb" style="font-family:ui-monospace,monospace;font-size:1.25rem;font-weight:600;color:#f1f5f9;line-height:1">—</div>
+              <div style="font-family:ui-monospace,monospace;font-size:0.58rem;color:#64748b;margin-top:4px;letter-spacing:0.06em">total</div>
+            </div>
+          </div>
+          <div id="leg-comb" style="display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;max-height:none;overflow:visible"></div>
         </div>
       </div>
-    </div>
+
+      <!-- Exposure full width below -->
+      <div class="card p-4">
+        <div class="mb-3">
+          <h3 class="text-sm font-semibold text-white">Exposure breakdowns</h3>
+          <p class="text-xs text-slate-500">Sector · % of position market value · hover for tickers</p>
+        </div>
+        <div class="relative" style="height:260px">
+          <canvas id="chartExposure"></canvas>
+        </div>
+      </div>
+
 
     <footer class="text-center text-slate-500 text-xs py-4">
       Generated by Grok · ibkr-trade-tracker · THT Bull Cycle · Not financial advice<br>
@@ -392,6 +455,8 @@
     ];
 
     const closed = [
+      { date: "2026-08-18", sym: "NOW", qty: 4, exit: 120.92, pnl: 21.50, cost: 459.66 },
+      { date: "2026-08-17", sym: "HNST", qty: 110, exit: 4.78, pnl: 103.73, cost: 422.07 },
       { date: "2026-08-13", sym: "POET", qty: 50, exit: 9.37, pnl: 64.58, cost: 468 },
       { date: "2026-08-12", sym: "AVGO", qty: 2.5, exit: 417.4, pnl: 91.65, cost: 835 },
       { date: "2026-08-11", sym: "AVGO", qty: 2, exit: 417.95, pnl: 49.64, cost: 836 },
@@ -627,7 +692,7 @@
 
     // From IBKR TWR cps (last point in each window), 2026-08-17
     const PERF = {
-      portfolio: { m1: 13.74, mtd: 15.32, ytd: -12.89, y1: -12.89, all: -12.89 },
+      portfolio: { m1: 14.97, mtd: 14.32, ytd: -13.65, y1: -13.65, all: -13.65 },
       spx: { m1: 3.95, mtd: 3.95, ytd: 13.10, y1: 20.11 }
     };
     setPerf('perf-p-1m', PERF.portfolio.m1);
@@ -710,7 +775,7 @@
             '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">' +
               '<div style="display:flex;align-items:center;gap:8px">' +
                 '<span style="font-size:.82rem;font-weight:700;color:' + color + '">' + p.symbol + '</span>' +
-                '<span style="font-family:ui-monospace,monospace;font-size:.58rem;color:#94a3b8;background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px">' + pct.toFixed(1) + '%</span>' +
+                '<span style="font-family:ui-monospace,monospace;font-size:.72rem;font-weight:700;color:#e2e8f0;background:rgba(148,163,184,.12);padding:2px 7px;border-radius:5px;letter-spacing:.02em">' + pct.toFixed(1) + '%</span>' +
               '</div>' +
               '<div style="display:flex;align-items:center;gap:6px">' +
                 (pnlText ? '<span style="font-family:ui-monospace,monospace;font-size:.6rem;color:' + pnlColor + '">' + pnlText + '</span>' : '') +
@@ -730,7 +795,7 @@
         POET:'Information Technology', MSTR:'Information Technology',
         HOOD:'Financials', UBER:'Consumer Discretionary',
         HNST:'Consumer Staples', CELH:'Consumer Staples',
-        MMM:'Industrials', RKLB:'Industrials', TE:'Industrials'
+        MMM:'Industrials', RKLB:'Industrials', TE:'Industrials', NXT:'Industrials'
       };
       const sectorMap = {};
       const sectorTickers = {};
@@ -786,109 +851,182 @@
         });
       }
 
-      const byDate = closed.slice().sort(function(a,b){ return (a.date < b.date ? -1 : 1); });
-      let run = 0;
-      const pathLabels = [];
-      const pathData = [];
-      byDate.forEach(function(c) {
-        run += c.pnl;
-        pathLabels.push(c.date.slice(5) + ' ' + c.sym);
-        pathData.push(+run.toFixed(2));
-      });
-      const pathCtx = document.getElementById('chartTradePath');
-      if (pathCtx && typeof Chart !== 'undefined') {
-        new Chart(pathCtx, {
-          type: 'line',
-          data: {
-            labels: pathLabels,
-            datasets: [{
-              label: 'Cumulative realized $',
-              data: pathData,
-              borderColor: '#818cf8',
-              backgroundColor: 'rgba(129,140,248,0.12)',
-              fill: true,
-              tension: 0.25,
-              pointRadius: 2,
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-              x: { ticks: { color: '#64748b', maxRotation: 45, font: { size: 9 } }, grid: { display: false } },
-              y: { ticks: { color: '#94a3b8', callback: function(v){ return '$'+v; } }, grid: { color: '#33415555' } }
-            }
-          }
-        });
-      }
+const EQUITY_LABELS = ["06-04", "06-05", "06-08", "06-09", "06-10", "06-11", "06-12", "06-15", "06-16", "06-17", "06-18", "06-19", "06-22", "06-23", "06-24", "06-25", "06-26", "06-29", "06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20", "07-21", "07-22", "07-23", "07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17", "08-18"];
+const EQUITY_PORT = [-0.0, -6.95, -5.78, -9.03, -12.4, -8.89, -9.68, -7.54, -9.05, -9.63, -6.14, -6.14, -9.99, -13.28, -14.86, -17.19, -19.18, -17.42, -16.61, -18.77, -21.63, -21.63, -19.13, -21.54, -19.44, -18.29, -18.56, -21.13, -19.55, -19.45, -23.41, -24.89, -25.02, -22.6, -22.94, -25.94, -28.86, -28.47, -28.55, -31.58, -27.61, -24.47, -20.48, -17.64, -17.07, -15.29, -12.25, -12.36, -11.82, -12.98, -11.36, -11.51, -12.89, -13.65];
+const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, -2.13, -1.37, -1.37, -1.68, -3.11, -3.15, -3.01, -3.71, -2.13, -1.36, -1.5, -1.63, -1.63, -0.77, -1.24, -1.54, -0.71, -0.28, -1.05, -0.69, -0.3, -0.84, -1.82, -1.98, -1.16, -1.28, -2.5, -2.4, -2.38, -2.14, -3.65, -2.03, -1.33, 0.08, 1.88, 1.68, 1.52, 2.14, 2.11, 1.78, 2.03, 2.75, 2.54, 2.06, 1.4];
 
-const EQUITY_LABELS = ["06-04", "06-05", "06-08", "06-09", "06-10", "06-11", "06-12", "06-15", "06-16", "06-17", "06-18", "06-19", "06-22", "06-23", "06-24", "06-25", "06-26", "06-29", "06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20", "07-21", "07-22", "07-23", "07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17"];
-const EQUITY_PORT = [-0.0, -6.95, -5.78, -9.03, -12.4, -8.89, -9.68, -7.54, -9.05, -9.63, -6.14, -6.14, -9.99, -13.28, -14.86, -17.19, -19.18, -17.42, -16.61, -18.77, -21.63, -21.63, -19.13, -21.54, -19.44, -18.29, -18.56, -21.13, -19.55, -19.45, -23.41, -24.89, -25.02, -22.6, -22.94, -25.94, -28.86, -28.47, -28.55, -31.58, -27.61, -24.47, -20.48, -17.64, -17.07, -15.29, -12.25, -12.36, -11.82, -12.98, -11.36, -11.51, -12.89];
-const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, -2.13, -1.37, -1.37, -1.68, -3.11, -3.15, -3.01, -3.71, -2.13, -1.36, -1.5, -1.63, -1.63, -0.77, -1.24, -1.54, -0.71, -0.28, -1.05, -0.69, -0.3, -0.84, -1.82, -1.98, -1.16, -1.28, -2.5, -2.4, -2.38, -2.14, -3.65, -2.03, -1.33, 0.08, 1.88, 1.68, 1.52, 2.14, 2.11, 1.78, 2.03, 2.75, 2.54, 2.06];
+    // Equity chart range switching (GRNY-style)
+    let equityChart = null;
+    function sliceEquity(range) {
+      // Account track starts ~2026-06-04 — only ~2.5 months of history.
+      // Six Month / YTD / Since Inception all use full available series until longer history exists.
+      const labels = EQUITY_LABELS.slice();
+      const port = EQUITY_PORT.slice();
+      const spy = EQUITY_SPY.slice();
+      const start = 0;
+      const L = labels.slice(start);
+      const P = port.slice(start);
+      const S = spy.slice(start);
+      const p0 = P[0] || 0, s0 = S[0] || 0;
+      return {
+        labels: L,
+        port: P.map(function(v){ return +(v - p0).toFixed(2); }),
+        spy: S.map(function(v){ return +(v - s0).toFixed(2); }),
+        note: 'Full available history (~Jun 2026 → now)'
+      };
+    }
+    function renderEquity(range) {
       const eqCtx = document.getElementById('chartEquity');
-      if (eqCtx && typeof Chart !== 'undefined') {
-        new Chart(eqCtx, {
-          type: 'line',
-          data: {
-            labels: EQUITY_LABELS,
-            datasets: [
-              {
-                label: 'Portfolio',
-                data: EQUITY_PORT,
-                borderColor: '#6366f1',
-                backgroundColor: 'transparent',
-                fill: false,
-                tension: 0.25,
-                borderWidth: 2.5,
-                pointRadius: 0,
-                pointHoverRadius: 4
-              },
-              {
-                label: 'S&P 500',
-                data: EQUITY_SPY,
-                borderColor: '#94a3b8',
-                backgroundColor: 'transparent',
-                fill: false,
-                tension: 0.25,
-                borderWidth: 2,
-                pointRadius: 0,
-                pointHoverRadius: 4
-              }
-            ]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: {
-              legend: { display: true, labels: { color: '#94a3b8', boxWidth: 12 } },
-              tooltip: {
-                callbacks: {
-                  label: function(c) {
-                    const v = c.raw;
-                    return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
-                  }
+      if (!eqCtx || typeof Chart === 'undefined') return;
+      const d = sliceEquity(range || 'ytd');
+      if (equityChart) { equityChart.destroy(); equityChart = null; }
+      equityChart = new Chart(eqCtx, {
+        type: 'line',
+        data: {
+          labels: d.labels,
+          datasets: [
+            {
+              label: 'Portfolio',
+              data: d.port,
+              borderColor: '#6366f1',
+              backgroundColor: 'transparent',
+              fill: false,
+              tension: 0.25,
+              borderWidth: 2.5,
+              pointRadius: 0,
+              pointHoverRadius: 4
+            },
+            {
+              label: 'S&P 500',
+              data: d.spy,
+              borderColor: '#94a3b8',
+              backgroundColor: 'transparent',
+              fill: false,
+              tension: 0.25,
+              borderWidth: 2,
+              pointRadius: 0,
+              pointHoverRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: true, labels: { color: '#94a3b8', boxWidth: 12 } },
+            tooltip: {
+              callbacks: {
+                label: function(c) {
+                  const v = c.raw;
+                  return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
                 }
               }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } },
+              grid: { color: '#33415533' }
             },
-            scales: {
-              x: {
-                ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } },
-                grid: { color: '#33415533' }
-              },
-              y: {
-                ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
-                grid: { color: '#33415555' }
-              }
+            y: {
+              ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
+              grid: { color: '#33415555' }
             }
           }
-        });
-      }
+        }
+      });
+    }
+    document.querySelectorAll('#equity-range-btns .range-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#equity-range-btns .range-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        const r = btn.getAttribute('data-range');
+        renderEquity(r);
+        const note = document.getElementById('equity-range-note');
+        if (note) {
+          note.textContent = 'full available history (~Jun–Aug 2026) — account track is shorter than ' +
+            (r === '6m' ? '6 months' : (r === 'ytd' ? 'calendar YTD window' : 'longer inception'));
+        }
+      });
+    });
+
+      renderEquity('ytd');
     })();
 
-// ——— Live prices via Finnhub · every 60s ———
+
+
+    // —— US market session (ET) + sync status pills ——
+    function getMarketSession() {
+      try {
+        const fmt = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/New_York',
+          weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
+        });
+        const parts = fmt.formatToParts(new Date());
+        const map = {};
+        parts.forEach(function(p){ map[p.type] = p.value; });
+        const day = map.weekday;
+        if (day === 'Sat' || day === 'Sun') return 'closed';
+        const h = parseInt(map.hour, 10);
+        const m = parseInt(map.minute, 10);
+        const mins = h * 60 + m;
+        // Pre: 4:00–9:30 ET, Open: 9:30–16:00, After: 16:00–20:00
+        if (mins >= 4*60 && mins < 9*60+30) return 'pre';
+        if (mins >= 9*60+30 && mins < 16*60) return 'open';
+        if (mins >= 16*60 && mins < 20*60) return 'after';
+        return 'closed';
+      } catch (e) { return 'closed'; }
+    }
+    function updateMarketPill() {
+      const session = getMarketSession();
+      const el = document.getElementById('mkt-pill');
+      if (!el) return;
+      const labels = { open: '● Regular hours', pre: '● Pre-market', after: '● After hours', closed: '● Closed' };
+      el.className = 'mkt-pill ' + session;
+      el.textContent = labels[session] || '● Closed';
+      window._marketSession = session;
+    }
+    updateMarketPill();
+    setInterval(updateMarketPill, 60000);
+
+    function updateIbkrSyncPill() {
+      const raw = (document.getElementById('last-run') || {}).textContent || '';
+      const m = raw.match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
+      const tip = document.getElementById('tip-ibkr-time');
+      const ageEl = document.getElementById('pill-ibkr-age');
+      const dot = document.getElementById('dot-ibkr');
+      if (!m) {
+        if (tip) tip.textContent = raw.trim() || '—';
+        if (ageEl) ageEl.textContent = '—';
+        return;
+      }
+      const iso = m[1]+'-'+m[2]+'-'+m[3]+'T'+m[4]+':'+m[5]+':00+03:00';
+      const ts = Date.parse(iso);
+      if (!ts) return;
+      const mins = Math.max(0, Math.round((Date.now() - ts) / 60000));
+      const d = new Date(ts);
+      const timeStr = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      const today = new Date();
+      const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
+      const sameDay = d.toDateString() === today.toDateString();
+      const dayLabel = sameDay ? 'Today' : (d.toDateString() === yesterday.toDateString() ? 'Yesterday' : d.toLocaleDateString([], { month: 'short', day: 'numeric' }));
+      const human = dayLabel + ' · ' + timeStr;
+      const age = mins < 1 ? 'just now' : (mins < 60 ? mins + 'm ago' : (mins < 1440 ? Math.floor(mins/60) + 'h ago' : Math.floor(mins/1440) + 'd ago'));
+      if (tip) tip.textContent = human + ' (' + age + ')';
+      if (ageEl) ageEl.textContent = age;
+      if (dot) {
+        dot.classList.remove('ok', 'warn', 'err', 'pulse');
+        if (mins <= 70) dot.classList.add('ok');
+        else if (mins <= 180) dot.classList.add('warn');
+        else dot.classList.add('err');
+      }
+    }
+    updateIbkrSyncPill();
+    setInterval(updateIbkrSyncPill, 30000);
+
+
+    // ——— Live prices via Finnhub · every 60s ———
     const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
 
     async function fetchFinnhubQuote(sym) {
@@ -946,12 +1084,25 @@ const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, 
         hdrUpnl.classList.remove('text-emerald-400', 'text-red-400');
         hdrUpnl.classList.add(totalUpnl >= 0 ? 'text-emerald-400' : 'text-red-400');
       }
+      const t = new Date();
+      const timeStr = t.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      const human = 'Today · ' + timeStr;
       if (elLive) {
-        const t = new Date();
         elLive.textContent = ok
-          ? (ok + '/' + positions.length + ' · Finnhub · ' + t.toLocaleTimeString())
-          : 'Finnhub unavailable';
+          ? (ok + '/' + positions.length + ' · ' + human)
+          : 'unavailable';
       }
+      const tipFh = document.getElementById('tip-fh-time');
+      const ageFh = document.getElementById('pill-fh-age');
+      const dotFh = document.getElementById('dot-fh');
+      if (tipFh) tipFh.textContent = ok ? (human + ' (just now) · ' + ok + '/' + positions.length + ' quotes') : 'unavailable';
+      if (ageFh) ageFh.textContent = ok ? 'just now' : 'err';
+      if (dotFh) {
+        dotFh.classList.remove('ok', 'warn', 'err', 'pulse');
+        if (ok > 0) dotFh.classList.add('ok');
+        else dotFh.classList.add('err');
+      }
+      window._fhLastSync = t.getTime();
     }
 
     setTimeout(refreshLiveQuotes, 1500);
