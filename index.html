@@ -500,6 +500,8 @@
       { date: "2026-06-05", sym: "CLSK", qty: 60, exit: 15.95, pnl: -65.00, cost: 1022 }
     ].map(function(c) {
       c.pct = c.cost ? (c.pnl / c.cost) * 100 : 0;
+      return c;
+    });
 
     function computeKPIs() {
       const rows = (typeof closed !== 'undefined' && Array.isArray(closed)) ? closed : [];
@@ -539,9 +541,6 @@
       const epct = avgCost ? (100 * exp / avgCost) : 0;
       set('kpi-ep', 'Avg edge per trade · ~' + epct.toFixed(1) + '%');
     }
-
-      return c;
-    });
 
     // Render holdings (cells tagged for 1-min live quote updates)
     const tbody = document.getElementById("positions-body");
