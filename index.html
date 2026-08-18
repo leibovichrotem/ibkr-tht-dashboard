@@ -70,16 +70,16 @@
       <div>
         <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
         <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-18 00:40 IDT</span> · <span class="text-slate-600">Prices refresh ~1 min</span></p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-18 17:36 IDT</span> (manual) · <span class="text-slate-600">Prices refresh ~1 min</span></p>
       </div>
       <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Cash</div>
-          <div id="hdr-cash" class="font-medium text-slate-200">$968</div>
+          <div id="hdr-cash" class="font-medium text-slate-200">$945</div>
         </div>
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Unrealized</div>
-          <div id="hdr-upnl" class="font-medium text-emerald-400">+$313</div>
+          <div id="hdr-upnl" class="font-medium text-emerald-400">$154</div>
         </div>
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Positions</div>
@@ -372,196 +372,23 @@
       document.getElementById('panel-' + name).classList.add('active');
     }
 
-    const NET_LIQ = 13209.80;
+    const NET_LIQ = 12858.63;
     const positions = [
-      { symbol: "NFLX", qty: 22, avg: 73.875, last: 78.45, upnl: 100.65, score: "BUY", peter: "Inside long-term SMZ", chg: 0.8 },
-      { symbol: "MMM", qty: 7, avg: 178.027, last: 182.40, upnl: 30.61, score: "HOLD", peter: "—", chg: -0.1 },
-      { symbol: "ENPH", qty: 28, avg: 47.743, last: 40.80, upnl: -194.40, score: "HOLD", peter: "—", chg: 0.6 },
-      { symbol: "NOW", qty: 9, avg: 114.914, last: 122.80, upnl: 70.98, score: "HOLD", peter: "—", chg: -0.9 },
-      { symbol: "META", qty: 1.7, avg: 609.437, last: 587.48, upnl: -37.33, score: "HOLD", peter: "Coiling, still bullish", chg: -0.3 },
-      { symbol: "RKLB", qty: 10, avg: 75.42, last: 80.84, upnl: 54.20, score: "HOLD", peter: "—", chg: 0.7 },
-      { symbol: "POET", qty: 70, avg: 8.112, last: 9.70, upnl: 111.16, score: "HOLD", peter: "—", chg: 1.2 },
-      { symbol: "HOOD", qty: 7, avg: 94.917, last: 95.76, upnl: 5.90, score: "HOLD", peter: "—", chg: 0.2 },
-      { symbol: "UBER", qty: 8, avg: 68.3125, last: 77.34, upnl: 72.26, score: "HOLD", peter: "—", chg: 1.4 },
-      { symbol: "APP", qty: 2, avg: 312.8875, last: 320.45, upnl: 15.13, score: "HOLD", peter: "—", chg: 1.6 },
-      { symbol: "HNST", qty: 110, avg: 3.814, last: 4.89, upnl: 118.33, score: "HOLD", peter: "—", chg: 1.0 },
-      { symbol: "RBLX", qty: 15, avg: 37.887, last: 38.20, upnl: 4.70, score: "HOLD", peter: "—", chg: -0.4 },
-      { symbol: "CELH", qty: 18, avg: 28.179, last: 28.50, upnl: 5.75, score: "BUY", peter: "SMZ – strong Monthly", chg: -2.0 },
-      { symbol: "TE", qty: 95, avg: 5.281, last: 5.16, upnl: -11.53, score: "BUY", peter: "In/near SMZ", chg: 1.0 },
-      { symbol: "MSTR", qty: 5, avg: 101.05, last: 94.30, upnl: -33.75, score: "HOLD", peter: "—", chg: 1.4 }
-    ].map(function(p) {
-      const cost = p.avg * p.qty;
-      const mv = p.last * p.qty;
-      const upnlPct = cost !== 0 ? (p.upnl / cost) * 100 : 0;
-      const pctNet = (mv / NET_LIQ) * 100;
-      return Object.assign({}, p, { cost: cost, mv: mv, upnlPct: upnlPct, pctNet: pctNet });
-    }).sort(function(a, b) { return b.cost - a.cost; });
-
-    const closed = [
-      { date: "2026-08-13", sym: "POET", qty: 50, exit: 9.37, pnl: 64.58, cost: 468 },
-      { date: "2026-08-12", sym: "AVGO", qty: 2.5, exit: 417.4, pnl: 91.65, cost: 835 },
-      { date: "2026-08-11", sym: "AVGO", qty: 2, exit: 417.95, pnl: 49.64, cost: 836 },
-      { date: "2026-08-11", sym: "HNST", qty: 115, exit: 5.14, pnl: 156.58, cost: 435 },
-      { date: "2026-08-11", sym: "ZETA", qty: 100, exit: 28.54, pnl: 693.19, cost: 2160 },
-      { date: "2026-08-10", sym: "BKNG", qty: 6, exit: 212.73, pnl: 92.58, cost: 1180 },
-      { date: "2026-08-07", sym: "SPCX", qty: 5, exit: 129.74, pnl: 98.93, cost: 550 },
-      { date: "2026-08-07", sym: "GOOGL", qty: 3, exit: 354.37, pnl: 53.80, cost: 1009 },
-      { date: "2026-08-05", sym: "GOOGL", qty: 4, exit: 362.20, pnl: 28.32, cost: 1360 },
-      { date: "2026-08-05", sym: "HNST", qty: 155, exit: 3.91, pnl: 33.46, cost: 573 },
-      { date: "2026-08-05", sym: "AMZN", qty: 6, exit: 275.46, pnl: 67.40, cost: 1585 },
-      { date: "2026-08-04", sym: "MSFT", qty: 4, exit: 497.00, pnl: 432.20, cost: 1556 },
-      { date: "2026-08-04", sym: "NVDA", qty: 14, exit: 211.00, pnl: 67.78, cost: 2886 },
-      { date: "2026-08-03", sym: "CRWV", qty: 22, exit: 78.00, pnl: 164.26, cost: 1552 },
-      { date: "2026-07-31", sym: "AMZN", qty: 3, exit: 270.00, pnl: 4.35, cost: 806 },
-      { date: "2026-07-30", sym: "CRWV", qty: 15, exit: 72.80, pnl: -391.15, cost: 1483 },
-      { date: "2026-07-29", sym: "KEEL", qty: 200, exit: 3.30, pnl: -106.00, cost: 761 },
-      { date: "2026-07-28", sym: "AVGO", qty: 3, exit: 372.76, pnl: -139.91, cost: 1258 },
-      { date: "2026-07-28", sym: "BE", qty: 6, exit: 173.11, pnl: -58.34, cost: 1097 },
-      { date: "2026-07-27", sym: "GLW", qty: 6.5, exit: 144.3, pnl: -77.05, cost: 1010 },
-      { date: "2026-07-24", sym: "BE", qty: 5, exit: 191.12, pnl: -61.79, cost: 1017 },
-      { date: "2026-07-24", sym: "HPQ", qty: 35, exit: 25.53, pnl: 78.13, cost: 815 },
-      { date: "2026-07-24", sym: "TE", qty: 60, exit: 5.145, pnl: -224.90, cost: 534 },
-      { date: "2026-07-24", sym: "FSLR", qty: 2, exit: 203.38, pnl: -93.90, cost: 501 },
-      { date: "2026-07-21", sym: "AFRM", qty: 13, exit: 74.34, pnl: -104.08, cost: 1070 },
-      { date: "2026-07-20", sym: "TE", qty: 55, exit: 5.822, pnl: -169.14, cost: 489 },
-      { date: "2026-07-17", sym: "ZETA", qty: 35, exit: 22.00, pnl: 114.72, cost: 655 },
-      { date: "2026-07-16", sym: "RDW", qty: 60, exit: 9.019, pnl: -272.89, cost: 814 },
-      { date: "2026-07-13", sym: "IONQ", qty: 15, exit: 41.20, pnl: -192.13, cost: 810 },
-      { date: "2026-07-08", sym: "AVGO", qty: 3.5, exit: 393.6, pnl: -104.09, cost: 1378 },
-      { date: "2026-07-02", sym: "IREN", qty: 17, exit: 37.80, pnl: -389.03, cost: 1032 },
-      { date: "2026-07-02", sym: "RDW", qty: 40, exit: 11.39, pnl: -182.49, cost: 638 },
-      { date: "2026-07-02", sym: "QCOM", qty: 6, exit: 179.51, pnl: -261.74, cost: 1339 },
-      { date: "2026-06-30", sym: "CRCL", qty: 10, exit: 63.50, pnl: -133.00, cost: 768 },
-      { date: "2026-06-25", sym: "AAPL", qty: 9.5, exit: 278.54, pnl: -62.74, cost: 2646 },
-      { date: "2026-06-15", sym: "NVDA", qty: 5, exit: 212.33, pnl: 64.38, cost: 997 },
-      { date: "2026-06-09", sym: "ZETA", qty: 40, exit: 20.19, pnl: -62.20, cost: 870 },
-      { date: "2026-06-09", sym: "ENPH", qty: 20, exit: 50.00, pnl: -117.00, cost: 1117 },
-      { date: "2026-06-09", sym: "ONDS", qty: 55, exit: 9.475, pnl: -157.05, cost: 678 },
-      { date: "2026-06-05", sym: "CCJ", qty: 6, exit: 106.20, pnl: -18.54, cost: 656 },
-      { date: "2026-06-05", sym: "CLSK", qty: 60, exit: 15.95, pnl: -65.00, cost: 1022 }
-    ].map(function(c) {
-      c.pct = c.cost ? (c.pnl / c.cost) * 100 : 0;
-      return c;
-    });
-
-    // Render holdings (cells tagged for 1-min live quote updates)
-    const tbody = document.getElementById("positions-body");
-    positions.forEach(function(p) {
-      const scoreClass = p.score === "BUY" ? "score-buy" : p.score === "SELL" ? "score-sell" : "score-hold";
-      const upnlClass = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
-      const chgClass = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
-      tbody.innerHTML +=
-        '<tr data-sym="' + p.symbol + '">' +
-        '<td><div class="flex items-center gap-2">' + badge(p.symbol) + '<span class="font-medium text-white" style="margin-left:2px">' + p.symbol + '</span></div></td>' +
-        '<td class="num" data-f="last">$' + p.last.toFixed(2) + '</td>' +
-        '<td class="num ' + chgClass + '" data-f="chg">' + (p.chg >= 0 ? "+" : "") + p.chg.toFixed(1) + '%</td>' +
-        '<td class="num ' + upnlClass + '" data-f="upnl">$' + p.upnl.toFixed(0) + '</td>' +
-        '<td class="num ' + upnlClass + '" data-f="upnlPct">' + (p.upnlPct >= 0 ? "+" : "") + p.upnlPct.toFixed(1) + '%</td>' +
-        '<td class="num">$' + p.cost.toFixed(0) + '</td>' +
-        '<td class="num">' + p.qty + '</td>' +
-        '<td class="num" data-f="pctNet">' + p.pctNet.toFixed(1) + '%</td>' +
-        '<td><span class="px-2 py-0.5 rounded text-xs font-medium ' + scoreClass + '">' + p.score + '</span></td>' +
-        '<td class="text-slate-400 text-xs">' + p.peter + '</td>' +
-        '</tr>';
-    });
-
-    // Render closed
-    const cbody = document.getElementById("closed-body");
-    closed.forEach(function(c) {
-      const win = c.pnl >= 0;
-      const cls = win ? "text-emerald-400" : "text-red-400";
-      const pill = win
-        ? '<span class="px-2 py-0.5 rounded text-xs font-medium bg-emerald-900/50 text-emerald-400">WIN</span>'
-        : '<span class="px-2 py-0.5 rounded text-xs font-medium bg-red-900/50 text-red-400">LOSS</span>';
-      cbody.innerHTML +=
-        '<tr>' +
-        '<td class="text-slate-400">' + c.date + '</td>' +
-        '<td><div class="flex items-center gap-2">' + badge(c.sym) + '<span class="font-medium">' + c.sym + '</span></div></td>' +
-        '<td class="num">' + c.qty + '</td>' +
-        '<td class="num">$' + c.exit + '</td>' +
-        '<td class="num ' + cls + '">' + (win ? "+" : "") + c.pnl.toFixed(0) + '</td>' +
-        '<td class="num ' + cls + '">' + (win ? "+" : "") + c.pct.toFixed(1) + '%</td>' +
-        '<td>' + pill + '</td>' +
-        '</tr>';
-    });
-
-    // Scanner
-
-    // BUY Scanner — ranked by THT (high → low). Stocks only, exclude holdings at render.
-    // rank: 1=A high conviction, 2=B setup, 3=C watch
-    // flags: smz, belowSmz, aboveSwingLow, fvbGreen, bxGreen, cheap (close to FVB / discount)
-    const buys = [
-      /* —— A · High recommended —— */
-      { sym: "SOUN", rank: 1, sector: "AI / Speech", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Under SMZ discount (Peter) · structure watch" },
-      { sym: "UPST", rank: 1, sector: "Fintech", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Under smart money discount (Peter)" },
-      { sym: "BBAI", rank: 3, sector: "AI / Defense", flags: { bosBull: true },
-        note: "Structure interest only — verify Fib SMZ; BX was deep red on last chart check" },
-      { sym: "ASTS", rank: 1, sector: "Space / Comms", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Satellite · deep pullback zone candidate" },
-      { sym: "JOBY", rank: 1, sector: "Aerospace", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "eVTOL · discount / structure candidate" },
-      { sym: "BE", rank: 1, sector: "Energy / Hydrogen", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Clean energy · institutional zone watch" },
-      { sym: "FSLR", rank: 1, sector: "Solar", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Solar leader · value / SMZ scan" },
-      { sym: "VRT", rank: 1, sector: "Data center / Power", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: false },
-        note: "Power for AI · zone after extension" },
-
-      /* —— B · Setup —— */
-      { sym: "AMD", rank: 2, sector: "Semis", flags: { smz: false, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Semi · pullback / structure scan" },
-      { sym: "MU", rank: 2, sector: "Semis / Memory", flags: { smz: false, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Memory cycle · earnings + structure" },
-      { sym: "ARM", rank: 2, sector: "Semis / IP", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "AI semi IP · structure check" },
-      { sym: "CRWD", rank: 2, sector: "Cyber", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Cyber · value zone scan" },
-      { sym: "PANW", rank: 2, sector: "Cyber", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Cyber · value zone scan" },
-      { sym: "SNOW", rank: 2, sector: "Data / Cloud", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Data cloud · pullback scan" },
-      { sym: "DDOG", rank: 2, sector: "Observability", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Infra software · zone scan" },
-      { sym: "NET", rank: 2, sector: "Internet infra", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Cloudflare · structure scan" },
-      { sym: "SHOP", rank: 2, sector: "E-commerce", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Commerce · pullback scan" },
-      { sym: "ABNB", rank: 2, sector: "Travel", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Travel · structure scan" },
-      { sym: "TTD", rank: 2, sector: "Adtech", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Adtech · pullback scan" },
-      { sym: "CVX", rank: 2, sector: "Energy", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Energy major · value / cycle" },
-      { sym: "XOM", rank: 2, sector: "Energy", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Energy major · structure scan" },
-      { sym: "JPM", rank: 2, sector: "Banks", flags: { fvbGreen: true, bxImproving: true, cheap: false },
-        note: "Bank leader · trend / FVB" },
-      { sym: "UNH", rank: 2, sector: "Healthcare", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Healthcare · value zone scan" },
-      { sym: "LLY", rank: 2, sector: "Pharma", flags: { fvbGreen: true, bxImproving: true, cheap: false },
-        note: "Pharma · structure / premium watch" },
-      { sym: "CAT", rank: 2, sector: "Industrials", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Industrial · cycle / FVB" },
-
-      /* —— C · Watch / incomplete —— */
-      { sym: "AVGO", rank: 3, sector: "Semis", flags: { bxImproving: true },
-        note: "Semi leader · often premium · cycle check" },
-      { sym: "PLTR", rank: 3, sector: "Software / AI", flags: { bxImproving: true },
-        note: "Software · pullback needed for better R:R" },
-      { sym: "COIN", rank: 3, sector: "Crypto equity", flags: {},
-        note: "High vol · wait for cleaner SMZ tag" },
-      { sym: "SQ", rank: 3, sector: "Fintech", flags: { fvbGreen: true, bxImproving: false },
-        note: "Fintech · structure incomplete" },
-      { sym: "PATH", rank: 3, sector: "Automation", flags: {},
-        note: "Automation · zone scan pending" },
-      { sym: "AI", rank: 3, sector: "AI software", flags: {},
-        note: "AI software · confirmation pending" },
-      { sym: "IONQ", rank: 3, sector: "Quantum", flags: {},
-        note: "Quantum · speculative · structure only" },
-      { sym: "SMCI", rank: 3, sector: "Servers / AI", flags: {},
-        note: "Server · volatility · wait for SMZ" }
+      { symbol: "NFLX", qty: 22, avg: 73.875, last: 78.24, upnl: 96.03, upnlPct: 5.91, cost: 1625.25, mv: 1721.28, pctNet: 13.39, score: "BUY", peter: "Inside long-term SMZ", chg: 0 },
+      { symbol: "META", qty: 2.7, avg: 587.6827, last: 547.42, upnl: -108.71, upnlPct: -6.85, cost: 1586.74, mv: 1478.03, pctNet: 11.49, score: "HOLD", peter: "Coiling, still bullish", chg: 0 },
+      { symbol: "ENPH", qty: 28, avg: 47.7429, last: 38.27, upnl: -265.24, upnlPct: -19.84, cost: 1336.8, mv: 1071.56, pctNet: 8.33, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "MMM", qty: 7, avg: 178.0271, last: 181.06, upnl: 21.23, upnlPct: 1.7, cost: 1246.19, mv: 1267.42, pctNet: 9.86, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "RKLB", qty: 10, avg: 75.42, last: 78.61, upnl: 31.9, upnlPct: 4.23, cost: 754.2, mv: 786.1, pctNet: 6.11, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "HOOD", qty: 7, avg: 94.9171, last: 93.71, upnl: -8.45, upnlPct: -1.27, cost: 664.42, mv: 655.97, pctNet: 5.1, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "APP", qty: 2, avg: 312.8875, last: 311.33, upnl: -3.12, upnlPct: -0.5, cost: 625.77, mv: 622.66, pctNet: 4.84, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "NOW", qty: 5, avg: 114.9139, last: 119.77, upnl: 24.28, upnlPct: 4.23, cost: 574.57, mv: 598.85, pctNet: 4.66, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "RBLX", qty: 15, avg: 37.8867, last: 38.085, upnl: 2.97, upnlPct: 0.52, cost: 568.3, mv: 571.27, pctNet: 4.44, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "POET", qty: 70, avg: 8.112, last: 8.7096, upnl: 41.83, upnlPct: 7.37, cost: 567.84, mv: 609.67, pctNet: 4.74, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "UBER", qty: 8, avg: 68.3125, last: 77.07, upnl: 70.06, upnlPct: 12.82, cost: 546.5, mv: 616.56, pctNet: 4.79, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "CELH", qty: 18, avg: 28.1789, last: 30.1, upnl: 34.58, upnlPct: 6.82, cost: 507.22, mv: 541.8, pctNet: 4.21, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "MSTR", qty: 5, avg: 101.05, last: 96.8899, upnl: -20.8, upnlPct: -4.12, cost: 505.25, mv: 484.45, pctNet: 3.77, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "TE", qty: 95, avg: 5.2813, last: 4.5799, upnl: -66.63, upnlPct: -13.28, cost: 501.73, mv: 435.09, pctNet: 3.38, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "NXT", qty: 5, avg: 95.3, last: 94.58, upnl: -3.6, upnlPct: -0.76, cost: 476.5, mv: 472.9, pctNet: 3.68, score: "HOLD", peter: "New · check SMZ", chg: 0 }
     ];
 
     function flagPills(f) {
