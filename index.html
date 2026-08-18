@@ -70,7 +70,7 @@
       <div>
         <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
         <p class="text-slate-400 text-sm mt-1">Rules-based · Peter DiCarlo THT Bull Cycle</p>
-        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-18 17:36 IDT (manual)</span> · <span class="text-slate-600">Prices refresh ~1 min</span></p>
+        <p class="text-xs text-slate-500 mt-1">Last automation run: <span id="last-run">2026-08-18 18:04 IDT</span> · <span class="text-slate-600">Prices refresh ~1 min</span></p>
       </div>
       <div class="flex flex-wrap gap-3 text-sm">
         <div class="card px-4 py-2">
@@ -79,7 +79,7 @@
         </div>
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Unrealized</div>
-          <div id="hdr-upnl" class="font-medium text-emerald-400">-$154</div>
+          <div id="hdr-upnl" class="font-medium text-red-400">-$199</div>
         </div>
         <div class="card px-4 py-2">
           <div class="text-slate-500 text-xs">Positions</div>
@@ -372,23 +372,23 @@
       document.getElementById('panel-' + name).classList.add('active');
     }
 
-    const NET_LIQ = 12858.63;
+    const NET_LIQ = 12828.59;
     const positions = [
-      { symbol: "NFLX", qty: 22, avg: 73.875, last: 78.24, upnl: 96.03, upnlPct: 5.91, cost: 1625.25, mv: 1721.28, pctNet: 13.39, score: "BUY", peter: "Inside long-term SMZ", chg: 0 },
-      { symbol: "META", qty: 2.7, avg: 587.6827, last: 547.42, upnl: -108.71, upnlPct: -6.85, cost: 1586.74, mv: 1478.03, pctNet: 11.49, score: "HOLD", peter: "Coiling, still bullish", chg: 0 },
-      { symbol: "ENPH", qty: 28, avg: 47.7429, last: 38.27, upnl: -265.24, upnlPct: -19.84, cost: 1336.8, mv: 1071.56, pctNet: 8.33, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "MMM", qty: 7, avg: 178.0271, last: 181.06, upnl: 21.23, upnlPct: 1.7, cost: 1246.19, mv: 1267.42, pctNet: 9.86, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "RKLB", qty: 10, avg: 75.42, last: 78.61, upnl: 31.9, upnlPct: 4.23, cost: 754.2, mv: 786.1, pctNet: 6.11, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "HOOD", qty: 7, avg: 94.9171, last: 93.71, upnl: -8.45, upnlPct: -1.27, cost: 664.42, mv: 655.97, pctNet: 5.1, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "APP", qty: 2, avg: 312.8875, last: 311.33, upnl: -3.12, upnlPct: -0.5, cost: 625.77, mv: 622.66, pctNet: 4.84, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NOW", qty: 5, avg: 114.9139, last: 119.77, upnl: 24.28, upnlPct: 4.23, cost: 574.57, mv: 598.85, pctNet: 4.66, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "RBLX", qty: 15, avg: 37.8867, last: 38.085, upnl: 2.97, upnlPct: 0.52, cost: 568.3, mv: 571.27, pctNet: 4.44, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "POET", qty: 70, avg: 8.112, last: 8.7096, upnl: 41.83, upnlPct: 7.37, cost: 567.84, mv: 609.67, pctNet: 4.74, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "UBER", qty: 8, avg: 68.3125, last: 77.07, upnl: 70.06, upnlPct: 12.82, cost: 546.5, mv: 616.56, pctNet: 4.79, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "CELH", qty: 18, avg: 28.1789, last: 30.1, upnl: 34.58, upnlPct: 6.82, cost: 507.22, mv: 541.8, pctNet: 4.21, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "MSTR", qty: 5, avg: 101.05, last: 96.8899, upnl: -20.8, upnlPct: -4.12, cost: 505.25, mv: 484.45, pctNet: 3.77, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "TE", qty: 95, avg: 5.2813, last: 4.5799, upnl: -66.63, upnlPct: -13.28, cost: 501.73, mv: 435.09, pctNet: 3.38, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NXT", qty: 5, avg: 95.3, last: 94.58, upnl: -3.6, upnlPct: -0.76, cost: 476.5, mv: 472.9, pctNet: 3.68, score: "HOLD", peter: "New · check SMZ", chg: 0 }
+      { symbol: "NFLX", qty: 22, avg: 73.875, last: 78.89, upnl: 110.33, upnlPct: 6.79, cost: 1625.25, mv: 1735.58, pctNet: 13.53, score: "BUY", peter: "Inside long-term SMZ", chg: 0 },
+      { symbol: "META", qty: 2.7, avg: 587.6827, last: 550.165, upnl: -101.3, upnlPct: -6.38, cost: 1586.74, mv: 1485.45, pctNet: 11.58, score: "HOLD", peter: "Coiling, still bullish", chg: 0 },
+      { symbol: "ENPH", qty: 28, avg: 47.7429, last: 37.92, upnl: -275.04, upnlPct: -20.57, cost: 1336.8, mv: 1061.76, pctNet: 8.28, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "MMM", qty: 7, avg: 178.0271, last: 181.43, upnl: 23.82, upnlPct: 1.91, cost: 1246.19, mv: 1270.01, pctNet: 9.9, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "RKLB", qty: 10, avg: 75.42, last: 77.9756, upnl: 25.56, upnlPct: 3.39, cost: 754.2, mv: 779.76, pctNet: 6.08, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "HOOD", qty: 7, avg: 94.9171, last: 92.35, upnl: -17.97, upnlPct: -2.7, cost: 664.42, mv: 646.45, pctNet: 5.04, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "APP", qty: 2, avg: 312.8875, last: 309.715, upnl: -6.35, upnlPct: -1.01, cost: 625.77, mv: 619.43, pctNet: 4.83, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "NOW", qty: 5, avg: 114.9139, last: 120.4471, upnl: 27.67, upnlPct: 4.82, cost: 574.57, mv: 602.24, pctNet: 4.69, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "RBLX", qty: 15, avg: 37.8867, last: 37.87, upnl: -0.25, upnlPct: -0.04, cost: 568.3, mv: 568.05, pctNet: 4.43, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "POET", qty: 70, avg: 8.112, last: 8.485, upnl: 26.11, upnlPct: 4.6, cost: 567.84, mv: 593.95, pctNet: 4.63, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "UBER", qty: 8, avg: 68.3125, last: 76.73, upnl: 67.34, upnlPct: 12.32, cost: 546.5, mv: 613.84, pctNet: 4.78, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "CELH", qty: 18, avg: 28.1789, last: 29.77, upnl: 28.64, upnlPct: 5.65, cost: 507.22, mv: 535.86, pctNet: 4.18, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "MSTR", qty: 5, avg: 101.05, last: 95.5435, upnl: -27.53, upnlPct: -5.45, cost: 505.25, mv: 477.72, pctNet: 3.72, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "TE", qty: 95, avg: 5.2813, last: 4.5377, upnl: -70.64, upnlPct: -14.08, cost: 501.73, mv: 431.08, pctNet: 3.36, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "NXT", qty: 5, avg: 95.3, last: 93.4, upnl: -9.5, upnlPct: -1.99, cost: 476.5, mv: 467.0, pctNet: 3.64, score: "HOLD", peter: "New · check SMZ", chg: 0 }
     ];
 
     const closed = [
