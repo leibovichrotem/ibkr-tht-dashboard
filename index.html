@@ -61,6 +61,12 @@
     .scroll-box { max-height: 440px; overflow-y: auto; }
     .scroll-box::-webkit-scrollbar { width: 6px; }
     .scroll-box::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    a.peter-link { color: #38bdf8; text-decoration: none; font-size: 0.75rem; white-space: nowrap; }
+    a.peter-link:hover { text-decoration: underline; color: #7dd3fc; }
+    .peter-sum { color: #cbd5e1; font-size: 0.8rem; line-height: 1.35; max-width: 340px; }
+    .kind-buy { background: #065f46; color: #6ee7b7; }
+    .kind-watch { background: #1e3a5f; color: #93c5fd; }
+    .kind-note { background: #334155; color: #e2e8f0; }
 
     .sync-pill {
       display: inline-flex; align-items: center; gap: 6px;
@@ -158,7 +164,7 @@
         </div>
       </div>
     </div>
-    <span id="last-run" class="hidden">2026-08-19 18:02 IDT</span>
+    <span id="last-run" class="hidden">2026-08-19 18:50 IDT</span>
     <span id="hdr-live" class="hidden">—</span>
 
     <!-- Rules -->
@@ -167,7 +173,7 @@
       <ul class="text-sm text-slate-400 space-y-1 list-disc list-inside">
         <li>Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
         <li>Loss ≠ error. Error = deviation from rules</li>
-        <li><strong>BUY</strong> = SMZ / between SMZ & swing low + structure bullish · <strong>HOLD</strong> = IBZ / value · <strong>SELL</strong> = premium or structure break</li>
+        <li><strong>Peter column</strong> = latest public @pdicarlotrader post on that ticker (summary + link). Not a system BUY/SELL score. Public posts only.</li>
       </ul>
     </div>
 
@@ -214,7 +220,7 @@
     <div class="flex gap-1 p-1 rounded-xl card w-fit">
       <button class="tab-btn active" data-tab="holdings" onclick="switchTab('holdings')">Holdings</button>
       <button class="tab-btn" data-tab="closed" onclick="switchTab('closed')">Trades History</button>
-      <button class="tab-btn" data-tab="scanner" onclick="switchTab('scanner')">BUY Scanner</button>
+      <button class="tab-btn" data-tab="recs" onclick="switchTab('recs')">Recommendations</button>
     </div>
 
     <!-- Holdings panel -->
@@ -235,8 +241,7 @@
               <th class="num">Cost Basis</th>
               <th class="num">Positions</th>
               <th class="num">% Net Liq</th>
-              <th>Score</th>
-              <th>Peter Note</th>
+              <th>Peter (public)</th>
             </tr>
           </thead>
           <tbody id="positions-body"></tbody>
@@ -286,18 +291,32 @@
       </div>
     </div>
 
-    <!-- BUY Scanner panel -->
-    <div id="panel-scanner" class="tab-panel">
-      <div class="card p-4">
-        <h2 class="font-semibold text-white mb-3">BUY Scanner</h2>
-        <p class="text-sm text-slate-400 mb-2">Ranked by THT edge · stocks only · not in your portfolio · no ETFs</p>
-        <div class="flex flex-wrap gap-2 text-xs mb-4">
-          <span class="px-2 py-0.5 rounded bg-emerald-900/40 text-emerald-300 border border-emerald-800/50">A · High: Fib SMZ or ≤SMZ & above swing low · bullish BoS</span>
-          <span class="px-2 py-0.5 rounded bg-sky-900/40 text-sky-300 border border-sky-800/50">B · Setup: near SMZ or recent bullish BoS</span>
-          <span class="px-2 py-0.5 rounded bg-slate-700/50 text-slate-300 border border-slate-600">C · Watch: structure interest only</span>
+    <!-- Recommendations panel (Peter public posts, not held) -->
+    <div id="panel-recs" class="tab-panel">
+      <div class="card">
+        <div class="p-4 border-b border-slate-700">
+          <h2 class="font-semibold text-white">Recommendations</h2>
+          <p class="text-xs text-slate-500 mt-1">
+            @pdicarlotrader public posts (recent) that read as buy / watchlist / structure note · excluding names you already hold · not a system score
+          </p>
         </div>
-        <p class="text-xs text-slate-500 mb-4">Observable only: Fib SMZ + swing structure (+ volume if available). No FVB/BX without TradingView.</p>
-        <div id="scanner-list" class="space-y-2"></div>
+        <div class="overflow-x-auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Symbol</th>
+                <th>Kind</th>
+                <th>Summary</th>
+                <th>Post</th>
+              </tr>
+            </thead>
+            <tbody id="recs-body"></tbody>
+          </table>
+        </div>
+        <p class="text-xs text-slate-500 p-4 border-t border-slate-700">
+          Refreshed with hourly automation from public X search · subscriber-only posts are not available via API.
+        </p>
       </div>
     </div>
 
@@ -437,21 +456,21 @@
 
     const NET_LIQ = 13024.38;
     const positions = [
-      { symbol: "META", qty: 4.0, avg: 574.2733, last: 548.5400, upnl: -102.93, upnlPct: -4.48, cost: 2297.09, mv: 2194.16, pctNet: 16.85, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "ENPH", qty: 28.0, avg: 47.7429, last: 38.9500, upnl: -246.20, upnlPct: -18.42, cost: 1336.80, mv: 1090.60, pctNet: 8.37, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "MMM", qty: 7.0, avg: 178.0271, last: 183.1700, upnl: 36.00, upnlPct: 2.89, cost: 1246.19, mv: 1282.19, pctNet: 9.84, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NFLX", qty: 15.0, avg: 73.8750, last: 81.0250, upnl: 107.25, upnlPct: 9.68, cost: 1108.13, mv: 1215.38, pctNet: 9.33, score: "BUY", peter: "Inside long-term SMZ", chg: 0 },
-      { symbol: "RKLB", qty: 12.0, avg: 75.5500, last: 75.7900, upnl: 2.88, upnlPct: 0.32, cost: 906.60, mv: 909.48, pctNet: 6.98, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "HOOD", qty: 7.0, avg: 94.9171, last: 97.0900, upnl: 15.21, upnlPct: 2.29, cost: 664.42, mv: 679.63, pctNet: 5.22, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NXT", qty: 7.0, avg: 94.4857, last: 90.2450, upnl: -29.68, upnlPct: -4.49, cost: 661.40, mv: 631.72, pctNet: 4.85, score: "HOLD", peter: "New · check SMZ", chg: 0 },
-      { symbol: "APP", qty: 2.0, avg: 312.8875, last: 313.5500, upnl: 1.32, upnlPct: 0.21, cost: 625.78, mv: 627.10, pctNet: 4.81, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NOW", qty: 5.0, avg: 115.4237, last: 128.1550, upnl: 63.66, upnlPct: 11.03, cost: 577.12, mv: 640.78, pctNet: 4.92, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "RBLX", qty: 15.0, avg: 37.8867, last: 39.2000, upnl: 19.70, upnlPct: 3.47, cost: 568.30, mv: 588.00, pctNet: 4.51, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "POET", qty: 70.0, avg: 8.1120, last: 8.2400, upnl: 8.96, upnlPct: 1.58, cost: 567.84, mv: 576.80, pctNet: 4.43, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "UBER", qty: 8.0, avg: 68.3125, last: 77.6400, upnl: 74.62, upnlPct: 13.65, cost: 546.50, mv: 621.12, pctNet: 4.77, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "CELH", qty: 18.0, avg: 28.1789, last: 31.7000, upnl: 63.38, upnlPct: 12.50, cost: 507.22, mv: 570.60, pctNet: 4.38, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "MSTR", qty: 5.0, avg: 101.0500, last: 102.6450, upnl: 7.97, upnlPct: 1.58, cost: 505.25, mv: 513.23, pctNet: 3.94, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "TE", qty: 95.0, avg: 5.2813, last: 4.4750, upnl: -76.60, upnlPct: -15.27, cost: 501.72, mv: 425.12, pctNet: 3.26, score: "HOLD", peter: "—", chg: 0 }
+      { symbol: "META", qty: 4.0, avg: 574.2733, last: 548.5400, upnl: -102.93, upnlPct: -4.48, cost: 2297.09, mv: 2194.16, pctNet: 16.85, peter: { sum: 'Back in smart money zone — ideal buy area; full video setup + targets + invalidation.', url: 'https://x.com/pdicarlotrader/status/2089820962380202374', when: '1d' }, chg: 0 },
+      { symbol: "ENPH", qty: 28.0, avg: 47.7429, last: 38.9500, upnl: -246.20, upnlPct: -18.42, cost: 1336.80, mv: 1090.60, pctNet: 8.37, peter: null, chg: 0 },
+      { symbol: "MMM", qty: 7.0, avg: 178.0271, last: 183.1700, upnl: 36.00, upnlPct: 2.89, cost: 1246.19, mv: 1282.19, pctNet: 9.84, peter: null, chg: 0 },
+      { symbol: "NFLX", qty: 15.0, avg: 73.8750, last: 81.0250, upnl: 107.25, upnlPct: 9.68, cost: 1108.13, mv: 1215.38, pctNet: 9.33, peter: { sum: 'Long $NFLX today; earlier: bounce off SMZ, still expects ~+20% into ~$90 over ~90 days.', url: 'https://x.com/pdicarlotrader/status/2090091960069439927', when: 'today' }, chg: 0 },
+      { symbol: "RKLB", qty: 12.0, avg: 75.5500, last: 75.7900, upnl: 2.88, upnlPct: 0.32, cost: 906.60, mv: 909.48, pctNet: 6.98, peter: null, chg: 0 },
+      { symbol: "HOOD", qty: 7.0, avg: 94.9171, last: 97.0900, upnl: 15.21, upnlPct: 2.29, cost: 664.42, mv: 679.63, pctNet: 5.22, peter: { sum: 'Video: plan after +50% off lows — where he’d buy next and 12-month take-profits.', url: 'https://x.com/pdicarlotrader/status/2089472980262830408', when: '2d' }, chg: 0 },
+      { symbol: "NXT", qty: 7.0, avg: 94.4857, last: 90.2450, upnl: -29.68, upnlPct: -4.49, cost: 661.40, mv: 631.72, pctNet: 4.85, peter: null, chg: 0 },
+      { symbol: "APP", qty: 2.0, avg: 312.8875, last: 313.5500, upnl: 1.32, upnlPct: 0.21, cost: 625.78, mv: 627.10, pctNet: 4.81, peter: null, chg: 0 },
+      { symbol: "NOW", qty: 5.0, avg: 115.4237, last: 128.1550, upnl: 63.66, upnlPct: 11.03, cost: 577.12, mv: 640.78, pctNet: 4.92, peter: null, chg: 0 },
+      { symbol: "RBLX", qty: 15.0, avg: 37.8867, last: 39.2000, upnl: 19.70, upnlPct: 3.47, cost: 568.30, mv: 588.00, pctNet: 4.51, peter: null, chg: 0 },
+      { symbol: "POET", qty: 70.0, avg: 8.1120, last: 8.2400, upnl: 8.96, upnlPct: 1.58, cost: 567.84, mv: 576.80, pctNet: 4.43, peter: null, chg: 0 },
+      { symbol: "UBER", qty: 8.0, avg: 68.3125, last: 77.6400, upnl: 74.62, upnlPct: 13.65, cost: 546.50, mv: 621.12, pctNet: 4.77, peter: null, chg: 0 },
+      { symbol: "CELH", qty: 18.0, avg: 28.1789, last: 31.7000, upnl: 63.38, upnlPct: 12.50, cost: 507.22, mv: 570.60, pctNet: 4.38, peter: null, chg: 0 },
+      { symbol: "MSTR", qty: 5.0, avg: 101.0500, last: 102.6450, upnl: 7.97, upnlPct: 1.58, cost: 505.25, mv: 513.23, pctNet: 3.94, peter: { sum: 'Long crypto basket including $MSTR; big players entering alongside COIN/CRCL.', url: 'https://x.com/pdicarlotrader/status/2090097467467452699', when: 'today' }, chg: 0 },
+      { symbol: "TE", qty: 95.0, avg: 5.2813, last: 4.4750, upnl: -76.60, upnlPct: -15.27, cost: 501.72, mv: 425.12, pctNet: 3.26, peter: null, chg: 0 }
     ];
     const closed = [
 { date: "2026-08-19", sym: "NFLX", qty: 7.0, exit: 80.4, pnl: 43.18, cost: 517 },
@@ -546,8 +565,15 @@
 
     // Render holdings (cells tagged for 1-min live quote updates)
     const tbody = document.getElementById("positions-body");
+    function peterCell(p) {
+      if (!p || !p.peter) return '<span class="text-slate-600 text-xs">—</span>';
+      const x = p.peter;
+      return '<div class="peter-sum">' + x.sum +
+        (x.when ? ' <span class="text-slate-500">(' + x.when + ')</span>' : '') +
+        '</div><a class="peter-link" href="' + x.url + '" target="_blank" rel="noopener">View on X ↗</a>';
+    }
+
     positions.forEach(function(p) {
-      const scoreClass = p.score === "BUY" ? "score-buy" : p.score === "SELL" ? "score-sell" : "score-hold";
       const upnlClass = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
       const chgClass = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
       tbody.innerHTML +=
@@ -560,8 +586,7 @@
         '<td class="num">$' + p.cost.toFixed(0) + '</td>' +
         '<td class="num">' + p.qty + '</td>' +
         '<td class="num" data-f="pctNet">' + p.pctNet.toFixed(1) + '%</td>' +
-        '<td><span class="px-2 py-0.5 rounded text-xs font-medium ' + scoreClass + '">' + p.score + '</span></td>' +
-        '<td class="text-slate-400 text-xs">' + p.peter + '</td>' +
+        '<td>' + peterCell(p) + '</td>' +
         '</tr>';
     });
 
@@ -587,135 +612,37 @@
 
     // Scanner
 
-    // BUY Scanner — ranked by THT (high → low). Stocks only, exclude holdings at render.
-    // rank: 1=A high conviction, 2=B setup, 3=C watch
-    // flags: smz, belowSmz, aboveSwingLow, fvbGreen, bxGreen, cheap (close to FVB / discount)
-    const buys = [
-      /* —— A · High recommended —— */
-      { sym: "SOUN", rank: 1, sector: "AI / Speech", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Under SMZ discount (Peter) · structure watch" },
-      { sym: "UPST", rank: 1, sector: "Fintech", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Under smart money discount (Peter)" },
-      { sym: "BBAI", rank: 3, sector: "AI / Defense", flags: { bosBull: true },
-        note: "Structure interest only — verify Fib SMZ; BX was deep red on last chart check" },
-      { sym: "ASTS", rank: 1, sector: "Space / Comms", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Satellite · deep pullback zone candidate" },
-      { sym: "JOBY", rank: 1, sector: "Aerospace", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "eVTOL · discount / structure candidate" },
-      { sym: "BE", rank: 1, sector: "Energy / Hydrogen", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Clean energy · institutional zone watch" },
-      { sym: "FSLR", rank: 1, sector: "Solar", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Solar leader · value / SMZ scan" },
-      { sym: "VRT", rank: 1, sector: "Data center / Power", flags: { smz: true, fvbGreen: true, bxImproving: true, cheap: false },
-        note: "Power for AI · zone after extension" },
-
-      /* —— B · Setup —— */
-      { sym: "AMD", rank: 2, sector: "Semis", flags: { smz: false, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Semi · pullback / structure scan" },
-      { sym: "MU", rank: 2, sector: "Semis / Memory", flags: { smz: false, fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Memory cycle · earnings + structure" },
-      { sym: "ARM", rank: 2, sector: "Semis / IP", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "AI semi IP · structure check" },
-      { sym: "CRWD", rank: 2, sector: "Cyber", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Cyber · value zone scan" },
-      { sym: "PANW", rank: 2, sector: "Cyber", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Cyber · value zone scan" },
-      { sym: "SNOW", rank: 2, sector: "Data / Cloud", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Data cloud · pullback scan" },
-      { sym: "DDOG", rank: 2, sector: "Observability", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Infra software · zone scan" },
-      { sym: "NET", rank: 2, sector: "Internet infra", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Cloudflare · structure scan" },
-      { sym: "SHOP", rank: 2, sector: "E-commerce", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Commerce · pullback scan" },
-      { sym: "ABNB", rank: 2, sector: "Travel", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Travel · structure scan" },
-      { sym: "TTD", rank: 2, sector: "Adtech", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Adtech · pullback scan" },
-      { sym: "CVX", rank: 2, sector: "Energy", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Energy major · value / cycle" },
-      { sym: "XOM", rank: 2, sector: "Energy", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Energy major · structure scan" },
-      { sym: "JPM", rank: 2, sector: "Banks", flags: { fvbGreen: true, bxImproving: true, cheap: false },
-        note: "Bank leader · trend / FVB" },
-      { sym: "UNH", rank: 2, sector: "Healthcare", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Healthcare · value zone scan" },
-      { sym: "LLY", rank: 2, sector: "Pharma", flags: { fvbGreen: true, bxImproving: true, cheap: false },
-        note: "Pharma · structure / premium watch" },
-      { sym: "CAT", rank: 2, sector: "Industrials", flags: { fvbGreen: true, bxImproving: true, cheap: true },
-        note: "Industrial · cycle / FVB" },
-
-      /* —— C · Watch / incomplete —— */
-      { sym: "AVGO", rank: 3, sector: "Semis", flags: { bxImproving: true },
-        note: "Semi leader · often premium · cycle check" },
-      { sym: "PLTR", rank: 3, sector: "Software / AI", flags: { bxImproving: true },
-        note: "Software · pullback needed for better R:R" },
-      { sym: "COIN", rank: 3, sector: "Crypto equity", flags: {},
-        note: "High vol · wait for cleaner SMZ tag" },
-      { sym: "SQ", rank: 3, sector: "Fintech", flags: { fvbGreen: true, bxImproving: false },
-        note: "Fintech · structure incomplete" },
-      { sym: "PATH", rank: 3, sector: "Automation", flags: {},
-        note: "Automation · zone scan pending" },
-      { sym: "AI", rank: 3, sector: "AI software", flags: {},
-        note: "AI software · confirmation pending" },
-      { sym: "IONQ", rank: 3, sector: "Quantum", flags: {},
-        note: "Quantum · speculative · structure only" },
-      { sym: "SMCI", rank: 3, sector: "Servers / AI", flags: {},
-        note: "Server · volatility · wait for SMZ" }
+    
+    // Recommendations — Peter public posts (not in holdings)
+    const recs = [
+      { date: '2026-08-19', sym: 'CIFR', kind: 'buy', sum: 'Smart Money Alert — pullback into planned discount (~$15–15.50). He’d buy if not already full.', url: 'https://x.com/pdicarlotrader/status/2090078182875545929' },
+      { date: '2026-08-19', sym: 'SPCX', kind: 'watch', sum: 'Holding internal bull structure; needs $130 ST. Buy again / CSP interest near $116 VP gap.', url: 'https://x.com/pdicarlotrader/status/2090081726315811152' },
+      { date: '2026-08-19', sym: 'SG', kind: 'watch', sum: 'Smart Money + Point of Control — new change of structure in effect.', url: 'https://x.com/pdicarlotrader/status/2090083794082500694' },
+      { date: '2026-08-19', sym: 'COIN', kind: 'buy', sum: 'Long crypto $MSTR $COIN — follow-through after earlier bottom signal.', url: 'https://x.com/pdicarlotrader/status/2090091960069439927' },
+      { date: '2026-08-19', sym: 'CRCL', kind: 'buy', sum: 'Grouped with big-player crypto entries (with MSTR/COIN).', url: 'https://x.com/pdicarlotrader/status/2090097467467452699' },
+      { date: '2026-08-19', sym: 'NBIS', kind: 'note', sum: 'Took profit / short-term caution earlier; now critical level — break of $220 could drain toward $140.', url: 'https://x.com/pdicarlotrader/status/2090076264849674663' }
     ];
 
-    function flagPills(f) {
-      f = f || {};
-      const pills = [];
-      if (f.smz) pills.push(['SMZ (Fib)', 'bg-emerald-900/50 text-emerald-300']);
-      if (f.belowSmz) pills.push(['≤SMZ', 'bg-emerald-900/40 text-emerald-400']);
-      if (f.aboveSwingLow) pills.push(['>swing low', 'bg-teal-900/40 text-teal-300']);
-      if (f.bosBull) pills.push(['BoS ↑ bullish', 'bg-sky-900/50 text-sky-300']);
-      if (f.volRising) pills.push(['vol rising', 'bg-violet-900/40 text-violet-300']);
-      return pills.map(function(p) {
-        return '<span class="px-1.5 py-0.5 rounded text-[10px] ' + p[1] + '">' + p[0] + '</span>';
-      }).join(' ');
-    }
-
-    function rankLabel(r) {
-      if (r === 1) return '<span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-600/30 text-emerald-300 border border-emerald-500/40">A · High</span>';
-      if (r === 2) return '<span class="px-2 py-0.5 rounded text-xs font-semibold bg-sky-600/25 text-sky-300 border border-sky-500/30">B · Setup</span>';
-      return '<span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-600/40 text-slate-300 border border-slate-500/30">C · Watch</span>';
-    }
-
-    const heldSet = new Set(positions.map(function(p){ return p.symbol; }));
-    const buysSorted = buys
-      .filter(function(b){ return !heldSet.has(b.sym); })
-      .sort(function(a, b) {
-        if (a.rank !== b.rank) return a.rank - b.rank;
-        const score = function(x) {
-          const f = x.flags || {};
-          return (f.smz?4:0) + (f.belowSmz?3:0) + (f.aboveSwingLow?3:0) + (f.bosBull?3:0) + (f.volRising?1:0);
-        };
-        return score(b) - score(a);
+    (function renderRecs() {
+      const rb = document.getElementById('recs-body');
+      if (!rb) return;
+      const held = {};
+      positions.forEach(function(p) { held[p.symbol] = true; });
+      recs.filter(function(r) { return !held[r.sym]; }).forEach(function(r) {
+        const k = r.kind === 'buy' ? 'kind-buy' : r.kind === 'watch' ? 'kind-watch' : 'kind-note';
+        const label = r.kind === 'buy' ? 'BUY context' : r.kind === 'watch' ? 'Watchlist' : 'Note';
+        rb.innerHTML +=
+          '<tr>' +
+          '<td class="text-slate-400 text-xs">' + r.date + '</td>' +
+          '<td><div class="flex items-center gap-2">' + badge(r.sym) +
+          '<span class="font-medium text-white">' + r.sym + '</span></div></td>' +
+          '<td><span class="text-xs px-2 py-0.5 rounded ' + k + '">' + label + '</span></td>' +
+          '<td class="peter-sum" style="max-width:420px">' + r.sum + '</td>' +
+          '<td><a class="peter-link" href="' + r.url + '" target="_blank" rel="noopener">Open ↗</a></td>' +
+          '</tr>';
       });
+    })();
 
-    const slist = document.getElementById("scanner-list");
-    let lastRank = null;
-    buysSorted.forEach(function(b) {
-      if (b.rank !== lastRank) {
-        lastRank = b.rank;
-        const titles = { 1: 'High · Fib SMZ + above swing low + bullish structure', 2: 'Setups', 3: 'Watch / needs confirmation' };
-        slist.innerHTML += '<div class="text-xs uppercase tracking-wide text-slate-500 pt-2 pb-1">' + titles[b.rank] + '</div>';
-      }
-      slist.innerHTML +=
-        '<div class="flex items-start gap-3 p-3 rounded-lg bg-slate-800/60 border border-slate-700">' +
-        badge(b.sym) +
-        '<div class="flex-1 min-w-0">' +
-        '<div class="flex flex-wrap items-center gap-2">' +
-        '<span class="font-medium text-white">' + b.sym + '</span>' +
-        rankLabel(b.rank) +
-        '<span class="text-xs text-slate-500">' + (b.sector || '') + '</span>' +
-        '</div>' +
-        '<div class="flex flex-wrap gap-1 mt-1.5">' + flagPills(b.flags) + '</div>' +
-        '<div class="text-xs text-slate-400 mt-1">' + b.note + '</div>' +
-        '</div></div>';
-    });
 
 
     
