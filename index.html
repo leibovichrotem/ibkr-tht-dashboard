@@ -145,11 +145,11 @@
         <div class="flex flex-wrap gap-2 justify-end text-sm">
           <div class="card px-3 py-1.5">
             <div class="text-slate-500 text-[10px] uppercase tracking-wide">Cash</div>
-            <div id="hdr-cash" class="font-medium text-slate-200 text-sm">-$102</div>
+            <div id="hdr-cash" class="font-medium text-slate-200 text-sm">$458</div>
           </div>
           <div class="card px-3 py-1.5">
             <div class="text-slate-500 text-[10px] uppercase tracking-wide">Unrealized</div>
-            <div id="hdr-upnl" class="font-medium text-red-400 text-sm">-$180</div>
+            <div id="hdr-upnl" class="font-medium text-red-400 text-sm">-$54</div>
           </div>
           <div class="card px-3 py-1.5">
             <div class="text-slate-500 text-[10px] uppercase tracking-wide">Positions</div>
@@ -158,7 +158,7 @@
         </div>
       </div>
     </div>
-    <span id="last-run" class="hidden">2026-08-19 17:12 IDT</span>
+    <span id="last-run" class="hidden">2026-08-19 18:02 IDT</span>
     <span id="hdr-live" class="hidden">—</span>
 
     <!-- Rules -->
@@ -245,15 +245,15 @@
           <div class="flex flex-wrap gap-8 text-sm items-center">
             <div>
               <div class="text-xs text-slate-500 uppercase tracking-wide">Cash</div>
-              <div class="font-semibold text-white mt-0.5">-$102.42</div>
+              <div class="font-semibold text-white mt-0.5">$457.88</div>
             </div>
             <div>
               <div class="text-xs text-slate-500 uppercase tracking-wide">Net Liquidation</div>
-              <div class="font-semibold text-white mt-0.5">$12,836.84</div>
+              <div class="font-semibold text-white mt-0.5">$13,024.38</div>
             </div>
             <div>
               <div class="text-xs text-slate-500 uppercase tracking-wide">Gross Positions</div>
-              <div class="font-semibold text-white mt-0.5">$12,954</div>
+              <div class="font-semibold text-white mt-0.5">$12,581</div>
             </div>
           </div>
         </div>
@@ -435,25 +435,26 @@
       document.getElementById('panel-' + name).classList.add('active');
     }
 
-    const NET_LIQ = 12836.84;
+    const NET_LIQ = 13024.38;
     const positions = [
-      { symbol: "META", qty: 4.0, avg: 574.2733, last: 545.9100, upnl: -113.45, upnlPct: -4.94, cost: 2297.09, mv: 2183.64, pctNet: 17.01, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NFLX", qty: 22.0, avg: 73.8750, last: 80.2900, upnl: 141.13, upnlPct: 8.68, cost: 1625.25, mv: 1766.38, pctNet: 13.76, score: "BUY", peter: "Inside long-term SMZ", chg: 0 },
-      { symbol: "ENPH", qty: 28.0, avg: 47.7429, last: 38.3200, upnl: -263.84, upnlPct: -19.74, cost: 1336.8, mv: 1072.96, pctNet: 8.36, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "MMM", qty: 7.0, avg: 178.0271, last: 183.0500, upnl: 35.16, upnlPct: 2.82, cost: 1246.19, mv: 1281.35, pctNet: 9.98, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "RKLB", qty: 12.0, avg: 75.5500, last: 74.7700, upnl: -9.36, upnlPct: -1.03, cost: 906.6, mv: 897.24, pctNet: 6.99, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "HOOD", qty: 7.0, avg: 94.9171, last: 93.3750, upnl: -10.79, upnlPct: -1.62, cost: 664.42, mv: 653.62, pctNet: 5.09, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NXT", qty: 7.0, avg: 94.4857, last: 88.9450, upnl: -38.79, upnlPct: -5.86, cost: 661.4, mv: 622.61, pctNet: 4.85, score: "HOLD", peter: "New · check SMZ", chg: 0 },
-      { symbol: "APP", qty: 2.0, avg: 312.8875, last: 310.2751, upnl: -5.22, upnlPct: -0.83, cost: 625.77, mv: 620.55, pctNet: 4.83, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "NOW", qty: 5.0, avg: 115.4237, last: 123.7050, upnl: 41.41, upnlPct: 7.17, cost: 577.12, mv: 618.53, pctNet: 4.82, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "RBLX", qty: 15.0, avg: 37.8867, last: 38.6600, upnl: 11.6, upnlPct: 2.04, cost: 568.3, mv: 579.9, pctNet: 4.52, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "POET", qty: 70.0, avg: 8.1120, last: 8.1450, upnl: 2.31, upnlPct: 0.41, cost: 567.84, mv: 570.15, pctNet: 4.44, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "UBER", qty: 8.0, avg: 68.3125, last: 76.5600, upnl: 65.98, upnlPct: 12.07, cost: 546.5, mv: 612.48, pctNet: 4.77, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "CELH", qty: 18.0, avg: 28.1789, last: 31.4150, upnl: 58.25, upnlPct: 11.48, cost: 507.22, mv: 565.47, pctNet: 4.41, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "MSTR", qty: 5.0, avg: 101.0500, last: 98.1580, upnl: -14.46, upnlPct: -2.86, cost: 505.25, mv: 490.79, pctNet: 3.82, score: "HOLD", peter: "—", chg: 0 },
-      { symbol: "TE", qty: 95.0, avg: 5.2813, last: 4.4450, upnl: -79.45, upnlPct: -15.84, cost: 501.73, mv: 422.28, pctNet: 3.29, score: "HOLD", peter: "—", chg: 0 }
+      { symbol: "META", qty: 4.0, avg: 574.2733, last: 548.5400, upnl: -102.93, upnlPct: -4.48, cost: 2297.09, mv: 2194.16, pctNet: 16.85, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "ENPH", qty: 28.0, avg: 47.7429, last: 38.9500, upnl: -246.20, upnlPct: -18.42, cost: 1336.80, mv: 1090.60, pctNet: 8.37, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "MMM", qty: 7.0, avg: 178.0271, last: 183.1700, upnl: 36.00, upnlPct: 2.89, cost: 1246.19, mv: 1282.19, pctNet: 9.84, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "NFLX", qty: 15.0, avg: 73.8750, last: 81.0250, upnl: 107.25, upnlPct: 9.68, cost: 1108.13, mv: 1215.38, pctNet: 9.33, score: "BUY", peter: "Inside long-term SMZ", chg: 0 },
+      { symbol: "RKLB", qty: 12.0, avg: 75.5500, last: 75.7900, upnl: 2.88, upnlPct: 0.32, cost: 906.60, mv: 909.48, pctNet: 6.98, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "HOOD", qty: 7.0, avg: 94.9171, last: 97.0900, upnl: 15.21, upnlPct: 2.29, cost: 664.42, mv: 679.63, pctNet: 5.22, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "NXT", qty: 7.0, avg: 94.4857, last: 90.2450, upnl: -29.68, upnlPct: -4.49, cost: 661.40, mv: 631.72, pctNet: 4.85, score: "HOLD", peter: "New · check SMZ", chg: 0 },
+      { symbol: "APP", qty: 2.0, avg: 312.8875, last: 313.5500, upnl: 1.32, upnlPct: 0.21, cost: 625.78, mv: 627.10, pctNet: 4.81, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "NOW", qty: 5.0, avg: 115.4237, last: 128.1550, upnl: 63.66, upnlPct: 11.03, cost: 577.12, mv: 640.78, pctNet: 4.92, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "RBLX", qty: 15.0, avg: 37.8867, last: 39.2000, upnl: 19.70, upnlPct: 3.47, cost: 568.30, mv: 588.00, pctNet: 4.51, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "POET", qty: 70.0, avg: 8.1120, last: 8.2400, upnl: 8.96, upnlPct: 1.58, cost: 567.84, mv: 576.80, pctNet: 4.43, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "UBER", qty: 8.0, avg: 68.3125, last: 77.6400, upnl: 74.62, upnlPct: 13.65, cost: 546.50, mv: 621.12, pctNet: 4.77, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "CELH", qty: 18.0, avg: 28.1789, last: 31.7000, upnl: 63.38, upnlPct: 12.50, cost: 507.22, mv: 570.60, pctNet: 4.38, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "MSTR", qty: 5.0, avg: 101.0500, last: 102.6450, upnl: 7.97, upnlPct: 1.58, cost: 505.25, mv: 513.23, pctNet: 3.94, score: "HOLD", peter: "—", chg: 0 },
+      { symbol: "TE", qty: 95.0, avg: 5.2813, last: 4.4750, upnl: -76.60, upnlPct: -15.27, cost: 501.72, mv: 425.12, pctNet: 3.26, score: "HOLD", peter: "—", chg: 0 }
     ];
     const closed = [
+{ date: "2026-08-19", sym: "NFLX", qty: 7.0, exit: 80.4, pnl: 43.18, cost: 517 },
 { date: "2026-08-18", sym: "NOW", qty: 4.0, exit: 120.92, pnl: 21.5, cost: 462 },
 { date: "2026-08-17", sym: "HNST", qty: 110.0, exit: 4.78, pnl: 103.73, cost: 422 },
 { date: "2026-08-13", sym: "POET", qty: 50.0, exit: 9.37, pnl: 64.58, cost: 404 },
