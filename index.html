@@ -159,7 +159,7 @@
           </div>
           <div class="card px-3 py-1.5">
             <div class="text-slate-500 text-[10px] uppercase tracking-wide">Positions</div>
-            <div M</div>
+            <div id="hdr-pos" class="font-medium text-slate-200 text-sm">15</div>
           </div>
         </div>
       </div>
@@ -519,7 +519,7 @@
 { date: "2026-06-09", sym: "ONDS", qty: 55.0, exit: 9.47, pnl: -157.05, cost: 678 },
 { date: "2026-06-05", sym: "CCJ", qty: 6.0, exit: 106.19, pnl: -18.54, cost: 656 },
 { date: "2026-06-05", sym: "CLSK", qty: 60.0, exit: 15.95, pnl: -65.0, cost: 1022 }
-    ]].map(function(c) {
+    ].map(function(c) {
       c.pct = c.cost ? (c.pnl / c.cost) * 100 : 0;
       return c;
     });
