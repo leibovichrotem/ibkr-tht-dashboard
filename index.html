@@ -164,7 +164,7 @@
         </div>
       </div>
     </div>
-    <span id="last-run" class="hidden">2026-08-19 20:06 IDT</span>
+    <span id="last-run" class="hidden">2026-08-19 21:00 IDT</span>
     <span id="hdr-live" class="hidden">—</span>
 
     <!-- Rules -->
@@ -454,24 +454,25 @@
       document.getElementById('panel-' + name).classList.add('active');
     }
 
-    const NET_LIQ = 13068.09;
+    const NET_LIQ = 13061.51;
     const positions = [
-      {symbol: "META", qty: 4.0, avg: 574.2733, last: 553.04, upnl: -84.93, upnlPct: -3.7, cost: 2297.09, mv: 2212.16, pctNet: 16.93, peter: {sum: "Back in smart money zone — ideal buy area; full video setup + targets + invalidation.", url: "https://x.com/pdicarlotrader/status/2089820962380202374", when: "1d"}, chg: 0},
-      {symbol: "ENPH", qty: 28.0, avg: 47.7429, last: 39.11, upnl: -241.72, upnlPct: -18.08, cost: 1336.8, mv: 1095.08, pctNet: 8.38, peter: null, chg: 0},
-      {symbol: "MMM", qty: 7.0, avg: 178.0271, last: 181.82, upnl: 26.55, upnlPct: 2.13, cost: 1246.19, mv: 1272.74, pctNet: 9.74, peter: null, chg: 0},
-      {symbol: "NFLX", qty: 15.0, avg: 73.875, last: 80.3, upnl: 96.38, upnlPct: 8.7, cost: 1108.12, mv: 1204.5, pctNet: 9.22, peter: {sum: "Long $NFLX today; earlier bounce off SMZ, still expects ~+20% into ~$90 over ~90 days.", url: "https://x.com/pdicarlotrader/status/2090091960069439927", when: "today"}, chg: 0},
-      {symbol: "RKLB", qty: 12.0, avg: 75.55, last: 76.05, upnl: 6.0, upnlPct: 0.66, cost: 906.6, mv: 912.6, pctNet: 6.98, peter: null, chg: 0},
-      {symbol: "HOOD", qty: 7.0, avg: 94.9171, last: 97.97, upnl: 21.37, upnlPct: 3.22, cost: 664.42, mv: 685.79, pctNet: 5.25, peter: {sum: "Video: plan after +50% off lows — where he\u2019d buy next and 12-month take-profits.", url: "https://x.com/pdicarlotrader/status/2089472980262830408", when: "2d"}, chg: 0},
-      {symbol: "NXT", qty: 7.0, avg: 94.4857, last: 92.14, upnl: -16.42, upnlPct: -2.48, cost: 661.4, mv: 644.98, pctNet: 4.94, peter: null, chg: 0},
-      {symbol: "APP", qty: 2.0, avg: 312.8875, last: 311.1, upnl: -3.57, upnlPct: -0.57, cost: 625.77, mv: 622.2, pctNet: 4.76, peter: null, chg: 0},
-      {symbol: "NOW", qty: 5.0, avg: 115.4237, last: 128.6, upnl: 65.88, upnlPct: 11.42, cost: 577.12, mv: 643.0, pctNet: 4.92, peter: null, chg: 0},
-      {symbol: "RBLX", qty: 15.0, avg: 37.8867, last: 39.55, upnl: 24.95, upnlPct: 4.39, cost: 568.3, mv: 593.25, pctNet: 4.54, peter: null, chg: 0},
-      {symbol: "POET", qty: 70.0, avg: 8.112, last: 8.365, upnl: 17.71, upnlPct: 3.12, cost: 567.84, mv: 585.55, pctNet: 4.48, peter: null, chg: 0},
-      {symbol: "UBER", qty: 8.0, avg: 68.3125, last: 78.02, upnl: 77.66, upnlPct: 14.21, cost: 546.5, mv: 624.16, pctNet: 4.78, peter: null, chg: 0},
-      {symbol: "CELH", qty: 18.0, avg: 28.1789, last: 31.9204, upnl: 67.35, upnlPct: 13.28, cost: 507.22, mv: 574.57, pctNet: 4.4, peter: null, chg: 0},
+      {symbol: "META", qty: 4.0, avg: 574.2733, last: 552.495, upnl: -87.11, upnlPct: -3.79, cost: 2297.09, mv: 2209.98, pctNet: 16.92, peter: {sum: "Back in smart money zone — ideal buy area; full video setup + targets + invalidation.", url: "https://x.com/pdicarlotrader/status/2089820962380202374", when: "1d"}, chg: 0},
+      {symbol: "ENPH", qty: 28.0, avg: 47.7429, last: 38.9299, upnl: -246.76, upnlPct: -18.46, cost: 1336.8, mv: 1090.04, pctNet: 8.35, peter: null, chg: 0},
+      {symbol: "MMM", qty: 7.0, avg: 178.0271, last: 181.84, upnl: 26.69, upnlPct: 2.14, cost: 1246.19, mv: 1272.88, pctNet: 9.75, peter: null, chg: 0},
+      {symbol: "NFLX", qty: 15.0, avg: 73.875, last: 80.68, upnl: 102.08, upnlPct: 9.21, cost: 1108.12, mv: 1210.2, pctNet: 9.27, peter: {sum: "Long $NFLX today; earlier bounce off SMZ, still expects ~+20% into ~$90 over ~90 days.", url: "https://x.com/pdicarlotrader/status/2090091960069439927", when: "today"}, chg: 0},
+      {symbol: "RKLB", qty: 12.0, avg: 75.55, last: 76.47, upnl: 11.04, upnlPct: 1.22, cost: 906.6, mv: 917.64, pctNet: 7.03, peter: null, chg: 0},
+      {symbol: "HOOD", qty: 7.0, avg: 94.9171, last: 97.025, upnl: 14.76, upnlPct: 2.22, cost: 664.42, mv: 679.18, pctNet: 5.2, peter: {sum: "Video: plan after +50% off lows — where he’d buy next and 12-month take-profits.", url: "https://x.com/pdicarlotrader/status/2089472980262830408", when: "2d"}, chg: 0},
+      {symbol: "NXT", qty: 7.0, avg: 94.4857, last: 91.86, upnl: -18.38, upnlPct: -2.78, cost: 661.4, mv: 643.02, pctNet: 4.92, peter: null, chg: 0},
+      {symbol: "APP", qty: 2.0, avg: 312.8875, last: 313.675, upnl: 1.57, upnlPct: 0.25, cost: 625.78, mv: 627.35, pctNet: 4.8, peter: null, chg: 0},
+      {symbol: "NOW", qty: 5.0, avg: 115.4237, last: 128.265, upnl: 64.21, upnlPct: 11.12, cost: 577.12, mv: 641.32, pctNet: 4.91, peter: {sum: "$NOW $150 on deck next (setup video earlier; standing aside on prior signal).", url: "https://x.com/pdicarlotrader/status/2090128263184007243", when: "today"}, chg: 0},
+      {symbol: "RBLX", qty: 15.0, avg: 37.8867, last: 39.335, upnl: 21.72, upnlPct: 3.82, cost: 568.3, mv: 590.02, pctNet: 4.52, peter: null, chg: 0},
+      {symbol: "POET", qty: 70.0, avg: 8.112, last: 8.35, upnl: 16.66, upnlPct: 2.93, cost: 567.84, mv: 584.5, pctNet: 4.48, peter: null, chg: 0},
+      {symbol: "UBER", qty: 8.0, avg: 68.3125, last: 78.29, upnl: 79.82, upnlPct: 14.61, cost: 546.5, mv: 626.32, pctNet: 4.8, peter: null, chg: 0},
+      {symbol: "CELH", qty: 18.0, avg: 28.1789, last: 32.02, upnl: 69.14, upnlPct: 13.63, cost: 507.22, mv: 576.36, pctNet: 4.41, peter: {sum: "Back in long-term SMZ; monthly tight compression; targets +80% toward $50 over ~6m (not buying due to TF).", url: "https://x.com/pdicarlotrader/status/2087922848786432488", when: "6d"}, chg: 0},
       {symbol: "MSTR", qty: 5.0, avg: 101.05, last: 104.47, upnl: 17.1, upnlPct: 3.38, cost: 505.25, mv: 522.35, pctNet: 4.0, peter: {sum: "Long crypto basket including $MSTR; big players entering alongside COIN/CRCL.", url: "https://x.com/pdicarlotrader/status/2090097467467452699", when: "today"}, chg: 0},
-      {symbol: "TE", qty: 95.0, avg: 5.2813, last: 4.5586, upnl: -68.66, upnlPct: -13.68, cost: 501.73, mv: 433.07, pctNet: 3.31, peter: null, chg: 0}
+      {symbol: "TE", qty: 95.0, avg: 5.2813, last: 4.525, upnl: -71.85, upnlPct: -14.31, cost: 501.72, mv: 429.88, pctNet: 3.29, peter: null, chg: 0}
     ];
+
     const closed = [
 { date: "2026-08-19", sym: "NFLX", qty: 7.0, exit: 80.4, pnl: 43.18, cost: 517 },
 { date: "2026-08-18", sym: "NOW", qty: 4.0, exit: 120.92, pnl: 21.5, cost: 462 },
@@ -614,34 +615,9 @@
 
     
     // Recommendations — Peter public posts (not in holdings)
-    const recs = [{date: "2026-08-19", sym: "CIFR", kind: "buy", sum: "Smart Money Alert \u2014 pullback into planned discount (~$15\u201315.50). He\u2019d buy if not already full.", url: "https://x.com/pdicarlotrader/status/2090078182875545929"}, {date: "2026-08-19", sym: "SPCX", kind: "watch", sum: "Holding internal bull structure; needs $130 ST. Buy again / CSP interest near $116 VP gap.", url: "https://x.com/pdicarlotrader/status/2090081726315811152"}, {date: "2026-08-19", sym: "SG", kind: "watch", sum: "Smart Money + Point of Control \u2014 new change of structure in effect.", url: "https://x.com/pdicarlotrader/status/2090083794082500694"}, {date: "2026-08-19", sym: "COIN", kind: "buy", sum: "Long crypto $MSTR $COIN \u2014 follow-through after earlier bottom signal.", url: "https://x.com/pdicarlotrader/status/2090091960069439927"}, {date: "2026-08-19", sym: "CRCL", kind: "buy", sum: "Grouped with big-player crypto entries (with MSTR/COIN).", url: "https://x.com/pdicarlotrader/status/2090097467467452699"}, {date: "2026-08-19", sym: "NBIS", kind: "note", sum: "Took profit / short-term caution earlier; now critical level \u2014 break of $220 could drain toward $140.", url: "https://x.com/pdicarlotrader/status/2090076264849674663"}, {date: "2026-08-19", sym: "NVDA", kind: "note", sum: "ST profit-taking level; would love to buy sub $190 (not long now).", url: "https://x.com/pdicarlotrader/status/2090088975083954213"}];
-
-    (function renderRecs() {
-      const rb = document.getElementById('recs-body');
-      if (!rb) return;
-      const held = {};
-      positions.forEach(function(p) { held[p.symbol] = true; });
-      recs.filter(function(r) { return !held[r.sym]; }).forEach(function(r) {
-        const k = r.kind === 'buy' ? 'kind-buy' : r.kind === 'watch' ? 'kind-watch' : 'kind-note';
-        const label = r.kind === 'buy' ? 'BUY context' : r.kind === 'watch' ? 'Watchlist' : 'Note';
-        rb.innerHTML +=
-          '<tr>' +
-          '<td class="text-slate-400 text-xs">' + r.date + '</td>' +
-          '<td><div class="flex items-center gap-2">' + badge(r.sym) +
-          '<span class="font-medium text-white">' + r.sym + '</span></div></td>' +
-          '<td><span class="text-xs px-2 py-0.5 rounded ' + k + '">' + label + '</span></td>' +
-          '<td class="peter-sum" style="max-width:420px">' + r.sum + '</td>' +
-          '<td><a class="peter-link" href="' + r.url + '" target="_blank" rel="noopener">Open ↗</a></td>' +
-          '</tr>';
-      });
-    })();
+    const recs = [{date: "2026-08-19", sym: "CIFR", kind: "buy", sum: "Smart Money Alert — pullback into planned discount (~$15–15.50). He’d buy if not already full.", url: "https://x.com/pdicarlotrader/status/2090078182875545929"}, {date: "2026-08-19", sym: "SPCX", kind: "watch", sum: "Holding internal bull structure; needs $130 ST. Buy again / CSP interest near $116 VP gap.", url: "https://x.com/pdicarlotrader/status/2090081726315811152"}, {date: "2026-08-19", sym: "SG", kind: "watch", sum: "Smart Money + Point of Control — new change of structure in effect.", url: "https://x.com/pdicarlotrader/status/2090083794082500694"}, {date: "2026-08-19", sym: "COIN", kind: "buy", sum: "Long crypto $MSTR $COIN — follow-through after earlier bottom signal.", url: "https://x.com/pdicarlotrader/status/2090091960069439927"}, {date: "2026-08-19", sym: "CRCL", kind: "buy", sum: "Grouped with big-player crypto entries (with MSTR/COIN).", url: "https://x.com/pdicarlotrader/status/2090097467467452699"}, {date: "2026-08-19", sym: "NBIS", kind: "note", sum: "Took profit / short-term caution earlier; now critical level — break of $220 could drain toward $140.", url: "https://x.com/pdicarlotrader/status/2090076264849674663"}, {date: "2026-08-19", sym: "NVDA", kind: "note", sum: "ST profit-taking level; would love to buy sub $190 (not long now).", url: "https://x.com/pdicarlotrader/status/2090088975083954213"}];
 
 
-
-    
-    
-    // ——— Charts: holdings pie + win/loss ———
-    
     function setPerf(id, pct) {
       const el = document.getElementById(id);
       if (!el || pct == null || isNaN(pct)) return;
