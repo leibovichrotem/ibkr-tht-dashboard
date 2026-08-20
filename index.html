@@ -165,7 +165,7 @@
         </div>
       </div>
     </div>
-    <span id="last-run" class="hidden">2026-08-20 20:40 IDT</span>
+    <span id="last-run" class="hidden">2026-08-20 21:05 IDT</span>
     <span id="hdr-live" class="hidden">—</span>
 
     <!-- Rules -->
@@ -553,6 +553,32 @@
     // Recommendations — Peter public posts (not in holdings)
         const recs = [{"date":"2026-08-20","sym":"SPCX","kind":"buy","sum":"Back at short term buy zone; $130 pivot important support. Waiting $120 if breaks; SL under $130 if buying now.","url":"https://x.com/pdicarlotrader/status/2090447671060287822"},{"date":"2026-08-19","sym":"CIFR","kind":"buy","sum":"Smart Money Alert - hit planned discount; +10% bounce. He'd buy if not full; reload on pullback.","url":"https://x.com/pdicarlotrader/status/2090078182875545929"},{"date":"2026-08-19","sym":"COIN","kind":"buy","sum":"Long crypto $MSTR $COIN - big players entering after bottom signal.","url":"https://x.com/pdicarlotrader/status/2090091960069439927"},{"date":"2026-08-19","sym":"CRCL","kind":"buy","sum":"Grouped with big-player crypto entries (with MSTR/COIN).","url":"https://x.com/pdicarlotrader/status/2090097467467452699"},{"date":"2026-08-19","sym":"AVGO","kind":"watch","sum":"$AVGO $330 is my loading zone long.","url":"https://x.com/pdicarlotrader/status/2090140935103365185"},{"date":"2026-08-19","sym":"MRNA","kind":"note","sum":"Up 200%+ since post; video on taking profits and buy-back levels.","url":"https://x.com/pdicarlotrader/status/2090157383381049760"},{"date":"2026-08-19","sym":"NVDA","kind":"note","sum":"Short-term profit-taking level; would love to buy sub $190.","url":"https://x.com/pdicarlotrader/status/2090088975083954213"},{"date":"2026-08-19","sym":"TEM","kind":"note","sum":"Up 40%+ since callout; video with updated targets and how to spot setup.","url":"https://x.com/pdicarlotrader/status/2090219761838022709"}];
 
+    (function renderRecs() {
+      const rb = document.getElementById('recs-body');
+      if (!rb || typeof recs === 'undefined') return;
+      const held = {};
+      (positions || []).forEach(function(p) { held[p.symbol] = true; });
+      const rows = recs.filter(function(r) { return !held[r.sym]; });
+      if (!rows.length) {
+        rb.innerHTML = '<tr><td colspan="5" class="text-slate-500 text-sm p-4">No public Peter buy/watch notes in the last few days (or all names already held).</td></tr>';
+        return;
+      }
+      rows.forEach(function(r) {
+        const k = r.kind === 'buy' ? 'kind-buy' : r.kind === 'watch' ? 'kind-watch' : 'kind-note';
+        const label = r.kind === 'buy' ? 'BUY context' : r.kind === 'watch' ? 'Watchlist' : 'Note';
+        rb.innerHTML +=
+          '<tr>' +
+          '<td class="text-slate-400 text-xs">' + r.date + '</td>' +
+          '<td><div class="flex items-center gap-2">' + badge(r.sym) +
+          '<span class="font-medium text-white">' + r.sym + '</span></div></td>' +
+          '<td><span class="text-xs px-2 py-0.5 rounded ' + k + '">' + label + '</span></td>' +
+          '<td class="peter-sum" style="max-width:420px">' + r.sum + '</td>' +
+          '<td><a class="peter-link" href="' + r.url + '" target="_blank" rel="noopener">Open ↗</a></td>' +
+          '</tr>';
+      });
+    })();
+
+
 
     function setPerf(id, pct) {
       const el = document.getElementById(id);
@@ -564,7 +590,7 @@
     }
 
     // From IBKR TWR cps (last point in each window), 2026-08-17
-        const PERF = {"portfolio":{"m1":15.41,"mtd":14.76,"ytd":-13.32,"y1":-13.32,"all":-13.32},"spx":{"m1":0,"mtd":0,"ytd":0,"y1":0}};
+        const PERF = {"portfolio":{"m1":15.37,"mtd":14.72,"ytd":-13.35,"y1":-13.35,"all":-13.35},"spx":{"m1":3.63,"mtd":2.95,"ytd":13.38,"y1":21.53}};
     setPerf('perf-p-1m', PERF.portfolio.m1);
     setPerf('perf-p-mtd', PERF.portfolio.mtd);
     setPerf('perf-p-ytd', PERF.portfolio.ytd);
