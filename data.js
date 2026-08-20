@@ -17,21 +17,21 @@ window.__DATA__ = {
   },
 
   positions: [
-    {symbol:"META", qty:4.0, avg:574.2733, last:541.74, upnl:-130.11, upnlPct:-5.66, cost:2297.09, mv:2166.98, pctNet:16.82, peter:null},
+    {symbol:"META", qty:4.0, avg:574.2733, last:541.74, upnl:-130.11, upnlPct:-5.66, cost:2297.09, mv:2166.98, pctNet:16.82, peter:{sum:"Back in SM zone — ideal buy area",url:"https://x.com/pdicarlotrader/status/2089820962380202374",when:"Aug 18"}},
     {symbol:"ENPH", qty:28.0, avg:47.7429, last:38.26, upnl:-265.52, upnlPct:-19.86, cost:1336.80, mv:1071.28, pctNet:8.32, peter:null},
     {symbol:"MMM", qty:7.0, avg:178.0271, last:179.18, upnl:8.07, upnlPct:0.65, cost:1246.19, mv:1254.26, pctNet:9.74, peter:null},
-    {symbol:"NFLX", qty:15.0, avg:73.7622, last:80.52, upnl:101.37, upnlPct:9.16, cost:1106.43, mv:1207.80, pctNet:9.38, peter:null},
+    {symbol:"NFLX", qty:15.0, avg:73.7622, last:80.52, upnl:101.37, upnlPct:9.16, cost:1106.43, mv:1207.80, pctNet:9.38, peter:{sum:"Still extremely bullish — up 20%+ from SM pricing",url:"https://x.com/pdicarlotrader/status/2090204158892585215",when:"Aug 19"}},
     {symbol:"RKLB", qty:12.0, avg:75.55, last:72.20, upnl:-40.20, upnlPct:-4.43, cost:906.60, mv:866.40, pctNet:6.73, peter:null},
     {symbol:"HOOD", qty:7.0, avg:94.9171, last:94.28, upnl:-4.46, upnlPct:-0.67, cost:664.42, mv:659.96, pctNet:5.12, peter:null},
     {symbol:"NXT", qty:7.0, avg:94.4857, last:87.27, upnl:-50.51, upnlPct:-7.64, cost:661.40, mv:610.89, pctNet:4.74, peter:null},
     {symbol:"APP", qty:2.0, avg:312.8875, last:308.66, upnl:-8.45, upnlPct:-1.35, cost:625.78, mv:617.32, pctNet:4.79, peter:null},
     {symbol:"TE", qty:117.0, avg:5.1351, last:4.275, upnl:-100.63, upnlPct:-16.75, cost:600.81, mv:500.18, pctNet:3.88, peter:null},
-    {symbol:"NOW", qty:5.0, avg:115.4237, last:129.95, upnl:72.63, upnlPct:12.59, cost:577.12, mv:649.75, pctNet:5.04, peter:null},
+    {symbol:"NOW", qty:5.0, avg:115.4237, last:129.95, upnl:72.63, upnlPct:12.59, cost:577.12, mv:649.75, pctNet:5.04, peter:{sum:"$150 on deck next",url:"https://x.com/pdicarlotrader/status/2090128263184007243",when:"Aug 19"}},
     {symbol:"RBLX", qty:15.0, avg:37.8867, last:38.62, upnl:10.93, upnlPct:1.92, cost:568.30, mv:579.23, pctNet:4.50, peter:null},
     {symbol:"POET", qty:70.0, avg:8.1120, last:8.19, upnl:5.46, upnlPct:0.96, cost:567.84, mv:573.30, pctNet:4.45, peter:null},
-    {symbol:"CELH", qty:18.0, avg:28.1789, last:33.05, upnl:87.68, upnlPct:17.28, cost:507.22, mv:594.90, pctNet:4.62, peter:null},
+    {symbol:"CELH", qty:18.0, avg:28.1789, last:33.05, upnl:87.68, upnlPct:17.28, cost:507.22, mv:594.90, pctNet:4.62, peter:{sum:"+15% bounce — long-term SM zone, target +80% toward $50",url:"https://x.com/pdicarlotrader/status/2090159805738455260",when:"Aug 19"}},
     {symbol:"UBER", qty:8.0, avg:68.3125, last:78.64, upnl:82.66, upnlPct:15.13, cost:546.50, mv:629.16, pctNet:4.88, peter:null},
-    {symbol:"MSTR", qty:5.0, avg:101.05, last:111.44, upnl:51.95, upnlPct:10.28, cost:505.25, mv:557.20, pctNet:4.33, peter:null}
+    {symbol:"MSTR", qty:5.0, avg:101.05, last:111.44, upnl:51.95, upnlPct:10.28, cost:505.25, mv:557.20, pctNet:4.33, peter:{sum:"Long crypto / big players entering",url:"https://x.com/pdicarlotrader/status/2090097467467452699",when:"Aug 19"}}
   ],
 
   closed: [
@@ -102,7 +102,8 @@ window.__DATA__ = {
   // Peter public recommendations (not currently held)
   // Filled by automation from public X search @pdicarlotrader
   recs: [
-    // Example shape: { date, sym, kind: "buy"|"watch"|"note", sum, url }
+    {date:"Aug 20, 2026", sym:"CIFR", kind:"buy", sum:"SM alert — expected move down into level; now great time if wanting long (+15% off low)", url:"https://x.com/pdicarlotrader/status/2090524500718661743"},
+    {date:"Aug 20, 2026", sym:"SPCX", kind:"watch", sum:"Back at short-term buy zone; $130 pivot important support. Wait $120 if breaks", url:"https://x.com/pdicarlotrader/status/2090447671060287822"}
   ],
 
 

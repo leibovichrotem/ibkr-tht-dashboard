@@ -383,6 +383,17 @@
     document.getElementById('kpi-note').textContent = k.note || 'Derived from closed trades in data.js';
 
     // ——— Helpers ———
+    function fmtDate(s) {
+      if (!s) return '—';
+      // already human e.g. "Aug 20, 2026"
+      if (/[A-Za-z]/.test(s) && !/^\d{4}-/.test(s)) return s;
+      // YYYY-MM-DD
+      const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (!m) return s;
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return months[parseInt(m[2],10)-1] + ' ' + parseInt(m[3],10) + ', ' + m[1];
+    }
+
     const LOGO = {
       NFLX:['#e50914','N'], MMM:['#ff0000','3'], ENPH:['#00b4d8','E'], NOW:['#81b5a1','N'],
       META:['#0866ff','∞'], RKLB:['#64748b','R'], POET:['#7c3aed','P'], HOOD:['#84cc16','H'],
@@ -432,7 +443,7 @@
       const isWin=(t.pnl||0)>0; const cls=isWin?'text-emerald-400':'text-red-400';
       const tr=document.createElement('tr');
       tr.innerHTML =
-        '<td class="text-slate-400">'+t.date+'</td>'+
+        '<td class="text-slate-400">'+fmtDate(t.date)+'</td>'+
         '<td><div class="flex items-center gap-2">'+badge(t.sym)+'<span class="font-medium">'+t.sym+'</span></div></td>'+
         '<td class="num text-right">'+t.qty+'</td>'+
         '<td class="num text-right">$'+(t.exit||0).toFixed(2)+'</td>'+
@@ -453,7 +464,7 @@
         const kindCls = r.kind==='buy'?'kind-buy':(r.kind==='watch'?'kind-watch':'kind-note');
         const tr=document.createElement('tr');
         tr.innerHTML =
-          '<td class="text-slate-400">'+r.date+'</td>'+
+          '<td class="text-slate-400">'+fmtDate(r.date)+'</td>'+
           '<td><div class="flex items-center gap-2">'+badge(r.sym)+'<span class="font-medium">'+r.sym+'</span></div></td>'+
           '<td><span class="'+kindCls+'">'+(r.kind||'note')+'</span></td>'+
           '<td class="text-sm text-slate-300 max-w-md">'+r.sum+'</td>'+
