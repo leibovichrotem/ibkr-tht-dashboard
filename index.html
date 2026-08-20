@@ -146,15 +146,21 @@
     <!-- Holdings panel -->
     <div id="panel-holdings" class="tab-panel active">
       <div class="card overflow-x-auto">
+        <div class="p-4 border-b border-slate-700 flex justify-between items-center">
+          <h2 class="font-semibold text-white">Positions (ordered by Cost Basis)</h2>
+          <span class="text-xs text-slate-500" id="pos-count-label"></span>
+        </div>
         <table>
           <thead>
             <tr>
-              <th>Symbol</th>
+              <th>Instrument</th>
               <th class="text-right">Last</th>
               <th class="text-right">Chg%</th>
-              <th class="text-right">Unrealized $</th>
+              <th class="text-right">Unrealized P&amp;L</th>
               <th class="text-right">Unrealized %</th>
-              <th class="text-right">% NAV</th>
+              <th class="text-right">Cost Basis</th>
+              <th class="text-right">Positions</th>
+              <th class="text-right">% Net Liq</th>
               <th>Peter (public)</th>
             </tr>
           </thead>
@@ -216,22 +222,57 @@
 
     <!-- Analytics -->
     <div class="space-y-5 mt-2">
-      <!-- Equity -->
+      <!-- Performance vs SPY -->
+      <div class="card overflow-x-auto">
+        <div class="p-4 border-b border-slate-700">
+          <h2 class="font-semibold text-white">Performance</h2>
+          <p class="text-xs text-slate-500 mt-1">Portfolio (IBKR TWR) vs S&amp;P 500 proxy (SPY) · withdrawals mean NAV is not the scorecard</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Performance</th>
+              <th class="text-right">1 Month</th>
+              <th class="text-right">MTD</th>
+              <th class="text-right">YTD</th>
+              <th class="text-right">1 Year</th>
+              <th class="text-right">Since tracked*</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-medium text-white">Portfolio (TWR)</td>
+              <td class="num text-right" id="perf-p-1m">—</td>
+              <td class="num text-right" id="perf-p-mtd">—</td>
+              <td class="num text-right" id="perf-p-ytd">—</td>
+              <td class="num text-right" id="perf-p-1y">—</td>
+              <td class="num text-right" id="perf-p-all">—</td>
+            </tr>
+            <tr class="bg-slate-800/40">
+              <td class="font-medium text-slate-300">S&amp;P 500 (SPY)</td>
+              <td class="num text-right" id="perf-s-1m">—</td>
+              <td class="num text-right" id="perf-s-mtd">—</td>
+              <td class="num text-right" id="perf-s-ytd">—</td>
+              <td class="num text-right" id="perf-s-1y">—</td>
+              <td class="num text-right text-slate-500">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 p-3">*Since tracked = IBKR account window (from ~Jun 2026). TWR ignores deposits/withdrawals.</p>
+      </div>
+
+      <!-- Cumulative return % Portfolio vs SPY -->
       <div class="card p-4">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <div>
-            <h3 class="text-sm font-semibold text-white">Equity Curve (NAV)</h3>
-            <p class="text-xs text-slate-500">IBKR TWR</p>
-          </div>
-          <div class="flex gap-1.5">
-            <button type="button" class="range-btn" data-range="mtd">MTD</button>
-            <button type="button" class="range-btn active" data-range="ytd">YTD</button>
+            <h3 class="text-sm font-semibold text-white">Cumulative Return %</h3>
+            <p class="text-xs text-slate-500">IBKR TWR vs SPY · rebased to 0 at series start</p>
           </div>
         </div>
         <div style="height:260px"><canvas id="chartEquity"></canvas></div>
       </div>
 
-      <!-- Allocation with % -->
+      <!-- Allocation<!-- Allocation with % -->
       <div class="card p-4">
         <div class="mb-3">
           <h3 class="text-sm font-semibold text-white tracking-wide uppercase">Holdings allocation</h3>
@@ -296,6 +337,7 @@
     document.getElementById('hdr-cash').textContent = '$' + Math.round(m.cash||0).toLocaleString();
     document.getElementById('hdr-nav').textContent = '$' + Math.round(m.nav||0).toLocaleString();
     document.getElementById('hdr-pos').textContent = m.positionsCount || positions.length;
+    const pcl=document.getElementById('pos-count-label'); if(pcl) pcl.textContent=(positions.length)+' holdings';
     const upnl = Number(m.unrealized)||0;
     const upEl = document.getElementById('hdr-upnl');
     upEl.textContent = (upnl>=0?'+$':'-$') + Math.abs(Math.round(upnl)).toLocaleString();
@@ -365,17 +407,20 @@
 
     // ——— Render positions ———
     const tbody=document.getElementById('positions-body');
-    positions.slice().sort((a,b)=>(b.mv||0)-(a.mv||0)).forEach(p=>{
+    positions.slice().sort((a,b)=>(b.cost||0)-(a.cost||0)).forEach(p=>{
       const upCls=(p.upnl||0)>=0?'text-emerald-400':'text-red-400';
       const chCls=(p.chg||0)>=0?'text-emerald-400':'text-red-400';
       const tr=document.createElement('tr');
       tr.setAttribute('data-sym', p.symbol);
+      const sym = p.symbol || '—';
       tr.innerHTML =
-        '<td><div class="flex items-center gap-2">'+badge(p.symbol)+'<span class="font-medium text-white" style="margin-left:2px">'+p.symbol+'</span></div></td>'+
+        '<td><div class="flex items-center gap-2">'+badge(sym)+'<span class="font-medium text-white">'+sym+'</span></div></td>'+
         '<td class="num text-right" data-f="last">$'+(p.last||0).toFixed(2)+'</td>'+
         '<td class="num text-right '+chCls+'" data-f="chg">'+(p.chg>=0?'+':'')+(p.chg||0).toFixed(1)+'%</td>'+
         '<td class="num text-right '+upCls+'" data-f="upnl">$'+(p.upnl||0).toFixed(0)+'</td>'+
         '<td class="num text-right '+upCls+'" data-f="upnlPct">'+(p.upnlPct>=0?'+':'')+(p.upnlPct||0).toFixed(1)+'%</td>'+
+        '<td class="num text-right">$'+Math.round(p.cost||0).toLocaleString()+'</td>'+
+        '<td class="num text-right">'+(p.qty??'—')+'</td>'+
         '<td class="num text-right" data-f="pctNet">'+(p.pctNet||0).toFixed(1)+'%</td>'+
         '<td>'+peterCell(p)+'</td>';
       tbody.appendChild(tr);
@@ -471,28 +516,87 @@
     }
 
     // Equity
-    let equityChart=null;
-    function renderEquity(range){
-      const series=(range==='mtd'&&perf.mtd)?perf.mtd:(perf.ytd||{labels:[],nav:[]});
-      if (equityChart) equityChart.destroy();
-      equityChart=new Chart(document.getElementById('chartEquity'), {
-        type:'line',
-        data:{ labels:series.labels||[], datasets:[{ label:'NAV', data:series.nav||[], borderColor:'#38bdf8', backgroundColor:'rgba(56,189,248,0.07)', fill:true, tension:0.3, pointRadius:0, borderWidth:2 }] },
-        options:{ responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
-          scales:{ x:{ticks:{color:'#64748b',maxTicksLimit:8,font:{size:10}},grid:{color:'#1e293b'}}, y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#1e293b'}} },
-          plugins:{legend:{display:false}} }
-      });
+    // Performance table from data.js
+    function setPerf(id, val) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (val == null || isNaN(val)) { el.textContent = '—'; return; }
+      const s = (val >= 0 ? '+' : '') + Number(val).toFixed(2) + '%';
+      el.textContent = s;
+      el.classList.remove('text-emerald-400','text-red-400','text-slate-300');
+      el.classList.add(val >= 0 ? 'text-emerald-400' : 'text-red-400');
     }
-    renderEquity('ytd');
-    document.querySelectorAll('.range-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        renderEquity(btn.dataset.range);
-      });
-    });
+    const pc = DATA.perfCompare || {};
+    const pp = pc.portfolio || {};
+    const ps = pc.spy || {};
+    setPerf('perf-p-1m', pp.m1); setPerf('perf-p-mtd', pp.mtd);
+    setPerf('perf-p-ytd', pp.ytd); setPerf('perf-p-1y', pp.y1); setPerf('perf-p-all', pp.all);
+    setPerf('perf-s-1m', ps.m1); setPerf('perf-s-mtd', ps.mtd);
+    setPerf('perf-s-ytd', ps.ytd); setPerf('perf-s-1y', ps.y1);
 
-    // ——— IBKR sync pill from meta.generatedAt ———
+    // Cumulative return chart: Portfolio vs SPY
+    let equityChart = null;
+    (function renderReturnChart() {
+      const er = DATA.equityReturns || {};
+      const labels = er.labels || [];
+      const port = er.portfolio || [];
+      const spy = er.spy || [];
+      const ctx = document.getElementById('chartEquity');
+      if (!ctx || !window.Chart || !labels.length) return;
+      if (equityChart) equityChart.destroy();
+      equityChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Portfolio',
+              data: port,
+              borderColor: '#6366f1',
+              backgroundColor: 'transparent',
+              fill: false,
+              tension: 0.25,
+              borderWidth: 2.5,
+              pointRadius: 0,
+              pointHoverRadius: 4
+            },
+            {
+              label: 'S&P 500',
+              data: spy,
+              borderColor: '#94a3b8',
+              backgroundColor: 'transparent',
+              fill: false,
+              tension: 0.25,
+              borderWidth: 2,
+              pointRadius: 0,
+              pointHoverRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: true, labels: { color: '#94a3b8', boxWidth: 12 } },
+            tooltip: {
+              callbacks: {
+                label: function(c) {
+                  const v = c.raw;
+                  return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + Number(v).toFixed(2) + '%';
+                }
+              }
+            }
+          },
+          scales: {
+            x: { ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } }, grid: { color: '#1e293b' } },
+            y: { ticks: { color: '#64748b', font: { size: 10 }, callback: function(v){ return v + '%'; } }, grid: { color: '#1e293b' } }
+          }
+        }
+      });
+    })();
+
+    // ——— IBKR sync pill// ——— IBKR sync pill from meta.generatedAt ———
     function updateIbkrSyncPill(){
       const tip=document.getElementById('tip-ibkr-time');
       const ageEl=document.getElementById('pill-ibkr-age');
