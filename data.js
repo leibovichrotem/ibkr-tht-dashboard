@@ -1,37 +1,37 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-08-20 ~23:07 IDT
+// Generated: 2026-08-20 ~23:10 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   meta: {
-    generatedAt: "2026-08-20T23:07:00+03:00",
-    generatedAtHuman: "2026-08-20 23:07 IDT",
+    generatedAt: "2026-08-20T23:10:00+03:00",
+    generatedAtHuman: "2026-08-20 23:10 IDT",
     source: "Interactive Brokers (live)",
-    nav: 12920.63,
+    nav: 12914.19,
     cash: 93.61,
-    grossPositions: 12841.48,
-    unrealized: -153.48,
+    grossPositions: 12835.03,
+    unrealized: -158.82,
     positionsCount: 15,
     note: "Closed trades aggregated by order_id from YTD SELLs. KPIs computed server-side."
   },
 
   positions: [
-    {symbol:"META", qty:4.0, avg:574.2733, last:545.88, upnl:-113.59, upnlPct:-4.94, cost:2297.09, mv:2183.50, pctNet:16.90, peter:{sum:"Back in SM zone — ideal buy area", url:"https://x.com/pdicarlotrader/status/2089820962380202374", when:"2026-08-18"}},
+    {symbol:"META", qty:4.0, avg:574.2733, last:545.66, upnl:-114.45, upnlPct:-4.98, cost:2297.09, mv:2182.64, pctNet:16.90, peter:{sum:"Back in SM zone — ideal buy area", url:"https://x.com/pdicarlotrader/status/2089820962380202374", when:"2026-08-18"}},
     {symbol:"ENPH", qty:28.0, avg:47.7429, last:38.30, upnl:-264.40, upnlPct:-19.78, cost:1336.80, mv:1072.40, pctNet:8.30, peter:null},
     {symbol:"MMM", qty:7.0, avg:178.0271, last:178.09, upnl:0.44, upnlPct:0.04, cost:1246.19, mv:1246.63, pctNet:9.65, peter:null},
-    {symbol:"NFLX", qty:15.0, avg:73.7622, last:79.98, upnl:93.27, upnlPct:8.43, cost:1106.43, mv:1199.70, pctNet:9.29, peter:{sum:"Still extremely bullish — up 20%+ from SM pricing", url:"https://x.com/pdicarlotrader/status/2090204158892585215", when:"2026-08-19"}},
+    {symbol:"NFLX", qty:15.0, avg:73.7622, last:79.93, upnl:92.52, upnlPct:8.36, cost:1106.43, mv:1198.95, pctNet:9.28, peter:{sum:"Still extremely bullish — up 20%+ from SM pricing", url:"https://x.com/pdicarlotrader/status/2090204158892585215", when:"2026-08-19"}},
     {symbol:"NXT", qty:10.0, avg:92.6595, last:87.86, upnl:-47.99, upnlPct:-5.18, cost:926.59, mv:878.60, pctNet:6.80, peter:null},
-    {symbol:"RKLB", qty:12.0, avg:75.55, last:73.01, upnl:-30.52, upnlPct:-3.37, cost:906.60, mv:876.08, pctNet:6.78, peter:null},
-    {symbol:"HOOD", qty:7.0, avg:94.9171, last:95.10, upnl:1.28, upnlPct:0.19, cost:664.42, mv:665.70, pctNet:5.15, peter:null},
-    {symbol:"APP", qty:2.0, avg:312.8875, last:309.26, upnl:-7.25, upnlPct:-1.16, cost:625.78, mv:618.52, pctNet:4.79, peter:null},
-    {symbol:"TE", qty:117.0, avg:5.1351, last:4.38, upnl:-88.34, upnlPct:-14.70, cost:600.81, mv:512.46, pctNet:3.97, peter:null},
-    {symbol:"NOW", qty:5.0, avg:115.4237, last:129.74, upnl:71.58, upnlPct:12.40, cost:577.12, mv:648.70, pctNet:5.02, peter:{sum:"$150 on deck next", url:"https://x.com/pdicarlotrader/status/2090128263184007243", when:"2026-08-19"}},
-    {symbol:"RBLX", qty:15.0, avg:37.8867, last:38.25, upnl:5.45, upnlPct:0.96, cost:568.30, mv:573.75, pctNet:4.44, peter:null},
-    {symbol:"POET", qty:70.0, avg:8.1120, last:8.27, upnl:11.06, upnlPct:1.95, cost:567.84, mv:578.90, pctNet:4.48, peter:null},
-    {symbol:"UBER", qty:8.0, avg:68.3125, last:78.30, upnl:79.90, upnlPct:14.62, cost:546.50, mv:626.40, pctNet:4.85, peter:null},
-    {symbol:"CELH", qty:18.0, avg:28.1789, last:32.55, upnl:78.68, upnlPct:15.51, cost:507.22, mv:585.90, pctNet:4.53, peter:{sum:"+15% bounce — long-term SM zone, target +80% toward $50", url:"https://x.com/pdicarlotrader/status/2090159805738455260", when:"2026-08-19"}},
-    {symbol:"MSTR", qty:5.0, avg:101.05, last:112.44, upnl:56.95, upnlPct:11.27, cost:505.25, mv:562.20, pctNet:4.35, peter:{sum:"Long crypto / big players entering", url:"https://x.com/pdicarlotrader/status/2090097467467452699", when:"2026-08-19"}}
+    {symbol:"RKLB", qty:12.0, avg:75.55, last:73.10, upnl:-29.40, upnlPct:-3.24, cost:906.60, mv:877.20, pctNet:6.79, peter:null},
+    {symbol:"HOOD", qty:7.0, avg:94.9171, last:94.98, upnl:0.46, upnlPct:0.07, cost:664.42, mv:664.88, pctNet:5.15, peter:null},
+    {symbol:"APP", qty:2.0, avg:312.8875, last:309.30, upnl:-7.18, upnlPct:-1.15, cost:625.77, mv:618.60, pctNet:4.79, peter:null},
+    {symbol:"TE", qty:117.0, avg:5.1351, last:4.37, upnl:-89.52, upnlPct:-14.90, cost:600.80, mv:511.29, pctNet:3.96, peter:null},
+    {symbol:"NOW", qty:5.0, avg:115.4237, last:129.70, upnl:71.38, upnlPct:12.37, cost:577.12, mv:648.50, pctNet:5.02, peter:{sum:"$150 on deck next", url:"https://x.com/pdicarlotrader/status/2090128263184007243", when:"2026-08-19"}},
+    {symbol:"RBLX", qty:15.0, avg:37.8867, last:38.20, upnl:4.70, upnlPct:0.83, cost:568.30, mv:573.00, pctNet:4.44, peter:null},
+    {symbol:"POET", qty:70.0, avg:8.1120, last:8.22, upnl:7.56, upnlPct:1.33, cost:567.84, mv:575.40, pctNet:4.46, peter:null},
+    {symbol:"UBER", qty:8.0, avg:68.3125, last:78.60, upnl:82.30, upnlPct:15.06, cost:546.50, mv:628.80, pctNet:4.87, peter:null},
+    {symbol:"CELH", qty:18.0, avg:28.1789, last:32.54, upnl:78.50, upnlPct:15.48, cost:507.22, mv:585.72, pctNet:4.54, peter:{sum:"+15% bounce — long-term SM zone, target +80% toward $50", url:"https://x.com/pdicarlotrader/status/2090159805738455260", when:"2026-08-19"}},
+    {symbol:"MSTR", qty:5.0, avg:101.05, last:112.30, upnl:56.25, upnlPct:11.13, cost:505.25, mv:561.50, pctNet:4.35, peter:{sum:"Long crypto / big players entering", url:"https://x.com/pdicarlotrader/status/2090097467467452699", when:"2026-08-19"}}
   ],
 
   closed: [
@@ -87,14 +87,14 @@ window.__DATA__ = {
   kpis: {
     n: 47,
     wins: 22,
-    losses: 25,
+    losses: 24,
     winRate: 46.8,
     profitFactor: 0.71,
     avgWin: 113.9,
-    avgLoss: -141.1,
+    avgLoss: -147.0,
     expectancy: -21.7,
-    avgWinPct: 12.4,
-    avgLossPct: -16.0,
+    avgWinPct: 11.6,
+    avgLossPct: -17.2,
     totalRealized: -1021.5,
     sampleGoal: 100,
     note: "Server-side calculation from full YTD closed sells. Sample still building toward 100+."
@@ -110,11 +110,11 @@ window.__DATA__ = {
   performance: {
     ytd: {
       labels: ["06/04","06/05","06/08","06/09","06/10","06/11","06/12","06/15","06/16","06/17","06/18","06/19","06/22","06/23","06/24","06/25","06/26","06/29","06/30","07/01","07/02","07/03","07/06","07/07","07/08","07/09","07/10","07/13","07/14","07/15","07/16","07/17","07/20","07/21","07/22","07/23","07/24","07/27","07/28","07/29","07/30","07/31","08/03","08/04","08/05","08/06","08/07","08/10","08/11","08/12","08/13","08/14","08/17","08/18","08/19","08/20"],
-      nav: [16522,15375,15567,15030,14474,15765,15628,15999,15738,15638,16241,16241,15576,15006,14732,13960,13624,15112,15259,14863,14342,14342,14799,14357,14742,14952,14903,14432,14723,14741,14015,13744,13721,14164,14101,13552,13018,13089,13075,12521,13247,13822,14551,15072,15175,15502,16057,16037,13117,12945,13186,13164,12956,12724,13010,12920]
+      nav: [16522,15375,15567,15030,14474,15765,15628,15999,15738,15638,16241,16241,15576,15006,14732,13960,13624,15112,15259,14863,14342,14342,14799,14357,14742,14952,14903,14432,14723,14741,14015,13744,13721,14164,14101,13552,13018,13089,13075,12521,13247,13822,14551,15072,15175,15502,16057,16037,13117,12945,13186,13164,12956,12724,13010,12914]
     },
     mtd: {
       labels: ["08/03","08/04","08/05","08/06","08/07","08/10","08/11","08/12","08/13","08/14","08/17","08/18","08/19","08/20"],
-      nav: [14551,15072,15175,15502,16057,16037,13117,12945,13186,13164,12956,12724,13010,12920]
+      nav: [14551,15072,15175,15502,16057,16037,13117,12945,13186,13164,12956,12724,13010,12914]
     }
   }
 };
