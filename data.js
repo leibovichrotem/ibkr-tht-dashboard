@@ -99,6 +99,12 @@ window.__DATA__ = {
     note: "Server-side calculation from full YTD closed sells. Sample still building toward 100+."
   },
 
+  // Peter public recommendations (not currently held)
+  // Filled by automation from public X search @pdicarlotrader
+  recs: [
+    // Example shape: { date, sym, kind: "buy"|"watch"|"note", sum, url }
+  ],
+
   performance: {
     ytd: {
       labels: ["06/04","06/05","06/08","06/09","06/10","06/11","06/12","06/15","06/16","06/17","06/18","06/19","06/22","06/23","06/24","06/25","06/26","06/29","06/30","07/01","07/02","07/03","07/06","07/07","07/08","07/09","07/10","07/13","07/14","07/15","07/16","07/17","07/20","07/21","07/22","07/23","07/24","07/27","07/28","07/29","07/30","07/31","08/03","08/04","08/05","08/06","08/07","08/10","08/11","08/12","08/13","08/14","08/17","08/18","08/19","08/20"],

@@ -7,522 +7,582 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
-    :root {
-      --bg: #0b1220;
-      --card: #141c2e;
-      --card-hover: #1a2438;
-      --border: #243044;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --dim: #64748b;
-      --pos: #34d399;
-      --neg: #f87171;
-      --accent: #38bdf8;
-      --accent2: #818cf8;
-    }
-    * { box-sizing: border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      line-height: 1.45;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-    }
-    .num { font-variant-numeric: tabular-nums; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td {
-      padding: 11px 14px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.875rem;
-    }
-    th {
-      color: var(--dim);
-      font-weight: 500;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background: rgba(0,0,0,0.15);
-    }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: var(--card-hover); }
-    .kpi-value { font-size: 1.55rem; font-weight: 650; letter-spacing: -0.02em; }
-    .text-pos { color: var(--pos); }
-    .text-neg { color: var(--neg); }
-    .muted { color: var(--muted); }
-    .dim { color: var(--dim); }
-    .section-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #f1f5f9;
-      margin: 0 0 0.75rem 0;
-    }
-    .filter-btn {
-      padding: 5px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .filter-btn:hover { color: var(--text); border-color: #475569; }
-    .filter-btn.active {
-      background: #1e293b;
-      color: #f1f5f9;
-      border-color: #475569;
-    }
-    .range-btn {
-      padding: 4px 10px;
-      border-radius: 7px;
-      font-size: 0.72rem;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-    }
-    .range-btn.active {
-      background: #1e293b;
-      color: #f1f5f9;
-      border-color: #475569;
-    }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      background: rgba(56,189,248,0.08);
-      border: 1px solid rgba(56,189,248,0.18);
-      color: var(--accent);
-    }
-    .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--pos);
-      box-shadow: 0 0 0 3px rgba(52,211,153,0.15);
-    }
-    canvas { max-height: 270px; }
-    .table-wrap { overflow-x: auto; border-radius: 14px; }
+    :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --text:#e2e8f0; --muted:#94a3b8; --dim:#64748b; --pos:#34d399; --neg:#f87171; --accent:#38bdf8; }
+    body { background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,sans-serif; margin:0; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; }
+    .num { font-variant-numeric:tabular-nums; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { padding:11px 12px; text-align:left; border-bottom:1px solid var(--border); font-size:0.875rem; }
+    th { color:var(--muted); font-weight:500; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.04em; background:rgba(0,0,0,0.12); }
+    tr:hover td { background:#243044; }
+    .kpi-value { font-size:1.45rem; font-weight:650; }
+    .text-pos { color:var(--pos); } .text-neg { color:var(--neg); }
+    .muted { color:var(--muted); } .dim { color:var(--dim); }
+    .tab-btn { padding:7px 16px; border-radius:8px; font-size:0.8rem; color:#94a3b8; background:transparent; border:none; cursor:pointer; }
+    .tab-btn.active { background:#334155; color:#f1f5f9; border:1px solid #475569; }
+    .tab-btn:hover:not(.active) { color:#e2e8f0; }
+    .tab-panel { display:none; } .tab-panel.active { display:block; }
+    .scroll-box { max-height:440px; overflow-y:auto; }
+    .scroll-box::-webkit-scrollbar { width:6px; }
+    .scroll-box::-webkit-scrollbar-thumb { background:#334155; border-radius:3px; }
+    .sync-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:#1e293b; border:1px solid #334155; font-size:0.72rem; color:#cbd5e1; cursor:default; position:relative; }
+    .sync-pill .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .sync-pill .dot.ok { background:#34d399; box-shadow:0 0 6px #34d39966; }
+    .sync-pill .dot.warn { background:#fbbf24; }
+    .sync-pill .dot.err { background:#f87171; }
+    .sync-pill .dot.pulse { animation:pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .sync-tip { display:none; position:absolute; top:calc(100% + 8px); right:0; width:270px; z-index:50; padding:10px 12px; background:#0f172a; border:1px solid #475569; border-radius:10px; box-shadow:0 12px 40px #0008; color:#e2e8f0; font-size:0.72rem; line-height:1.45; text-align:left; }
+    .sync-pill:hover .sync-tip { display:block; }
+    .sync-tip strong { color:#f1f5f9; }
+    .mkt-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:0.72rem; font-weight:600; border:1px solid transparent; }
+    .mkt-pill.open { background:#064e3b; color:#6ee7b7; border-color:#05966955; }
+    .mkt-pill.pre { background:#1e3a5f; color:#93c5fd; border-color:#3b82f655; }
+    .mkt-pill.after { background:#4c1d95; color:#c4b5fd; border-color:#8b5cf655; }
+    .mkt-pill.closed { background:#1e293b; color:#94a3b8; border-color:#334155; }
+    .range-btn { padding:5px 11px; border-radius:999px; font-size:0.72rem; border:1px solid #334155; background:transparent; color:#94a3b8; cursor:pointer; }
+    .range-btn.active { background:#6366f1; color:#fff; border-color:#6366f1; }
+    .alloc-grid { display:grid; grid-template-columns:minmax(220px,280px) 1fr; gap:1.25rem; align-items:start; }
+    @media (max-width:900px){ .alloc-grid { grid-template-columns:1fr; } }
+    .peter-sum { font-size:0.78rem; color:#cbd5e1; line-height:1.35; max-width:280px; }
+    .peter-link { font-size:0.7rem; color:#38bdf8; text-decoration:none; }
+    .peter-link:hover { text-decoration:underline; }
+    .kind-buy { background:#065f46; color:#6ee7b7; padding:2px 8px; border-radius:6px; font-size:0.68rem; font-weight:600; }
+    .kind-watch { background:#1e3a5f; color:#93c5fd; padding:2px 8px; border-radius:6px; font-size:0.68rem; font-weight:600; }
+    .kind-note { background:#334155; color:#e2e8f0; padding:2px 8px; border-radius:6px; font-size:0.68rem; font-weight:600; }
+    .logo-wrap { width:22px; height:22px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:700; color:#fff; flex-shrink:0; }
   </style>
 </head>
-<body class="p-4 md:p-6 lg:p-8 max-w-7xl mx-auto">
+<body class="p-4 md:p-6 lg:p-8">
+  <div class="max-w-7xl mx-auto space-y-5">
 
-  <!-- Header -->
-  <header class="mb-7">
-    <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+    <!-- Header with exact sync pills -->
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
       <div>
-        <div class="flex items-center gap-2.5 mb-1">
-          <h1 class="text-xl md:text-2xl font-semibold text-white tracking-tight">IBKR Portfolio</h1>
-          <span class="pill"><span class="dot"></span> THT Tracker</span>
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
+          <span id="mkt-pill" class="mkt-pill closed">● Closed</span>
         </div>
-        <p class="text-sm muted" id="hdr-subtitle">Loading…</p>
+        <p class="text-slate-400 text-sm">Rules-based · Peter DiCarlo THT Bull Cycle</p>
       </div>
-      <div class="text-right">
-        <div class="text-xs dim" id="hdr-sync">—</div>
-        <div class="text-xs muted mt-0.5">Source: data.js</div>
+      <div class="flex flex-col items-stretch md:items-end gap-2">
+        <div class="flex flex-wrap gap-2 justify-end">
+          <div class="sync-pill" id="pill-ibkr">
+            <span class="dot ok" id="dot-ibkr"></span>
+            <span class="font-medium text-slate-200">IBKR</span>
+            <span class="text-slate-500" id="pill-ibkr-age">—</span>
+            <div class="sync-tip">
+              <strong>IBKR snapshot</strong> (hourly automation)<br>
+              Last: <span id="tip-ibkr-time">—</span><br>
+              Provides: positions, cost basis, qty, NAV, cash, closed trades, performance, recommendations.
+            </div>
+          </div>
+          <div class="sync-pill" id="pill-fh">
+            <span class="dot pulse" id="dot-fh"></span>
+            <span class="font-medium text-slate-200">Finnhub</span>
+            <span class="text-slate-500" id="pill-fh-age">—</span>
+            <div class="sync-tip">
+              <strong>Finnhub live</strong> (~60s in browser)<br>
+              Last: <span id="tip-fh-time">waiting…</span><br>
+              Provides: Last price, day Chg%, Unrealized $/% between IBKR runs.
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 justify-end text-sm">
+          <div class="card px-3 py-1.5">
+            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Cash</div>
+            <div id="hdr-cash" class="font-medium text-slate-200 text-sm">—</div>
+          </div>
+          <div class="card px-3 py-1.5">
+            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Unrealized</div>
+            <div id="hdr-upnl" class="font-medium text-sm">—</div>
+          </div>
+          <div class="card px-3 py-1.5">
+            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Positions</div>
+            <div id="hdr-pos" class="font-medium text-slate-200 text-sm">—</div>
+          </div>
+          <div class="card px-3 py-1.5">
+            <div class="text-slate-500 text-[10px] uppercase tracking-wide">NAV</div>
+            <div id="hdr-nav" class="font-medium text-slate-200 text-sm">—</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Net Liquidation</div>
-        <div class="kpi-value num" id="hdr-nav">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Cash</div>
-        <div class="kpi-value num" id="hdr-cash">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Unrealized P&L</div>
-        <div class="kpi-value num" id="hdr-upnl">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Open Positions</div>
-        <div class="kpi-value num" id="hdr-pos">—</div>
-      </div>
+    <!-- Rules -->
+    <div class="card p-4 text-sm">
+      <div class="font-medium text-slate-200 mb-2">Rules & Psychology Reminder</div>
+      <ul class="text-slate-400 space-y-1 text-[0.82rem]">
+        <li>• Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
+        <li>• Loss ≠ error. Error = deviation from rules</li>
+        <li>• <strong class="text-slate-300">Peter column</strong> = latest public @pdicarlotrader post on that ticker (summary + link). Public posts only.</li>
+        <li>• Buy SMZ / discount · Sell strength or structure break</li>
+      </ul>
     </div>
-  </header>
 
-  <!-- Rules -->
-  <div class="card p-4 mb-7 text-sm">
-    <div class="font-medium text-slate-200 mb-2">Rules & Psychology</div>
-    <div class="grid sm:grid-cols-2 gap-x-6 gap-y-1 muted text-[0.82rem]">
-      <div>• Sample size goal: 100+ closed trades</div>
-      <div>• Never cherry-pick · Equal weight every trade</div>
-      <div>• Loss ≠ error. Error = deviation from rules</div>
-      <div>• Buy SMZ / discount · Sell strength or structure break</div>
+    <!-- KPIs -->
+    <div>
+      <h2 class="text-sm font-semibold text-white mb-3 tracking-wide uppercase">Performance & Process KPIs</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Trades History</div><div class="kpi-value num" id="kpi-n">—</div><div class="text-xs text-slate-500 mt-1">Goal: 100+</div></div>
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Win Rate</div><div class="kpi-value num" id="kpi-wr">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-wl">—</div></div>
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Profit Factor</div><div class="kpi-value num" id="kpi-pf">—</div><div class="text-xs text-slate-500 mt-1">Gross Wins ÷ Losses</div></div>
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Total Realized</div><div class="kpi-value num" id="kpi-total">—</div><div class="text-xs text-slate-500 mt-1">YTD closed P&L</div></div>
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Avg Win</div><div class="kpi-value num text-pos" id="kpi-aw">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-awp">—</div></div>
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Avg Loss</div><div class="kpi-value num text-neg" id="kpi-al">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-alp">—</div></div>
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Expectancy / trade</div><div class="kpi-value num" id="kpi-e">—</div><div class="text-xs text-slate-500 mt-1">Avg edge per trade</div></div>
+        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Largest Win / Loss</div><div class="flex gap-3 mt-1"><div><div class="text-sm font-semibold text-pos num" id="kpi-lw">—</div><div class="text-[0.65rem] text-slate-500">Best</div></div><div><div class="text-sm font-semibold text-neg num" id="kpi-ll">—</div><div class="text-[0.65rem] text-slate-500">Worst</div></div></div></div>
+      </div>
+      <p class="text-xs text-slate-500 mt-3" id="kpi-note">Derived from closed trades in data.js</p>
     </div>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap gap-2 border-b border-slate-700 pb-0">
+      <button class="tab-btn active" data-tab="holdings" onclick="switchTab('holdings')">Holdings</button>
+      <button class="tab-btn" data-tab="closed" onclick="switchTab('closed')">Trades History</button>
+      <button class="tab-btn" data-tab="recs" onclick="switchTab('recs')">Recommendations</button>
+    </div>
+
+    <!-- Holdings panel -->
+    <div id="panel-holdings" class="tab-panel active">
+      <div class="card overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th class="text-right">Last</th>
+              <th class="text-right">Chg%</th>
+              <th class="text-right">Unrealized $</th>
+              <th class="text-right">Unrealized %</th>
+              <th class="text-right">% NAV</th>
+              <th>Peter (public)</th>
+            </tr>
+          </thead>
+          <tbody id="positions-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Closed / Trades History panel with scroll -->
+    <div id="panel-closed" class="tab-panel">
+      <div class="card">
+        <div class="p-4 border-b border-slate-700">
+          <h2 class="font-semibold text-white">Trades History (newest first)</h2>
+          <p class="text-xs text-slate-500 mt-1">Closed sell orders with realized P&L vs cost basis</p>
+        </div>
+        <div class="scroll-box">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Symbol</th>
+                <th class="text-right">Qty</th>
+                <th class="text-right">Exit</th>
+                <th class="text-right">P&L $</th>
+                <th class="text-right">P&L %</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody id="closed-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommendations panel -->
+    <div id="panel-recs" class="tab-panel">
+      <div class="card">
+        <div class="p-4 border-b border-slate-700">
+          <h2 class="font-semibold text-white">Recommendations</h2>
+          <p class="text-xs text-slate-500 mt-1">@pdicarlotrader public posts (recent) that read as buy / watchlist / structure note · excluding names you already hold · not a system score</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Symbol</th>
+                <th>Kind</th>
+                <th>Summary</th>
+                <th>Post</th>
+              </tr>
+            </thead>
+            <tbody id="recs-body"></tbody>
+          </table>
+        </div>
+        <p class="text-xs text-slate-500 p-4 border-t border-slate-700">Refreshed with hourly automation from public X search · subscriber-only posts are not available via API.</p>
+      </div>
+    </div>
+
+    <!-- Analytics -->
+    <div class="space-y-5 mt-2">
+      <!-- Equity -->
+      <div class="card p-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div>
+            <h3 class="text-sm font-semibold text-white">Equity Curve (NAV)</h3>
+            <p class="text-xs text-slate-500">IBKR TWR</p>
+          </div>
+          <div class="flex gap-1.5">
+            <button type="button" class="range-btn" data-range="mtd">MTD</button>
+            <button type="button" class="range-btn active" data-range="ytd">YTD</button>
+          </div>
+        </div>
+        <div style="height:260px"><canvas id="chartEquity"></canvas></div>
+      </div>
+
+      <!-- Allocation with % -->
+      <div class="card p-4">
+        <div class="mb-3">
+          <h3 class="text-sm font-semibold text-white tracking-wide uppercase">Holdings allocation</h3>
+          <p class="text-xs text-slate-500">All positions by market value · percentage shown</p>
+        </div>
+        <div class="alloc-grid">
+          <div class="relative mx-auto" style="width:240px;height:240px">
+            <canvas id="pieHoldings"></canvas>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
+              <div id="pv-comb" style="font-family:ui-monospace,monospace;font-size:1.25rem;font-weight:600;color:#f1f5f9;line-height:1">—</div>
+              <div style="font-family:ui-monospace,monospace;font-size:0.58rem;color:#64748b;margin-top:4px;letter-spacing:0.06em">total</div>
+            </div>
+          </div>
+          <div id="leg-comb" style="display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;max-height:none;overflow:visible"></div>
+        </div>
+      </div>
+
+      <!-- Sector map -->
+      <div class="card p-4">
+        <div class="mb-3">
+          <h3 class="text-sm font-semibold text-white">Exposure breakdowns</h3>
+          <p class="text-xs text-slate-500">Sector · % of position market value · hover for tickers</p>
+        </div>
+        <div class="relative" style="height:260px">
+          <canvas id="chartExposure"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center text-slate-500 text-xs py-4">
+      Generated by Grok · ibkr-trade-tracker · THT Bull Cycle · Not financial advice<br>
+      Architecture: numbers live only in <code class="text-slate-400">data.js</code> · <code class="text-slate-400">index.html</code> is a pure renderer
+    </footer>
   </div>
-
-  <!-- KPIs -->
-  <section class="mb-8">
-    <h2 class="section-title">Performance & Process KPIs</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Trades History</div>
-        <div class="kpi-value num" id="kpi-n">—</div>
-        <div class="text-xs muted mt-1">Goal: 100+</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Win Rate</div>
-        <div class="kpi-value num" id="kpi-wr">—</div>
-        <div class="text-xs muted mt-1" id="kpi-wl">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Profit Factor</div>
-        <div class="kpi-value num" id="kpi-pf">—</div>
-        <div class="text-xs muted mt-1">Gross Wins ÷ Losses</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Total Realized</div>
-        <div class="kpi-value num" id="kpi-total">—</div>
-        <div class="text-xs muted mt-1">YTD closed P&L</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Avg Win</div>
-        <div class="kpi-value num text-pos" id="kpi-aw">—</div>
-        <div class="text-xs muted mt-1" id="kpi-awp">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Avg Loss</div>
-        <div class="kpi-value num text-neg" id="kpi-al">—</div>
-        <div class="text-xs muted mt-1" id="kpi-alp">—</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Expectancy / trade</div>
-        <div class="kpi-value num" id="kpi-e">—</div>
-        <div class="text-xs muted mt-1">Avg edge per trade</div>
-      </div>
-      <div class="card p-4">
-        <div class="text-xs dim mb-1">Largest Win / Loss</div>
-        <div class="flex gap-3 mt-1">
-          <div>
-            <div class="text-sm font-semibold text-pos num" id="kpi-lw">—</div>
-            <div class="text-[0.65rem] dim">Best</div>
-          </div>
-          <div>
-            <div class="text-sm font-semibold text-neg num" id="kpi-ll">—</div>
-            <div class="text-[0.65rem] dim">Worst</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="text-xs dim mt-3" id="kpi-note">Derived from closed trades in data.js · Sample still building toward 100+</p>
-  </section>
-
-  <!-- Charts -->
-  <section class="mb-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
-    <div class="card p-4">
-      <h3 class="text-sm font-semibold text-white mb-0.5">Holdings Allocation</h3>
-      <p class="text-xs dim mb-3">By market value</p>
-      <div class="relative mx-auto" style="max-width:300px;height:250px">
-        <canvas id="chartAlloc"></canvas>
-      </div>
-    </div>
-    <div class="card p-4">
-      <div class="flex items-center justify-between mb-1">
-        <div>
-          <h3 class="text-sm font-semibold text-white">Equity Curve</h3>
-          <p class="text-xs dim">IBKR TWR · NAV</p>
-        </div>
-        <div class="flex gap-1.5">
-          <button type="button" class="range-btn" data-range="mtd">MTD</button>
-          <button type="button" class="range-btn active" data-range="ytd">YTD</button>
-        </div>
-      </div>
-      <div style="height:250px">
-        <canvas id="chartEquity"></canvas>
-      </div>
-    </div>
-  </section>
-
-  <!-- Positions -->
-  <section class="mb-8">
-    <div class="flex items-center justify-between mb-3">
-      <h2 class="section-title mb-0">Open Positions</h2>
-      <span class="text-xs dim" id="pos-count"></span>
-    </div>
-    <div class="card table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th class="text-right">Qty</th>
-            <th class="text-right">Avg</th>
-            <th class="text-right">Last</th>
-            <th class="text-right">Mkt Value</th>
-            <th class="text-right">Unrealized $</th>
-            <th class="text-right">Unrealized %</th>
-            <th class="text-right">% NAV</th>
-          </tr>
-        </thead>
-        <tbody id="positions-body"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Closed -->
-  <section class="mb-8">
-    <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
-      <div>
-        <h2 class="section-title mb-0">Trades History</h2>
-        <p class="text-xs dim mt-0.5">Closed sells · realized P&L vs cost</p>
-      </div>
-      <div class="flex gap-1.5" id="closed-filters">
-        <button type="button" class="filter-btn active" data-filter="all">All</button>
-        <button type="button" class="filter-btn" data-filter="wins">Wins</button>
-        <button type="button" class="filter-btn" data-filter="losses">Losses</button>
-      </div>
-    </div>
-    <div class="card table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Symbol</th>
-            <th class="text-right">Qty</th>
-            <th class="text-right">Exit</th>
-            <th class="text-right">P&L $</th>
-            <th class="text-right">P&L %</th>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody id="closed-body"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <footer class="text-xs dim mt-10 pb-8 border-t border-slate-800 pt-5">
-    Not financial advice. Verify figures in the IBKR platform.<br>
-    <span class="muted">Architecture: all numbers live only in <code class="text-slate-400">data.js</code>. 
-    <code class="text-slate-400">index.html</code> is a pure renderer and is never patched by automation.</span>
-  </footer>
 
   <script src="data.js"></script>
   <script>
-    (function () {
-      const DATA = window.__DATA__;
-      if (!DATA || !DATA.meta) {
-        document.getElementById('hdr-subtitle').textContent = 'ERROR: data.js missing or corrupt';
-        document.getElementById('hdr-subtitle').classList.add('text-neg');
-        return;
-      }
+    // ——— Data ———
+    const DATA = window.__DATA__;
+    if (!DATA || !DATA.meta) {
+      document.body.innerHTML = '<div style="padding:2rem;color:#f87171">ERROR: data.js missing or corrupt</div>';
+      throw new Error('no data');
+    }
+    const m = DATA.meta;
+    const k = DATA.kpis || {};
+    let positions = Array.isArray(DATA.positions) ? DATA.positions.map(p => Object.assign({}, p, { chg: p.chg || 0 })) : [];
+    const closed = Array.isArray(DATA.closed) ? DATA.closed : [];
+    const recs = Array.isArray(DATA.recs) ? DATA.recs : [];
+    const perf = DATA.performance || {};
+    const NET_LIQ = m.nav || 0;
 
-      const m = DATA.meta;
-      const k = DATA.kpis || {};
-      const positions = Array.isArray(DATA.positions) ? DATA.positions : [];
-      const closed = Array.isArray(DATA.closed) ? DATA.closed : [];
-      const perf = DATA.performance || {};
+    // Sector map (simple static)
+    const SECTOR = {
+      META:'Communication Services', NFLX:'Communication Services', RBLX:'Communication Services',
+      ENPH:'Technology', NOW:'Technology', APP:'Technology', POET:'Technology',
+      HOOD:'Financials', MSTR:'Financials',
+      MMM:'Industrials', RKLB:'Industrials', UBER:'Industrials',
+      TE:'Energy', CELH:'Consumer Staples', NXT:'Industrials'
+    };
 
-      // Header
-      document.getElementById('hdr-subtitle').textContent =
-        'Rules-based · Peter DiCarlo THT Bull Cycle';
-      document.getElementById('hdr-sync').textContent =
-        'Updated ' + (m.generatedAtHuman || m.generatedAt || '—');
+    // ——— Header ———
+    document.getElementById('hdr-cash').textContent = '$' + Math.round(m.cash||0).toLocaleString();
+    document.getElementById('hdr-nav').textContent = '$' + Math.round(m.nav||0).toLocaleString();
+    document.getElementById('hdr-pos').textContent = m.positionsCount || positions.length;
+    const upnl = Number(m.unrealized)||0;
+    const upEl = document.getElementById('hdr-upnl');
+    upEl.textContent = (upnl>=0?'+$':'-$') + Math.abs(Math.round(upnl)).toLocaleString();
+    upEl.className = 'font-medium text-sm ' + (upnl>=0?'text-emerald-400':'text-rose-400');
 
-      document.getElementById('hdr-nav').textContent =
-        '$' + Number(m.nav).toLocaleString(undefined, { maximumFractionDigits: 0 });
-      document.getElementById('hdr-cash').textContent =
-        '$' + Number(m.cash).toLocaleString(undefined, { maximumFractionDigits: 0 });
+    // Market status
+    function updateMktPill() {
+      const now = new Date();
+      // Approximate US market hours in IDT (UTC+3): RTH ~16:30-23:00 IDT
+      const h = now.getUTCHours() + 3; // rough IDT
+      const day = now.getUTCDay();
+      const el = document.getElementById('mkt-pill');
+      if (day===0||day===6) { el.className='mkt-pill closed'; el.textContent='● Closed'; return; }
+      if (h>=16 && h<23) { el.className='mkt-pill open'; el.textContent='● Open'; }
+      else if (h>=14 && h<16) { el.className='mkt-pill pre'; el.textContent='● Pre'; }
+      else if (h>=23 || h<2) { el.className='mkt-pill after'; el.textContent='● After'; }
+      else { el.className='mkt-pill closed'; el.textContent='● Closed'; }
+    }
+    updateMktPill();
 
-      const upnl = Number(m.unrealized) || 0;
-      const upnlEl = document.getElementById('hdr-upnl');
-      upnlEl.textContent = (upnl >= 0 ? '+$' : '-$') + Math.abs(Math.round(upnl)).toLocaleString();
-      upnlEl.classList.add(upnl >= 0 ? 'text-pos' : 'text-neg');
-      document.getElementById('hdr-pos').textContent = m.positionsCount || positions.length;
-      document.getElementById('pos-count').textContent = positions.length + ' holdings';
+    // ——— KPIs from data.js ———
+    document.getElementById('kpi-n').textContent = k.n ?? '—';
+    document.getElementById('kpi-wr').textContent = k.winRate!=null ? k.winRate+'%' : '—';
+    document.getElementById('kpi-wl').textContent = (k.wins!=null&&k.losses!=null) ? (k.wins+'W / '+k.losses+'L') : '—';
+    const pfEl=document.getElementById('kpi-pf');
+    if (k.profitFactor==null) pfEl.textContent='—';
+    else { pfEl.textContent=Number(k.profitFactor).toFixed(2); pfEl.classList.add(k.profitFactor>=1?'text-pos':'text-neg'); }
+    const tot=document.getElementById('kpi-total');
+    if (k.totalRealized!=null){ const t=k.totalRealized; tot.textContent=(t>=0?'+$':'-$')+Math.abs(Math.round(t)).toLocaleString(); tot.classList.add(t>=0?'text-pos':'text-neg'); }
+    document.getElementById('kpi-aw').textContent = k.avgWin!=null ? ('+$'+Math.round(k.avgWin)) : '—';
+    document.getElementById('kpi-awp').textContent = k.avgWinPct!=null ? ('~+'+k.avgWinPct.toFixed(1)+'% vs cost') : '';
+    document.getElementById('kpi-al').textContent = k.avgLoss!=null ? ('–$'+Math.round(Math.abs(k.avgLoss))) : '—';
+    document.getElementById('kpi-alp').textContent = k.avgLossPct!=null ? ('~'+k.avgLossPct.toFixed(1)+'% vs cost') : '';
+    const eEl=document.getElementById('kpi-e');
+    if (k.expectancy!=null){ eEl.textContent=(k.expectancy>=0?'+$':'–$')+Math.round(Math.abs(k.expectancy)); eEl.classList.add(k.expectancy>=0?'text-pos':'text-neg'); }
+    if (closed.length){
+      const wins=closed.filter(t=>t.pnl>0), losses=closed.filter(t=>t.pnl<0);
+      const maxW=wins.length?Math.max(...wins.map(t=>t.pnl)):null;
+      const maxL=losses.length?Math.min(...losses.map(t=>t.pnl)):null;
+      document.getElementById('kpi-lw').textContent = maxW!=null?('+$'+Math.round(maxW)):'—';
+      document.getElementById('kpi-ll').textContent = maxL!=null?('–$'+Math.round(Math.abs(maxL))):'—';
+    }
+    document.getElementById('kpi-note').textContent = k.note || 'Derived from closed trades in data.js';
 
-      // KPIs
-      document.getElementById('kpi-n').textContent = k.n ?? '—';
-      document.getElementById('kpi-wr').textContent = k.winRate != null ? k.winRate + '%' : '—';
-      document.getElementById('kpi-wl').textContent =
-        (k.wins != null && k.losses != null) ? (k.wins + 'W / ' + k.losses + 'L') : '—';
+    // ——— Helpers ———
+    const LOGO = {
+      NFLX:['#e50914','N'], MMM:['#ff0000','3'], ENPH:['#00b4d8','E'], NOW:['#81b5a1','N'],
+      META:['#0866ff','∞'], RKLB:['#64748b','R'], POET:['#7c3aed','P'], HOOD:['#84cc16','H'],
+      UBER:['#000000','U'], APP:['#0a84ff','A'], RBLX:['#e2231a','R'], CELH:['#ff6b00','C'],
+      TE:['#10b981','T'], MSTR:['#f7931a','M'], NXT:['#f59e0b','N']
+    };
+    function badge(sym){
+      const L=LOGO[sym]||['#475569',(sym||'?')[0]];
+      return '<span class="logo-wrap" style="background:'+L[0]+'">'+L[1]+'</span>';
+    }
+    function peterCell(p){
+      if (!p||!p.peter) return '<span class="text-slate-600 text-xs">—</span>';
+      const x=p.peter;
+      return '<div class="peter-sum">'+x.sum+(x.when?' <span class="text-slate-500">('+x.when+')</span>':'')+'</div><a class="peter-link" href="'+x.url+'" target="_blank" rel="noopener">View on X ↗</a>';
+    }
 
-      const pfEl = document.getElementById('kpi-pf');
-      if (k.profitFactor == null) pfEl.textContent = '—';
-      else {
-        pfEl.textContent = Number(k.profitFactor).toFixed(2);
-        pfEl.classList.add(k.profitFactor >= 1 ? 'text-pos' : 'text-neg');
-      }
+    // ——— Tabs ———
+    window.switchTab = function(name){
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+name));
+    };
 
-      const totalEl = document.getElementById('kpi-total');
-      if (k.totalRealized != null) {
-        const t = k.totalRealized;
-        totalEl.textContent = (t >= 0 ? '+$' : '-$') + Math.abs(Math.round(t)).toLocaleString();
-        totalEl.classList.add(t >= 0 ? 'text-pos' : 'text-neg');
-      }
+    // ——— Render positions ———
+    const tbody=document.getElementById('positions-body');
+    positions.slice().sort((a,b)=>(b.mv||0)-(a.mv||0)).forEach(p=>{
+      const upCls=(p.upnl||0)>=0?'text-emerald-400':'text-red-400';
+      const chCls=(p.chg||0)>=0?'text-emerald-400':'text-red-400';
+      const tr=document.createElement('tr');
+      tr.setAttribute('data-sym', p.symbol);
+      tr.innerHTML =
+        '<td><div class="flex items-center gap-2">'+badge(p.symbol)+'<span class="font-medium text-white" style="margin-left:2px">'+p.symbol+'</span></div></td>'+
+        '<td class="num text-right" data-f="last">$'+(p.last||0).toFixed(2)+'</td>'+
+        '<td class="num text-right '+chCls+'" data-f="chg">'+(p.chg>=0?'+':'')+(p.chg||0).toFixed(1)+'%</td>'+
+        '<td class="num text-right '+upCls+'" data-f="upnl">$'+(p.upnl||0).toFixed(0)+'</td>'+
+        '<td class="num text-right '+upCls+'" data-f="upnlPct">'+(p.upnlPct>=0?'+':'')+(p.upnlPct||0).toFixed(1)+'%</td>'+
+        '<td class="num text-right" data-f="pctNet">'+(p.pctNet||0).toFixed(1)+'%</td>'+
+        '<td>'+peterCell(p)+'</td>';
+      tbody.appendChild(tr);
+    });
 
-      document.getElementById('kpi-aw').textContent = k.avgWin != null ? ('+$' + Math.round(k.avgWin)) : '—';
-      document.getElementById('kpi-awp').textContent = k.avgWinPct != null ? ('~+' + k.avgWinPct.toFixed(1) + '% vs cost') : '';
-      document.getElementById('kpi-al').textContent = k.avgLoss != null ? ('–$' + Math.round(Math.abs(k.avgLoss))) : '—';
-      document.getElementById('kpi-alp').textContent = k.avgLossPct != null ? ('~' + k.avgLossPct.toFixed(1) + '% vs cost') : '';
+    // ——— Closed ———
+    const cbody=document.getElementById('closed-body');
+    closed.forEach(t=>{
+      const isWin=(t.pnl||0)>0; const cls=isWin?'text-emerald-400':'text-red-400';
+      const tr=document.createElement('tr');
+      tr.innerHTML =
+        '<td class="text-slate-400">'+t.date+'</td>'+
+        '<td><div class="flex items-center gap-2">'+badge(t.sym)+'<span class="font-medium">'+t.sym+'</span></div></td>'+
+        '<td class="num text-right">'+t.qty+'</td>'+
+        '<td class="num text-right">$'+(t.exit||0).toFixed(2)+'</td>'+
+        '<td class="num text-right '+cls+'">'+(t.pnl>=0?'+':'')+Math.round(t.pnl)+'</td>'+
+        '<td class="num text-right '+cls+'">'+(t.pct>=0?'+':'')+(t.pct||0).toFixed(1)+'%</td>'+
+        '<td class="'+cls+' font-medium">'+(isWin?'Win':'Loss')+'</td>';
+      cbody.appendChild(tr);
+    });
 
-      const eEl = document.getElementById('kpi-e');
-      if (k.expectancy != null) {
-        eEl.textContent = (k.expectancy >= 0 ? '+$' : '–$') + Math.round(Math.abs(k.expectancy));
-        eEl.classList.add(k.expectancy >= 0 ? 'text-pos' : 'text-neg');
-      }
-
-      // Largest win / loss from closed
-      if (closed.length) {
-        const wins = closed.filter(t => t.pnl > 0);
-        const losses = closed.filter(t => t.pnl < 0);
-        const maxW = wins.length ? Math.max(...wins.map(t => t.pnl)) : null;
-        const maxL = losses.length ? Math.min(...losses.map(t => t.pnl)) : null;
-        document.getElementById('kpi-lw').textContent = maxW != null ? ('+$' + Math.round(maxW)) : '—';
-        document.getElementById('kpi-ll').textContent = maxL != null ? ('–$' + Math.round(Math.abs(maxL))) : '—';
-      }
-
-      document.getElementById('kpi-note').textContent =
-        k.note || 'Derived from closed trades in data.js · Sample still building toward 100+';
-
-      // Positions
-      const tbody = document.getElementById('positions-body');
-      positions
-        .slice()
-        .sort((a, b) => (b.mv || 0) - (a.mv || 0))
-        .forEach(p => {
-          const upCls = (p.upnl || 0) >= 0 ? 'text-pos' : 'text-neg';
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td class="font-medium text-white">${p.symbol || '—'}</td>
-            <td class="num text-right">${p.qty ?? '—'}</td>
-            <td class="num text-right">$${(p.avg || 0).toFixed(2)}</td>
-            <td class="num text-right">$${(p.last || 0).toFixed(2)}</td>
-            <td class="num text-right">$${Math.round(p.mv || 0).toLocaleString()}</td>
-            <td class="num text-right ${upCls}">${(p.upnl || 0) >= 0 ? '+' : ''}$${Math.round(p.upnl || 0)}</td>
-            <td class="num text-right ${upCls}">${(p.upnlPct || 0) >= 0 ? '+' : ''}${(p.upnlPct || 0).toFixed(1)}%</td>
-            <td class="num text-right">${(p.pctNet || 0).toFixed(1)}%</td>`;
-          tbody.appendChild(tr);
-        });
-
-      // Closed trades with filter
-      const cbody = document.getElementById('closed-body');
-      function renderClosed(filter) {
-        cbody.innerHTML = '';
-        const list = closed.filter(t => {
-          if (filter === 'wins') return t.pnl > 0;
-          if (filter === 'losses') return t.pnl < 0;
-          return true;
-        });
-        list.forEach(t => {
-          const isWin = (t.pnl || 0) > 0;
-          const cls = isWin ? 'text-pos' : 'text-neg';
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td class="dim">${t.date || '—'}</td>
-            <td class="font-medium text-white">${t.sym || '—'}</td>
-            <td class="num text-right">${t.qty ?? '—'}</td>
-            <td class="num text-right">$${(t.exit || 0).toFixed(2)}</td>
-            <td class="num text-right ${cls}">${(t.pnl || 0) >= 0 ? '+' : ''}$${Math.round(t.pnl || 0)}</td>
-            <td class="num text-right ${cls}">${(t.pct || 0) >= 0 ? '+' : ''}${(t.pct || 0).toFixed(1)}%</td>
-            <td class="${cls} font-medium">${isWin ? 'Win' : 'Loss'}</td>`;
-          cbody.appendChild(tr);
-        });
-      }
-      renderClosed('all');
-
-      document.querySelectorAll('#closed-filters .filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('#closed-filters .filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          renderClosed(btn.dataset.filter);
-        });
+    // ——— Recommendations ———
+    const rb=document.getElementById('recs-body');
+    const held={}; positions.forEach(p=>held[p.symbol]=true);
+    const rows=recs.filter(r=>!held[r.sym]);
+    if (!rows.length){
+      rb.innerHTML='<tr><td colspan="5" class="text-slate-500 text-sm py-6 text-center">No public recommendations right now (or automation has not filled recs yet).</td></tr>';
+    } else {
+      rows.forEach(r=>{
+        const kindCls = r.kind==='buy'?'kind-buy':(r.kind==='watch'?'kind-watch':'kind-note');
+        const tr=document.createElement('tr');
+        tr.innerHTML =
+          '<td class="text-slate-400">'+r.date+'</td>'+
+          '<td><div class="flex items-center gap-2">'+badge(r.sym)+'<span class="font-medium">'+r.sym+'</span></div></td>'+
+          '<td><span class="'+kindCls+'">'+(r.kind||'note')+'</span></td>'+
+          '<td class="text-sm text-slate-300 max-w-md">'+r.sum+'</td>'+
+          '<td><a class="peter-link" href="'+r.url+'" target="_blank" rel="noopener">View ↗</a></td>';
+        rb.appendChild(tr);
       });
+    }
 
-      // Charts
-      const colors = [
-        '#38bdf8','#818cf8','#c084fc','#f472b6','#fb923c',
-        '#34d399','#facc15','#f87171','#2dd4bf','#a78bfa',
-        '#e879f9','#4ade80','#fbbf24','#60a5fa','#fb7185'
-      ];
-
-      if (positions.length && window.Chart) {
-        new Chart(document.getElementById('chartAlloc'), {
-          type: 'doughnut',
-          data: {
-            labels: positions.map(p => p.symbol),
-            datasets: [{
-              data: positions.map(p => Math.max(0, p.mv || 0)),
-              backgroundColor: colors.slice(0, positions.length),
-              borderWidth: 0,
-              hoverOffset: 4
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: '58%',
-            plugins: {
-              legend: {
-                position: 'right',
-                labels: {
-                  color: '#94a3b8',
-                  boxWidth: 10,
-                  padding: 10,
-                  font: { size: 11 }
-                }
-              }
-            }
-          }
-        });
-      }
-
-      let equityChart = null;
-      function renderEquity(range) {
-        const series = (range === 'mtd' && perf.mtd) ? perf.mtd : (perf.ytd || { labels: [], nav: [] });
-        if (equityChart) equityChart.destroy();
-        equityChart = new Chart(document.getElementById('chartEquity'), {
-          type: 'line',
-          data: {
-            labels: series.labels || [],
-            datasets: [{
-              label: 'NAV',
-              data: series.nav || [],
-              borderColor: '#38bdf8',
-              backgroundColor: 'rgba(56,189,248,0.07)',
-              fill: true,
-              tension: 0.3,
-              pointRadius: 0,
-              pointHoverRadius: 4,
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            scales: {
-              x: {
-                ticks: { color: '#64748b', maxTicksLimit: 7, font: { size: 10 } },
-                grid: { color: 'rgba(36,48,68,0.6)' }
-              },
-              y: {
-                ticks: { color: '#64748b', font: { size: 10 } },
-                grid: { color: 'rgba(36,48,68,0.6)' }
-              }
-            },
-            plugins: { legend: { display: false } }
-          }
-        });
-      }
-      renderEquity('ytd');
-
-      document.querySelectorAll('.range-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          renderEquity(btn.dataset.range);
-        });
+    // ——— Charts ———
+    const pieColors=['#38bdf8','#818cf8','#c084fc','#f472b6','#fb923c','#34d399','#facc15','#f87171','#2dd4bf','#a78bfa','#e879f9','#4ade80','#fbbf24','#60a5fa','#fb7185'];
+    const pieLabels=positions.map(p=>p.symbol);
+    const pieData=positions.map(p=>Math.max(p.mv||0,0));
+    const pieTotal=pieData.reduce((a,b)=>a+b,0);
+    const pv=document.getElementById('pv-comb');
+    if (pv) pv.textContent = pieTotal>=1000 ? ('$'+(pieTotal/1000).toFixed(1)+'k') : ('$'+Math.round(pieTotal));
+    if (document.getElementById('pieHoldings') && window.Chart){
+      new Chart(document.getElementById('pieHoldings'), {
+        type:'doughnut',
+        data:{ labels:pieLabels, datasets:[{ data:pieData, backgroundColor:pieColors.slice(0,pieLabels.length), borderWidth:0 }] },
+        options:{ responsive:true, maintainAspectRatio:false, cutout:'62%', plugins:{ legend:{display:false}, tooltip:{callbacks:{label:function(ctx){ const v=ctx.raw||0; const pct=pieTotal?(v/pieTotal*100).toFixed(1):0; return ctx.label+': $'+Math.round(v)+' ('+pct+'%)'; }}} } }
       });
-    })();
+    }
+    // Legend with %
+    const leg=document.getElementById('leg-comb');
+    if (leg){
+      const items=pieLabels.map((lab,i)=>({lab,v:pieData[i],i})).sort((a,b)=>b.v-a.v);
+      leg.innerHTML=items.map(item=>{
+        const pct=pieTotal?(item.v/pieTotal*100):0;
+        const color=pieColors[item.i%pieColors.length];
+        return '<div style="display:flex;align-items:center;gap:8px;font-size:0.78rem"><span style="width:10px;height:10px;border-radius:3px;background:'+color+';flex-shrink:0"></span><span class="text-slate-300" style="min-width:48px">'+item.lab+'</span><span class="text-slate-500 num">'+pct.toFixed(1)+'%</span><span class="text-slate-600 num">$'+Math.round(item.v).toLocaleString()+'</span></div>';
+      }).join('');
+    }
+
+    // Sector exposure
+    const sectorMap={}, sectorTickers={};
+    positions.forEach(p=>{
+      const s=SECTOR[p.symbol]||'Other';
+      const v=Math.max(p.mv||0,0);
+      sectorMap[s]=(sectorMap[s]||0)+v;
+      if (!sectorTickers[s]) sectorTickers[s]=[];
+      sectorTickers[s].push(p.symbol);
+    });
+    const secEntries=Object.keys(sectorMap).map(k=>({k,v:sectorMap[k],tickers:(sectorTickers[k]||[]).sort()})).sort((a,b)=>b.v-a.v);
+    if (document.getElementById('chartExposure') && window.Chart && secEntries.length){
+      new Chart(document.getElementById('chartExposure'), {
+        type:'bar',
+        data:{
+          labels:secEntries.map(e=>e.k),
+          datasets:[{ data:secEntries.map(e=>e.v), backgroundColor:pieColors.slice(0,secEntries.length), borderWidth:0, borderRadius:6 }]
+        },
+        options:{
+          indexAxis:'y', responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{display:false}, tooltip:{callbacks:{
+            afterBody:function(items){ const i=items[0].dataIndex; return 'Tickers: '+(secEntries[i].tickers||[]).join(', '); },
+            label:function(ctx){ const v=ctx.raw||0; const pct=pieTotal?(v/pieTotal*100).toFixed(1):0; return '$'+Math.round(v)+' ('+pct+'%)'; }
+          }}},
+          scales:{ x:{ ticks:{color:'#64748b'}, grid:{color:'#1e293b'} }, y:{ ticks:{color:'#94a3b8'}, grid:{display:false} } }
+        }
+      });
+    }
+
+    // Equity
+    let equityChart=null;
+    function renderEquity(range){
+      const series=(range==='mtd'&&perf.mtd)?perf.mtd:(perf.ytd||{labels:[],nav:[]});
+      if (equityChart) equityChart.destroy();
+      equityChart=new Chart(document.getElementById('chartEquity'), {
+        type:'line',
+        data:{ labels:series.labels||[], datasets:[{ label:'NAV', data:series.nav||[], borderColor:'#38bdf8', backgroundColor:'rgba(56,189,248,0.07)', fill:true, tension:0.3, pointRadius:0, borderWidth:2 }] },
+        options:{ responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
+          scales:{ x:{ticks:{color:'#64748b',maxTicksLimit:8,font:{size:10}},grid:{color:'#1e293b'}}, y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#1e293b'}} },
+          plugins:{legend:{display:false}} }
+      });
+    }
+    renderEquity('ytd');
+    document.querySelectorAll('.range-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        renderEquity(btn.dataset.range);
+      });
+    });
+
+    // ——— IBKR sync pill from meta.generatedAt ———
+    function updateIbkrSyncPill(){
+      const tip=document.getElementById('tip-ibkr-time');
+      const ageEl=document.getElementById('pill-ibkr-age');
+      const dot=document.getElementById('dot-ibkr');
+      const raw=m.generatedAt||m.generatedAtHuman||'';
+      let ts=Date.parse(raw);
+      if (!ts && m.generatedAtHuman){
+        // try parse "2026-08-20 22:40 IDT"
+        const m2=m.generatedAtHuman.match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})/);
+        if (m2) ts=Date.parse(m2[1]+'-'+m2[2]+'-'+m2[3]+'T'+m2[4].padStart(2,'0')+':'+m2[5]+':00+03:00');
+      }
+      if (!ts){ if(tip) tip.textContent=raw||'—'; if(ageEl) ageEl.textContent='—'; return; }
+      const mins=Math.max(0, Math.round((Date.now()-ts)/60000));
+      const d=new Date(ts);
+      const timeStr=d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+      const today=new Date();
+      const yesterday=new Date(today); yesterday.setDate(today.getDate()-1);
+      const dayLabel=d.toDateString()===today.toDateString()?'Today':(d.toDateString()===yesterday.toDateString()?'Yesterday':d.toLocaleDateString([],{month:'short',day:'numeric'}));
+      const human=dayLabel+' · '+timeStr;
+      const age=mins<1?'just now':(mins<60?mins+'m ago':(mins<1440?Math.floor(mins/60)+'h ago':Math.floor(mins/1440)+'d ago'));
+      if (tip) tip.textContent=human+' ('+age+')';
+      if (ageEl) ageEl.textContent=age;
+      if (dot){
+        dot.classList.remove('ok','warn','err','pulse');
+        if (mins<=70) dot.classList.add('ok');
+        else if (mins<=180) dot.classList.add('warn');
+        else dot.classList.add('err');
+      }
+    }
+    updateIbkrSyncPill();
+    setInterval(updateIbkrSyncPill, 30000);
+
+    // ——— Finnhub live quotes ———
+    const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
+    async function fetchFinnhubQuote(sym){
+      try{
+        const r=await fetch('https://finnhub.io/api/v1/quote?symbol='+encodeURIComponent(sym)+'&token='+FINNHUB_KEY);
+        if (!r.ok) return null;
+        const d=await r.json();
+        if (d.c==null||d.c<=0) return null;
+        const last=d.c, prev=d.pc>0?d.pc:last;
+        const chg=d.dp!=null?d.dp:((last-prev)/prev)*100;
+        return { last, chg };
+      }catch(e){ return null; }
+    }
+    async function refreshLiveQuotes(){
+      let ok=0;
+      await Promise.all(positions.map(async function(p){
+        const q=await fetchFinnhubQuote(p.symbol);
+        if (!q) return;
+        ok++;
+        p.last=q.last; p.chg=q.chg;
+        p.upnl=(p.last-p.avg)*p.qty;
+        p.upnlPct=p.avg?((p.last-p.avg)/p.avg)*100:0;
+        p.mv=p.last*p.qty;
+        p.pctNet=NET_LIQ?(p.mv/NET_LIQ)*100:0;
+        const row=document.querySelector('tr[data-sym="'+p.symbol+'"]');
+        if (!row) return;
+        function set(field,text,cls){
+          const cell=row.querySelector('[data-f="'+field+'"]');
+          if (!cell) return;
+          cell.textContent=text;
+          if (cls){ cell.classList.remove('text-emerald-400','text-red-400'); cell.classList.add(cls); }
+        }
+        const upCls=p.upnl>=0?'text-emerald-400':'text-red-400';
+        const chCls=p.chg>=0?'text-emerald-400':'text-red-400';
+        set('last','$'+p.last.toFixed(2));
+        set('chg',(p.chg>=0?'+':'')+p.chg.toFixed(1)+'%',chCls);
+        set('upnl','$'+p.upnl.toFixed(0),upCls);
+        set('upnlPct',(p.upnlPct>=0?'+':'')+p.upnlPct.toFixed(1)+'%',upCls);
+        set('pctNet',p.pctNet.toFixed(1)+'%');
+      }));
+      const totalUpnl=positions.reduce((s,p)=>s+(p.upnl||0),0);
+      const hdrUpnl=document.getElementById('hdr-upnl');
+      if (hdrUpnl){
+        hdrUpnl.textContent=(totalUpnl>=0?'+$':'-$')+Math.abs(Math.round(totalUpnl)).toLocaleString();
+        hdrUpnl.className='font-medium text-sm '+(totalUpnl>=0?'text-emerald-400':'text-rose-400');
+      }
+      const t=new Date();
+      const timeStr=t.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+      const human='Today · '+timeStr;
+      const tipFh=document.getElementById('tip-fh-time');
+      const ageFh=document.getElementById('pill-fh-age');
+      const dotFh=document.getElementById('dot-fh');
+      if (tipFh) tipFh.textContent=ok?(human+' (just now) · '+ok+'/'+positions.length+' quotes'):'unavailable';
+      if (ageFh) ageFh.textContent=ok?'just now':'err';
+      if (dotFh){ dotFh.classList.remove('ok','warn','err','pulse'); if(ok>0) dotFh.classList.add('ok'); else dotFh.classList.add('err'); }
+    }
+    setTimeout(refreshLiveQuotes, 1200);
+    setInterval(refreshLiveQuotes, 60000);
   </script>
 </body>
 </html>
