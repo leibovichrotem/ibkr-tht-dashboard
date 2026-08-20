@@ -4,1009 +4,363 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IBKR Portfolio – THT Tracker</title>
-  <!-- fixed closed map 0286e63 -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
-    body { background: #0f172a; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
-    .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; }
-    .score-buy { background: #065f46; color: #6ee7b7; }
-    .score-hold { background: #1e3a5f; color: #93c5fd; }
-    .score-sell { background: #7f1d1d; color: #fca5a5; }
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --pos: #4ade80;
+      --neg: #f87171;
+      --accent: #38bdf8;
+    }
+    body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; margin: 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+    .num { font-variant-numeric: tabular-nums; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 11px 12px; text-align: left; border-bottom: 1px solid #334155; font-size: 0.875rem; }
-    th { color: #94a3b8; font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+    th { color: var(--muted); font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
     tr:hover { background: #243044; }
-    td { vertical-align: middle; }
-    .num { font-variant-numeric: tabular-nums; text-align: right; }
-    .tab-btn { padding: 7px 16px; border-radius: 8px; font-size: 0.8rem; color: #94a3b8; background: transparent; border: none; cursor: pointer; }
-    .tab-btn.active { background: #334155; color: #f1f5f9; border: 1px solid #475569; }
-    .tab-btn:hover:not(.active) { color: #e2e8f0; }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-    .logo-wrap {
-      /* Tradesh-style circle */
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: #1a2030;
-      border: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
-      box-sizing: border-box;
-      padding: 0;
-    }
-    .logo-wrap img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      border-radius: 50%;
-      display: block;
-      background: #1a2030;
-    }
-    .logo-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.72rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .scroll-box { max-height: 440px; overflow-y: auto; }
-    .scroll-box::-webkit-scrollbar { width: 6px; }
-    .scroll-box::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
-    a.peter-link { color: #38bdf8; text-decoration: none; font-size: 0.75rem; white-space: nowrap; }
-    a.peter-link:hover { text-decoration: underline; color: #7dd3fc; }
-    .peter-sum { color: #cbd5e1; font-size: 0.8rem; line-height: 1.35; max-width: 340px; }
-    .kind-buy { background: #065f46; color: #6ee7b7; }
-    .kind-watch { background: #1e3a5f; color: #93c5fd; }
-    .kind-note { background: #334155; color: #e2e8f0; }
-
-    .sync-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 10px; border-radius: 999px;
-      background: #1e293b; border: 1px solid #334155;
-      font-size: 0.72rem; color: #cbd5e1; cursor: default;
-      position: relative;
-    }
-    .sync-pill .dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-    }
-    .sync-pill .dot.ok { background: #34d399; box-shadow: 0 0 6px #34d39966; }
-    .sync-pill .dot.warn { background: #fbbf24; }
-    .sync-pill .dot.err { background: #f87171; }
-    .sync-pill .dot.pulse { animation: pulse 1.4s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
-    .sync-tip {
-      display: none; position: absolute; top: calc(100% + 8px); right: 0;
-      width: 260px; z-index: 50; padding: 10px 12px;
-      background: #0f172a; border: 1px solid #475569; border-radius: 10px;
-      box-shadow: 0 12px 40px #0008; color: #e2e8f0; font-size: 0.72rem;
-      line-height: 1.45; text-align: left;
-    }
-    .sync-pill:hover .sync-tip { display: block; }
-    .sync-tip strong { color: #f1f5f9; }
-    .mkt-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 600;
-      border: 1px solid transparent;
-    }
-    .mkt-pill.open { background: #064e3b; color: #6ee7b7; border-color: #05966955; }
-    .mkt-pill.pre { background: #1e3a5f; color: #93c5fd; border-color: #3b82f655; }
-    .mkt-pill.after { background: #4c1d95; color: #c4b5fd; border-color: #8b5cf655; }
-    .mkt-pill.closed { background: #1e293b; color: #94a3b8; border-color: #334155; }
-    .range-btn {
-      padding: 6px 12px; border-radius: 999px; font-size: 0.75rem;
-      border: 1px solid #334155; background: transparent; color: #94a3b8; cursor: pointer;
-    }
-    .range-btn.active { background: #6366f1; color: #fff; border-color: #6366f1; }
-    .alloc-grid {
-      display: grid; grid-template-columns: minmax(220px, 280px) 1fr; gap: 1.25rem; align-items: start;
-    }
-    @media (max-width: 900px) {
-      .alloc-grid { grid-template-columns: 1fr; }
-    }
+    .kpi-value { font-size: 1.5rem; font-weight: 600; }
+    .text-pos { color: var(--pos); }
+    .text-neg { color: var(--neg); }
+    .muted { color: var(--muted); }
+    canvas { max-height: 280px; }
   </style>
 </head>
-<body class="p-4 md:p-8">
-  <div class="max-w-7xl mx-auto space-y-5">
-    <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+<body class="p-4 md:p-6 max-w-7xl mx-auto">
+
+  <!-- Header -->
+  <header class="mb-6">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
       <div>
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h1 class="text-2xl font-bold text-white">IBKR Portfolio – THT Tracker</h1>
-          <span id="mkt-pill" class="mkt-pill closed">● Closed</span>
-        </div>
-        <p class="text-slate-400 text-sm">Rules-based · Peter DiCarlo THT Bull Cycle</p>
+        <h1 class="text-xl font-semibold text-white">IBKR Portfolio – THT Tracker</h1>
+        <p class="text-sm muted" id="hdr-subtitle">Loading data…</p>
       </div>
-      <div class="flex flex-col items-stretch md:items-end gap-2">
-        <div class="flex flex-wrap gap-2 justify-end">
-          <div class="sync-pill" id="pill-ibkr">
-            <span class="dot ok" id="dot-ibkr"></span>
-            <span class="font-medium text-slate-200">IBKR</span>
-            <span class="text-slate-500" id="pill-ibkr-age">—</span>
-            <div class="sync-tip">
-              <strong>IBKR snapshot</strong> (hourly automation)<br>
-              Last: <span id="tip-ibkr-time">—</span><br>
-              Provides: positions, cost basis, qty, scores, NAV, cash, closed trades, performance series, BUY scanner list.
-            </div>
-          </div>
-          <div class="sync-pill" id="pill-fh">
-            <span class="dot pulse" id="dot-fh"></span>
-            <span class="font-medium text-slate-200">Finnhub</span>
-            <span class="text-slate-500" id="pill-fh-age">—</span>
-            <div class="sync-tip">
-              <strong>Finnhub live</strong> (~60s in browser)<br>
-              Last: <span id="tip-fh-time">waiting…</span><br>
-              Provides: Last price, day Chg%, Unrealized $/% between IBKR runs (RTH-oriented).
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-2 justify-end text-sm">
-          <div class="card px-3 py-1.5">
-            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Cash</div>
-            <div id="hdr-cash" class="font-medium text-slate-200 text-sm">$359</div>
-          </div>
-          <div class="card px-3 py-1.5">
-            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Unrealized</div>
-            <div id="hdr-upnl" class="font-medium text-rose-400 text-sm">−$175</div>
-          </div>
-          <div class="card px-3 py-1.5">
-            <div class="text-slate-500 text-[10px] uppercase tracking-wide">Positions</div>
-            <div id="hdr-pos" class="font-medium text-slate-200 text-sm">15</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span id="last-run" class="hidden">2026-08-20 22:00 IDT</span>
-    <span id="hdr-live" class="hidden">—</span>
-
-    <!-- Rules -->
-    <div class="card p-4">
-      <h2 class="text-sm font-semibold text-slate-300 mb-2">Rules & Psychology Reminder</h2>
-      <ul class="text-sm text-slate-400 space-y-1 list-disc list-inside">
-        <li>Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
-        <li>Loss ≠ error. Error = deviation from rules</li>
-        <li><strong>Peter column</strong> = latest public @pdicarlotrader post on that ticker (summary + link). Not a system BUY/SELL score. Public posts only.</li>
-      </ul>
+      <div class="text-right text-sm muted" id="hdr-sync">—</div>
     </div>
 
-    <!-- KPI cards — filled from closed[] via computeKPIs(); never hardcode -->
-    <div>
-      <h2 class="font-semibold text-white mb-3">Performance & Process KPIs</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-        <div class="card p-4">
-          <div class="text-xs text-slate-400">Trades History</div>
-          <div id="kpi-n" class="text-2xl font-bold text-white mt-1">—</div>
-          <div class="text-xs text-amber-400 mt-1">Goal: 100+</div>
-        </div>
-        <div class="card p-4">
-          <div class="text-xs text-slate-400">Win Rate</div>
-          <div id="kpi-wr" class="text-2xl font-bold text-white mt-1">—</div>
-          <div id="kpi-wl" class="text-xs text-slate-500 mt-1">—</div>
-        </div>
-        <div class="card p-4">
-          <div class="text-xs text-slate-400">Profit Factor</div>
-          <div id="kpi-pf" class="text-2xl font-bold mt-1">—</div>
-          <div class="text-xs text-slate-500 mt-1">Gross Wins ÷ Losses</div>
-        </div>
-        <div class="card p-4">
-          <div class="text-xs text-slate-400">Avg Win</div>
-          <div id="kpi-aw" class="text-xl font-bold text-emerald-400 mt-1">—</div>
-          <div id="kpi-awp" class="text-xs text-slate-400">—</div>
-        </div>
-        <div class="card p-4">
-          <div class="text-xs text-slate-400">Avg Loss</div>
-          <div id="kpi-al" class="text-xl font-bold text-red-400 mt-1">—</div>
-          <div id="kpi-alp" class="text-xs text-slate-400">—</div>
-        </div>
-        <div class="card p-4" title="(Win% × Avg Win) − (Loss% × Avg Loss) on closed trades. Positive = edge.">
-          <div class="text-xs text-slate-400">Expectancy / trade</div>
-          <div id="kpi-e" class="text-xl font-bold mt-1">—</div>
-          <div id="kpi-ep" class="text-xs text-slate-400">Avg edge per trade</div>
-        </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+      <div class="card p-3">
+        <div class="text-xs muted">Net Liquidation</div>
+        <div class="kpi-value num" id="hdr-nav">—</div>
       </div>
-      <p class="text-xs text-slate-500 mt-3">Derived live from Trades History (same source as the table). Sample size goal 100+.</p>
-    </div>
-
-
-    <!-- Tabs -->
-    <div class="flex gap-1 p-1 rounded-xl card w-fit">
-      <button class="tab-btn active" data-tab="holdings" onclick="switchTab('holdings')">Holdings</button>
-      <button class="tab-btn" data-tab="closed" onclick="switchTab('closed')">Trades History</button>
-      <button class="tab-btn" data-tab="recs" onclick="switchTab('recs')">Recommendations</button>
-    </div>
-
-    <!-- Holdings panel -->
-    <div id="panel-holdings" class="tab-panel active">
-      <div class="card overflow-x-auto">
-        <div class="p-4 border-b border-slate-700 flex justify-between items-center">
-          <h2 class="font-semibold text-white">Positions (ordered by Cost Basis)</h2>
-          <span class="text-xs text-slate-500">15 holdings</span>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Instrument</th>
-              <th class="num">Last</th>
-              <th class="num">Chg%</th>
-              <th class="num">Unrealized P&amp;L</th>
-              <th class="num">Unrealized %</th>
-              <th class="num">Cost Basis</th>
-              <th class="num">Positions</th>
-              <th class="num">% Net Liq</th>
-              <th>Peter (public)</th>
-            </tr>
-          </thead>
-          <tbody id="positions-body"></tbody>
-        </table>
-        <div class="p-4 border-t border-slate-700 bg-slate-800/50">
-          <div class="flex flex-wrap gap-8 text-sm items-center">
-            <div>
-              <div class="text-xs text-slate-500 uppercase tracking-wide">Cash</div>
-              <div class="font-semibold text-white mt-0.5">$358.80</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 uppercase tracking-wide">Net Liquidation</div>
-              <div class="font-semibold text-white mt-0.5">$12,887.15</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 uppercase tracking-wide">Gross Positions</div>
-              <div class="font-semibold text-white mt-0.5">$12,543</div>
-            </div>
-          </div>
-        </div>
+      <div class="card p-3">
+        <div class="text-xs muted">Cash</div>
+        <div class="kpi-value num" id="hdr-cash">—</div>
+      </div>
+      <div class="card p-3">
+        <div class="text-xs muted">Unrealized P&L</div>
+        <div class="kpi-value num" id="hdr-upnl">—</div>
+      </div>
+      <div class="card p-3">
+        <div class="text-xs muted">Positions</div>
+        <div class="kpi-value num" id="hdr-pos">—</div>
       </div>
     </div>
+  </header>
 
-    <!-- Closed Trades panel -->
-    <div id="panel-closed" class="tab-panel">
-      <div class="card">
-        <div class="p-4 border-b border-slate-700">
-          <h2 class="font-semibold text-white">Trades History (newest first)</h2>
-          <p class="text-xs text-slate-500 mt-1">Closed sell orders with realized P&amp;L vs cost basis</p>
-        </div>
-        <div class="scroll-box">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Symbol</th>
-                <th class="num">Qty</th>
-                <th class="num">Exit</th>
-                <th class="num">P&amp;L $</th>
-                <th class="num">P&amp;L %</th>
-                <th>Result</th>
-              </tr>
-            </thead>
-            <tbody id="closed-body"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recommendations panel (Peter public posts, not held) -->
-    <div id="panel-recs" class="tab-panel">
-      <div class="card">
-        <div class="p-4 border-b border-slate-700">
-          <h2 class="font-semibold text-white">Recommendations</h2>
-          <p class="text-xs text-slate-500 mt-1">
-            @pdicarlotrader public posts (recent) that read as buy / watchlist / structure note · excluding names you already hold · not a system score
-          </p>
-        </div>
-        <div class="overflow-x-auto">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Symbol</th>
-                <th>Kind</th>
-                <th>Summary</th>
-                <th>Post</th>
-              </tr>
-            </thead>
-            <tbody id="recs-body"></tbody>
-          </table>
-        </div>
-        <p class="text-xs text-slate-500 p-4 border-t border-slate-700">
-          Refreshed with hourly automation from public X search · subscriber-only posts are not available via API.
-        </p>
-      </div>
-    </div>
-
-
-    <!-- Analytics below table/tabs -->
-    <div class="space-y-5 mt-6">
-
-      <!-- Performance table -->
-      <div class="card overflow-x-auto">
-        <div class="p-4 border-b border-slate-700">
-          <h2 class="font-semibold text-white">Performance</h2>
-          <p class="text-xs text-slate-500 mt-1">Portfolio (IBKR TWR) vs S&amp;P 500 proxy (SPY)</p>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Performance</th>
-              <th class="num">1 Month</th>
-              <th class="num">MTD</th>
-              <th class="num">YTD</th>
-              <th class="num">1 Year</th>
-              <th class="num">Since tracked*</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="font-medium text-white">Portfolio (NAV)</td>
-              <td class="num" id="perf-p-1m">—</td>
-              <td class="num" id="perf-p-mtd">—</td>
-              <td class="num" id="perf-p-ytd">—</td>
-              <td class="num" id="perf-p-1y">—</td>
-              <td class="num" id="perf-p-all">—</td>
-            </tr>
-            <tr class="bg-slate-800/40">
-              <td class="font-medium text-slate-300">S&amp;P 500 (SPY)</td>
-              <td class="num" id="perf-s-1m">—</td>
-              <td class="num" id="perf-s-mtd">—</td>
-              <td class="num" id="perf-s-ytd">—</td>
-              <td class="num" id="perf-s-1y">—</td>
-              <td class="num text-slate-500">—</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="text-xs text-slate-500 p-3">*Since tracked = IBKR account window.</p>
-      </div>
-
-      <!-- Equity curve: Portfolio vs S&P (GRNY-style ranges) -->
-      <div class="card p-4">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-          <div>
-            <h3 class="text-sm font-semibold text-white">Portfolio vs S&amp;P 500</h3>
-            <p class="text-xs text-slate-500">Cumulative return % · IBKR TWR vs SPY · <span id="equity-range-note">full available history (~Jun–Aug 2026)</span></p>
-          </div>
-          <div class="flex gap-1.5" id="equity-range-btns">
-            <button type="button" class="range-btn" data-range="6m">Six Month</button>
-            <button type="button" class="range-btn active" data-range="ytd">Year to Date</button>
-            <button type="button" class="range-btn" data-range="all">Since Inception</button>
-          </div>
-        </div>
-        <div class="relative" style="height:280px">
-          <canvas id="chartEquity"></canvas>
-        </div>
-      </div>
-
-      
-      <!-- HOLDINGS ALLOCATION full width -->
-      <div class="card p-4">
-        <div class="mb-3">
-          <h3 class="text-sm font-semibold text-white tracking-wide uppercase">Holdings allocation</h3>
-          <p class="text-xs text-slate-500">All positions by market value</p>
-        </div>
-        <div class="alloc-grid">
-          <div class="relative mx-auto" style="width:240px;height:240px">
-            <canvas id="pieHoldings"></canvas>
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
-              <div id="pv-comb" style="font-family:ui-monospace,monospace;font-size:1.25rem;font-weight:600;color:#f1f5f9;line-height:1">—</div>
-              <div style="font-family:ui-monospace,monospace;font-size:0.58rem;color:#64748b;margin-top:4px;letter-spacing:0.06em">total</div>
-            </div>
-          </div>
-          <div id="leg-comb" style="display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;max-height:none;overflow:visible"></div>
-        </div>
-      </div>
-
-      <!-- Exposure full width below -->
-      <div class="card p-4">
-        <div class="mb-3">
-          <h3 class="text-sm font-semibold text-white">Exposure breakdowns</h3>
-          <p class="text-xs text-slate-500">Sector · % of position market value · hover for tickers</p>
-        </div>
-        <div class="relative" style="height:260px">
-          <canvas id="chartExposure"></canvas>
-        </div>
-      </div>
-
-
-    <footer class="text-center text-slate-500 text-xs py-4">
-      Generated by Grok · ibkr-trade-tracker · THT Bull Cycle · Not financial advice<br>
-      <a href="https://leibovichrotem.github.io/ibkr-tht-dashboard/" class="text-slate-400 hover:text-white">leibovichrotem.github.io/ibkr-tht-dashboard</a>
-    </footer>
+  <!-- Rules reminder -->
+  <div class="card p-4 mb-6 text-sm">
+    <h2 class="font-semibold text-white mb-2">Rules & Psychology Reminder</h2>
+    <ul class="list-disc list-inside muted space-y-1">
+      <li>Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
+      <li>Loss ≠ error. Error = deviation from rules</li>
+      <li>Buy discount / Smart Money Zone, sell into strength or on structure break</li>
+      <li>Position sizing + survival > perfect entries</li>
+    </ul>
   </div>
 
+  <!-- Performance & Process KPIs -->
+  <section class="mb-8">
+    <h2 class="text-lg font-semibold text-white mb-3">Performance & Process KPIs</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div class="card p-4">
+        <div class="text-xs muted mb-1">Trades History</div>
+        <div class="kpi-value num" id="kpi-n">—</div>
+        <div class="text-xs muted mt-1">Goal: 100+</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs muted mb-1">Win Rate</div>
+        <div class="kpi-value num" id="kpi-wr">—</div>
+        <div class="text-xs muted mt-1" id="kpi-wl">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs muted mb-1">Profit Factor</div>
+        <div class="kpi-value num" id="kpi-pf">—</div>
+        <div class="text-xs muted mt-1">Gross Wins ÷ Losses</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs muted mb-1">Avg Win</div>
+        <div class="kpi-value num text-pos" id="kpi-aw">—</div>
+        <div class="text-xs muted mt-1" id="kpi-awp">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs muted mb-1">Avg Loss</div>
+        <div class="kpi-value num text-neg" id="kpi-al">—</div>
+        <div class="text-xs muted mt-1" id="kpi-alp">—</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs muted mb-1">Expectancy / trade</div>
+        <div class="kpi-value num" id="kpi-e">—</div>
+        <div class="text-xs muted mt-1" id="kpi-ep">—</div>
+      </div>
+    </div>
+    <p class="text-xs muted mt-3" id="kpi-note">Derived from closed trades (single source of truth in data.js).</p>
+  </section>
+
+  <!-- Charts: Allocation + Equity -->
+  <section class="mb-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="card p-4">
+      <h3 class="text-sm font-semibold text-white mb-1">Holdings Allocation</h3>
+      <p class="text-xs muted mb-3">By market value</p>
+      <div class="relative mx-auto" style="max-width:280px;height:260px">
+        <canvas id="chartAlloc"></canvas>
+      </div>
+    </div>
+    <div class="card p-4">
+      <div class="flex items-center justify-between mb-1">
+        <div>
+          <h3 class="text-sm font-semibold text-white">Equity Curve (NAV)</h3>
+          <p class="text-xs muted">IBKR TWR · YTD</p>
+        </div>
+        <div class="flex gap-1">
+          <button type="button" class="range-btn text-xs px-2 py-1 rounded border border-slate-600 muted hover:text-white" data-range="mtd">MTD</button>
+          <button type="button" class="range-btn text-xs px-2 py-1 rounded border border-slate-600 text-white bg-slate-700" data-range="ytd">YTD</button>
+        </div>
+      </div>
+      <div style="height:260px">
+        <canvas id="chartEquity"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions -->
+  <section class="mb-8">
+    <h2 class="text-lg font-semibold text-white mb-3">Open Positions</h2>
+    <div class="card overflow-x-auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th class="text-right">Qty</th>
+            <th class="text-right">Avg Cost</th>
+            <th class="text-right">Last</th>
+            <th class="text-right">Mkt Value</th>
+            <th class="text-right">Unrealized $</th>
+            <th class="text-right">Unrealized %</th>
+            <th class="text-right">% of NAV</th>
+          </tr>
+        </thead>
+        <tbody id="positions-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Closed Trades -->
+  <section class="mb-8">
+    <h2 class="text-lg font-semibold text-white mb-3">Trades History (newest first)</h2>
+    <p class="text-sm muted mb-3">Closed sell orders with realized P&L vs cost basis · Source: data.js</p>
+    <div class="card overflow-x-auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Symbol</th>
+            <th class="text-right">Qty</th>
+            <th class="text-right">Exit</th>
+            <th class="text-right">P&L $</th>
+            <th class="text-right">P&L %</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody id="closed-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="text-xs muted mt-10 pb-6">
+    Not financial advice. Verify all figures in the IBKR platform.<br>
+    <strong>Architecture:</strong> All numbers live only in <code>data.js</code> (single source of truth). 
+    <code>index.html</code> is a pure renderer and is never patched by automation.
+  </footer>
+
+  <!-- Load data first, then render -->
+  <script src="data.js"></script>
   <script>
-    const LOGO = {
-      NFLX:["#e50914","N"], MMM:["#ff0000","3"], ENPH:["#00b4d8","E"],
-      NOW:["#81b5a1","N"], META:["#0866ff","∞"], RKLB:["#64748b","R"],
-      POET:["#7c3aed","P"], HOOD:["#84cc16","H"], UBER:["#000000","U"],
-      APP:["#0a84ff","A"], HNST:["#00c853","H"], RBLX:["#e2231a","R"],
-      CELH:["#ff6b00","C"], TE:["#10b981","T"], MSTR:["#f7931a","M"],
-      AVGO:["#cc0000","A"], ZETA:["#6366f1","Z"], BKNG:["#003580","B"],
-      SPCX:["#1e3a8a","S"], GOOGL:["#4285f4","G"], AMZN:["#ff9900","a"],
-      MSFT:["#00a2ed","M"], NVDA:["#76b900","N"], CRWV:["#7c3aed","C"],
-      KEEL:["#64748b","K"], BE:["#f59e0b","B"], GLW:["#0ea5e9","G"],
-      HPQ:["#0096d6","H"], FSLR:["#16a34a","F"], AFRM:["#7c3aed","A"],
-      RDW:["#ef4444","R"], IONQ:["#8b5cf6","I"], IREN:["#22d3ee","I"],
-      QCOM:["#3253dc","Q"], CRCL:["#3b82f6","C"], AAPL:["#a2aaad","A"],
-      ONDS:["#f97316","O"], CCJ:["#0ea5e9","C"], CLSK:["#f59e0b","C"]
-    };
-        function badge(sym) {
-      const pair = LOGO[sym] || ["#475569", sym[0]];
-      const finnhub = "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/" + sym + ".png";
-      const fmp = "https://financialmodelingprep.com/image-stock/" + sym + ".png";
-      const letter = '<span class="logo-badge" style="display:none;background:' + pair[0] + '22;color:' + pair[0] + '">' + pair[1] + '</span>';
-      // Chain: Finnhub -> FMP -> letter
-      return '<span class="logo-wrap">' +
-        '<img src="' + finnhub + '" alt="' + sym + '" data-fmp="' + fmp + '" ' +
-        'onerror="var i=this; if(i.dataset.stage!==\'fmp\'){i.dataset.stage=\'fmp\';i.src=i.dataset.fmp;} else {i.style.display=\'none\';i.nextElementSibling.style.display=\'inline-flex\';}" />' +
-        letter +
-        '</span>';
-    }
+    (function () {
+      const DATA = window.__DATA__;
 
-    function switchTab(name) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      document.querySelector('[data-tab="' + name + '"]').classList.add('active');
-      document.getElementById('panel-' + name).classList.add('active');
-    }
-
-    const NET_LIQ = 12867.2;
-    const positions = [{"symbol":"META","qty":4.0,"avg":574.2733,"last":540.76,"upnl":-134.05,"upnlPct":-5.84,"cost":2297.09,"mv":2163.04,"pctNet":16.81,"peter":{"sum":"Back in the smart money zone - ideal buy area; full setup, targets, and invalidation in video.","url":"https://x.com/pdicarlotrader/status/2089820962380202374","when":"2d"},"chg":0},{"symbol":"ENPH","qty":28.0,"avg":47.7429,"last":38.32,"upnl":-263.84,"upnlPct":-19.74,"cost":1336.8,"mv":1072.96,"pctNet":8.34,"peter":null,"chg":0},{"symbol":"MMM","qty":7.0,"avg":178.0271,"last":178.93,"upnl":6.32,"upnlPct":0.51,"cost":1246.19,"mv":1252.51,"pctNet":9.73,"peter":null,"chg":0},{"symbol":"NFLX","qty":15.0,"avg":73.7622,"last":80.54,"upnl":101.67,"upnlPct":9.19,"cost":1106.43,"mv":1208.1,"pctNet":9.39,"peter":{"sum":"Still extremely bullish; up 20%+ since earnings SMZ selloff. Updated short- and long-term take-profit zones.","url":"https://x.com/pdicarlotrader/status/2090204158892585215","when":"1d"},"chg":0},{"symbol":"RKLB","qty":12.0,"avg":75.55,"last":72.21,"upnl":-40.08,"upnlPct":-4.42,"cost":906.6,"mv":866.52,"pctNet":6.73,"peter":null,"chg":0},{"symbol":"HOOD","qty":7.0,"avg":94.9171,"last":93.67,"upnl":-8.73,"upnlPct":-1.31,"cost":664.42,"mv":655.69,"pctNet":5.1,"peter":{"sum":"Plan after +50% off lows: exact buy zones and 12-month take-profits in video.","url":"https://x.com/pdicarlotrader/status/2089472980262830408","when":"3d"},"chg":0},{"symbol":"NXT","qty":7.0,"avg":94.4857,"last":87.3,"upnl":-50.3,"upnlPct":-7.61,"cost":661.4,"mv":611.1,"pctNet":4.75,"peter":null,"chg":0},{"symbol":"APP","qty":2.0,"avg":312.8875,"last":308.25,"upnl":-9.28,"upnlPct":-1.48,"cost":625.77,"mv":616.5,"pctNet":4.79,"peter":null,"chg":0},{"symbol":"TE","qty":117.0,"avg":5.1351,"last":4.28,"upnl":-100.04,"upnlPct":-16.65,"cost":600.8,"mv":500.76,"pctNet":3.89,"peter":null,"chg":0},{"symbol":"NOW","qty":5.0,"avg":115.4237,"last":130.06,"upnl":73.18,"upnlPct":12.68,"cost":577.12,"mv":650.3,"pctNet":5.05,"peter":{"sum":"$150 on deck next; prior same setup +44% in a month (he stood aside previously).","url":"https://x.com/pdicarlotrader/status/2090128263184007243","when":"1d"},"chg":0},{"symbol":"RBLX","qty":15.0,"avg":37.8867,"last":38.55,"upnl":9.95,"upnlPct":1.75,"cost":568.3,"mv":578.25,"pctNet":4.49,"peter":null,"chg":0},{"symbol":"POET","qty":70.0,"avg":8.112,"last":8.18,"upnl":4.41,"upnlPct":0.78,"cost":567.84,"mv":572.25,"pctNet":4.45,"peter":null,"chg":0},{"symbol":"UBER","qty":8.0,"avg":68.3125,"last":78.64,"upnl":82.62,"upnlPct":15.12,"cost":546.5,"mv":629.12,"pctNet":4.89,"peter":null,"chg":0},{"symbol":"CELH","qty":18.0,"avg":28.1789,"last":32.85,"upnl":84.08,"upnlPct":16.58,"cost":507.22,"mv":591.3,"pctNet":4.6,"peter":{"sum":"+15% bounce from long-term SMZ; Monthly tight compression; bull case +80% toward $50 over 6m.","url":"https://x.com/pdicarlotrader/status/2090159805738455260","when":"1d"},"chg":0},{"symbol":"MSTR","qty":5.0,"avg":101.05,"last":111.07,"upnl":50.1,"upnlPct":9.92,"cost":505.25,"mv":555.35,"pctNet":4.32,"peter":{"sum":"Long crypto with big players entering after bottom signal (MSTR/COIN/CRCL).","url":"https://x.com/pdicarlotrader/status/2090091960069439927","when":"1d"},"chg":0}];
-
-    const closed = [{"date":"2026-08-19","sym":"NFLX","qty":7.0,"exit":80.4,"pnl":43.18,"cost":520,"pct":8.3},{"date":"2026-08-18","sym":"NOW","qty":4.0,"exit":120.92,"pnl":21.5,"cost":462,"pct":4.65},{"date":"2026-08-17","sym":"HNST","qty":110.0,"exit":4.78,"pnl":103.73,"cost":422,"pct":24.58},{"date":"2026-08-13","sym":"POET","qty":50.0,"exit":9.37,"pnl":70.44,"cost":398,"pct":17.7},{"date":"2026-08-12","sym":"AVGO","qty":2.5,"exit":417.39,"pnl":91.65,"cost":950,"pct":9.65},{"date":"2026-08-11","sym":"HNST","qty":115.0,"exit":5.14,"pnl":162.91,"cost":428,"pct":38.06},{"date":"2026-08-11","sym":"ZETA","qty":100.0,"exit":28.54,"pnl":693.19,"cost":2160,"pct":32.09},{"date":"2026-08-10","sym":"BKNG","qty":6.0,"exit":212.73,"pnl":92.58,"cost":1184,"pct":7.82},{"date":"2026-08-07","sym":"SPCX","qty":5.0,"exit":129.74,"pnl":98.93,"cost":550,"pct":17.99},{"date":"2026-08-07","sym":"GOOGL","qty":3.0,"exit":354.37,"pnl":53.8,"cost":1009,"pct":5.33},{"date":"2026-08-05","sym":"GOOGL","qty":4.0,"exit":362.2,"pnl":28.32,"cost":1420,"pct":1.99},{"date":"2026-08-05","sym":"HNST","qty":155.0,"exit":3.91,"pnl":33.46,"cost":573,"pct":5.84},{"date":"2026-08-05","sym":"AMZN","qty":6.0,"exit":275.46,"pnl":67.4,"cost":1585,"pct":4.25},{"date":"2026-08-04","sym":"MSFT","qty":4.0,"exit":497.0,"pnl":432.2,"cost":1556,"pct":27.78},{"date":"2026-08-04","sym":"NVDA","qty":14.0,"exit":211.0,"pnl":67.78,"cost":2886,"pct":2.35},{"date":"2026-08-03","sym":"CRWV","qty":22.0,"exit":78.0,"pnl":164.26,"cost":1552,"pct":10.59}].map(function(c) {
-      c.pct = c.cost ? (c.pnl / c.cost) * 100 : 0;
-      return c;
-    });
-
-    function computeKPIs() {
-      const rows = (typeof closed !== 'undefined' && Array.isArray(closed)) ? closed : [];
-      const wins = rows.filter(t => Number(t.pnl) > 0);
-      const losses = rows.filter(t => Number(t.pnl) < 0);
-      const n = rows.length;
-      const nw = wins.length, nl = losses.length;
-      const gw = wins.reduce((s,t) => s + Number(t.pnl), 0);
-      const gl = losses.reduce((s,t) => s + Number(t.pnl), 0);
-      const aw = nw ? gw / nw : 0;
-      const al = nl ? gl / nl : 0;
-      const denom = nw + nl;
-      const wr = denom ? (100 * nw / denom) : 0;
-      const pf = (gl < 0) ? (gw / Math.abs(gl)) : null;
-      const exp = denom ? (nw/denom)*aw + (nl/denom)*al : 0;
-      const awp = nw ? wins.reduce((s,t) => s + (t.cost ? 100*t.pnl/t.cost : 0), 0) / nw : 0;
-      const alp = nl ? losses.reduce((s,t) => s + (t.cost ? 100*t.pnl/t.cost : 0), 0) / nl : 0;
-      const set = (id, text, cls) => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        el.textContent = text;
-        if (cls) { el.classList.remove('text-emerald-400','text-red-400','text-white'); el.classList.add(cls); }
-      };
-      set('kpi-n', String(n));
-      set('kpi-wr', denom ? (Math.round(wr) + '%') : '—');
-      set('kpi-wl', nw + 'W / ' + nl + 'L');
-      if (pf == null) set('kpi-pf', '—');
-      else set('kpi-pf', pf.toFixed(2), pf >= 1 ? 'text-emerald-400' : 'text-red-400');
-      set('kpi-aw', '+$' + Math.round(aw));
-      set('kpi-awp', '~+' + awp.toFixed(1) + '% vs cost');
-      set('kpi-al', '–$' + Math.round(Math.abs(al)));
-      set('kpi-alp', '~' + alp.toFixed(1) + '% vs cost');
-      set('kpi-e', (exp >= 0 ? '+$' : '–$') + Math.round(Math.abs(exp)), exp >= 0 ? 'text-emerald-400' : 'text-red-400');
-      const avgCost = n ? rows.reduce((s,t)=>s+Number(t.cost||0),0)/n : 0;
-      const epct = avgCost ? (100 * exp / avgCost) : 0;
-      set('kpi-ep', 'Avg edge per trade · ~' + epct.toFixed(1) + '%');
-    }
-
-    // Render holdings (cells tagged for 1-min live quote updates)
-    const tbody = document.getElementById("positions-body");
-    function peterCell(p) {
-      if (!p || !p.peter) return '<span class="text-slate-600 text-xs">—</span>';
-      const x = p.peter;
-      return '<div class="peter-sum">' + x.sum +
-        (x.when ? ' <span class="text-slate-500">(' + x.when + ')</span>' : '') +
-        '</div><a class="peter-link" href="' + x.url + '" target="_blank" rel="noopener">View on X ↗</a>';
-    }
-
-    positions.forEach(function(p) {
-      const upnlClass = p.upnl >= 0 ? "text-emerald-400" : "text-red-400";
-      const chgClass = p.chg >= 0 ? "text-emerald-400" : "text-red-400";
-      tbody.innerHTML +=
-        '<tr data-sym="' + p.symbol + '">' +
-        '<td><div class="flex items-center gap-2">' + badge(p.symbol) + '<span class="font-medium text-white" style="margin-left:2px">' + p.symbol + '</span></div></td>' +
-        '<td class="num" data-f="last">$' + p.last.toFixed(2) + '</td>' +
-        '<td class="num ' + chgClass + '" data-f="chg">' + (p.chg >= 0 ? "+" : "") + p.chg.toFixed(1) + '%</td>' +
-        '<td class="num ' + upnlClass + '" data-f="upnl">$' + p.upnl.toFixed(0) + '</td>' +
-        '<td class="num ' + upnlClass + '" data-f="upnlPct">' + (p.upnlPct >= 0 ? "+" : "") + p.upnlPct.toFixed(1) + '%</td>' +
-        '<td class="num">$' + p.cost.toFixed(0) + '</td>' +
-        '<td class="num">' + p.qty + '</td>' +
-        '<td class="num" data-f="pctNet">' + p.pctNet.toFixed(1) + '%</td>' +
-        '<td>' + peterCell(p) + '</td>' +
-        '</tr>';
-    });
-
-    // Render closed
-    const cbody = document.getElementById("closed-body");
-    closed.forEach(function(c) {
-      const win = c.pnl >= 0;
-      const cls = win ? "text-emerald-400" : "text-red-400";
-      const pill = win
-        ? '<span class="px-2 py-0.5 rounded text-xs font-medium bg-emerald-900/50 text-emerald-400">WIN</span>'
-        : '<span class="px-2 py-0.5 rounded text-xs font-medium bg-red-900/50 text-red-400">LOSS</span>';
-      cbody.innerHTML +=
-        '<tr>' +
-        '<td class="text-slate-400">' + c.date + '</td>' +
-        '<td><div class="flex items-center gap-2">' + badge(c.sym) + '<span class="font-medium">' + c.sym + '</span></div></td>' +
-        '<td class="num">' + c.qty + '</td>' +
-        '<td class="num">$' + c.exit + '</td>' +
-        '<td class="num ' + cls + '">' + (win ? "+" : "") + c.pnl.toFixed(0) + '</td>' +
-        '<td class="num ' + cls + '">' + (win ? "+" : "") + c.pct.toFixed(1) + '%</td>' +
-        '<td>' + pill + '</td>' +
-        '</tr>';
-    });
-
-    // Scanner
-
-    
-    // Recommendations — Peter public posts (not in holdings)
-        const recs = [{"date":"2026-08-20","sym":"SPCX","kind":"buy","sum":"Back at short term buy zone; $130 pivot important support. Waiting $120 if breaks; SL under $130 if buying now.","url":"https://x.com/pdicarlotrader/status/2090447671060287822"},{"date":"2026-08-19","sym":"COIN","kind":"buy","sum":"Long crypto $MSTR $COIN - big players entering after bottom signal.","url":"https://x.com/pdicarlotrader/status/2090091960069439927"},{"date":"2026-08-19","sym":"CRCL","kind":"buy","sum":"Grouped with big-player crypto entries (with MSTR/COIN).","url":"https://x.com/pdicarlotrader/status/2090097467467452699"},{"date":"2026-08-19","sym":"AVGO","kind":"watch","sum":"$AVGO $330 is my loading zone long.","url":"https://x.com/pdicarlotrader/status/2090140935103365185"},{"date":"2026-08-19","sym":"NVDA","kind":"note","sum":"Short-term profit-taking level; would love to buy sub $190.","url":"https://x.com/pdicarlotrader/status/2090088975083954213"},{"date":"2026-08-19","sym":"TEM","kind":"note","sum":"Up 40%+ since callout; video with updated targets and how to spot setup.","url":"https://x.com/pdicarlotrader/status/2090219761838022709"}];
-
-    (function renderRecs() {
-      const rb = document.getElementById('recs-body');
-      if (!rb || typeof recs === 'undefined') return;
-      const held = {};
-      (positions || []).forEach(function(p) { held[p.symbol] = true; });
-      const rows = recs.filter(function(r) { return !held[r.sym]; });
-      if (!rows.length) {
-        rb.innerHTML = '<tr><td colspan="5" class="text-slate-500 text-sm p-4">No public Peter buy/watch notes in the last few days (or all names already held).</td></tr>';
+      if (!DATA || !DATA.meta) {
+        document.getElementById('hdr-subtitle').textContent = 'ERROR: data.js missing or corrupt';
+        document.getElementById('hdr-subtitle').classList.add('text-neg');
         return;
       }
-      rows.forEach(function(r) {
-        const k = r.kind === 'buy' ? 'kind-buy' : r.kind === 'watch' ? 'kind-watch' : 'kind-note';
-        const label = r.kind === 'buy' ? 'BUY context' : r.kind === 'watch' ? 'Watchlist' : 'Note';
-        rb.innerHTML +=
-          '<tr>' +
-          '<td class="text-slate-400 text-xs">' + r.date + '</td>' +
-          '<td><div class="flex items-center gap-2">' + badge(r.sym) +
-          '<span class="font-medium text-white">' + r.sym + '</span></div></td>' +
-          '<td><span class="text-xs px-2 py-0.5 rounded ' + k + '">' + label + '</span></td>' +
-          '<td class="peter-sum" style="max-width:420px">' + r.sum + '</td>' +
-          '<td><a class="peter-link" href="' + r.url + '" target="_blank" rel="noopener">Open ↗</a></td>' +
-          '</tr>';
-      });
-    })();
 
+      const m = DATA.meta;
+      const k = DATA.kpis || {};
+      const positions = Array.isArray(DATA.positions) ? DATA.positions : [];
+      const closed = Array.isArray(DATA.closed) ? DATA.closed : [];
+      const perf = DATA.performance || {};
 
+      // Header
+      document.getElementById('hdr-subtitle').textContent =
+        'Rules-based · Peter DiCarlo THT Bull Cycle · Data from IBKR';
+      document.getElementById('hdr-sync').textContent =
+        'Last data: ' + (m.generatedAtHuman || m.generatedAt || '—');
 
-    function setPerf(id, pct) {
-      const el = document.getElementById(id);
-      if (!el || pct == null || isNaN(pct)) return;
-      const s = (pct >= 0 ? '+' : '') + Number(pct).toFixed(2) + '%';
-      el.textContent = s;
-      el.classList.remove('text-emerald-400', 'text-red-400');
-      el.classList.add(pct >= 0 ? 'text-emerald-400' : 'text-red-400');
-    }
+      document.getElementById('hdr-nav').textContent = '$' + Number(m.nav).toLocaleString(undefined, {maximumFractionDigits: 0});
+      document.getElementById('hdr-cash').textContent = '$' + Number(m.cash).toLocaleString(undefined, {maximumFractionDigits: 0});
+      const upnl = Number(m.unrealized) || 0;
+      const upnlEl = document.getElementById('hdr-upnl');
+      upnlEl.textContent = (upnl >= 0 ? '+$' : '-$') + Math.abs(upnl).toLocaleString(undefined, {maximumFractionDigits: 0});
+      upnlEl.classList.add(upnl >= 0 ? 'text-pos' : 'text-neg');
+      document.getElementById('hdr-pos').textContent = m.positionsCount || positions.length;
 
-    // From IBKR TWR cps (last point in each window), 2026-08-17
-        const PERF = {"portfolio":{"m1":15.37,"mtd":14.72,"ytd":-13.35,"y1":-13.35,"all":-13.35},"spx":{"m1":3.63,"mtd":2.95,"ytd":13.38,"y1":21.53}};
-    setPerf('perf-p-1m', PERF.portfolio.m1);
-    setPerf('perf-p-mtd', PERF.portfolio.mtd);
-    setPerf('perf-p-ytd', PERF.portfolio.ytd);
-    setPerf('perf-p-1y', PERF.portfolio.y1);
-    setPerf('perf-p-all', PERF.portfolio.all);
-    setPerf('perf-s-1m', PERF.spx.m1);
-    setPerf('perf-s-mtd', PERF.spx.mtd);
-    setPerf('perf-s-ytd', PERF.spx.ytd);
-    setPerf('perf-s-1y', PERF.spx.y1);
+      // KPIs – already computed server-side
+      document.getElementById('kpi-n').textContent = k.n ?? '—';
+      document.getElementById('kpi-wr').textContent = (k.winRate != null) ? (k.winRate + '%') : '—';
+      document.getElementById('kpi-wl').textContent = (k.wins != null && k.losses != null) ? (k.wins + 'W / ' + k.losses + 'L') : '—';
 
-    
-    (function initCharts() {
-      const pieColors = [
-        '#3b82f6','#8b5cf6','#14b8a6','#f59e0b','#ec4899','#06b6d4','#a855f7',
-        '#10b981','#f97316','#f43f5e','#84cc16','#fb923c','#6366f1','#eab308','#22d3ee'
-      ];
-      const pieLabels = positions.map(function(p) { return p.symbol; });
-      const pieData = positions.map(function(p) { return Math.max(p.mv || (p.last * p.qty), 0); });
-      const pieTotal = pieData.reduce(function(a,b){ return a+b; }, 0);
-      const pv = document.getElementById('pv-comb');
-      if (pv) {
-        pv.textContent = pieTotal >= 1000 ? ('$' + (pieTotal/1000).toFixed(1) + 'k') : ('$' + pieTotal.toFixed(0));
+      const pfEl = document.getElementById('kpi-pf');
+      if (k.profitFactor == null) {
+        pfEl.textContent = '—';
+      } else {
+        pfEl.textContent = Number(k.profitFactor).toFixed(2);
+        pfEl.classList.add(k.profitFactor >= 1 ? 'text-pos' : 'text-neg');
       }
-      const pieCtx = document.getElementById('pieHoldings');
-      if (pieCtx && typeof Chart !== 'undefined') {
-        new Chart(pieCtx, {
+
+      document.getElementById('kpi-aw').textContent = k.avgWin != null ? ('+$' + Math.round(k.avgWin)) : '—';
+      document.getElementById('kpi-awp').textContent = k.avgWinPct != null ? ('~+' + k.avgWinPct.toFixed(1) + '% vs cost') : '';
+      document.getElementById('kpi-al').textContent = k.avgLoss != null ? ('–$' + Math.round(Math.abs(k.avgLoss))) : '—';
+      document.getElementById('kpi-alp').textContent = k.avgLossPct != null ? ('~' + k.avgLossPct.toFixed(1) + '% vs cost') : '';
+
+      const eEl = document.getElementById('kpi-e');
+      if (k.expectancy != null) {
+        eEl.textContent = (k.expectancy >= 0 ? '+$' : '–$') + Math.round(Math.abs(k.expectancy));
+        eEl.classList.add(k.expectancy >= 0 ? 'text-pos' : 'text-neg');
+      }
+      document.getElementById('kpi-ep').textContent = 'Avg edge per trade';
+      document.getElementById('kpi-note').textContent = k.note || 'Derived from closed trades (single source of truth).';
+
+      // Positions table
+      const tbody = document.getElementById('positions-body');
+      positions
+        .slice()
+        .sort((a, b) => (b.cost || 0) - (a.cost || 0))
+        .forEach(p => {
+          const upCls = (p.upnl || 0) >= 0 ? 'text-pos' : 'text-neg';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="font-medium text-white">${p.symbol || '—'}</td>
+            <td class="num text-right">${p.qty ?? '—'}</td>
+            <td class="num text-right">$${(p.avg || 0).toFixed(2)}</td>
+            <td class="num text-right">$${(p.last || 0).toFixed(2)}</td>
+            <td class="num text-right">$${Math.round(p.mv || 0).toLocaleString()}</td>
+            <td class="num text-right ${upCls}">${(p.upnl || 0) >= 0 ? '+' : ''}$${Math.round(p.upnl || 0)}</td>
+            <td class="num text-right ${upCls}">${(p.upnlPct || 0) >= 0 ? '+' : ''}${(p.upnlPct || 0).toFixed(1)}%</td>
+            <td class="num text-right">${(p.pctNet || 0).toFixed(1)}%</td>`;
+          tbody.appendChild(tr);
+        });
+
+      // Closed trades table
+      const cbody = document.getElementById('closed-body');
+      closed.forEach(t => {
+        const isWin = (t.pnl || 0) > 0;
+        const cls = isWin ? 'text-pos' : 'text-neg';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${t.date || '—'}</td>
+          <td class="font-medium">${t.sym || '—'}</td>
+          <td class="num text-right">${t.qty ?? '—'}</td>
+          <td class="num text-right">$${(t.exit || 0).toFixed(2)}</td>
+          <td class="num text-right ${cls}">${(t.pnl || 0) >= 0 ? '+' : ''}$${(t.pnl || 0).toFixed(0)}</td>
+          <td class="num text-right ${cls}">${(t.pct || 0) >= 0 ? '+' : ''}${(t.pct || 0).toFixed(1)}%</td>
+          <td class="${cls}">${isWin ? 'Win' : 'Loss'}</td>`;
+        cbody.appendChild(tr);
+      });
+
+      // ——— Charts ———
+      const colors = ['#38bdf8','#818cf8','#c084fc','#f472b6','#fb923c','#4ade80','#facc15','#f87171','#2dd4bf','#a78bfa','#e879f9','#34d399','#fbbf24','#60a5fa','#f472b6'];
+
+      // Allocation doughnut
+      if (positions.length && window.Chart) {
+        const labels = positions.map(p => p.symbol);
+        const values = positions.map(p => Math.max(0, p.mv || 0));
+        new Chart(document.getElementById('chartAlloc'), {
           type: 'doughnut',
           data: {
-            labels: pieLabels,
+            labels,
             datasets: [{
-              data: pieData,
-              backgroundColor: pieColors.slice(0, pieLabels.length),
-              borderColor: '#0f172a',
-              borderWidth: 2,
-              hoverOffset: 6
+              data: values,
+              backgroundColor: colors.slice(0, labels.length),
+              borderWidth: 0
             }]
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            cutout: '62%',
             plugins: {
-              legend: { display: false },
-              tooltip: {
-                backgroundColor: '#141921',
-                callbacks: {
-                  label: function(ctx) {
-                    const v = ctx.raw || 0;
-                    const pct = pieTotal ? (v / pieTotal * 100).toFixed(1) : 0;
-                    return ' $' + v.toFixed(0) + ' (' + pct + '%)';
-                  }
-                }
+              legend: {
+                position: 'right',
+                labels: { color: '#94a3b8', boxWidth: 12, font: { size: 11 } }
               }
             }
           }
         });
       }
-      const leg = document.getElementById('leg-comb');
-      if (leg) {
-        leg.innerHTML = '';
-        const indexed = positions.map(function(p, i) {
-          return { p: p, i: i, value: Math.max(p.mv || (p.last * p.qty), 0) };
-        }).sort(function(a, b) { return b.value - a.value; });
-        indexed.forEach(function(item) {
-          const p = item.p;
-          const value = item.value;
-          const pct = pieTotal ? (value / pieTotal * 100) : 0;
-          const color = pieColors[item.i % pieColors.length];
-          const upnlPct = p.upnlPct != null ? p.upnlPct : (p.avg ? ((p.last - p.avg) / p.avg) * 100 : null);
-          const isUp = upnlPct != null && upnlPct >= 0;
-          const isDown = upnlPct != null && upnlPct < 0;
-          const pnlColor = isUp ? '#10b981' : isDown ? '#f87171' : '#475569';
-          const pnlArrow = isUp ? '▲' : isDown ? '▼' : '';
-          const pnlText = upnlPct != null ? (pnlArrow + ' ' + Math.abs(upnlPct).toFixed(1) + '%') : '';
-          const d = document.createElement('div');
-          d.style.cssText = 'display:flex;flex-direction:column;gap:5px;padding:8px 10px;border-radius:10px;border:1px solid transparent';
-          d.innerHTML =
-            '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">' +
-              '<div style="display:flex;align-items:center;gap:8px">' +
-                '<span style="font-size:.82rem;font-weight:700;color:' + color + '">' + p.symbol + '</span>' +
-                '<span style="font-family:ui-monospace,monospace;font-size:.72rem;font-weight:700;color:#e2e8f0;background:rgba(148,163,184,.12);padding:2px 7px;border-radius:5px;letter-spacing:.02em">' + pct.toFixed(1) + '%</span>' +
-              '</div>' +
-              '<div style="display:flex;align-items:center;gap:6px">' +
-                (pnlText ? '<span style="font-family:ui-monospace,monospace;font-size:.6rem;color:' + pnlColor + '">' + pnlText + '</span>' : '') +
-                '<span style="font-size:.8rem;font-weight:600;color:#f1f5f9">$' + value.toLocaleString('en-US',{maximumFractionDigits:0}) + '</span>' +
-              '</div>' +
-            '</div>' +
-            '<div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden">' +
-              '<div style="height:100%;background:' + color + ';width:' + Math.min(pct,100) + '%;opacity:.75"></div>' +
-            '</div>';
-          leg.appendChild(d);
-        });
-      }
 
-      const SECTOR = {
-        NFLX:'Communication', META:'Communication', RBLX:'Communication',
-        APP:'Information Technology', ENPH:'Information Technology', NOW:'Information Technology',
-        POET:'Information Technology', MSTR:'Information Technology',
-        HOOD:'Financials', UBER:'Consumer Discretionary',
-        HNST:'Consumer Staples', CELH:'Consumer Staples',
-        MMM:'Industrials', RKLB:'Industrials', TE:'Industrials', NXT:'Industrials'
-      };
-      const sectorMap = {};
-      const sectorTickers = {};
-      positions.forEach(function(p) {
-        const s = SECTOR[p.symbol] || 'Other';
-        const v = Math.max(p.mv || (p.last * p.qty), 0);
-        sectorMap[s] = (sectorMap[s] || 0) + v;
-        if (!sectorTickers[s]) sectorTickers[s] = [];
-        sectorTickers[s].push(p.symbol);
-      });
-      const secEntries = Object.keys(sectorMap).map(function(k){
-        return { k: k, v: sectorMap[k], tickers: (sectorTickers[k] || []).sort() };
-      }).sort(function(a,b){ return b.v - a.v; });
-      const secTotal = secEntries.reduce(function(a,b){ return a+b.v; }, 0) || 1;
-      const expCtx = document.getElementById('chartExposure');
-      if (expCtx && typeof Chart !== 'undefined') {
-        new Chart(expCtx, {
-          type: 'bar',
+      // Equity curve
+      let equityChart = null;
+      function renderEquity(range) {
+        const series = (range === 'mtd' && perf.mtd) ? perf.mtd : (perf.ytd || { labels: [], nav: [] });
+        const ctx = document.getElementById('chartEquity');
+        if (equityChart) equityChart.destroy();
+        equityChart = new Chart(ctx, {
+          type: 'line',
           data: {
-            labels: secEntries.map(function(e){ return e.k; }),
+            labels: series.labels || [],
             datasets: [{
-              data: secEntries.map(function(e){ return +(e.v/secTotal*100).toFixed(2); }),
-              backgroundColor: '#eab308',
-              borderRadius: 4,
-              barThickness: 14
+              label: 'NAV',
+              data: series.nav || [],
+              borderColor: '#38bdf8',
+              backgroundColor: 'rgba(56,189,248,0.08)',
+              fill: true,
+              tension: 0.25,
+              pointRadius: 0,
+              borderWidth: 2
             }]
           },
           options: {
-            indexAxis: 'y',
             responsive: true,
             maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  afterLabel: function(c) {
-                    const e = secEntries[c.dataIndex];
-                    return e ? ('Holdings: ' + e.tickers.join(', ')) : '';
-                  },
-                  label: function(c){ return c.raw + '% of positions'; }
-                }
-              }
-            },
             scales: {
-              x: {
-                max: Math.max(40, Math.ceil(Math.max.apply(null, secEntries.map(function(e){ return e.v/secTotal*100; })) / 5) * 5),
-                ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
-                grid: { color: '#33415566', borderDash: [4,4] }
-              },
-              y: { ticks: { color: '#cbd5e1', font: { size: 11 } }, grid: { display: false } }
+              x: { ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } }, grid: { color: '#1e293b' } },
+              y: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: '#1e293b' } }
+            },
+            plugins: {
+              legend: { display: false }
             }
           }
         });
       }
-
-const EQUITY_LABELS = ["06-04", "06-05", "06-08", "06-09", "06-10", "06-11", "06-12", "06-15", "06-16", "06-17", "06-18", "06-19", "06-22", "06-23", "06-24", "06-25", "06-26", "06-29", "06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20", "07-21", "07-22", "07-23", "07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17", "08-18"];
-const EQUITY_PORT = [-0.0, -6.95, -5.78, -9.03, -12.4, -8.89, -9.68, -7.54, -9.05, -9.63, -6.14, -6.14, -9.99, -13.28, -14.86, -17.19, -19.18, -17.42, -16.61, -18.77, -21.63, -21.63, -19.13, -21.54, -19.44, -18.29, -18.56, -21.13, -19.55, -19.45, -23.41, -24.89, -25.02, -22.6, -22.94, -25.94, -28.86, -28.47, -28.55, -31.58, -27.61, -24.47, -20.48, -17.64, -17.07, -15.29, -12.25, -12.36, -11.82, -12.98, -11.36, -11.51, -12.89, -13.65];
-const EQUITY_SPY = [0.0, -2.58, -2.36, -2.65, -4.18, -2.55, -2.03, -0.3, -0.89, -2.13, -1.37, -1.37, -1.68, -3.11, -3.15, -3.01, -3.71, -2.13, -1.36, -1.5, -1.63, -1.63, -0.77, -1.24, -1.54, -0.71, -0.28, -1.05, -0.69, -0.3, -0.84, -1.82, -1.98, -1.16, -1.28, -2.5, -2.4, -2.38, -2.14, -3.65, -2.03, -1.33, 0.08, 1.88, 1.68, 1.52, 2.14, 2.11, 1.78, 2.03, 2.75, 2.54, 2.06, 1.4];
-
-    // Equity chart range switching (GRNY-style)
-    let equityChart = null;
-    function sliceEquity(range) {
-      // Account track starts ~2026-06-04 — only ~2.5 months of history.
-      // Six Month / YTD / Since Inception all use full available series until longer history exists.
-      const labels = EQUITY_LABELS.slice();
-      const port = EQUITY_PORT.slice();
-      const spy = EQUITY_SPY.slice();
-      const start = 0;
-      const L = labels.slice(start);
-      const P = port.slice(start);
-      const S = spy.slice(start);
-      const p0 = P[0] || 0, s0 = S[0] || 0;
-      return {
-        labels: L,
-        port: P.map(function(v){ return +(v - p0).toFixed(2); }),
-        spy: S.map(function(v){ return +(v - s0).toFixed(2); }),
-        note: 'Full available history (~Jun 2026 → now)'
-      };
-    }
-    function renderEquity(range) {
-      const eqCtx = document.getElementById('chartEquity');
-      if (!eqCtx || typeof Chart === 'undefined') return;
-      const d = sliceEquity(range || 'ytd');
-      if (equityChart) { equityChart.destroy(); equityChart = null; }
-      equityChart = new Chart(eqCtx, {
-        type: 'line',
-        data: {
-          labels: d.labels,
-          datasets: [
-            {
-              label: 'Portfolio',
-              data: d.port,
-              borderColor: '#6366f1',
-              backgroundColor: 'transparent',
-              fill: false,
-              tension: 0.25,
-              borderWidth: 2.5,
-              pointRadius: 0,
-              pointHoverRadius: 4
-            },
-            {
-              label: 'S&P 500',
-              data: d.spy,
-              borderColor: '#94a3b8',
-              backgroundColor: 'transparent',
-              fill: false,
-              tension: 0.25,
-              borderWidth: 2,
-              pointRadius: 0,
-              pointHoverRadius: 4
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          interaction: { mode: 'index', intersect: false },
-          plugins: {
-            legend: { display: true, labels: { color: '#94a3b8', boxWidth: 12 } },
-            tooltip: {
-              callbacks: {
-                label: function(c) {
-                  const v = c.raw;
-                  return c.dataset.label + ': ' + (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
-                }
-              }
-            }
-          },
-          scales: {
-            x: {
-              ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } },
-              grid: { color: '#33415533' }
-            },
-            y: {
-              ticks: { color: '#94a3b8', callback: function(v){ return v + '%'; } },
-              grid: { color: '#33415555' }
-            }
-          }
-        }
-      });
-    }
-    document.querySelectorAll('#equity-range-btns .range-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('#equity-range-btns .range-btn').forEach(function(b){ b.classList.remove('active'); });
-        btn.classList.add('active');
-        const r = btn.getAttribute('data-range');
-        renderEquity(r);
-        const note = document.getElementById('equity-range-note');
-        if (note) {
-          note.textContent = 'full available history (~Jun–Aug 2026) — account track is shorter than ' +
-            (r === '6m' ? '6 months' : (r === 'ytd' ? 'calendar YTD window' : 'longer inception'));
-        }
-      });
-    });
-
       renderEquity('ytd');
-    })();
 
-
-
-    // —— US market session (ET) + sync status pills ——
-    function getMarketSession() {
-      try {
-        const fmt = new Intl.DateTimeFormat('en-US', {
-          timeZone: 'America/New_York',
-          weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
+      document.querySelectorAll('.range-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.range-btn').forEach(b => {
+            b.classList.remove('text-white', 'bg-slate-700');
+            b.classList.add('muted');
+          });
+          btn.classList.add('text-white', 'bg-slate-700');
+          btn.classList.remove('muted');
+          renderEquity(btn.dataset.range);
         });
-        const parts = fmt.formatToParts(new Date());
-        const map = {};
-        parts.forEach(function(p){ map[p.type] = p.value; });
-        const day = map.weekday;
-        if (day === 'Sat' || day === 'Sun') return 'closed';
-        const h = parseInt(map.hour, 10);
-        const m = parseInt(map.minute, 10);
-        const mins = h * 60 + m;
-        // Pre: 4:00–9:30 ET, Open: 9:30–16:00, After: 16:00–20:00
-        if (mins >= 4*60 && mins < 9*60+30) return 'pre';
-        if (mins >= 9*60+30 && mins < 16*60) return 'open';
-        if (mins >= 16*60 && mins < 20*60) return 'after';
-        return 'closed';
-      } catch (e) { return 'closed'; }
-    }
-    function updateMarketPill() {
-      const session = getMarketSession();
-      const el = document.getElementById('mkt-pill');
-      if (!el) return;
-      const labels = { open: '● Regular hours', pre: '● Pre-market', after: '● After hours', closed: '● Closed' };
-      el.className = 'mkt-pill ' + session;
-      el.textContent = labels[session] || '● Closed';
-      window._marketSession = session;
-    }
-    updateMarketPill();
-    setInterval(updateMarketPill, 60000);
-
-    function updateIbkrSyncPill() {
-      const raw = (document.getElementById('last-run') || {}).textContent || '';
-      const m = raw.match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
-      const tip = document.getElementById('tip-ibkr-time');
-      const ageEl = document.getElementById('pill-ibkr-age');
-      const dot = document.getElementById('dot-ibkr');
-      if (!m) {
-        if (tip) tip.textContent = raw.trim() || '—';
-        if (ageEl) ageEl.textContent = '—';
-        return;
-      }
-      const iso = m[1]+'-'+m[2]+'-'+m[3]+'T'+m[4]+':'+m[5]+':00+03:00';
-      const ts = Date.parse(iso);
-      if (!ts) return;
-      const mins = Math.max(0, Math.round((Date.now() - ts) / 60000));
-      const d = new Date(ts);
-      const timeStr = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
-      const today = new Date();
-      const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
-      const sameDay = d.toDateString() === today.toDateString();
-      const dayLabel = sameDay ? 'Today' : (d.toDateString() === yesterday.toDateString() ? 'Yesterday' : d.toLocaleDateString([], { month: 'short', day: 'numeric' }));
-      const human = dayLabel + ' · ' + timeStr;
-      const age = mins < 1 ? 'just now' : (mins < 60 ? mins + 'm ago' : (mins < 1440 ? Math.floor(mins/60) + 'h ago' : Math.floor(mins/1440) + 'd ago'));
-      if (tip) tip.textContent = human + ' (' + age + ')';
-      if (ageEl) ageEl.textContent = age;
-      if (dot) {
-        dot.classList.remove('ok', 'warn', 'err', 'pulse');
-        if (mins <= 70) dot.classList.add('ok');
-        else if (mins <= 180) dot.classList.add('warn');
-        else dot.classList.add('err');
-      }
-    }
-    updateIbkrSyncPill();
-    setInterval(updateIbkrSyncPill, 30000);
-
-
-    // ——— Live prices via Finnhub · every 60s ———
-    const FINNHUB_KEY = 'd7jp97pr01qnk4ocbd20d7jp97pr01qnk4ocbd2g';
-
-    async function fetchFinnhubQuote(sym) {
-      try {
-        const r = await fetch('https://finnhub.io/api/v1/quote?symbol=' + encodeURIComponent(sym) + '&token=' + FINNHUB_KEY);
-        if (!r.ok) return null;
-        const d = await r.json();
-        if (d.c == null || d.c <= 0) return null;
-        const last = d.c;
-        const prev = d.pc > 0 ? d.pc : last;
-        const chg = d.dp != null ? d.dp : ((last - prev) / prev) * 100;
-        return { last: last, chg: chg };
-      } catch (e) {
-        return null;
-      }
-    }
-
-    async function refreshLiveQuotes() {
-      const elLive = document.getElementById('hdr-live');
-      if (elLive) elLive.textContent = 'updating…';
-      let ok = 0;
-      await Promise.all(positions.map(async function(p) {
-        const q = await fetchFinnhubQuote(p.symbol);
-        if (!q) return;
-        ok++;
-        p.last = q.last;
-        p.chg = q.chg;
-        p.upnl = (p.last - p.avg) * p.qty;
-        p.upnlPct = p.avg ? ((p.last - p.avg) / p.avg) * 100 : 0;
-        p.mv = p.last * p.qty;
-        p.pctNet = (typeof NET_LIQ !== 'undefined' && NET_LIQ) ? (p.mv / NET_LIQ) * 100 : 0;
-        const row = document.querySelector('tr[data-sym="' + p.symbol + '"]');
-        if (!row) return;
-        function set(field, text, cls) {
-          const cell = row.querySelector('[data-f="' + field + '"]');
-          if (!cell) return;
-          cell.textContent = text;
-          if (cls) {
-            cell.classList.remove('text-emerald-400', 'text-red-400');
-            cell.classList.add(cls);
-          }
-        }
-        const upCls = p.upnl >= 0 ? 'text-emerald-400' : 'text-red-400';
-        const chCls = p.chg >= 0 ? 'text-emerald-400' : 'text-red-400';
-        set('last', '$' + p.last.toFixed(2));
-        set('chg', (p.chg >= 0 ? '+' : '') + p.chg.toFixed(1) + '%', chCls);
-        set('upnl', '$' + p.upnl.toFixed(0), upCls);
-        set('upnlPct', (p.upnlPct >= 0 ? '+' : '') + p.upnlPct.toFixed(1) + '%', upCls);
-        set('pctNet', p.pctNet.toFixed(1) + '%');
-      }));
-      const totalUpnl = positions.reduce(function(s, p) { return s + (p.upnl || 0); }, 0);
-      const hdrUpnl = document.getElementById('hdr-upnl');
-      if (hdrUpnl) {
-        hdrUpnl.textContent = (totalUpnl >= 0 ? '+$' : '-$') + Math.abs(totalUpnl).toFixed(0);
-        hdrUpnl.classList.remove('text-emerald-400', 'text-red-400');
-        hdrUpnl.classList.add(totalUpnl >= 0 ? 'text-emerald-400' : 'text-red-400');
-      }
-      const t = new Date();
-      const timeStr = t.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
-      const human = 'Today · ' + timeStr;
-      if (elLive) {
-        elLive.textContent = ok
-          ? (ok + '/' + positions.length + ' · ' + human)
-          : 'unavailable';
-      }
-      const tipFh = document.getElementById('tip-fh-time');
-      const ageFh = document.getElementById('pill-fh-age');
-      const dotFh = document.getElementById('dot-fh');
-      if (tipFh) tipFh.textContent = ok ? (human + ' (just now) · ' + ok + '/' + positions.length + ' quotes') : 'unavailable';
-      if (ageFh) ageFh.textContent = ok ? 'just now' : 'err';
-      if (dotFh) {
-        dotFh.classList.remove('ok', 'warn', 'err', 'pulse');
-        if (ok > 0) dotFh.classList.add('ok');
-        else dotFh.classList.add('err');
-      }
-      window._fhLastSync = t.getTime();
-    }
-
-    computeKPIs();
-    setTimeout(refreshLiveQuotes, 1500);
-    setInterval(refreshLiveQuotes, 60000);
- // check prices.json every 30s
-
-
+      });
+    })();
   </script>
 </body>
 </html>
