@@ -8,151 +8,259 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --border: #334155;
+      --bg: #0b1220;
+      --card: #141c2e;
+      --card-hover: #1a2438;
+      --border: #243044;
       --text: #e2e8f0;
       --muted: #94a3b8;
-      --pos: #4ade80;
+      --dim: #64748b;
+      --pos: #34d399;
       --neg: #f87171;
       --accent: #38bdf8;
+      --accent2: #818cf8;
     }
-    body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; margin: 0; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+    * { box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      line-height: 1.45;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
     .num { font-variant-numeric: tabular-nums; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
-    th { color: var(--muted); font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
-    tr:hover { background: #243044; }
-    .kpi-value { font-size: 1.5rem; font-weight: 600; }
+    th, td {
+      padding: 11px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    th {
+      color: var(--dim);
+      font-weight: 500;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(0,0,0,0.15);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--card-hover); }
+    .kpi-value { font-size: 1.55rem; font-weight: 650; letter-spacing: -0.02em; }
     .text-pos { color: var(--pos); }
     .text-neg { color: var(--neg); }
     .muted { color: var(--muted); }
-    canvas { max-height: 280px; }
+    .dim { color: var(--dim); }
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin: 0 0 0.75rem 0;
+    }
+    .filter-btn {
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover { color: var(--text); border-color: #475569; }
+    .filter-btn.active {
+      background: #1e293b;
+      color: #f1f5f9;
+      border-color: #475569;
+    }
+    .range-btn {
+      padding: 4px 10px;
+      border-radius: 7px;
+      font-size: 0.72rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .range-btn.active {
+      background: #1e293b;
+      color: #f1f5f9;
+      border-color: #475569;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.18);
+      color: var(--accent);
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--pos);
+      box-shadow: 0 0 0 3px rgba(52,211,153,0.15);
+    }
+    canvas { max-height: 270px; }
+    .table-wrap { overflow-x: auto; border-radius: 14px; }
   </style>
 </head>
-<body class="p-4 md:p-6 max-w-7xl mx-auto">
+<body class="p-4 md:p-6 lg:p-8 max-w-7xl mx-auto">
 
   <!-- Header -->
-  <header class="mb-6">
-    <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+  <header class="mb-7">
+    <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
       <div>
-        <h1 class="text-xl font-semibold text-white">IBKR Portfolio – THT Tracker</h1>
-        <p class="text-sm muted" id="hdr-subtitle">Loading data…</p>
+        <div class="flex items-center gap-2.5 mb-1">
+          <h1 class="text-xl md:text-2xl font-semibold text-white tracking-tight">IBKR Portfolio</h1>
+          <span class="pill"><span class="dot"></span> THT Tracker</span>
+        </div>
+        <p class="text-sm muted" id="hdr-subtitle">Loading…</p>
       </div>
-      <div class="text-right text-sm muted" id="hdr-sync">—</div>
+      <div class="text-right">
+        <div class="text-xs dim" id="hdr-sync">—</div>
+        <div class="text-xs muted mt-0.5">Source: data.js</div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
-      <div class="card p-3">
-        <div class="text-xs muted">Net Liquidation</div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div class="card p-4">
+        <div class="text-xs dim mb-1">Net Liquidation</div>
         <div class="kpi-value num" id="hdr-nav">—</div>
       </div>
-      <div class="card p-3">
-        <div class="text-xs muted">Cash</div>
+      <div class="card p-4">
+        <div class="text-xs dim mb-1">Cash</div>
         <div class="kpi-value num" id="hdr-cash">—</div>
       </div>
-      <div class="card p-3">
-        <div class="text-xs muted">Unrealized P&L</div>
+      <div class="card p-4">
+        <div class="text-xs dim mb-1">Unrealized P&L</div>
         <div class="kpi-value num" id="hdr-upnl">—</div>
       </div>
-      <div class="card p-3">
-        <div class="text-xs muted">Positions</div>
+      <div class="card p-4">
+        <div class="text-xs dim mb-1">Open Positions</div>
         <div class="kpi-value num" id="hdr-pos">—</div>
       </div>
     </div>
   </header>
 
-  <!-- Rules reminder -->
-  <div class="card p-4 mb-6 text-sm">
-    <h2 class="font-semibold text-white mb-2">Rules & Psychology Reminder</h2>
-    <ul class="list-disc list-inside muted space-y-1">
-      <li>Sample size goal: 100+ closed trades · Never cherry-pick · Equal weight</li>
-      <li>Loss ≠ error. Error = deviation from rules</li>
-      <li>Buy discount / Smart Money Zone, sell into strength or on structure break</li>
-      <li>Position sizing + survival > perfect entries</li>
-    </ul>
+  <!-- Rules -->
+  <div class="card p-4 mb-7 text-sm">
+    <div class="font-medium text-slate-200 mb-2">Rules & Psychology</div>
+    <div class="grid sm:grid-cols-2 gap-x-6 gap-y-1 muted text-[0.82rem]">
+      <div>• Sample size goal: 100+ closed trades</div>
+      <div>• Never cherry-pick · Equal weight every trade</div>
+      <div>• Loss ≠ error. Error = deviation from rules</div>
+      <div>• Buy SMZ / discount · Sell strength or structure break</div>
+    </div>
   </div>
 
-  <!-- Performance & Process KPIs -->
+  <!-- KPIs -->
   <section class="mb-8">
-    <h2 class="text-lg font-semibold text-white mb-3">Performance & Process KPIs</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+    <h2 class="section-title">Performance & Process KPIs</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
       <div class="card p-4">
-        <div class="text-xs muted mb-1">Trades History</div>
+        <div class="text-xs dim mb-1">Trades History</div>
         <div class="kpi-value num" id="kpi-n">—</div>
         <div class="text-xs muted mt-1">Goal: 100+</div>
       </div>
       <div class="card p-4">
-        <div class="text-xs muted mb-1">Win Rate</div>
+        <div class="text-xs dim mb-1">Win Rate</div>
         <div class="kpi-value num" id="kpi-wr">—</div>
         <div class="text-xs muted mt-1" id="kpi-wl">—</div>
       </div>
       <div class="card p-4">
-        <div class="text-xs muted mb-1">Profit Factor</div>
+        <div class="text-xs dim mb-1">Profit Factor</div>
         <div class="kpi-value num" id="kpi-pf">—</div>
         <div class="text-xs muted mt-1">Gross Wins ÷ Losses</div>
       </div>
       <div class="card p-4">
-        <div class="text-xs muted mb-1">Avg Win</div>
+        <div class="text-xs dim mb-1">Total Realized</div>
+        <div class="kpi-value num" id="kpi-total">—</div>
+        <div class="text-xs muted mt-1">YTD closed P&L</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs dim mb-1">Avg Win</div>
         <div class="kpi-value num text-pos" id="kpi-aw">—</div>
         <div class="text-xs muted mt-1" id="kpi-awp">—</div>
       </div>
       <div class="card p-4">
-        <div class="text-xs muted mb-1">Avg Loss</div>
+        <div class="text-xs dim mb-1">Avg Loss</div>
         <div class="kpi-value num text-neg" id="kpi-al">—</div>
         <div class="text-xs muted mt-1" id="kpi-alp">—</div>
       </div>
       <div class="card p-4">
-        <div class="text-xs muted mb-1">Expectancy / trade</div>
+        <div class="text-xs dim mb-1">Expectancy / trade</div>
         <div class="kpi-value num" id="kpi-e">—</div>
-        <div class="text-xs muted mt-1" id="kpi-ep">—</div>
+        <div class="text-xs muted mt-1">Avg edge per trade</div>
+      </div>
+      <div class="card p-4">
+        <div class="text-xs dim mb-1">Largest Win / Loss</div>
+        <div class="flex gap-3 mt-1">
+          <div>
+            <div class="text-sm font-semibold text-pos num" id="kpi-lw">—</div>
+            <div class="text-[0.65rem] dim">Best</div>
+          </div>
+          <div>
+            <div class="text-sm font-semibold text-neg num" id="kpi-ll">—</div>
+            <div class="text-[0.65rem] dim">Worst</div>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="text-xs muted mt-3" id="kpi-note">Derived from closed trades (single source of truth in data.js).</p>
+    <p class="text-xs dim mt-3" id="kpi-note">Derived from closed trades in data.js · Sample still building toward 100+</p>
   </section>
 
-  <!-- Charts: Allocation + Equity -->
-  <section class="mb-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <!-- Charts -->
+  <section class="mb-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
     <div class="card p-4">
-      <h3 class="text-sm font-semibold text-white mb-1">Holdings Allocation</h3>
-      <p class="text-xs muted mb-3">By market value</p>
-      <div class="relative mx-auto" style="max-width:280px;height:260px">
+      <h3 class="text-sm font-semibold text-white mb-0.5">Holdings Allocation</h3>
+      <p class="text-xs dim mb-3">By market value</p>
+      <div class="relative mx-auto" style="max-width:300px;height:250px">
         <canvas id="chartAlloc"></canvas>
       </div>
     </div>
     <div class="card p-4">
       <div class="flex items-center justify-between mb-1">
         <div>
-          <h3 class="text-sm font-semibold text-white">Equity Curve (NAV)</h3>
-          <p class="text-xs muted">IBKR TWR · YTD</p>
+          <h3 class="text-sm font-semibold text-white">Equity Curve</h3>
+          <p class="text-xs dim">IBKR TWR · NAV</p>
         </div>
-        <div class="flex gap-1">
-          <button type="button" class="range-btn text-xs px-2 py-1 rounded border border-slate-600 muted hover:text-white" data-range="mtd">MTD</button>
-          <button type="button" class="range-btn text-xs px-2 py-1 rounded border border-slate-600 text-white bg-slate-700" data-range="ytd">YTD</button>
+        <div class="flex gap-1.5">
+          <button type="button" class="range-btn" data-range="mtd">MTD</button>
+          <button type="button" class="range-btn active" data-range="ytd">YTD</button>
         </div>
       </div>
-      <div style="height:260px">
+      <div style="height:250px">
         <canvas id="chartEquity"></canvas>
       </div>
     </div>
   </section>
 
-  <!-- Open Positions -->
+  <!-- Positions -->
   <section class="mb-8">
-    <h2 class="text-lg font-semibold text-white mb-3">Open Positions</h2>
-    <div class="card overflow-x-auto">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="section-title mb-0">Open Positions</h2>
+      <span class="text-xs dim" id="pos-count"></span>
+    </div>
+    <div class="card table-wrap">
       <table>
         <thead>
           <tr>
             <th>Symbol</th>
             <th class="text-right">Qty</th>
-            <th class="text-right">Avg Cost</th>
+            <th class="text-right">Avg</th>
             <th class="text-right">Last</th>
             <th class="text-right">Mkt Value</th>
             <th class="text-right">Unrealized $</th>
             <th class="text-right">Unrealized %</th>
-            <th class="text-right">% of NAV</th>
+            <th class="text-right">% NAV</th>
           </tr>
         </thead>
         <tbody id="positions-body"></tbody>
@@ -160,11 +268,20 @@
     </div>
   </section>
 
-  <!-- Closed Trades -->
+  <!-- Closed -->
   <section class="mb-8">
-    <h2 class="text-lg font-semibold text-white mb-3">Trades History (newest first)</h2>
-    <p class="text-sm muted mb-3">Closed sell orders with realized P&L vs cost basis · Source: data.js</p>
-    <div class="card overflow-x-auto">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+      <div>
+        <h2 class="section-title mb-0">Trades History</h2>
+        <p class="text-xs dim mt-0.5">Closed sells · realized P&L vs cost</p>
+      </div>
+      <div class="flex gap-1.5" id="closed-filters">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="wins">Wins</button>
+        <button type="button" class="filter-btn" data-filter="losses">Losses</button>
+      </div>
+    </div>
+    <div class="card table-wrap">
       <table>
         <thead>
           <tr>
@@ -182,18 +299,16 @@
     </div>
   </section>
 
-  <footer class="text-xs muted mt-10 pb-6">
-    Not financial advice. Verify all figures in the IBKR platform.<br>
-    <strong>Architecture:</strong> All numbers live only in <code>data.js</code> (single source of truth). 
-    <code>index.html</code> is a pure renderer and is never patched by automation.
+  <footer class="text-xs dim mt-10 pb-8 border-t border-slate-800 pt-5">
+    Not financial advice. Verify figures in the IBKR platform.<br>
+    <span class="muted">Architecture: all numbers live only in <code class="text-slate-400">data.js</code>. 
+    <code class="text-slate-400">index.html</code> is a pure renderer and is never patched by automation.</span>
   </footer>
 
-  <!-- Load data first, then render -->
   <script src="data.js"></script>
   <script>
     (function () {
       const DATA = window.__DATA__;
-
       if (!DATA || !DATA.meta) {
         document.getElementById('hdr-subtitle').textContent = 'ERROR: data.js missing or corrupt';
         document.getElementById('hdr-subtitle').classList.add('text-neg');
@@ -208,29 +323,40 @@
 
       // Header
       document.getElementById('hdr-subtitle').textContent =
-        'Rules-based · Peter DiCarlo THT Bull Cycle · Data from IBKR';
+        'Rules-based · Peter DiCarlo THT Bull Cycle';
       document.getElementById('hdr-sync').textContent =
-        'Last data: ' + (m.generatedAtHuman || m.generatedAt || '—');
+        'Updated ' + (m.generatedAtHuman || m.generatedAt || '—');
 
-      document.getElementById('hdr-nav').textContent = '$' + Number(m.nav).toLocaleString(undefined, {maximumFractionDigits: 0});
-      document.getElementById('hdr-cash').textContent = '$' + Number(m.cash).toLocaleString(undefined, {maximumFractionDigits: 0});
+      document.getElementById('hdr-nav').textContent =
+        '$' + Number(m.nav).toLocaleString(undefined, { maximumFractionDigits: 0 });
+      document.getElementById('hdr-cash').textContent =
+        '$' + Number(m.cash).toLocaleString(undefined, { maximumFractionDigits: 0 });
+
       const upnl = Number(m.unrealized) || 0;
       const upnlEl = document.getElementById('hdr-upnl');
-      upnlEl.textContent = (upnl >= 0 ? '+$' : '-$') + Math.abs(upnl).toLocaleString(undefined, {maximumFractionDigits: 0});
+      upnlEl.textContent = (upnl >= 0 ? '+$' : '-$') + Math.abs(Math.round(upnl)).toLocaleString();
       upnlEl.classList.add(upnl >= 0 ? 'text-pos' : 'text-neg');
       document.getElementById('hdr-pos').textContent = m.positionsCount || positions.length;
+      document.getElementById('pos-count').textContent = positions.length + ' holdings';
 
-      // KPIs – already computed server-side
+      // KPIs
       document.getElementById('kpi-n').textContent = k.n ?? '—';
-      document.getElementById('kpi-wr').textContent = (k.winRate != null) ? (k.winRate + '%') : '—';
-      document.getElementById('kpi-wl').textContent = (k.wins != null && k.losses != null) ? (k.wins + 'W / ' + k.losses + 'L') : '—';
+      document.getElementById('kpi-wr').textContent = k.winRate != null ? k.winRate + '%' : '—';
+      document.getElementById('kpi-wl').textContent =
+        (k.wins != null && k.losses != null) ? (k.wins + 'W / ' + k.losses + 'L') : '—';
 
       const pfEl = document.getElementById('kpi-pf');
-      if (k.profitFactor == null) {
-        pfEl.textContent = '—';
-      } else {
+      if (k.profitFactor == null) pfEl.textContent = '—';
+      else {
         pfEl.textContent = Number(k.profitFactor).toFixed(2);
         pfEl.classList.add(k.profitFactor >= 1 ? 'text-pos' : 'text-neg');
+      }
+
+      const totalEl = document.getElementById('kpi-total');
+      if (k.totalRealized != null) {
+        const t = k.totalRealized;
+        totalEl.textContent = (t >= 0 ? '+$' : '-$') + Math.abs(Math.round(t)).toLocaleString();
+        totalEl.classList.add(t >= 0 ? 'text-pos' : 'text-neg');
       }
 
       document.getElementById('kpi-aw').textContent = k.avgWin != null ? ('+$' + Math.round(k.avgWin)) : '—';
@@ -243,14 +369,25 @@
         eEl.textContent = (k.expectancy >= 0 ? '+$' : '–$') + Math.round(Math.abs(k.expectancy));
         eEl.classList.add(k.expectancy >= 0 ? 'text-pos' : 'text-neg');
       }
-      document.getElementById('kpi-ep').textContent = 'Avg edge per trade';
-      document.getElementById('kpi-note').textContent = k.note || 'Derived from closed trades (single source of truth).';
 
-      // Positions table
+      // Largest win / loss from closed
+      if (closed.length) {
+        const wins = closed.filter(t => t.pnl > 0);
+        const losses = closed.filter(t => t.pnl < 0);
+        const maxW = wins.length ? Math.max(...wins.map(t => t.pnl)) : null;
+        const maxL = losses.length ? Math.min(...losses.map(t => t.pnl)) : null;
+        document.getElementById('kpi-lw').textContent = maxW != null ? ('+$' + Math.round(maxW)) : '—';
+        document.getElementById('kpi-ll').textContent = maxL != null ? ('–$' + Math.round(Math.abs(maxL))) : '—';
+      }
+
+      document.getElementById('kpi-note').textContent =
+        k.note || 'Derived from closed trades in data.js · Sample still building toward 100+';
+
+      // Positions
       const tbody = document.getElementById('positions-body');
       positions
         .slice()
-        .sort((a, b) => (b.cost || 0) - (a.cost || 0))
+        .sort((a, b) => (b.mv || 0) - (a.mv || 0))
         .forEach(p => {
           const upCls = (p.upnl || 0) >= 0 ? 'text-pos' : 'text-neg';
           const tr = document.createElement('tr');
@@ -266,60 +403,83 @@
           tbody.appendChild(tr);
         });
 
-      // Closed trades table
+      // Closed trades with filter
       const cbody = document.getElementById('closed-body');
-      closed.forEach(t => {
-        const isWin = (t.pnl || 0) > 0;
-        const cls = isWin ? 'text-pos' : 'text-neg';
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${t.date || '—'}</td>
-          <td class="font-medium">${t.sym || '—'}</td>
-          <td class="num text-right">${t.qty ?? '—'}</td>
-          <td class="num text-right">$${(t.exit || 0).toFixed(2)}</td>
-          <td class="num text-right ${cls}">${(t.pnl || 0) >= 0 ? '+' : ''}$${(t.pnl || 0).toFixed(0)}</td>
-          <td class="num text-right ${cls}">${(t.pct || 0) >= 0 ? '+' : ''}${(t.pct || 0).toFixed(1)}%</td>
-          <td class="${cls}">${isWin ? 'Win' : 'Loss'}</td>`;
-        cbody.appendChild(tr);
+      function renderClosed(filter) {
+        cbody.innerHTML = '';
+        const list = closed.filter(t => {
+          if (filter === 'wins') return t.pnl > 0;
+          if (filter === 'losses') return t.pnl < 0;
+          return true;
+        });
+        list.forEach(t => {
+          const isWin = (t.pnl || 0) > 0;
+          const cls = isWin ? 'text-pos' : 'text-neg';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="dim">${t.date || '—'}</td>
+            <td class="font-medium text-white">${t.sym || '—'}</td>
+            <td class="num text-right">${t.qty ?? '—'}</td>
+            <td class="num text-right">$${(t.exit || 0).toFixed(2)}</td>
+            <td class="num text-right ${cls}">${(t.pnl || 0) >= 0 ? '+' : ''}$${Math.round(t.pnl || 0)}</td>
+            <td class="num text-right ${cls}">${(t.pct || 0) >= 0 ? '+' : ''}${(t.pct || 0).toFixed(1)}%</td>
+            <td class="${cls} font-medium">${isWin ? 'Win' : 'Loss'}</td>`;
+          cbody.appendChild(tr);
+        });
+      }
+      renderClosed('all');
+
+      document.querySelectorAll('#closed-filters .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#closed-filters .filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderClosed(btn.dataset.filter);
+        });
       });
 
-      // ——— Charts ———
-      const colors = ['#38bdf8','#818cf8','#c084fc','#f472b6','#fb923c','#4ade80','#facc15','#f87171','#2dd4bf','#a78bfa','#e879f9','#34d399','#fbbf24','#60a5fa','#f472b6'];
+      // Charts
+      const colors = [
+        '#38bdf8','#818cf8','#c084fc','#f472b6','#fb923c',
+        '#34d399','#facc15','#f87171','#2dd4bf','#a78bfa',
+        '#e879f9','#4ade80','#fbbf24','#60a5fa','#fb7185'
+      ];
 
-      // Allocation doughnut
       if (positions.length && window.Chart) {
-        const labels = positions.map(p => p.symbol);
-        const values = positions.map(p => Math.max(0, p.mv || 0));
         new Chart(document.getElementById('chartAlloc'), {
           type: 'doughnut',
           data: {
-            labels,
+            labels: positions.map(p => p.symbol),
             datasets: [{
-              data: values,
-              backgroundColor: colors.slice(0, labels.length),
-              borderWidth: 0
+              data: positions.map(p => Math.max(0, p.mv || 0)),
+              backgroundColor: colors.slice(0, positions.length),
+              borderWidth: 0,
+              hoverOffset: 4
             }]
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
+            cutout: '58%',
             plugins: {
               legend: {
                 position: 'right',
-                labels: { color: '#94a3b8', boxWidth: 12, font: { size: 11 } }
+                labels: {
+                  color: '#94a3b8',
+                  boxWidth: 10,
+                  padding: 10,
+                  font: { size: 11 }
+                }
               }
             }
           }
         });
       }
 
-      // Equity curve
       let equityChart = null;
       function renderEquity(range) {
         const series = (range === 'mtd' && perf.mtd) ? perf.mtd : (perf.ytd || { labels: [], nav: [] });
-        const ctx = document.getElementById('chartEquity');
         if (equityChart) equityChart.destroy();
-        equityChart = new Chart(ctx, {
+        equityChart = new Chart(document.getElementById('chartEquity'), {
           type: 'line',
           data: {
             labels: series.labels || [],
@@ -327,23 +487,29 @@
               label: 'NAV',
               data: series.nav || [],
               borderColor: '#38bdf8',
-              backgroundColor: 'rgba(56,189,248,0.08)',
+              backgroundColor: 'rgba(56,189,248,0.07)',
               fill: true,
-              tension: 0.25,
+              tension: 0.3,
               pointRadius: 0,
+              pointHoverRadius: 4,
               borderWidth: 2
             }]
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
             scales: {
-              x: { ticks: { color: '#64748b', maxTicksLimit: 8, font: { size: 10 } }, grid: { color: '#1e293b' } },
-              y: { ticks: { color: '#64748b', font: { size: 10 } }, grid: { color: '#1e293b' } }
+              x: {
+                ticks: { color: '#64748b', maxTicksLimit: 7, font: { size: 10 } },
+                grid: { color: 'rgba(36,48,68,0.6)' }
+              },
+              y: {
+                ticks: { color: '#64748b', font: { size: 10 } },
+                grid: { color: 'rgba(36,48,68,0.6)' }
+              }
             },
-            plugins: {
-              legend: { display: false }
-            }
+            plugins: { legend: { display: false } }
           }
         });
       }
@@ -351,12 +517,8 @@
 
       document.querySelectorAll('.range-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('.range-btn').forEach(b => {
-            b.classList.remove('text-white', 'bg-slate-700');
-            b.classList.add('muted');
-          });
-          btn.classList.add('text-white', 'bg-slate-700');
-          btn.classList.remove('muted');
+          document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
           renderEquity(btn.dataset.range);
         });
       });
