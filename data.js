@@ -5,13 +5,13 @@
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-08-24T17:10:00+03:00",
-    "generatedAtHuman": "2026-08-24 17:10 IDT",
+    "generatedAt": "2026-08-24T18:07:24.012875+03:00",
+    "generatedAtHuman": "2026-08-24 18:07 IDT",
     "source": "Interactive Brokers (live)",
-    "nav": 12980.69,
-    "cash": 1334.74,
+    "nav": 13011.67,
+    "cash": 1137.49,
     "grossPositions": 11656.31,
-    "unrealized": -118.62,
+    "unrealized": -103.9,
     "positionsCount": 14,
     "note": "Closed trades aggregated by order_id from YTD SELLs. KPIs computed server-side."
   },
