@@ -1,17 +1,17 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-08-27 15:07 IDT
+// Generated: 2026-08-27 16:08 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-08-27T15:07:00+03:00",
-    "generatedAtHuman": "2026-08-27 15:07 IDT",
+    "generatedAt": "2026-08-27T16:08:58+03:00",
+    "generatedAtHuman": "2026-08-27 16:08 IDT",
     "source": "Interactive Brokers (live)",
-    "nav": 13231.23,
+    "nav": 13223.36,
     "cash": 717.21,
-    "grossPositions": 12524.38,
-    "unrealized": 112.87,
+    "grossPositions": 12519.92,
+    "unrealized": 113.07,
     "positionsCount": 15,
     "note": "Closed trades aggregated by order_id from YTD SELLs. KPIs computed server-side."
   },
@@ -20,12 +20,12 @@ window.__DATA__ = {
       "symbol": "META",
       "qty": 4.0,
       "avg": 574.2733,
-      "last": 574.05,
-      "upnl": -0.89,
-      "upnlPct": -0.04,
-      "cost": 2297.09,
-      "mv": 2296.2,
-      "pctNet": 17.35,
+      "last": 574.2000122,
+      "upnl": -0.2931512,
+      "upnlPct": -0.01,
+      "cost": 2297.0932,
+      "mv": 2296.8000488,
+      "pctNet": 17.37,
       "chg": 0,
       "peter": {
         "sum": "+10% off SMZ; ideal buy area; full setup + targets + cut levels",
@@ -36,13 +36,13 @@ window.__DATA__ = {
     {
       "symbol": "ENPH",
       "qty": 28.0,
-      "avg": 47.742857,
-      "last": 39.4488,
-      "upnl": -232.23,
-      "upnlPct": -17.37,
+      "avg": 47.74285714,
+      "last": 39.2099991,
+      "upnl": -238.9200252,
+      "upnlPct": -17.87,
       "cost": 1336.8,
-      "mv": 1104.57,
-      "pctNet": 8.35,
+      "mv": 1097.8799748,
+      "pctNet": 8.3,
       "chg": 0,
       "peter": {
         "sum": "Setting up for another +100% move in 3-6 months",
@@ -54,12 +54,12 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "qty": 15.0,
       "avg": 73.76222,
-      "last": 80.48,
-      "upnl": 100.77,
-      "upnlPct": 9.11,
-      "cost": 1106.43,
-      "mv": 1207.2,
-      "pctNet": 9.12,
+      "last": 80.5699997,
+      "upnl": 102.1166955,
+      "upnlPct": 9.23,
+      "cost": 1106.4333,
+      "mv": 1208.5499955,
+      "pctNet": 9.14,
       "chg": 0,
       "peter": null
     },
@@ -67,12 +67,12 @@ window.__DATA__ = {
       "symbol": "APP",
       "qty": 3.0,
       "avg": 309.525,
-      "last": 310.25,
-      "upnl": 2.17,
-      "upnlPct": 0.23,
-      "cost": 928.57,
-      "mv": 930.75,
-      "pctNet": 7.03,
+      "last": 310.33200075,
+      "upnl": 2.42100225,
+      "upnlPct": 0.26,
+      "cost": 928.575,
+      "mv": 930.99600225,
+      "pctNet": 7.04,
       "chg": 0,
       "peter": {
         "sum": "Smart money showing up; strongest support zone; long setup + targets + stop",
@@ -84,28 +84,28 @@ window.__DATA__ = {
       "symbol": "NXT",
       "qty": 10.0,
       "avg": 92.6595,
-      "last": 88.65,
-      "upnl": -40.09,
-      "upnlPct": -4.33,
-      "cost": 926.59,
-      "mv": 886.5,
-      "pctNet": 6.7,
+      "last": 88.76999665,
+      "upnl": -38.8950335,
+      "upnlPct": -4.2,
+      "cost": 926.595,
+      "mv": 887.6999665,
+      "pctNet": 6.71,
       "chg": 0,
       "peter": null
     },
     {
       "symbol": "CELH",
       "qty": 26.0,
-      "avg": 30.312308,
-      "last": 33.12,
-      "upnl": 73.0,
-      "upnlPct": 9.26,
+      "avg": 30.31230769,
+      "last": 33.4413986,
+      "upnl": 81.3563636,
+      "upnlPct": 10.32,
       "cost": 788.12,
-      "mv": 861.12,
-      "pctNet": 6.51,
+      "mv": 869.4763636,
+      "pctNet": 6.58,
       "chg": 0,
       "peter": {
-        "sum": "+30% since Aug 13 (vs SOFI -1%); trade what's in front of you",
+        "sum": "$CELH +30% since Aug 13 vs SOFI; trade what's in front of you",
         "url": "https://x.com/pdicarlotrader/status/2091992413220803025",
         "when": "Aug 24"
       }
@@ -113,26 +113,26 @@ window.__DATA__ = {
     {
       "symbol": "POET",
       "qty": 95.0,
-      "avg": 8.053553,
-      "last": 8.32,
-      "upnl": 25.31,
-      "upnlPct": 3.31,
-      "cost": 765.09,
-      "mv": 790.4,
-      "pctNet": 5.97,
+      "avg": 8.05355263,
+      "last": 8.27999975,
+      "upnl": 21.51247625,
+      "upnlPct": 2.81,
+      "cost": 765.0875,
+      "mv": 786.59997625,
+      "pctNet": 5.95,
       "chg": 0,
       "peter": null
     },
     {
       "symbol": "TE",
       "qty": 117.0,
-      "avg": 5.135085,
-      "last": 4.6299,
-      "upnl": -59.11,
-      "upnlPct": -9.84,
-      "cost": 600.8,
-      "mv": 541.7,
-      "pctNet": 4.09,
+      "avg": 5.13508547,
+      "last": 4.63980005,
+      "upnl": -57.94839415,
+      "upnlPct": -9.64,
+      "cost": 600.805,
+      "mv": 542.85660585,
+      "pctNet": 4.11,
       "chg": 0,
       "peter": null
     },
@@ -140,24 +140,24 @@ window.__DATA__ = {
       "symbol": "NOW",
       "qty": 5.0,
       "avg": 115.42366,
-      "last": 128.98,
-      "upnl": 67.78,
-      "upnlPct": 11.74,
-      "cost": 577.12,
-      "mv": 644.9,
-      "pctNet": 4.87,
+      "last": 129.6000061,
+      "upnl": 70.8817305,
+      "upnlPct": 12.28,
+      "cost": 577.1183,
+      "mv": 648.0000305,
+      "pctNet": 4.9,
       "chg": 0,
       "peter": null
     },
     {
       "symbol": "RBLX",
       "qty": 15.0,
-      "avg": 37.886667,
-      "last": 37.7339,
-      "upnl": -2.29,
-      "upnlPct": -0.4,
+      "avg": 37.88666667,
+      "last": 37.72999955,
+      "upnl": -2.35000675,
+      "upnlPct": -0.41,
       "cost": 568.3,
-      "mv": 566.01,
+      "mv": 565.94999325,
       "pctNet": 4.28,
       "chg": 0,
       "peter": null
@@ -165,13 +165,13 @@ window.__DATA__ = {
     {
       "symbol": "CBRS",
       "qty": 3.0,
-      "avg": 183.333333,
-      "last": 187.84,
-      "upnl": 13.52,
-      "upnlPct": 2.46,
+      "avg": 183.33333333,
+      "last": 187.5,
+      "upnl": 12.5,
+      "upnlPct": 2.27,
       "cost": 550.0,
-      "mv": 563.52,
-      "pctNet": 4.26,
+      "mv": 562.5,
+      "pctNet": 4.25,
       "chg": 0,
       "peter": null
     },
@@ -179,25 +179,25 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 8.0,
       "avg": 68.3125,
-      "last": 78.07,
-      "upnl": 78.06,
-      "upnlPct": 14.28,
+      "last": 77.91999815,
+      "upnl": 76.8599852,
+      "upnlPct": 14.06,
       "cost": 546.5,
-      "mv": 624.56,
-      "pctNet": 4.72,
+      "mv": 623.3599852,
+      "pctNet": 4.71,
       "chg": 0,
       "peter": null
     },
     {
       "symbol": "MMM",
       "qty": 3.0,
-      "avg": 178.027133,
-      "last": 179.3,
-      "upnl": 3.82,
-      "upnlPct": 0.71,
-      "cost": 534.08,
-      "mv": 537.9,
-      "pctNet": 4.07,
+      "avg": 178.02713333,
+      "last": 178.75,
+      "upnl": 2.1686,
+      "upnlPct": 0.41,
+      "cost": 534.0814,
+      "mv": 536.25,
+      "pctNet": 4.06,
       "chg": 0,
       "peter": null
     },
@@ -205,12 +205,12 @@ window.__DATA__ = {
       "symbol": "MSTR",
       "qty": 5.0,
       "avg": 101.05,
-      "last": 126.0,
-      "upnl": 124.75,
-      "upnlPct": 24.69,
+      "last": 125.6100006,
+      "upnl": 122.800003,
+      "upnlPct": 24.3,
       "cost": 505.25,
-      "mv": 630.0,
-      "pctNet": 4.76,
+      "mv": 628.050003,
+      "pctNet": 4.75,
       "chg": 0,
       "peter": {
         "sum": "Bought $COIN $CRCL $MSTR instead",
@@ -222,11 +222,11 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "qty": 5.0,
       "avg": 75.218,
-      "last": 66.88,
-      "upnl": -41.69,
-      "upnlPct": -11.09,
+      "last": 66.98999785,
+      "upnl": -41.14001075,
+      "upnlPct": -10.94,
       "cost": 376.09,
-      "mv": 334.4,
+      "mv": 334.94998925,
       "pctNet": 2.53,
       "chg": 0,
       "peter": null
@@ -234,404 +234,404 @@ window.__DATA__ = {
   ],
   "closed": [
     {
-      "date": "2026-08-25",
-      "sym": "MMM",
+      "symbol": "MMM",
       "qty": 4.0,
-      "exit": 178.98,
+      "price": 178.98,
       "pnl": 1.31,
-      "orderId": 1454168470
+      "orderId": 1454168470,
+      "when": "2026-08-25"
     },
     {
-      "date": "2026-08-24",
-      "sym": "RKLB",
+      "symbol": "RKLB",
       "qty": 7.0,
-      "exit": 69.8,
+      "price": 69.8,
       "pnl": -42.75,
-      "orderId": 1751289651
+      "orderId": 1751289651,
+      "when": "2026-08-24"
     },
     {
-      "date": "2026-08-21",
-      "sym": "HOOD",
+      "symbol": "HOOD",
       "qty": 7.0,
-      "exit": 108.22,
+      "price": 108.22,
       "pnl": 90.62,
-      "orderId": 238534486
+      "orderId": 238534486,
+      "when": "2026-08-21"
     },
     {
-      "date": "2026-08-19",
-      "sym": "NFLX",
+      "symbol": "NFLX",
       "qty": 7.0,
-      "exit": 80.4,
+      "price": 80.4,
       "pnl": 41.48,
-      "orderId": 5542736447
+      "orderId": 5542736447,
+      "when": "2026-08-19"
     },
     {
-      "date": "2026-08-18",
-      "sym": "NOW",
+      "symbol": "NOW",
       "qty": 4.0,
-      "exit": 120.915,
+      "price": 120.915,
       "pnl": 24.05,
-      "orderId": 5537214682
+      "orderId": 5537214682,
+      "when": "2026-08-18"
     },
     {
-      "date": "2026-08-17",
-      "sym": "HNST",
+      "symbol": "HNST",
       "qty": 110.0,
-      "exit": 4.78,
+      "price": 4.78,
       "pnl": 103.73,
-      "orderId": 5533075687
+      "orderId": 5533075687,
+      "when": "2026-08-17"
     },
     {
-      "date": "2026-08-13",
-      "sym": "POET",
+      "symbol": "POET",
       "qty": 50.0,
-      "exit": 9.37,
+      "price": 9.37,
       "pnl": 70.44,
-      "orderId": 5522452440
+      "orderId": 5522452440,
+      "when": "2026-08-13"
     },
     {
-      "date": "2026-08-12",
-      "sym": "AVGO",
+      "symbol": "AVGO",
       "qty": 2.5,
-      "exit": 417.39,
+      "price": 417.392,
       "pnl": 91.65,
-      "orderId": 5520057114
+      "orderId": 5520057114,
+      "when": "2026-08-12"
     },
     {
-      "date": "2026-08-11",
-      "sym": "AVGO",
+      "symbol": "AVGO",
       "qty": 2.0,
-      "exit": 417.95,
+      "price": 417.95,
       "pnl": 19.28,
-      "orderId": 5515393267
+      "orderId": 5515393267,
+      "when": "2026-08-11"
     },
     {
-      "date": "2026-08-11",
-      "sym": "HNST",
+      "symbol": "HNST",
       "qty": 115.0,
-      "exit": 5.14,
+      "price": 5.14,
       "pnl": 162.91,
-      "orderId": 5515061157
+      "orderId": 5515061157,
+      "when": "2026-08-11"
     },
     {
-      "date": "2026-08-11",
-      "sym": "ZETA",
+      "symbol": "ZETA",
       "qty": 100.0,
-      "exit": 28.535,
+      "price": 28.535,
       "pnl": 693.19,
-      "orderId": 5514871927
+      "orderId": 5514871927,
+      "when": "2026-08-11"
     },
     {
-      "date": "2026-08-10",
-      "sym": "BKNG",
+      "symbol": "BKNG",
       "qty": 6.0,
-      "exit": 212.73,
+      "price": 212.73,
       "pnl": 92.58,
-      "orderId": 5507859909
+      "orderId": 5507859909,
+      "when": "2026-08-10"
     },
     {
-      "date": "2026-08-07",
-      "sym": "SPCX",
+      "symbol": "SPCX",
       "qty": 5.0,
-      "exit": 129.735,
+      "price": 129.735,
       "pnl": 98.93,
-      "orderId": 5505997522
+      "orderId": 5505997522,
+      "when": "2026-08-07"
     },
     {
-      "date": "2026-08-07",
-      "sym": "GOOGL",
+      "symbol": "GOOGL",
       "qty": 3.0,
-      "exit": 354.369,
+      "price": 354.369,
       "pnl": 53.8,
-      "orderId": 5504754219
+      "orderId": 5504754219,
+      "when": "2026-08-07"
     },
     {
-      "date": "2026-08-05",
-      "sym": "GOOGL",
+      "symbol": "GOOGL",
       "qty": 4.0,
-      "exit": 362.2,
+      "price": 362.2,
       "pnl": 28.32,
-      "orderId": 5497390153
+      "orderId": 5497390153,
+      "when": "2026-08-05"
     },
     {
-      "date": "2026-08-05",
-      "sym": "HNST",
+      "symbol": "HNST",
       "qty": 155.0,
-      "exit": 3.91,
+      "price": 3.91,
       "pnl": 33.46,
-      "orderId": 5497089103
+      "orderId": 5497089103,
+      "when": "2026-08-05"
     },
     {
-      "date": "2026-08-05",
-      "sym": "AMZN",
+      "symbol": "AMZN",
       "qty": 6.0,
-      "exit": 275.46,
+      "price": 275.46,
       "pnl": 67.4,
-      "orderId": 5494150289
+      "orderId": 5494150289,
+      "when": "2026-08-05"
     },
     {
-      "date": "2026-08-04",
-      "sym": "MSFT",
+      "symbol": "MSFT",
       "qty": 4.0,
-      "exit": 497.0,
+      "price": 497.0,
       "pnl": 432.2,
-      "orderId": 5491518226
+      "orderId": 5491518226,
+      "when": "2026-08-04"
     },
     {
-      "date": "2026-08-04",
-      "sym": "NVDA",
+      "symbol": "NVDA",
       "qty": 14.0,
-      "exit": 211.0,
+      "price": 211.0,
       "pnl": 67.78,
-      "orderId": 5490608916
+      "orderId": 5490608916,
+      "when": "2026-08-04"
     },
     {
-      "date": "2026-08-03",
-      "sym": "CRWV",
+      "symbol": "CRWV",
       "qty": 22.0,
-      "exit": 78.0,
+      "price": 78.0,
       "pnl": 164.26,
-      "orderId": 5482728391
+      "orderId": 5482728391,
+      "when": "2026-08-03"
     },
     {
-      "date": "2026-07-31",
-      "sym": "AMZN",
+      "symbol": "AMZN",
       "qty": 3.0,
-      "exit": 270.0,
+      "price": 270.0,
       "pnl": 4.35,
-      "orderId": 5478126099
+      "orderId": 5478126099,
+      "when": "2026-07-31"
     },
     {
-      "date": "2026-07-30",
-      "sym": "CRWV",
+      "symbol": "CRWV",
       "qty": 15.0,
-      "exit": 72.8,
+      "price": 72.8,
       "pnl": -391.15,
-      "orderId": 5473063143
+      "orderId": 5473063143,
+      "when": "2026-07-30"
     },
     {
-      "date": "2026-07-29",
-      "sym": "KEEL",
+      "symbol": "KEEL",
       "qty": 200.0,
-      "exit": 3.3,
+      "price": 3.3,
       "pnl": -106.0,
-      "orderId": 5467657168
+      "orderId": 5467657168,
+      "when": "2026-07-29"
     },
     {
-      "date": "2026-07-28",
-      "sym": "AVGO",
+      "symbol": "AVGO",
       "qty": 3.0,
-      "exit": 372.76,
+      "price": 372.76,
       "pnl": -139.91,
-      "orderId": 5460980914
+      "orderId": 5460980914,
+      "when": "2026-07-28"
     },
     {
-      "date": "2026-07-28",
-      "sym": "BE",
+      "symbol": "BE",
       "qty": 6.0,
-      "exit": 173.11,
+      "price": 173.11,
       "pnl": -58.34,
-      "orderId": 5460355972
+      "orderId": 5460355972,
+      "when": "2026-07-28"
     },
     {
-      "date": "2026-07-27",
-      "sym": "GLW",
+      "symbol": "GLW",
       "qty": 6.5,
-      "exit": 144.27,
+      "price": 144.275,
       "pnl": -77.05,
-      "orderId": 5455388192
+      "orderId": 5455388192,
+      "when": "2026-07-27"
     },
     {
-      "date": "2026-07-24",
-      "sym": "BE",
+      "symbol": "BE",
       "qty": 5.0,
-      "exit": 191.1217,
+      "price": 191.1217,
       "pnl": -61.79,
-      "orderId": 5453540421
+      "orderId": 5453540421,
+      "when": "2026-07-24"
     },
     {
-      "date": "2026-07-24",
-      "sym": "HPQ",
+      "symbol": "HPQ",
       "qty": 35.0,
-      "exit": 25.525,
+      "price": 25.525,
       "pnl": 78.12,
-      "orderId": 5452344658
+      "orderId": 5452344658,
+      "when": "2026-07-24"
     },
     {
-      "date": "2026-07-24",
-      "sym": "TE",
+      "symbol": "TE",
       "qty": 60.0,
-      "exit": 5.145,
+      "price": 5.145,
       "pnl": -224.9,
-      "orderId": 5452056807
+      "orderId": 5452056807,
+      "when": "2026-07-24"
     },
     {
-      "date": "2026-07-24",
-      "sym": "FSLR",
+      "symbol": "FSLR",
       "qty": 2.0,
-      "exit": 203.375,
+      "price": 203.375,
       "pnl": -93.9,
-      "orderId": 5451308760
+      "orderId": 5451308760,
+      "when": "2026-07-24"
     },
     {
-      "date": "2026-07-23",
-      "sym": "ZETA",
+      "symbol": "ZETA",
       "qty": 40.0,
-      "exit": 19.71,
+      "price": 19.71,
       "pnl": 0.09,
-      "orderId": 5446265080
+      "orderId": 5446265080,
+      "when": "2026-07-23"
     },
     {
-      "date": "2026-07-21",
-      "sym": "AFRM",
+      "symbol": "AFRM",
       "qty": 13.0,
-      "exit": 74.34,
+      "price": 74.34,
       "pnl": -104.08,
-      "orderId": 5437673304
+      "orderId": 5437673304,
+      "when": "2026-07-21"
     },
     {
-      "date": "2026-07-20",
-      "sym": "TE",
+      "symbol": "TE",
       "qty": 55.0,
-      "exit": 5.822,
+      "price": 5.822,
       "pnl": -169.14,
-      "orderId": 5434079772
+      "orderId": 5434079772,
+      "when": "2026-07-20"
     },
     {
-      "date": "2026-07-20",
-      "sym": "FSLR",
+      "symbol": "FSLR",
       "qty": 2.0,
-      "exit": 208.5,
+      "price": 208.5,
       "pnl": -83.65,
-      "orderId": 5434037808
+      "orderId": 5434037808,
+      "when": "2026-07-20"
     },
     {
-      "date": "2026-07-17",
-      "sym": "ZETA",
+      "symbol": "ZETA",
       "qty": 35.0,
-      "exit": 22.0,
+      "price": 22.0,
       "pnl": 114.72,
-      "orderId": 5431243045
+      "orderId": 5431243045,
+      "when": "2026-07-17"
     },
     {
-      "date": "2026-07-16",
-      "sym": "RDW",
+      "symbol": "RDW",
       "qty": 60.0,
-      "exit": 9.019,
+      "price": 9.019,
       "pnl": -272.89,
-      "orderId": 5423086847
+      "orderId": 5423086847,
+      "when": "2026-07-16"
     },
     {
-      "date": "2026-07-13",
-      "sym": "IONQ",
+      "symbol": "IONQ",
       "qty": 15.0,
-      "exit": 41.2,
+      "price": 41.2,
       "pnl": -192.12,
-      "orderId": 5409375968
+      "orderId": 5409375968,
+      "when": "2026-07-13"
     },
     {
-      "date": "2026-07-08",
-      "sym": "AVGO",
+      "symbol": "AVGO",
       "qty": 3.5,
-      "exit": 393.61,
+      "price": 393.614,
       "pnl": -104.09,
-      "orderId": 5398801581
+      "orderId": 5398801581,
+      "when": "2026-07-08"
     },
     {
-      "date": "2026-07-02",
-      "sym": "IREN",
+      "symbol": "IREN",
       "qty": 17.0,
-      "exit": 37.8,
+      "price": 37.8,
       "pnl": -389.03,
-      "orderId": 5382820274
+      "orderId": 5382820274,
+      "when": "2026-07-02"
     },
     {
-      "date": "2026-07-02",
-      "sym": "RDW",
+      "symbol": "RDW",
       "qty": 40.0,
-      "exit": 11.392,
+      "price": 11.392,
       "pnl": -182.49,
-      "orderId": 5382577548
+      "orderId": 5382577548,
+      "when": "2026-07-02"
     },
     {
-      "date": "2026-07-02",
-      "sym": "QCOM",
+      "symbol": "QCOM",
       "qty": 6.0,
-      "exit": 179.922,
+      "price": 179.922,
       "pnl": 0.0,
-      "orderId": 5380687290
+      "orderId": 5380687290,
+      "when": "2026-07-02"
     },
     {
-      "date": "2026-07-02",
-      "sym": "QCOM",
+      "symbol": "QCOM",
       "qty": 6.0,
-      "exit": 179.51,
+      "price": 179.51,
       "pnl": -261.74,
-      "orderId": 5378997772
+      "orderId": 5378997772,
+      "when": "2026-07-02"
     },
     {
-      "date": "2026-06-30",
-      "sym": "CRCL",
+      "symbol": "CRCL",
       "qty": 10.0,
-      "exit": 63.5,
+      "price": 63.5,
       "pnl": -133.0,
-      "orderId": 5371552870
+      "orderId": 5371552870,
+      "when": "2026-06-30"
     },
     {
-      "date": "2026-06-25",
-      "sym": "AAPL",
+      "symbol": "AAPL",
       "qty": 9.5,
-      "exit": 278.54,
+      "price": 278.541,
       "pnl": -62.74,
-      "orderId": 5353510396
+      "orderId": 5353510396,
+      "when": "2026-06-25"
     },
     {
-      "date": "2026-06-15",
-      "sym": "NVDA",
+      "symbol": "NVDA",
       "qty": 5.0,
-      "exit": 212.333,
+      "price": 212.333,
       "pnl": 64.38,
-      "orderId": 5315072009
+      "orderId": 5315072009,
+      "when": "2026-06-15"
     },
     {
-      "date": "2026-06-09",
-      "sym": "ZETA",
+      "symbol": "ZETA",
       "qty": 40.0,
-      "exit": 20.1901,
+      "price": 20.1901,
       "pnl": -62.2,
-      "orderId": 5291057416
+      "orderId": 5291057416,
+      "when": "2026-06-09"
     },
     {
-      "date": "2026-06-09",
-      "sym": "ENPH",
+      "symbol": "ENPH",
       "qty": 20.0,
-      "exit": 50.0,
+      "price": 50.0,
       "pnl": -117.0,
-      "orderId": 5291014654
+      "orderId": 5291014654,
+      "when": "2026-06-09"
     },
     {
-      "date": "2026-06-09",
-      "sym": "ONDS",
+      "symbol": "ONDS",
       "qty": 55.0,
-      "exit": 9.475,
+      "price": 9.475,
       "pnl": -157.05,
-      "orderId": 5290350929
+      "orderId": 5290350929,
+      "when": "2026-06-09"
     },
     {
-      "date": "2026-06-05",
-      "sym": "CCJ",
+      "symbol": "CCJ",
       "qty": 6.0,
-      "exit": 106.195,
+      "price": 106.195,
       "pnl": -18.54,
-      "orderId": 5277179196
+      "orderId": 5277179196,
+      "when": "2026-06-05"
     },
     {
-      "date": "2026-06-05",
-      "sym": "CLSK",
+      "symbol": "CLSK",
       "qty": 60.0,
-      "exit": 15.945,
+      "price": 15.945,
       "pnl": -65.0,
-      "orderId": 5274161143
+      "orderId": 5274161143,
+      "when": "2026-06-05"
     }
   ],
   "recs": [
@@ -675,8 +675,8 @@ window.__DATA__ = {
     "trades": 50,
     "wins": 24,
     "losses": 25,
-    "winRate": 48.0,
+    "winRate": 49.0,
     "totalRealized": -971.5,
-    "note": "YTD closed \u00b7 24W / 25L \u00b7 WR 48.0%"
+    "note": "YTD closed \u00b7 24W / 25L \u00b7 WR 49.0%"
   }
 };
