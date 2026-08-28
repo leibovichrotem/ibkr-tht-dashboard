@@ -1,17 +1,17 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-08-28 15:02 IDT
+// Generated: 2026-08-28 16:26 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-08-28T15:02:00+03:00",
-    "generatedAtHuman": "2026-08-28 15:02 IDT",
+    "generatedAt": "2026-08-28T16:26:00+03:00",
+    "generatedAtHuman": "2026-08-28 16:26 IDT",
     "source": "Interactive Brokers (live)",
-    "nav": 13322.53,
+    "nav": 13318.58,
     "cash": 2083.24,
-    "grossPositions": 11249.65,
-    "unrealized": -71.92,
+    "grossPositions": 11245.7,
+    "unrealized": -73.82,
     "positionsCount": 13,
     "note": "YTD closed \u00b7 26W / 25L \u00b7 WR 51.0%"
   },
@@ -20,181 +20,181 @@ window.__DATA__ = {
       "symbol": "META",
       "qty": 4.0,
       "avg": 574.2733,
-      "last": 572.36,
-      "upnl": -7.65,
-      "mv": 2289.44,
+      "last": 572.63,
+      "upnl": -6.57,
+      "mv": 2290.52,
+      "cost": 2297.09,
+      "upnlPct": -0.29,
+      "pctNet": 17.2,
+      "chg": 0,
       "peter": {
         "sum": "+10% off SMZ; ideal buy area; full setup + targets + cut levels",
         "url": "https://x.com/pdicarlotrader/status/2092599103821668785",
         "when": "Aug 26"
-      },
-      "cost": 2297.09,
-      "upnlPct": -0.33,
-      "pctNet": 17.18,
-      "chg": 0
+      }
     },
     {
       "symbol": "ENPH",
       "qty": 28.0,
       "avg": 47.7429,
-      "last": 39.17,
-      "upnl": -240.04,
-      "mv": 1096.76,
+      "last": 39.24,
+      "upnl": -238.08,
+      "mv": 1098.72,
+      "cost": 1336.8,
+      "upnlPct": -17.81,
+      "pctNet": 8.25,
+      "chg": 0,
       "peter": {
         "sum": "Setting up for another +100% move in 3-6 months",
         "url": "https://x.com/pdicarlotrader/status/2090556654035108083",
         "when": "Aug 20"
-      },
-      "cost": 1336.8,
-      "upnlPct": -17.96,
-      "pctNet": 8.23,
-      "chg": 0
+      }
     },
     {
       "symbol": "NFLX",
       "qty": 15.0,
       "avg": 73.7622,
-      "last": 80.2382,
-      "upnl": 97.14,
-      "mv": 1203.57,
+      "last": 80.3,
+      "upnl": 98.07,
+      "mv": 1204.5,
+      "cost": 1106.43,
+      "upnlPct": 8.86,
+      "pctNet": 9.04,
+      "chg": 0,
       "peter": {
         "sum": "+20%+ since earnings selloff into SM pricing; still extremely bullish; TP zones",
         "url": "https://x.com/pdicarlotrader/status/2090204158892585215",
         "when": "Aug 19"
-      },
-      "cost": 1106.43,
-      "upnlPct": 8.78,
-      "pctNet": 9.03,
-      "chg": 0
+      }
     },
     {
       "symbol": "APP",
       "qty": 3.0,
       "avg": 309.525,
-      "last": 315.6,
-      "upnl": 18.23,
-      "mv": 946.8,
+      "last": 316.5,
+      "upnl": 20.93,
+      "mv": 949.5,
+      "cost": 928.57,
+      "upnlPct": 2.25,
+      "pctNet": 7.13,
+      "chg": 0,
       "peter": {
         "sum": "Smart money showing up; one of strongest support zones; long with targets + stop",
         "url": "https://x.com/pdicarlotrader/status/2092341994441859478",
         "when": "Aug 25"
-      },
-      "cost": 928.57,
-      "upnlPct": 1.96,
-      "pctNet": 7.11,
-      "chg": 0
+      }
     },
     {
       "symbol": "NXT",
       "qty": 10.0,
       "avg": 92.6595,
-      "last": 89.58,
-      "upnl": -30.79,
-      "mv": 895.8,
-      "peter": null,
+      "last": 89.3,
+      "upnl": -33.59,
+      "mv": 893.0,
       "cost": 926.59,
-      "upnlPct": -3.32,
-      "pctNet": 6.72,
-      "chg": 0
+      "upnlPct": -3.63,
+      "pctNet": 6.7,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "CELH",
       "qty": 26.0,
       "avg": 30.3123,
-      "last": 32.76,
-      "upnl": 63.64,
-      "mv": 851.76,
-      "peter": {
-        "sum": "Back in LT SMZ; +15% bounce; targeting +80% toward $50",
-        "url": "https://x.com/pdicarlotrader/status/2090159805738455260",
-        "when": "Aug 19"
-      },
+      "last": 32.6,
+      "upnl": 59.48,
+      "mv": 847.6,
       "cost": 788.12,
-      "upnlPct": 8.07,
-      "pctNet": 6.39,
-      "chg": 0
+      "upnlPct": 7.55,
+      "pctNet": 6.36,
+      "chg": 0,
+      "peter": {
+        "sum": "+30% since Aug 13; back in long-term SMZ; targeting +80% toward $50",
+        "url": "https://x.com/pdicarlotrader/status/2087922848786432488",
+        "when": "Aug 13"
+      }
     },
     {
       "symbol": "POET",
       "qty": 95.0,
       "avg": 8.0536,
-      "last": 8.095,
-      "upnl": 3.94,
-      "mv": 769.03,
-      "peter": null,
+      "last": 8.06,
+      "upnl": 0.61,
+      "mv": 765.7,
       "cost": 765.09,
-      "upnlPct": 0.51,
-      "pctNet": 5.77,
-      "chg": 0
+      "upnlPct": 0.08,
+      "pctNet": 5.75,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "TE",
       "qty": 117.0,
       "avg": 5.1351,
-      "last": 5.0286,
-      "upnl": -12.46,
-      "mv": 588.35,
+      "last": 5.01,
+      "upnl": -14.63,
+      "mv": 586.17,
+      "cost": 600.8,
+      "upnlPct": -2.44,
+      "pctNet": 4.4,
+      "chg": 0,
       "peter": {
-        "sum": "Ready to fly \u2708\ufe0f",
+        "sum": "Ready to fly",
         "url": "https://x.com/pdicarlotrader/status/2093140226205990918",
         "when": "Aug 28"
-      },
-      "cost": 600.8,
-      "upnlPct": -2.07,
-      "pctNet": 4.42,
-      "chg": 0
+      }
     },
     {
       "symbol": "RBLX",
       "qty": 15.0,
       "avg": 37.8867,
-      "last": 38.25,
-      "upnl": 5.45,
-      "mv": 573.75,
-      "peter": null,
+      "last": 38.3,
+      "upnl": 6.2,
+      "mv": 574.5,
       "cost": 568.3,
-      "upnlPct": 0.96,
+      "upnlPct": 1.09,
       "pctNet": 4.31,
-      "chg": 0
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "CBRS",
       "qty": 3.0,
       "avg": 183.3333,
-      "last": 183.39,
-      "upnl": 0.17,
-      "mv": 550.17,
-      "peter": null,
+      "last": 183.42,
+      "upnl": 0.26,
+      "mv": 550.26,
       "cost": 550.0,
-      "upnlPct": 0.03,
+      "upnlPct": 0.05,
       "pctNet": 4.13,
-      "chg": 0
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "UBER",
       "qty": 8.0,
       "avg": 68.3125,
-      "last": 77.05,
-      "upnl": 69.9,
-      "mv": 616.4,
-      "peter": null,
+      "last": 77.18,
+      "upnl": 70.94,
+      "mv": 617.44,
       "cost": 546.5,
-      "upnlPct": 12.79,
-      "pctNet": 4.63,
-      "chg": 0
+      "upnlPct": 12.98,
+      "pctNet": 4.64,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "MMM",
       "qty": 3.0,
       "avg": 178.0271,
-      "last": 178.83,
-      "upnl": 2.41,
-      "mv": 536.49,
-      "peter": null,
+      "last": 179.5,
+      "upnl": 4.42,
+      "mv": 538.5,
       "cost": 534.08,
-      "upnlPct": 0.45,
-      "pctNet": 4.03,
-      "chg": 0
+      "upnlPct": 0.83,
+      "pctNet": 4.04,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "RKLB",
@@ -203,11 +203,11 @@ window.__DATA__ = {
       "last": 66.85,
       "upnl": -41.84,
       "mv": 334.25,
-      "peter": null,
       "cost": 376.09,
       "upnlPct": -11.12,
       "pctNet": 2.51,
-      "chg": 0
+      "chg": 0,
+      "peter": null
     }
   ],
   "closed": [
@@ -570,15 +570,14 @@ window.__DATA__ = {
     }
   ],
   "kpis": {
-    "n": 51,
     "wins": 26,
     "losses": 25,
-    "winRate": 51.0,
-    "profitFactor": 0.81,
+    "wr": 51.0,
+    "totalPnl": -687.84,
     "avgWin": 110.87,
     "avgLoss": -142.82,
-    "expectancy": -13.49,
-    "totalRealized": -687.84
+    "profitFactor": 0.81,
+    "note": "YTD closed \u00b7 26W / 25L \u00b7 WR 51.0%"
   },
   "recs": [
     {
