@@ -1,31 +1,31 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-08-31 18:14 IDT
+// Generated: 2026-08-31 19:15 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-08-31T18:14:21+03:00",
-    "generatedAtHuman": "2026-08-31 18:14 IDT",
+    "generatedAt": "2026-08-31T19:15:00+03:00",
+    "generatedAtHuman": "2026-08-31 19:15 IDT",
     "source": "Interactive Brokers (live)",
-    "nav": 12983.23,
+    "nav": 13002.37,
     "cash": 2414.09,
-    "grossPositions": 10579.5,
-    "unrealized": -252.02,
+    "grossPositions": 10607.81,
+    "unrealized": -223.96,
     "positionsCount": 13,
-    "note": "YTD closed \u00b7 25W / 26L \u00b7 WR 49.0%"
+    "note": "YTD closed \u00b7 26W / 26L \u00b7 WR 50.0%"
   },
   "positions": [
     {
       "symbol": "META",
       "qty": 4.0,
       "avg": 574.2733,
-      "last": 571.84,
-      "upnl": -9.73,
-      "mv": 2287.36,
+      "last": 571.17,
+      "upnl": -12.41,
+      "mv": 2284.68,
       "cost": 2297.09,
-      "upnlPct": -0.42,
-      "pctNet": 17.62,
+      "upnlPct": -0.54,
+      "pctNet": 17.57,
       "chg": 0,
       "peter": {
         "sum": "+10% off SMZ; ideal buy area; full setup + targets + cut levels",
@@ -37,12 +37,12 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "qty": 15.0,
       "avg": 73.7622,
-      "last": 81.31,
-      "upnl": 113.22,
-      "mv": 1219.65,
+      "last": 81.585,
+      "upnl": 117.34,
+      "mv": 1223.77,
       "cost": 1106.43,
-      "upnlPct": 10.23,
-      "pctNet": 9.39,
+      "upnlPct": 10.61,
+      "pctNet": 9.41,
       "chg": 0,
       "peter": {
         "sum": "+20%+ since earnings selloff into SM pricing; still extremely bullish; TP zones",
@@ -53,13 +53,13 @@ window.__DATA__ = {
     {
       "symbol": "POET",
       "qty": 118.0,
-      "avg": 7.9727,
-      "last": 7.4402,
-      "upnl": -62.83,
-      "mv": 877.94,
+      "avg": 7.972691,
+      "last": 7.4243,
+      "upnl": -64.71,
+      "mv": 876.07,
       "cost": 940.78,
-      "upnlPct": -6.68,
-      "pctNet": 6.76,
+      "upnlPct": -6.88,
+      "pctNet": 6.74,
       "chg": 0,
       "peter": null
     },
@@ -67,11 +67,11 @@ window.__DATA__ = {
       "symbol": "APP",
       "qty": 3.0,
       "avg": 309.525,
-      "last": 309.07,
-      "upnl": -1.36,
-      "mv": 927.21,
+      "last": 309.54,
+      "upnl": 0.05,
+      "mv": 928.62,
       "cost": 928.57,
-      "upnlPct": -0.15,
+      "upnlPct": 0.0,
       "pctNet": 7.14,
       "chg": 0,
       "peter": {
@@ -84,12 +84,12 @@ window.__DATA__ = {
       "symbol": "NXT",
       "qty": 10.0,
       "avg": 92.6595,
-      "last": 82.17,
-      "upnl": -104.9,
-      "mv": 821.7,
+      "last": 82.6,
+      "upnl": -100.6,
+      "mv": 826.0,
       "cost": 926.59,
-      "upnlPct": -11.32,
-      "pctNet": 6.33,
+      "upnlPct": -10.86,
+      "pctNet": 6.35,
       "chg": 0,
       "peter": null
     },
@@ -97,15 +97,15 @@ window.__DATA__ = {
       "symbol": "CELH",
       "qty": 26.0,
       "avg": 30.3123,
-      "last": 31.805,
-      "upnl": 38.81,
-      "mv": 826.93,
+      "last": 32.17,
+      "upnl": 48.3,
+      "mv": 836.42,
       "cost": 788.12,
-      "upnlPct": 4.92,
-      "pctNet": 6.37,
+      "upnlPct": 6.13,
+      "pctNet": 6.43,
       "chg": 0,
       "peter": {
-        "sum": "+30% since Aug 13 SMZ tap; trade what's in front of you",
+        "sum": "+30% since Aug 13; back in long-term SMZ; targeting +80% toward $50",
         "url": "https://x.com/pdicarlotrader/status/2091992413220803025",
         "when": "Aug 24"
       }
@@ -114,15 +114,15 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "qty": 14.0,
       "avg": 47.7429,
-      "last": 36.34,
-      "upnl": -159.64,
-      "mv": 508.76,
+      "last": 36.53,
+      "upnl": -156.98,
+      "mv": 511.42,
       "cost": 668.4,
-      "upnlPct": -23.88,
-      "pctNet": 3.92,
+      "upnlPct": -23.49,
+      "pctNet": 3.93,
       "chg": 0,
       "peter": {
-        "sum": "Setting up for another +100% move in 3-6 months",
+        "sum": "Setting up for another +100% move in next 3-6 months",
         "url": "https://x.com/pdicarlotrader/status/2090556654035108083",
         "when": "Aug 20"
       }
@@ -130,16 +130,16 @@ window.__DATA__ = {
     {
       "symbol": "TE",
       "qty": 117.0,
-      "avg": 5.1351,
-      "last": 4.485,
-      "upnl": -76.06,
-      "mv": 524.75,
+      "avg": 5.135085,
+      "last": 4.445,
+      "upnl": -80.74,
+      "mv": 520.07,
       "cost": 600.8,
-      "upnlPct": -12.66,
-      "pctNet": 4.04,
+      "upnlPct": -13.44,
+      "pctNet": 4.0,
       "chg": 0,
       "peter": {
-        "sum": "$TE is ready to fly",
+        "sum": "Ready to fly",
         "url": "https://x.com/pdicarlotrader/status/2093140226205990918",
         "when": "Aug 28"
       }
@@ -148,12 +148,12 @@ window.__DATA__ = {
       "symbol": "RBLX",
       "qty": 15.0,
       "avg": 37.8867,
-      "last": 40.44,
-      "upnl": 38.3,
-      "mv": 606.6,
+      "last": 40.81,
+      "upnl": 43.85,
+      "mv": 612.15,
       "cost": 568.3,
-      "upnlPct": 6.74,
-      "pctNet": 4.67,
+      "upnlPct": 7.72,
+      "pctNet": 4.71,
       "chg": 0,
       "peter": null
     },
@@ -161,12 +161,12 @@ window.__DATA__ = {
       "symbol": "CBRS",
       "qty": 3.0,
       "avg": 183.3333,
-      "last": 179.34,
-      "upnl": -11.98,
-      "mv": 538.02,
+      "last": 181.86,
+      "upnl": -4.42,
+      "mv": 545.58,
       "cost": 550.0,
-      "upnlPct": -2.18,
-      "pctNet": 4.14,
+      "upnlPct": -0.8,
+      "pctNet": 4.2,
       "chg": 0,
       "peter": null
     },
@@ -174,12 +174,12 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 8.0,
       "avg": 68.3125,
-      "last": 75.85,
-      "upnl": 60.3,
-      "mv": 606.8,
+      "last": 76.02,
+      "upnl": 61.66,
+      "mv": 608.16,
       "cost": 546.5,
-      "upnlPct": 11.03,
-      "pctNet": 4.67,
+      "upnlPct": 11.28,
+      "pctNet": 4.68,
       "chg": 0,
       "peter": null
     },
@@ -187,12 +187,12 @@ window.__DATA__ = {
       "symbol": "MMM",
       "qty": 3.0,
       "avg": 178.0271,
-      "last": 172.97,
-      "upnl": -15.17,
-      "mv": 518.91,
+      "last": 172.64,
+      "upnl": -16.16,
+      "mv": 517.92,
       "cost": 534.08,
-      "upnlPct": -2.84,
-      "pctNet": 4.0,
+      "upnlPct": -3.03,
+      "pctNet": 3.98,
       "chg": 0,
       "peter": null
     },
@@ -200,12 +200,12 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "qty": 5.0,
       "avg": 75.218,
-      "last": 63.025,
-      "upnl": -60.96,
-      "mv": 315.13,
+      "last": 63.39,
+      "upnl": -59.14,
+      "mv": 316.95,
       "cost": 376.09,
-      "upnlPct": -16.21,
-      "pctNet": 2.43,
+      "upnlPct": -15.72,
+      "pctNet": 2.44,
       "chg": 0,
       "peter": null
     }
@@ -329,6 +329,13 @@ window.__DATA__ = {
       "pnl": 53.8,
       "when": "2026-08-07",
       "avgExit": 354.37
+    },
+    {
+      "sym": "GOOGL",
+      "qty": 4.0,
+      "pnl": 28.32,
+      "when": "2026-08-05",
+      "avgExit": 362.2
     },
     {
       "sym": "HNST",
@@ -583,6 +590,27 @@ window.__DATA__ = {
       "sum": "Compressed vs vol profile + SMZ; need break >$735 swing high for stronger Sep; else $680",
       "url": "https://x.com/pdicarlotrader/status/2094237749012226506",
       "when": "Aug 31"
+    },
+    {
+      "sym": "HOOD",
+      "kind": "note",
+      "sum": "Clear Bull Cycle; full setup + 6-12m levels; buyer was in July discount",
+      "url": "https://x.com/pdicarlotrader/status/2093102070505099561",
+      "when": "Aug 27"
+    },
+    {
+      "sym": "IREN",
+      "kind": "watch",
+      "sum": "Needs hold $30 (vol profile + structure); lose \u2192 $20 Monthly SMZ",
+      "url": "https://x.com/pdicarlotrader/status/2093365482220822729",
+      "when": "Aug 28"
+    },
+    {
+      "sym": "NVDA",
+      "kind": "note",
+      "sum": "Issues at bearish SMZ post-earnings; may have missed $190 buy; bulls need sweep+hold",
+      "url": "https://x.com/pdicarlotrader/status/2093374644032045491",
+      "when": "Aug 28"
     }
   ]
 };
