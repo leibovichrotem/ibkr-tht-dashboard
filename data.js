@@ -1,31 +1,31 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-08-28 23:09 IDT
+// Generated: 2026-08-31 15:14 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-08-28T23:09:48+03:00",
-    "generatedAtHuman": "2026-08-28 23:09 IDT",
+    "generatedAt": "2026-08-31T15:14:00+03:00",
+    "generatedAtHuman": "2026-08-31 15:14 IDT",
     "source": "Interactive Brokers (live)",
-    "nav": 13184.65,
+    "nav": 13156.23,
     "cash": 1907.55,
-    "grossPositions": 11274.64,
-    "unrealized": -225.52,
+    "grossPositions": 11259.04,
+    "unrealized": -234.89,
     "positionsCount": 13,
-    "note": "YTD closed \u00b7 26W / 25L \u00b7 WR 51.0%"
+    "note": "YTD closed \u00b7 26W / 25L \u00b7 WR 50.0%"
   },
   "positions": [
     {
       "symbol": "META",
       "qty": 4.0,
       "avg": 574.2733,
-      "last": 577.3,
-      "upnl": 12.11,
-      "mv": 2309.2,
+      "last": 581.0,
+      "upnl": 26.91,
+      "mv": 2324.0,
       "cost": 2297.09,
-      "upnlPct": 0.53,
-      "pctNet": 17.51,
+      "upnlPct": 1.17,
+      "pctNet": 17.66,
       "chg": 0,
       "peter": {
         "sum": "+10% off SMZ; ideal buy area; full setup + targets + cut levels",
@@ -37,12 +37,12 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "qty": 28.0,
       "avg": 47.7429,
-      "last": 37.17,
-      "upnl": -296.04,
-      "mv": 1040.76,
+      "last": 37.19,
+      "upnl": -295.48,
+      "mv": 1041.32,
       "cost": 1336.8,
-      "upnlPct": -22.15,
-      "pctNet": 7.89,
+      "upnlPct": -22.1,
+      "pctNet": 7.91,
       "chg": 0,
       "peter": {
         "sum": "Setting up for another +100% move in 3-6 months",
@@ -54,12 +54,12 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "qty": 15.0,
       "avg": 73.7622,
-      "last": 81.66,
-      "upnl": 118.51,
-      "mv": 1224.94,
+      "last": 81.14,
+      "upnl": 110.74,
+      "mv": 1217.17,
       "cost": 1106.43,
-      "upnlPct": 10.71,
-      "pctNet": 9.29,
+      "upnlPct": 10.01,
+      "pctNet": 9.25,
       "chg": 0,
       "peter": {
         "sum": "+20%+ since earnings selloff into SM pricing; still extremely bullish; TP zones",
@@ -71,12 +71,12 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 118.0,
       "avg": 7.9727,
-      "last": 7.54,
-      "upnl": -51.28,
-      "mv": 889.5,
+      "last": 7.52,
+      "upnl": -53.42,
+      "mv": 887.36,
       "cost": 940.78,
-      "upnlPct": -5.45,
-      "pctNet": 6.75,
+      "upnlPct": -5.68,
+      "pctNet": 6.74,
       "chg": 0,
       "peter": null
     },
@@ -84,12 +84,12 @@ window.__DATA__ = {
       "symbol": "APP",
       "qty": 3.0,
       "avg": 309.525,
-      "last": 318.02,
-      "upnl": 25.48,
-      "mv": 954.06,
-      "cost": 928.57,
-      "upnlPct": 2.74,
-      "pctNet": 7.24,
+      "last": 317.0,
+      "upnl": 22.43,
+      "mv": 951.0,
+      "cost": 928.58,
+      "upnlPct": 2.41,
+      "pctNet": 7.23,
       "chg": 0,
       "peter": {
         "sum": "Smart money showing up; one of strongest support zones; long with targets + stop",
@@ -101,12 +101,12 @@ window.__DATA__ = {
       "symbol": "NXT",
       "qty": 10.0,
       "avg": 92.6595,
-      "last": 85.44,
-      "upnl": -72.19,
-      "mv": 854.4,
-      "cost": 926.59,
-      "upnlPct": -7.79,
-      "pctNet": 6.48,
+      "last": 86.68,
+      "upnl": -59.79,
+      "mv": 866.8,
+      "cost": 926.6,
+      "upnlPct": -6.45,
+      "pctNet": 6.59,
       "chg": 0,
       "peter": null
     },
@@ -114,32 +114,32 @@ window.__DATA__ = {
       "symbol": "CELH",
       "qty": 26.0,
       "avg": 30.3123,
-      "last": 32.92,
-      "upnl": 67.69,
-      "mv": 855.81,
+      "last": 32.7,
+      "upnl": 62.08,
+      "mv": 850.2,
       "cost": 788.12,
-      "upnlPct": 8.59,
-      "pctNet": 6.49,
+      "upnlPct": 7.88,
+      "pctNet": 6.46,
       "chg": 0,
       "peter": {
-        "sum": "Back in long-term SMZ; strongest Monthly levels; targeting +80% toward $50",
-        "url": "https://x.com/pdicarlotrader/status/2087922848786432488",
-        "when": "Aug 13"
+        "sum": "+30% since Aug 13; back in LT SMZ; bull case +80% toward $50",
+        "url": "https://x.com/pdicarlotrader/status/2091992413220803025",
+        "when": "Aug 24"
       }
     },
     {
       "symbol": "TE",
       "qty": 117.0,
       "avg": 5.1351,
-      "last": 4.78,
-      "upnl": -41.54,
-      "mv": 559.26,
+      "last": 4.76,
+      "upnl": -43.3,
+      "mv": 557.5,
       "cost": 600.81,
-      "upnlPct": -6.91,
+      "upnlPct": -7.21,
       "pctNet": 4.24,
       "chg": 0,
       "peter": {
-        "sum": "Ready to fly",
+        "sum": "Ready to fly \u2708\ufe0f",
         "url": "https://x.com/pdicarlotrader/status/2093140226205990918",
         "when": "Aug 28"
       }
@@ -148,12 +148,12 @@ window.__DATA__ = {
       "symbol": "RBLX",
       "qty": 15.0,
       "avg": 37.8867,
-      "last": 38.4,
-      "upnl": 7.7,
-      "mv": 576.0,
+      "last": 38.21,
+      "upnl": 4.85,
+      "mv": 573.15,
       "cost": 568.3,
-      "upnlPct": 1.35,
-      "pctNet": 4.37,
+      "upnlPct": 0.85,
+      "pctNet": 4.36,
       "chg": 0,
       "peter": null
     },
@@ -161,12 +161,12 @@ window.__DATA__ = {
       "symbol": "CBRS",
       "qty": 3.0,
       "avg": 183.3333,
-      "last": 178.52,
-      "upnl": -14.44,
-      "mv": 535.56,
+      "last": 178.5,
+      "upnl": -14.5,
+      "mv": 535.5,
       "cost": 550.0,
-      "upnlPct": -2.63,
-      "pctNet": 4.06,
+      "upnlPct": -2.64,
+      "pctNet": 4.07,
       "chg": 0,
       "peter": null
     },
@@ -174,12 +174,12 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 8.0,
       "avg": 68.3125,
-      "last": 78.76,
-      "upnl": 83.58,
-      "mv": 630.08,
+      "last": 77.84,
+      "upnl": 76.22,
+      "mv": 622.72,
       "cost": 546.5,
-      "upnlPct": 15.29,
-      "pctNet": 4.78,
+      "upnlPct": 13.95,
+      "pctNet": 4.73,
       "chg": 0,
       "peter": null
     },
@@ -187,12 +187,12 @@ window.__DATA__ = {
       "symbol": "MMM",
       "qty": 3.0,
       "avg": 178.0271,
-      "last": 174.34,
-      "upnl": -11.06,
-      "mv": 523.02,
+      "last": 173.85,
+      "upnl": -12.53,
+      "mv": 521.55,
       "cost": 534.08,
-      "upnlPct": -2.07,
-      "pctNet": 3.97,
+      "upnlPct": -2.35,
+      "pctNet": 3.96,
       "chg": 0,
       "peter": null
     },
@@ -200,12 +200,12 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "qty": 5.0,
       "avg": 75.218,
-      "last": 64.41,
-      "upnl": -54.04,
-      "mv": 322.05,
+      "last": 63.4,
+      "upnl": -59.09,
+      "mv": 317.0,
       "cost": 376.09,
-      "upnlPct": -14.37,
-      "pctNet": 2.44,
+      "upnlPct": -15.71,
+      "pctNet": 2.41,
       "chg": 0,
       "peter": null
     }
@@ -235,7 +235,7 @@ window.__DATA__ = {
     {
       "sym": "RKLB",
       "qty": 7,
-      "pnl": -42.75,
+      "pnl": -44.41,
       "when": "2026-08-24",
       "avgExit": 69.8
     },
@@ -405,7 +405,7 @@ window.__DATA__ = {
       "qty": 6.5,
       "pnl": -77.05,
       "when": "2026-07-27",
-      "avgExit": 144.28
+      "avgExit": 144.29
     },
     {
       "sym": "BE",
@@ -426,7 +426,7 @@ window.__DATA__ = {
       "qty": 60,
       "pnl": -224.9,
       "when": "2026-07-24",
-      "avgExit": 5.14
+      "avgExit": 5.15
     },
     {
       "sym": "FSLR",
@@ -559,30 +559,44 @@ window.__DATA__ = {
       "qty": 55,
       "pnl": -157.05,
       "when": "2026-06-09",
-      "avgExit": 9.47
+      "avgExit": 9.48
     },
     {
       "sym": "CCJ",
       "qty": 6,
       "pnl": -18.54,
       "when": "2026-06-05",
-      "avgExit": 106.19
+      "avgExit": 106.2
     },
     {
       "sym": "CLSK",
       "qty": 60,
       "pnl": -65.0,
       "when": "2026-06-05",
-      "avgExit": 15.95
+      "avgExit": 15.94
     }
   ],
   "recs": [
     {
+      "date": "Aug 31, 2026",
+      "sym": "QQQ",
+      "kind": "note",
+      "sum": "Compressed between VP support & SMZ; key pivot $735 for Sept breakout; else reject to $680",
+      "url": "https://x.com/pdicarlotrader/status/2094237749012226506"
+    },
+    {
+      "date": "Aug 30, 2026",
+      "sym": "NEM",
+      "kind": "note",
+      "sum": "Reached equal highs / TP area after $90\u2192$130; SMZ framework take-profit",
+      "url": "https://x.com/pdicarlotrader/status/2094126468624228643"
+    },
+    {
       "date": "Aug 28, 2026",
-      "sym": "ABNB",
+      "sym": "IREN",
       "kind": "watch",
-      "sum": "Finally swept liquidity zone after 6 months; interesting for next leg",
-      "url": "https://x.com/pdicarlotrader/status/2093381862093656102"
+      "sum": "Needs to hold $30 (VP + structure); lose it \u2192 fast to $20 Monthly SMZ",
+      "url": "https://x.com/pdicarlotrader/status/2093365482220822729"
     },
     {
       "date": "Aug 28, 2026",
@@ -592,18 +606,11 @@ window.__DATA__ = {
       "url": "https://x.com/pdicarlotrader/status/2093374644032045491"
     },
     {
-      "date": "Aug 28, 2026",
-      "sym": "SPY",
-      "kind": "note",
-      "sum": "Rejecting inside SM sell zone; LT bullish but anticipates 2-3% Sept correction",
-      "url": "https://x.com/pdicarlotrader/status/2093373560261624158"
-    },
-    {
-      "date": "Aug 25, 2026",
-      "sym": "CIFR",
+      "date": "Aug 27, 2026",
+      "sym": "HOOD",
       "kind": "buy",
-      "sum": "Solid bounce off buy zone; congrats if re-entered",
-      "url": "https://x.com/pdicarlotrader/status/2092342477382467919"
+      "sum": "Clear Bull Cycle; full setup + 6\u201312m levels",
+      "url": "https://x.com/pdicarlotrader/status/2093102070505099561"
     }
   ],
   "perfCompare": {},
@@ -672,7 +679,8 @@ window.__DATA__ = {
         "08/25",
         "08/26",
         "08/27",
-        "08/28"
+        "08/28",
+        "08/31"
       ],
       "nav": [
         16522.14,
@@ -736,7 +744,8 @@ window.__DATA__ = {
         13199.67,
         13170.43,
         13325.68,
-        13177.64
+        13179.38,
+        13156.23
       ]
     },
     "mtd": {
@@ -760,7 +769,8 @@ window.__DATA__ = {
         "08/25",
         "08/26",
         "08/27",
-        "08/28"
+        "08/28",
+        "08/31"
       ],
       "nav": [
         14550.97,
@@ -782,7 +792,8 @@ window.__DATA__ = {
         13199.67,
         13170.43,
         13325.68,
-        13177.64
+        13179.38,
+        13156.23
       ]
     }
   }
