@@ -1,31 +1,31 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-08-31 20:05 IDT
+// Generated: 2026-08-31 21:10 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-08-31T20:05:00+03:00",
-    "generatedAtHuman": "2026-08-31 20:05 IDT",
+    "generatedAt": "2026-08-31T21:10:00+03:00",
+    "generatedAtHuman": "2026-08-31 21:10 IDT",
     "source": "Interactive Brokers (live)",
-    "nav": 13008.56,
+    "nav": 12996.97,
     "cash": 2414.09,
-    "grossPositions": 10605.76,
-    "unrealized": -226.01,
+    "grossPositions": 10593.24,
+    "unrealized": -237.16,
     "positionsCount": 13,
-    "note": "YTD closed \u00b7 26W / 26L \u00b7 WR 50.0%"
+    "note": "YTD closed \u00b7 26W / 26L \u00b7 WR 49.1%"
   },
   "positions": [
     {
       "symbol": "META",
       "qty": 4.0,
       "avg": 574.2733,
-      "last": 571.72,
-      "upnl": -10.21,
-      "mv": 2286.88,
+      "last": 571.84,
+      "upnl": -9.73,
+      "mv": 2287.36,
       "cost": 2297.09,
-      "upnlPct": -0.44,
-      "pctNet": 17.58,
+      "upnlPct": -0.42,
+      "pctNet": 17.6,
       "chg": 0,
       "peter": {
         "sum": "+10% off SMZ; ideal buy area; full setup + targets + cut levels",
@@ -37,11 +37,11 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "qty": 15.0,
       "avg": 73.7622,
-      "last": 81.605,
-      "upnl": 117.64,
-      "mv": 1224.08,
+      "last": 81.505,
+      "upnl": 116.14,
+      "mv": 1222.58,
       "cost": 1106.43,
-      "upnlPct": 10.63,
+      "upnlPct": 10.5,
       "pctNet": 9.41,
       "chg": 0,
       "peter": {
@@ -53,7 +53,7 @@ window.__DATA__ = {
     {
       "symbol": "POET",
       "qty": 118.0,
-      "avg": 7.972691,
+      "avg": 7.9727,
       "last": 7.425,
       "upnl": -64.63,
       "mv": 876.15,
@@ -67,12 +67,12 @@ window.__DATA__ = {
       "symbol": "APP",
       "qty": 3.0,
       "avg": 309.525,
-      "last": 311.01,
-      "upnl": 4.44,
-      "mv": 933.02,
-      "cost": 928.57,
-      "upnlPct": 0.48,
-      "pctNet": 7.17,
+      "last": 311.85,
+      "upnl": 6.97,
+      "mv": 935.55,
+      "cost": 928.58,
+      "upnlPct": 0.75,
+      "pctNet": 7.2,
       "chg": 0,
       "peter": {
         "sum": "Smart money showing up; one of strongest support zones; long with targets + stop",
@@ -84,12 +84,12 @@ window.__DATA__ = {
       "symbol": "NXT",
       "qty": 10.0,
       "avg": 92.6595,
-      "last": 82.775,
-      "upnl": -98.84,
-      "mv": 827.75,
-      "cost": 926.59,
-      "upnlPct": -10.67,
-      "pctNet": 6.36,
+      "last": 82.195,
+      "upnl": -104.64,
+      "mv": 821.95,
+      "cost": 926.6,
+      "upnlPct": -11.29,
+      "pctNet": 6.32,
       "chg": 0,
       "peter": null
     },
@@ -97,15 +97,15 @@ window.__DATA__ = {
       "symbol": "CELH",
       "qty": 26.0,
       "avg": 30.3123,
-      "last": 31.73,
-      "upnl": 36.86,
-      "mv": 824.98,
+      "last": 31.54,
+      "upnl": 31.92,
+      "mv": 820.04,
       "cost": 788.12,
-      "upnlPct": 4.68,
-      "pctNet": 6.34,
+      "upnlPct": 4.05,
+      "pctNet": 6.31,
       "chg": 0,
       "peter": {
-        "sum": "+30% since Aug 13; back in long-term SMZ; targeting +80% toward $50",
+        "sum": "+30% since Aug 13; trading what's in front of him, not narrative",
         "url": "https://x.com/pdicarlotrader/status/2091992413220803025",
         "when": "Aug 24"
       }
@@ -114,12 +114,12 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "qty": 14.0,
       "avg": 47.7429,
-      "last": 36.3401,
-      "upnl": -159.64,
-      "mv": 508.76,
+      "last": 36.2,
+      "upnl": -161.6,
+      "mv": 506.8,
       "cost": 668.4,
-      "upnlPct": -23.88,
-      "pctNet": 3.91,
+      "upnlPct": -24.18,
+      "pctNet": 3.9,
       "chg": 0,
       "peter": {
         "sum": "Setting up for another +100% move in next 3-6 months",
@@ -130,16 +130,16 @@ window.__DATA__ = {
     {
       "symbol": "TE",
       "qty": 117.0,
-      "avg": 5.135085,
-      "last": 4.455,
-      "upnl": -79.57,
-      "mv": 521.23,
+      "avg": 5.1351,
+      "last": 4.4,
+      "upnl": -86.0,
+      "mv": 514.8,
       "cost": 600.8,
-      "upnlPct": -13.24,
-      "pctNet": 4.01,
+      "upnlPct": -14.31,
+      "pctNet": 3.96,
       "chg": 0,
       "peter": {
-        "sum": "Ready to fly",
+        "sum": "$TE is ready to fly",
         "url": "https://x.com/pdicarlotrader/status/2093140226205990918",
         "when": "Aug 28"
       }
@@ -148,12 +148,12 @@ window.__DATA__ = {
       "symbol": "RBLX",
       "qty": 15.0,
       "avg": 37.8867,
-      "last": 40.47,
-      "upnl": 38.75,
-      "mv": 607.05,
+      "last": 40.875,
+      "upnl": 44.83,
+      "mv": 613.13,
       "cost": 568.3,
-      "upnlPct": 6.82,
-      "pctNet": 4.67,
+      "upnlPct": 7.89,
+      "pctNet": 4.72,
       "chg": 0,
       "peter": null
     },
@@ -161,12 +161,12 @@ window.__DATA__ = {
       "symbol": "CBRS",
       "qty": 3.0,
       "avg": 183.3333,
-      "last": 184.05,
-      "upnl": 2.15,
-      "mv": 552.15,
+      "last": 184.005,
+      "upnl": 2.02,
+      "mv": 552.02,
       "cost": 550.0,
-      "upnlPct": 0.39,
-      "pctNet": 4.24,
+      "upnlPct": 0.37,
+      "pctNet": 4.25,
       "chg": 0,
       "peter": null
     },
@@ -174,12 +174,12 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 8.0,
       "avg": 68.3125,
-      "last": 75.9128,
-      "upnl": 60.8,
-      "mv": 607.3,
+      "last": 76.04,
+      "upnl": 61.82,
+      "mv": 608.32,
       "cost": 546.5,
-      "upnlPct": 11.13,
-      "pctNet": 4.67,
+      "upnlPct": 11.31,
+      "pctNet": 4.68,
       "chg": 0,
       "peter": null
     },
@@ -187,11 +187,11 @@ window.__DATA__ = {
       "symbol": "MMM",
       "qty": 3.0,
       "avg": 178.0271,
-      "last": 172.57,
-      "upnl": -16.37,
-      "mv": 517.71,
+      "last": 172.46,
+      "upnl": -16.7,
+      "mv": 517.38,
       "cost": 534.08,
-      "upnlPct": -3.07,
+      "upnlPct": -3.13,
       "pctNet": 3.98,
       "chg": 0,
       "peter": null
@@ -200,11 +200,11 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "qty": 5.0,
       "avg": 75.218,
-      "last": 63.74,
-      "upnl": -57.39,
-      "mv": 318.7,
+      "last": 63.705,
+      "upnl": -57.56,
+      "mv": 318.53,
       "cost": 376.09,
-      "upnlPct": -15.26,
+      "upnlPct": -15.31,
       "pctNet": 2.45,
       "chg": 0,
       "peter": null
@@ -212,405 +212,553 @@ window.__DATA__ = {
   ],
   "closed": [
     {
+      "date": "2026-08-31",
       "sym": "ENPH",
       "qty": 14.0,
+      "exit": 36.36,
       "pnl": -161.86,
-      "when": "2026-08-31",
-      "avgExit": 36.36
+      "cost": 47.9214,
+      "pct": -24.13
     },
     {
+      "date": "2026-08-27",
       "sym": "MSTR",
       "qty": 5.0,
+      "exit": 137.0,
       "pnl": 177.25,
-      "when": "2026-08-27",
-      "avgExit": 137.0
+      "cost": 101.55,
+      "pct": 34.91
     },
     {
+      "date": "2026-08-27",
       "sym": "NOW",
       "qty": 5.0,
+      "exit": 137.205,
       "pnl": 106.41,
-      "when": "2026-08-27",
-      "avgExit": 137.21
+      "cost": 115.9237,
+      "pct": 18.36
     },
     {
+      "date": "2026-08-25",
       "sym": "MMM",
       "qty": 4.0,
+      "exit": 178.98,
       "pnl": 1.31,
-      "when": "2026-08-25",
-      "avgExit": 178.98
+      "cost": 178.6521,
+      "pct": 0.18
     },
     {
+      "date": "2026-08-24",
       "sym": "RKLB",
       "qty": 7.0,
+      "exit": 69.8,
       "pnl": -44.41,
-      "when": "2026-08-24",
-      "avgExit": 69.8
+      "cost": 76.1443,
+      "pct": -8.33
     },
     {
+      "date": "2026-08-21",
       "sym": "HOOD",
       "qty": 7.0,
+      "exit": 108.22,
       "pnl": 90.62,
-      "when": "2026-08-21",
-      "avgExit": 108.22
+      "cost": 95.2743,
+      "pct": 13.59
     },
     {
+      "date": "2026-08-19",
       "sym": "NFLX",
       "qty": 7.0,
+      "exit": 80.4,
       "pnl": 41.48,
-      "when": "2026-08-19",
-      "avgExit": 80.4
+      "cost": 74.4738,
+      "pct": 7.96
     },
     {
+      "date": "2026-08-18",
       "sym": "NOW",
       "qty": 4.0,
+      "exit": 120.915,
       "pnl": 24.05,
-      "when": "2026-08-18",
-      "avgExit": 120.92
+      "cost": 114.9017,
+      "pct": 5.23
     },
     {
+      "date": "2026-08-17",
       "sym": "HNST",
       "qty": 110.0,
+      "exit": 4.78,
       "pnl": 103.73,
-      "when": "2026-08-17",
-      "avgExit": 4.78
+      "cost": 3.837,
+      "pct": 24.58
     },
     {
+      "date": "2026-08-13",
       "sym": "POET",
       "qty": 50.0,
+      "exit": 9.37,
       "pnl": 70.44,
-      "when": "2026-08-13",
-      "avgExit": 9.37
+      "cost": 7.9612,
+      "pct": 17.7
     },
     {
+      "date": "2026-08-12",
       "sym": "AVGO",
       "qty": 2.5,
+      "exit": 417.392,
       "pnl": 91.65,
-      "when": "2026-08-12",
-      "avgExit": 417.39
+      "cost": 380.7333,
+      "pct": 9.63
     },
     {
+      "date": "2026-08-11",
       "sym": "AVGO",
       "qty": 2.0,
+      "exit": 417.95,
       "pnl": 19.28,
-      "when": "2026-08-11",
-      "avgExit": 417.95
+      "cost": 408.3108,
+      "pct": 2.36
     },
     {
+      "date": "2026-08-11",
       "sym": "HNST",
       "qty": 115.0,
+      "exit": 5.14,
       "pnl": 162.91,
-      "when": "2026-08-11",
-      "avgExit": 5.14
+      "cost": 3.7234,
+      "pct": 38.04
     },
     {
+      "date": "2026-08-11",
       "sym": "ZETA",
       "qty": 100.0,
+      "exit": 28.535,
       "pnl": 693.19,
-      "when": "2026-08-11",
-      "avgExit": 28.54
+      "cost": 21.6031,
+      "pct": 32.09
     },
     {
+      "date": "2026-08-10",
       "sym": "BKNG",
       "qty": 6.0,
+      "exit": 212.73,
       "pnl": 92.58,
-      "when": "2026-08-10",
-      "avgExit": 212.73
+      "cost": 197.3008,
+      "pct": 7.82
     },
     {
+      "date": "2026-08-07",
       "sym": "SPCX",
       "qty": 5.0,
+      "exit": 129.735,
       "pnl": 98.93,
-      "when": "2026-08-07",
-      "avgExit": 129.74
+      "cost": 109.9483,
+      "pct": 18.0
     },
     {
+      "date": "2026-08-07",
       "sym": "GOOGL",
       "qty": 3.0,
+      "exit": 354.369,
       "pnl": 53.8,
-      "when": "2026-08-07",
-      "avgExit": 354.37
+      "cost": 336.4367,
+      "pct": 5.33
     },
     {
+      "date": "2026-08-05",
       "sym": "GOOGL",
       "qty": 4.0,
+      "exit": 362.2,
       "pnl": 28.32,
-      "when": "2026-08-05",
-      "avgExit": 362.2
+      "cost": 355.1205,
+      "pct": 1.99
     },
     {
+      "date": "2026-08-05",
       "sym": "HNST",
       "qty": 155.0,
+      "exit": 3.91,
       "pnl": 33.46,
-      "when": "2026-08-05",
-      "avgExit": 3.91
+      "cost": 3.6941,
+      "pct": 5.84
     },
     {
+      "date": "2026-08-05",
       "sym": "AMZN",
       "qty": 6.0,
+      "exit": 275.46,
       "pnl": 67.4,
-      "when": "2026-08-05",
-      "avgExit": 275.46
+      "cost": 264.2267,
+      "pct": 4.25
     },
     {
+      "date": "2026-08-04",
       "sym": "MSFT",
       "qty": 4.0,
+      "exit": 497.0,
       "pnl": 432.2,
-      "when": "2026-08-04",
-      "avgExit": 497.0
+      "cost": 388.95,
+      "pct": 27.78
     },
     {
+      "date": "2026-08-04",
       "sym": "NVDA",
       "qty": 14.0,
+      "exit": 211.0,
       "pnl": 67.78,
-      "when": "2026-08-04",
-      "avgExit": 211.0
+      "cost": 206.1587,
+      "pct": 2.35
     },
     {
+      "date": "2026-08-03",
       "sym": "CRWV",
       "qty": 22.0,
+      "exit": 78.0,
       "pnl": 164.26,
-      "when": "2026-08-03",
-      "avgExit": 78.0
+      "cost": 70.5336,
+      "pct": 10.58
     },
     {
+      "date": "2026-07-31",
       "sym": "AMZN",
       "qty": 3.0,
+      "exit": 270.0,
       "pnl": 4.35,
-      "when": "2026-07-31",
-      "avgExit": 270.0
+      "cost": 268.55,
+      "pct": 0.54
     },
     {
+      "date": "2026-07-30",
       "sym": "CRWV",
       "qty": 15.0,
+      "exit": 72.8,
       "pnl": -391.15,
-      "when": "2026-07-30",
-      "avgExit": 72.8
+      "cost": 98.8767,
+      "pct": -26.38
     },
     {
+      "date": "2026-07-29",
       "sym": "KEEL",
       "qty": 200.0,
+      "exit": 3.3,
       "pnl": -106.0,
-      "when": "2026-07-29",
-      "avgExit": 3.3
+      "cost": 3.83,
+      "pct": -13.84
     },
     {
+      "date": "2026-07-28",
       "sym": "AVGO",
       "qty": 3.0,
+      "exit": 372.76,
       "pnl": -139.91,
-      "when": "2026-07-28",
-      "avgExit": 372.76
+      "cost": 419.3967,
+      "pct": -11.11
     },
     {
+      "date": "2026-07-28",
       "sym": "BE",
       "qty": 6.0,
+      "exit": 173.11,
       "pnl": -58.34,
-      "when": "2026-07-28",
-      "avgExit": 173.11
+      "cost": 182.8333,
+      "pct": -5.32
     },
     {
+      "date": "2026-07-27",
       "sym": "GLW",
       "qty": 6.5,
+      "exit": 144.276,
       "pnl": -77.05,
-      "when": "2026-07-27",
-      "avgExit": 144.28
+      "cost": 156.13,
+      "pct": -7.59
     },
     {
+      "date": "2026-07-24",
       "sym": "BE",
       "qty": 5.0,
+      "exit": 191.1217,
       "pnl": -61.79,
-      "when": "2026-07-24",
-      "avgExit": 191.12
+      "cost": 203.48,
+      "pct": -6.07
     },
     {
+      "date": "2026-07-24",
       "sym": "HPQ",
       "qty": 35.0,
-      "pnl": 78.13,
-      "when": "2026-07-24",
-      "avgExit": 25.52
+      "exit": 25.525,
+      "pnl": 78.12,
+      "cost": 23.2929,
+      "pct": 9.58
     },
     {
+      "date": "2026-07-24",
       "sym": "TE",
       "qty": 60.0,
+      "exit": 5.145,
       "pnl": -224.9,
-      "when": "2026-07-24",
-      "avgExit": 5.145
+      "cost": 8.8934,
+      "pct": -42.15
     },
     {
+      "date": "2026-07-24",
       "sym": "FSLR",
       "qty": 2.0,
+      "exit": 203.375,
       "pnl": -93.9,
-      "when": "2026-07-24",
-      "avgExit": 203.38
+      "cost": 250.325,
+      "pct": -18.76
     },
     {
+      "date": "2026-07-23",
       "sym": "ZETA",
       "qty": 40.0,
+      "exit": 19.71,
       "pnl": 0.09,
-      "when": "2026-07-23",
-      "avgExit": 19.71
+      "cost": 19.7077,
+      "pct": 0.01
     },
     {
+      "date": "2026-07-21",
       "sym": "AFRM",
       "qty": 13.0,
+      "exit": 74.34,
       "pnl": -104.08,
-      "when": "2026-07-21",
-      "avgExit": 74.34
+      "cost": 82.3462,
+      "pct": -9.72
     },
     {
+      "date": "2026-07-20",
       "sym": "TE",
       "qty": 55.0,
+      "exit": 5.822,
       "pnl": -169.14,
-      "when": "2026-07-20",
-      "avgExit": 5.822
+      "cost": 8.8972,
+      "pct": -34.56
     },
     {
+      "date": "2026-07-20",
       "sym": "FSLR",
       "qty": 2.0,
+      "exit": 208.5,
       "pnl": -83.65,
-      "when": "2026-07-20",
-      "avgExit": 208.5
+      "cost": 250.325,
+      "pct": -16.71
     },
     {
+      "date": "2026-07-17",
       "sym": "ZETA",
       "qty": 35.0,
+      "exit": 22.0,
       "pnl": 114.72,
-      "when": "2026-07-17",
-      "avgExit": 22.0
+      "cost": 18.7224,
+      "pct": 17.51
     },
     {
+      "date": "2026-07-16",
       "sym": "RDW",
       "qty": 60.0,
+      "exit": 9.019,
       "pnl": -272.89,
-      "when": "2026-07-16",
-      "avgExit": 9.019
+      "cost": 13.5672,
+      "pct": -33.52
     },
     {
+      "date": "2026-07-13",
       "sym": "IONQ",
       "qty": 15.0,
-      "pnl": -192.13,
-      "when": "2026-07-13",
-      "avgExit": 41.2
+      "exit": 41.2,
+      "pnl": -192.12,
+      "cost": 54.0083,
+      "pct": -23.72
     },
     {
+      "date": "2026-07-08",
       "sym": "AVGO",
       "qty": 3.5,
+      "exit": 393.6143,
       "pnl": -104.09,
-      "when": "2026-07-08",
-      "avgExit": 393.61
+      "cost": 423.3543,
+      "pct": -7.02
     },
     {
+      "date": "2026-07-02",
       "sym": "IREN",
       "qty": 17.0,
+      "exit": 37.8,
       "pnl": -389.03,
-      "when": "2026-07-02",
-      "avgExit": 37.8
+      "cost": 60.6841,
+      "pct": -37.71
     },
     {
+      "date": "2026-07-02",
       "sym": "RDW",
       "qty": 40.0,
+      "exit": 11.392,
       "pnl": -182.49,
-      "when": "2026-07-02",
-      "avgExit": 11.392
+      "cost": 15.9542,
+      "pct": -28.6
     },
     {
+      "date": "2026-07-02",
       "sym": "QCOM",
       "qty": 6.0,
-      "pnl": -261.74,
-      "when": "2026-07-02",
-      "avgExit": 179.51
+      "exit": 179.922,
+      "pnl": 0.0,
+      "cost": 179.922,
+      "pct": 0.0
     },
     {
+      "date": "2026-07-02",
+      "sym": "QCOM",
+      "qty": 6.0,
+      "exit": 179.51,
+      "pnl": -261.74,
+      "cost": 223.1333,
+      "pct": -19.55
+    },
+    {
+      "date": "2026-06-30",
       "sym": "CRCL",
       "qty": 10.0,
+      "exit": 63.5,
       "pnl": -133.0,
-      "when": "2026-06-30",
-      "avgExit": 63.5
+      "cost": 76.8,
+      "pct": -17.32
     },
     {
+      "date": "2026-06-25",
       "sym": "AAPL",
       "qty": 9.5,
+      "exit": 278.5414,
       "pnl": -62.74,
-      "when": "2026-06-25",
-      "avgExit": 278.54
+      "cost": 285.1458,
+      "pct": -2.32
     },
     {
+      "date": "2026-06-15",
       "sym": "NVDA",
       "qty": 5.0,
+      "exit": 212.333,
       "pnl": 64.38,
-      "when": "2026-06-15",
-      "avgExit": 212.33
+      "cost": 199.4578,
+      "pct": 6.46
     },
     {
+      "date": "2026-06-09",
       "sym": "ZETA",
       "qty": 40.0,
+      "exit": 20.1901,
       "pnl": -62.2,
-      "when": "2026-06-09",
-      "avgExit": 20.19
+      "cost": 21.745,
+      "pct": -7.15
     },
     {
+      "date": "2026-06-09",
       "sym": "ENPH",
       "qty": 20.0,
+      "exit": 50.0,
       "pnl": -117.0,
-      "when": "2026-06-09",
-      "avgExit": 50.0
+      "cost": 55.85,
+      "pct": -10.47
     },
     {
+      "date": "2026-06-09",
       "sym": "ONDS",
       "qty": 55.0,
+      "exit": 9.475,
       "pnl": -157.05,
-      "when": "2026-06-09",
-      "avgExit": 9.475
+      "cost": 12.3305,
+      "pct": -23.16
     },
     {
+      "date": "2026-06-05",
       "sym": "CCJ",
       "qty": 6.0,
+      "exit": 106.195,
       "pnl": -18.54,
-      "when": "2026-06-05",
-      "avgExit": 106.195
+      "cost": 109.285,
+      "pct": -2.83
     },
     {
+      "date": "2026-06-05",
       "sym": "CLSK",
       "qty": 60.0,
+      "exit": 15.945,
       "pnl": -65.0,
-      "when": "2026-06-05",
-      "avgExit": 15.945
-    }
-  ],
-  "recs": [
-    {
-      "sym": "TSLA",
-      "kind": "note",
-      "summary": "SM bounce perfect; short-term bullish to $380-400 then possible rejection; hold $340",
-      "url": "https://x.com/pdicarlotrader/status/2094438814265582061",
-      "when": "Aug 31"
-    },
-    {
-      "sym": "HOOD",
-      "kind": "buy",
-      "summary": "Clear Bull Cycle; full setup + 6-12m targets in video",
-      "url": "https://x.com/pdicarlotrader/status/2093102070505099561",
-      "when": "Aug 27"
-    },
-    {
-      "sym": "IREN",
-      "kind": "watch",
-      "summary": "Must hold $30 (VP + structure); lose it \u2192 $20 Monthly SMZ",
-      "url": "https://x.com/pdicarlotrader/status/2093365482220822729",
-      "when": "Aug 28"
-    },
-    {
-      "sym": "NVDA",
-      "kind": "watch",
-      "summary": "Crushed earnings; issues at bearish SMZ; waiting pullback for long",
-      "url": "https://x.com/pdicarlotrader/status/2093374644032045491",
-      "when": "Aug 28"
+      "cost": 17.0283,
+      "pct": -6.36
     }
   ],
   "kpis": {
-    "closedCount": 52,
+    "n": 53,
     "wins": 26,
     "losses": 26,
-    "winRate": 50.0,
-    "realizedPnl": -851.36
+    "winRate": 49.1,
+    "profitFactor": 0.772,
+    "avgWin": 110.87,
+    "avgLoss": -143.62,
+    "totalRealized": -851.36,
+    "expectancy": -16.06
+  },
+  "recs": [
+    {
+      "date": "Aug 31, 2026",
+      "sym": "TSLA",
+      "kind": "note",
+      "sum": "SM bounce perfect; short-term bullish to $380-400 then possible rejection to $280-300",
+      "url": "https://x.com/pdicarlotrader/status/2094438814265582061"
+    }
+  ],
+  "perfCompare": {
+    "portfolio": {
+      "m1": 20.71,
+      "mtd": 15.68,
+      "ytd": -12.62,
+      "y1": -12.62,
+      "all": -12.62
+    },
+    "spy": {
+      "m1": null,
+      "mtd": null,
+      "ytd": null,
+      "y1": null,
+      "all": null
+    }
+  },
+  "equityReturns": {
+    "labels": [
+      "08/24",
+      "08/25",
+      "08/26",
+      "08/27",
+      "08/28",
+      "08/31"
+    ],
+    "portfolio": [
+      0,
+      1.69,
+      1.46,
+      2.66,
+      1.53,
+      0.14
+    ],
+    "spy": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "performance": {
+    "ytd": {
+      "labels": [],
+      "nav": []
+    },
+    "mtd": {
+      "labels": [],
+      "nav": []
+    }
   }
 };
