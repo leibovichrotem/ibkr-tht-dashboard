@@ -5,15 +5,15 @@
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-01T15:30:03+03:00",
-    "generatedAtHuman": "2026-09-01 15:30 IDT",
+    "generatedAt": "2026-09-01T19:27:07.533358+03:00",
+    "generatedAtHuman": "2026-09-01 19:27 IDT",
     "source": "Interactive Brokers (live)",
-    "nav": 12856.07,
-    "cash": 2414.09,
-    "grossPositions": 10452.34,
-    "unrealized": -313.86,
-    "positionsCount": 13,
-    "note": "YTD closed \u00b7 26W / 26L \u00b7 WR 49.1%"
+    "nav": 12137.89,
+    "cash": 1971.74,
+    "grossPositions": 10176.51,
+    "unrealized": -214.25,
+    "positionsCount": 12,
+    "note": "YTD closed · ~26W / 27L · WR ~49%"
   },
   "positions": [
     {
