@@ -1,13 +1,13 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-09-16 09:31 IDT
+// Generated: 2026-09-17 09:36 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-16T09:31:00+03:00",
-    "generatedAtHuman": "2026-09-16 09:31 IDT",
-    "source": "Interactive Brokers live (positions, summary, YTD trades, TWR) + public @pdicarlotrader X notes",
+    "generatedAt": "2026-09-17T09:36:00+03:00",
+    "generatedAtHuman": "2026-09-17 09:36 IDT",
+    "source": "IBKR snapshot 2026-09-16 (connector needs re-auth) + public @pdicarlotrader X notes 2026-09-17",
     "nav": 10199.92,
     "cash": -917.9,
     "grossPositions": 11119.25,
@@ -225,9 +225,9 @@ window.__DATA__ = {
       "pctNet": 5.04,
       "chg": 0,
       "peter": {
-        "sum": "Called the best semi name at the Smart Money Zone; bounce this week looks like the bottom. Latest sector video still flags ON as the setup.",
-        "url": "https://x.com/pdicarlotrader/status/2098506949033619545",
-        "when": "Sep 11"
+        "sum": "After the Fed: still holding structure and looks fine for the next 6–12 months — nothing about the setup changed. Prior: best semi name at the SMZ.",
+        "url": "https://x.com/pdicarlotrader/status/2100297655268044859",
+        "when": "Sep 16"
       }
     },
     {
@@ -242,9 +242,9 @@ window.__DATA__ = {
       "pctNet": 3.74,
       "chg": 0,
       "peter": {
-        "sum": "Back at the internal Smart Money Zone; if a short-term bounce is coming, he says it is right now.",
-        "url": "https://x.com/pdicarlotrader/status/2099872820247368065",
-        "when": "Sep 15"
+        "sum": "+15% bounce off the internal Smart Money Zone; next target $20. Prior: if a short-term bounce was coming, it was right there.",
+        "url": "https://x.com/pdicarlotrader/status/2100233065624723558",
+        "when": "Sep 16"
       }
     }
   ],
@@ -890,6 +890,27 @@ window.__DATA__ = {
   },
   "recs": [
     {
+      "date": "Sep 16, 2026",
+      "sym": "GNRC",
+      "kind": "note",
+      "sum": "Up 40% after hours on the Amazon data-center deal; he closed the shares and will watch before buying back. Video covers why he was long.",
+      "url": "https://x.com/pdicarlotrader/status/2100340907199308047"
+    },
+    {
+      "date": "Sep 16, 2026",
+      "sym": "OIL",
+      "kind": "note",
+      "sum": "Oil above $100 after the July smart-money level; breakout underway. Video: how far it could run, key levels, worst case, defined-risk approach.",
+      "url": "https://x.com/pdicarlotrader/status/2100326058255872350"
+    },
+    {
+      "date": "Sep 16, 2026",
+      "sym": "NVDA",
+      "kind": "note",
+      "sum": "Holding the $210 volume-profile support for now; internal structure remains bullish. Break of $210 would shift structure and point toward the IBZ.",
+      "url": "https://x.com/pdicarlotrader/status/2100218635616735622"
+    },
+    {
       "date": "Sep 15, 2026",
       "sym": "TSLA",
       "kind": "watch",
@@ -937,34 +958,6 @@ window.__DATA__ = {
       "kind": "note",
       "sum": "Included in the latest semiconductor outlook video alongside NVDA/AMD — one more selloff expected before the next major breakout.",
       "url": "https://x.com/pdicarlotrader/status/2099602864800702566"
-    },
-    {
-      "date": "Sep 11, 2026",
-      "sym": "ASTS",
-      "kind": "watch",
-      "sum": "Macro structure still bullish if $50 holds; monthly BX remains red and internal structure is still bearish. Patient 6–12 month $100 thesis.",
-      "url": "https://x.com/pdicarlotrader/status/2098505089547911662"
-    },
-    {
-      "date": "Sep 11, 2026",
-      "sym": "GOOGL",
-      "kind": "note",
-      "sum": "Green with the tape but he is still out. Wants $344.50 reclaimed for a short-term breakout; preferred entry remains nearer $305.",
-      "url": "https://x.com/pdicarlotrader/status/2098502244752617926"
-    },
-    {
-      "date": "Sep 11, 2026",
-      "sym": "NIO",
-      "kind": "note",
-      "sum": "Smart Money Zone alert at a solid discount — but he is not buying; too many names on the plate and he loses on China-related names.",
-      "url": "https://x.com/pdicarlotrader/status/2098233549870530693"
-    },
-    {
-      "date": "Sep 10, 2026",
-      "sym": "EOSE",
-      "kind": "buy",
-      "sum": "Pulling back after the major breakout as anticipated; video covers where he would look to buy again and long-term targets.",
-      "url": "https://x.com/pdicarlotrader/status/2098156555262709857"
     }
   ],
   "perfCompare": {
