@@ -1,19 +1,19 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-09-17 09:36 IDT
+// Generated: 2026-09-18 09:34 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-17T09:36:00+03:00",
-    "generatedAtHuman": "2026-09-17 09:36 IDT",
-    "source": "IBKR snapshot 2026-09-16 (connector needs re-auth) + public @pdicarlotrader X notes 2026-09-17",
+    "generatedAt": "2026-09-18T09:34:00+03:00",
+    "generatedAtHuman": "2026-09-18 09:34 IDT",
+    "source": "IBKR snapshot 2026-09-16 (connector needs re-auth) + public @pdicarlotrader X notes 2026-09-18",
     "nav": 10199.92,
     "cash": -917.9,
     "grossPositions": 11119.25,
     "unrealized": -513.81,
     "positionsCount": 15,
-    "note": "YTD closed · 36W / 32L / 1 even · WR 52.9%"
+    "note": "YTD closed \u00b7 36W / 32L / 1 even \u00b7 WR 52.9%"
   },
   "positions": [
     {
@@ -79,7 +79,7 @@ window.__DATA__ = {
       "pctNet": 9.69,
       "chg": 0,
       "peter": {
-        "sum": "Bottom called last month; +10% since and he thinks the move is just getting started — setup, key levels, and a 12–18 month double thesis. Same session he flagged a possible short-term rejection before the longer breakout.",
+        "sum": "Bottom called last month; +10% since and he thinks the move is just getting started \u2014 setup, key levels, and a 12\u201318 month double thesis. Same session he flagged a possible short-term rejection before the longer breakout.",
         "url": "https://x.com/pdicarlotrader/status/2099601610758365269",
         "when": "Sep 14"
       }
@@ -122,9 +122,9 @@ window.__DATA__ = {
       "pctNet": 8.74,
       "chg": 0,
       "peter": {
-        "sum": "Double Smart Money Zone + 1B-share volume-profile support; patient 45–90d $87 / 12-month $140–150 thesis. Weekly close below $56 invalidates.",
-        "url": "https://x.com/pdicarlotrader/status/2099223436635848840",
-        "when": "Sep 13"
+        "sum": "Short-term level swept; still loves the long-term double-SMZ thesis. Next short-term targets $72 and $80. Weekly close below $56 remains the invalidation.",
+        "url": "https://x.com/pdicarlotrader/status/2100622354258722907",
+        "when": "Sep 17"
       }
     },
     {
@@ -225,9 +225,9 @@ window.__DATA__ = {
       "pctNet": 5.04,
       "chg": 0,
       "peter": {
-        "sum": "After the Fed: still holding structure and looks fine for the next 6–12 months — nothing about the setup changed. Prior: best semi name at the SMZ.",
-        "url": "https://x.com/pdicarlotrader/status/2100297655268044859",
-        "when": "Sep 16"
+        "sum": "Bought ON (Sep 16). Watching the exact conditions that could trigger a breakout to new ATHs; video covers ON, NVDA, and AMD short-term targets and key levels.",
+        "url": "https://x.com/pdicarlotrader/status/2100688610454319372",
+        "when": "Sep 17"
       }
     },
     {
@@ -886,9 +886,44 @@ window.__DATA__ = {
     "totalRealized": -318.54,
     "largestWin": 693.19,
     "largestLoss": -391.15,
-    "note": "YTD closed · 36W / 32L / 1 even · WR 52.9%"
+    "note": "YTD closed \u00b7 36W / 32L / 1 even \u00b7 WR 52.9%"
   },
   "recs": [
+    {
+      "date": "Sep 17, 2026",
+      "sym": "NFLX",
+      "kind": "watch",
+      "sum": "Still one of his highest-conviction 12-month setups after the earlier Smart Money Discount flag. Video covers the short-term outlook, how deep the pullback could go, and upside targets.",
+      "url": "https://x.com/pdicarlotrader/status/2100690177836364032"
+    },
+    {
+      "date": "Sep 17, 2026",
+      "sym": "SMCI",
+      "kind": "note",
+      "sum": "Public chart note: strong case for $80 by 2028.",
+      "url": "https://x.com/pdicarlotrader/status/2100693805074649360"
+    },
+    {
+      "date": "Sep 17, 2026",
+      "sym": "QCOM",
+      "kind": "watch",
+      "sum": "+25% since the Smart Money Buy Zone; major resistance approaching and a short-term pullback is possible before the next leg. Video on levels plus short- and long-term targets.",
+      "url": "https://x.com/pdicarlotrader/status/2100689368302153878"
+    },
+    {
+      "date": "Sep 17, 2026",
+      "sym": "NVDA",
+      "kind": "note",
+      "sum": "Included in the ON/semis video with short-term targets. Prior: holding $210 volume-profile support; internal structure still bullish, break would point toward the IBZ.",
+      "url": "https://x.com/pdicarlotrader/status/2100688610454319372"
+    },
+    {
+      "date": "Sep 17, 2026",
+      "sym": "AMD",
+      "kind": "note",
+      "sum": "Covered with ON and NVDA in the Sep 17 video \u2014 short-term targets and key levels while he watches for ATH-breakout conditions on ON.",
+      "url": "https://x.com/pdicarlotrader/status/2100688610454319372"
+    },
     {
       "date": "Sep 16, 2026",
       "sym": "GNRC",
@@ -904,60 +939,25 @@ window.__DATA__ = {
       "url": "https://x.com/pdicarlotrader/status/2100326058255872350"
     },
     {
-      "date": "Sep 16, 2026",
-      "sym": "NVDA",
-      "kind": "note",
-      "sum": "Holding the $210 volume-profile support for now; internal structure remains bullish. Break of $210 would shift structure and point toward the IBZ.",
-      "url": "https://x.com/pdicarlotrader/status/2100218635616735622"
-    },
-    {
-      "date": "Sep 15, 2026",
-      "sym": "TSLA",
-      "kind": "watch",
-      "sum": "Back at the 1-hour Smart Money Zone; internal structure stays bullish until a close under $350.",
-      "url": "https://x.com/pdicarlotrader/status/2099948757425037608"
-    },
-    {
       "date": "Sep 14, 2026",
       "sym": "BSX",
       "kind": "buy",
-      "sum": "Hit one of the strongest buy zones in his system; video covers why he’s long plus 3-month and 9-month targets. Also noted the bounce inside SMZ.",
+      "sum": "Hit one of the strongest buy zones in his system; video covers why he\u2019s long plus 3-month and 9-month targets.",
       "url": "https://x.com/pdicarlotrader/status/2099601977164362010"
     },
     {
       "date": "Sep 14, 2026",
       "sym": "PLTR",
       "kind": "note",
-      "sum": "Approaching major resistance; video on levels to watch and downside if support fails. Prior note: rejected SM sell zone — needs $170 reclaimed or slide toward $135.",
+      "sum": "Approaching major resistance; video on levels to watch and downside if support fails. Prior: rejected SM sell zone \u2014 needs $170 reclaimed or slide toward $135.",
       "url": "https://x.com/pdicarlotrader/status/2099602479394553927"
     },
     {
       "date": "Sep 14, 2026",
       "sym": "HIMS",
       "kind": "watch",
-      "sum": "+5% since Friday’s setup; full breakdown of levels, targets, and invalidation. $27 weekly hold vs slide toward $25.",
+      "sum": "+5% since Friday\u2019s setup; full breakdown of levels, targets, and invalidation. $27 weekly hold vs slide toward $25.",
       "url": "https://x.com/pdicarlotrader/status/2099599139315007613"
-    },
-    {
-      "date": "Sep 14, 2026",
-      "sym": "NVDA",
-      "kind": "note",
-      "sum": "$210 is the line — 2B THT volume-profile support. Hold keeps daily structure constructive; break likely sends price to the IBZ. Sector video still cautious, expecting one more selloff.",
-      "url": "https://x.com/pdicarlotrader/status/2099505392287920209"
-    },
-    {
-      "date": "Sep 14, 2026",
-      "sym": "AMD",
-      "kind": "note",
-      "sum": "Sector update: still bullishly cautious on semis; AMD grouped with NVDA/MU as waiting for one more selloff before the next major breakout.",
-      "url": "https://x.com/pdicarlotrader/status/2099602864800702566"
-    },
-    {
-      "date": "Sep 14, 2026",
-      "sym": "MU",
-      "kind": "note",
-      "sum": "Included in the latest semiconductor outlook video alongside NVDA/AMD — one more selloff expected before the next major breakout.",
-      "url": "https://x.com/pdicarlotrader/status/2099602864800702566"
     }
   ],
   "perfCompare": {
