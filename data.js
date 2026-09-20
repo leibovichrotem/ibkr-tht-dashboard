@@ -1,13 +1,13 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-09-19 09:34 IDT
+// Generated: 2026-09-20 09:40 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-19T09:34:00+03:00",
-    "generatedAtHuman": "2026-09-19 09:34 IDT",
-    "source": "IBKR snapshot 2026-09-16 (connector needs re-auth) + public @pdicarlotrader X notes 2026-09-19",
+    "generatedAt": "2026-09-20T09:40:00+03:00",
+    "generatedAtHuman": "2026-09-20 09:40 IDT",
+    "source": "IBKR snapshot 2026-09-16 (connector needs re-auth) + public @pdicarlotrader X notes 2026-09-20",
     "nav": 10199.92,
     "cash": -917.9,
     "grossPositions": 11119.25,
