@@ -1,17 +1,17 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-09-21 09:42 IDT
+// Generated: 2026-09-22 09:42 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-21T09:42:00+03:00",
-    "generatedAtHuman": "2026-09-21 09:42 IDT",
-    "source": "IBKR snapshot 2026-09-16 (connector needs re-auth) + Yahoo last 2026-09-18 close + public @pdicarlotrader X notes 2026-09-21",
-    "nav": 10440.11,
+    "generatedAt": "2026-09-22T09:42:00+03:00",
+    "generatedAtHuman": "2026-09-22 09:42 IDT",
+    "source": "IBKR last live snapshot 2026-09-16 (connector still disconnected) + Yahoo last 2026-09-21 + public @pdicarlotrader X notes 2026-09-22. Closed trades unchanged until IBKR re-auth.",
+    "nav": 10917.32,
     "cash": -917.9,
-    "grossPositions": 11358.01,
-    "unrealized": -328.21,
+    "grossPositions": 11835.22,
+    "unrealized": 149.0,
     "positionsCount": 15,
     "note": "YTD closed \u00b7 36W / 32L / 1 even \u00b7 WR 52.9%"
   },
@@ -20,12 +20,12 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 148,
       "avg": 7.92579392,
-      "last": 7.8,
-      "upnl": -18.62,
-      "mv": 1154.4,
+      "last": 8.41,
+      "upnl": 71.66,
+      "mv": 1244.68,
       "cost": 1173.02,
-      "upnlPct": -1.59,
-      "pctNet": 11.06,
+      "upnlPct": 6.11,
+      "pctNet": 11.4,
       "chg": 0,
       "peter": null
     },
@@ -33,12 +33,12 @@ window.__DATA__ = {
       "symbol": "CRDO",
       "qty": 7,
       "avg": 153.25714286,
-      "last": 175.89,
-      "upnl": 158.43,
-      "mv": 1231.23,
+      "last": 187.27,
+      "upnl": 238.09,
+      "mv": 1310.89,
       "cost": 1072.8,
-      "upnlPct": 14.77,
-      "pctNet": 11.79,
+      "upnlPct": 22.19,
+      "pctNet": 12.01,
       "chg": 0,
       "peter": {
         "sum": "Bullish structure plus a strong Smart Money discount; as long as $140 holds he expects a full recovery inside 12 months.",
@@ -50,12 +50,12 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "qty": 26,
       "avg": 39.24444615,
-      "last": 34.64,
-      "upnl": -119.72,
-      "mv": 900.64,
+      "last": 34.76,
+      "upnl": -116.6,
+      "mv": 903.76,
       "cost": 1020.36,
-      "upnlPct": -11.73,
-      "pctNet": 8.63,
+      "upnlPct": -11.43,
+      "pctNet": 8.28,
       "chg": 0,
       "peter": null
     },
@@ -63,29 +63,29 @@ window.__DATA__ = {
       "symbol": "APP",
       "qty": 3,
       "avg": 309.525,
-      "last": 308.06,
-      "upnl": -4.39,
-      "mv": 924.18,
+      "last": 330.17,
+      "upnl": 61.94,
+      "mv": 990.51,
       "cost": 928.57,
-      "upnlPct": -0.47,
-      "pctNet": 8.85,
+      "upnlPct": 6.67,
+      "pctNet": 9.07,
       "chg": 0,
       "peter": {
-        "sum": "Bottom called last month; +10% since and he thinks the move is just getting started \u2014 setup, key levels, and a 12\u201318 month double thesis. Same session he flagged a possible short-term rejection before the longer breakout.",
-        "url": "https://x.com/pdicarlotrader/status/2099601610758365269",
-        "when": "Sep 14"
+        "sum": "Pulled back into the 1-hour Smart Money Zone and bounced; he still sees a possible short-term reset before the longer 12\u201318 month double thesis.",
+        "url": "https://x.com/pdicarlotrader/status/2102112898940088504",
+        "when": "Sep 21"
       }
     },
     {
       "symbol": "NXT",
       "qty": 10,
       "avg": 92.6595,
-      "last": 80.47,
-      "upnl": -121.89,
-      "mv": 804.7,
+      "last": 83.15,
+      "upnl": -95.09,
+      "mv": 831.5,
       "cost": 926.59,
-      "upnlPct": -13.15,
-      "pctNet": 7.71,
+      "upnlPct": -10.26,
+      "pctNet": 7.62,
       "chg": 0,
       "peter": null
     },
@@ -93,12 +93,12 @@ window.__DATA__ = {
       "symbol": "VST",
       "qty": 6,
       "avg": 149.56,
-      "last": 140.67,
-      "upnl": -53.34,
-      "mv": 844.02,
+      "last": 140.78,
+      "upnl": -52.68,
+      "mv": 844.68,
       "cost": 897.36,
-      "upnlPct": -5.94,
-      "pctNet": 8.08,
+      "upnlPct": -5.87,
+      "pctNet": 7.74,
       "chg": 0,
       "peter": null
     },
@@ -106,29 +106,29 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "qty": 14,
       "avg": 63.35535714,
-      "last": 64.57,
-      "upnl": 17.01,
-      "mv": 903.98,
+      "last": 69.89,
+      "upnl": 91.49,
+      "mv": 978.46,
       "cost": 886.97,
-      "upnlPct": 1.92,
-      "pctNet": 8.66,
+      "upnlPct": 10.31,
+      "pctNet": 8.96,
       "chg": 0,
       "peter": {
-        "sum": "Short-term level swept; still loves the long-term double-SMZ thesis. Next short-term targets $72 and $80. Weekly close below $56 remains the invalidation.",
-        "url": "https://x.com/pdicarlotrader/status/2100622354258722907",
-        "when": "Sep 17"
+        "sum": "Watching a sweep of $70 Point of Control resistance. Long-term double-SMZ thesis intact; next short-term targets $72 and $80, weekly close below $56 invalidates.",
+        "url": "https://x.com/pdicarlotrader/status/2102113293015880175",
+        "when": "Sep 21"
       }
     },
     {
       "symbol": "KTOS",
       "qty": 17,
       "avg": 48.01058824,
-      "last": 47.46,
-      "upnl": -9.36,
-      "mv": 806.82,
+      "last": 48.59,
+      "upnl": 9.85,
+      "mv": 826.03,
       "cost": 816.18,
-      "upnlPct": -1.15,
-      "pctNet": 7.73,
+      "upnlPct": 1.21,
+      "pctNet": 7.57,
       "chg": 0,
       "peter": {
         "sum": "Back at the short-term Smart Money Zone plus Point of Control; bounce-or-not is being decided here.",
@@ -145,7 +145,7 @@ window.__DATA__ = {
       "mv": 672.48,
       "cost": 727.97,
       "upnlPct": -7.62,
-      "pctNet": 6.44,
+      "pctNet": 6.16,
       "chg": 0,
       "peter": null
     },
@@ -153,12 +153,12 @@ window.__DATA__ = {
       "symbol": "TE",
       "qty": 117,
       "avg": 5.13508547,
-      "last": 4.17,
-      "upnl": -112.91,
-      "mv": 487.89,
+      "last": 4.45,
+      "upnl": -80.15,
+      "mv": 520.65,
       "cost": 600.8,
-      "upnlPct": -18.79,
-      "pctNet": 4.67,
+      "upnlPct": -13.34,
+      "pctNet": 4.77,
       "chg": 0,
       "peter": {
         "sum": "Entered a strong Smart Money buy zone; video covers why the zone matters, multi-month targets, and alert levels.",
@@ -170,12 +170,12 @@ window.__DATA__ = {
       "symbol": "JOBY",
       "qty": 85,
       "avg": 6.97264706,
-      "last": 6.12,
-      "upnl": -72.48,
-      "mv": 520.2,
+      "last": 6.41,
+      "upnl": -47.83,
+      "mv": 544.85,
       "cost": 592.68,
-      "upnlPct": -12.23,
-      "pctNet": 4.98,
+      "upnlPct": -8.07,
+      "pctNet": 4.99,
       "chg": 0,
       "peter": null
     },
@@ -183,12 +183,12 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 8,
       "avg": 72.9125,
-      "last": 70.5,
-      "upnl": -19.3,
-      "mv": 564.0,
+      "last": 70.84,
+      "upnl": -16.58,
+      "mv": 566.72,
       "cost": 583.3,
-      "upnlPct": -3.31,
-      "pctNet": 5.4,
+      "upnlPct": -2.84,
+      "pctNet": 5.19,
       "chg": 0,
       "peter": null
     },
@@ -196,12 +196,12 @@ window.__DATA__ = {
       "symbol": "CBRS",
       "qty": 3,
       "avg": 183.33333333,
-      "last": 198.37,
-      "upnl": 45.11,
-      "mv": 595.11,
+      "last": 208.49,
+      "upnl": 75.47,
+      "mv": 625.47,
       "cost": 550.0,
-      "upnlPct": 8.2,
-      "pctNet": 5.7,
+      "upnlPct": 13.72,
+      "pctNet": 5.73,
       "chg": 0,
       "peter": null
     },
@@ -209,12 +209,12 @@ window.__DATA__ = {
       "symbol": "ON",
       "qty": 7,
       "avg": 72.26714286,
-      "last": 69.98,
-      "upnl": -16.01,
-      "mv": 489.86,
+      "last": 71.72,
+      "upnl": -3.83,
+      "mv": 502.04,
       "cost": 505.87,
-      "upnlPct": -3.16,
-      "pctNet": 4.69,
+      "upnlPct": -0.76,
+      "pctNet": 4.6,
       "chg": 0,
       "peter": {
         "sum": "Bought ON (Sep 16). Watching the exact conditions that could trigger a breakout to new ATHs; video covers ON, NVDA, and AMD short-term targets and key levels.",
@@ -226,15 +226,15 @@ window.__DATA__ = {
       "symbol": "CIFR",
       "qty": 25,
       "avg": 16.15,
-      "last": 18.34,
-      "upnl": 54.75,
-      "mv": 458.5,
+      "last": 18.9,
+      "upnl": 68.75,
+      "mv": 472.5,
       "cost": 403.75,
-      "upnlPct": 13.56,
-      "pctNet": 4.39,
+      "upnlPct": 17.03,
+      "pctNet": 4.33,
       "chg": 0,
       "peter": {
-        "sum": "Re-tested the internal Smart Money Zone and bounced; he called the short-term bounce on Sep 15 and marked the follow-through as complete. Next target remains $20.",
+        "sum": "Re-tested the internal Smart Money Zone and bounced; follow-through marked complete. Next target remains $20.",
         "url": "https://x.com/pdicarlotrader/status/2101016899723116714",
         "when": "Sep 18"
       }
@@ -882,32 +882,46 @@ window.__DATA__ = {
   },
   "recs": [
     {
+      "date": "Sep 21, 2026",
+      "sym": "META",
+      "kind": "watch",
+      "sum": "Swept the weekly swing high and confirmed the breakout from the Smart Money buy zone. He closed shares last week looking for a pullback re-entry that has not arrived yet.",
+      "url": "https://x.com/pdicarlotrader/status/2102084553686831249"
+    },
+    {
+      "date": "Sep 21, 2026",
+      "sym": "NVDA",
+      "kind": "note",
+      "sum": "Smart Money buyers showed up at support; internal structure still described as bullish. Watching whether buying pressure continues.",
+      "url": "https://x.com/pdicarlotrader/status/2102044851269173434"
+    },
+    {
+      "date": "Sep 21, 2026",
+      "sym": "TSLA",
+      "kind": "note",
+      "sum": "1-hour Smart Money Zone held again. He did not trade it; noted the hold for anyone who did.",
+      "url": "https://x.com/pdicarlotrader/status/2102044442102243473"
+    },
+    {
       "date": "Sep 18, 2026",
       "sym": "NFLX",
       "kind": "buy",
-      "sum": "Called the -5% drop toward his reload zone after the Sep 17 high-conviction video. Plans to buy the pullback; still one of his highest-conviction 12-month setups from the earlier SM discount flag.",
+      "sum": "Called the -5% drop toward his reload zone after the Sep 17 high-conviction video. Plans to buy the pullback; still one of his highest-conviction 12-month setups.",
       "url": "https://x.com/pdicarlotrader/status/2100974393497116703"
     },
     {
       "date": "Sep 18, 2026",
       "sym": "MSTR",
       "kind": "note",
-      "sum": "+75% since the macro Smart Money bounce and +12% on the day. Still targeting $400\u2013$450 over 12\u201318 months, but weekly structure is bearish into a $160\u2013$175 institutional sell zone; needs a close above $200 to flip internals.",
+      "sum": "+75% since the macro Smart Money bounce. Still targeting $400\u2013$450 over 12\u201318 months, but weekly structure is bearish into a $160\u2013$175 institutional sell zone; needs a close above $200 to flip internals.",
       "url": "https://x.com/pdicarlotrader/status/2100973080956809298"
     },
     {
       "date": "Sep 18, 2026",
       "sym": "COIN",
       "kind": "watch",
-      "sum": "+22% since the July 13 potential-bottom call. Still expects a 100%+ move toward ATHs over 12\u201318 months, but weekly internals stay bearish until a break of the ~$223 swing high. Watching $198\u2013$208 resistance; confirmation above $222.",
+      "sum": "+22% since the July 13 potential-bottom call. Still expects a 100%+ move toward ATHs over 12\u201318 months, but weekly internals stay bearish until a break of the ~$223 swing high. Watching $198\u2013$208 resistance.",
       "url": "https://x.com/pdicarlotrader/status/2100971856295596435"
-    },
-    {
-      "date": "Sep 17, 2026",
-      "sym": "SMCI",
-      "kind": "note",
-      "sum": "Public chart note: strong case for $80 by 2028.",
-      "url": "https://x.com/pdicarlotrader/status/2100693805074649360"
     },
     {
       "date": "Sep 17, 2026",
@@ -918,39 +932,25 @@ window.__DATA__ = {
     },
     {
       "date": "Sep 17, 2026",
-      "sym": "NVDA",
+      "sym": "SMCI",
       "kind": "note",
-      "sum": "Included in the ON/semis video with short-term targets. Holding key support and internal structure remains bullish; $210 is the volume-profile line.",
-      "url": "https://x.com/pdicarlotrader/status/2100688610454319372"
-    },
-    {
-      "date": "Sep 17, 2026",
-      "sym": "AMD",
-      "kind": "note",
-      "sum": "Covered with ON and NVDA in the Sep 17 video \u2014 short-term targets and key levels while he watches for ATH-breakout conditions on ON.",
-      "url": "https://x.com/pdicarlotrader/status/2100688610454319372"
-    },
-    {
-      "date": "Sep 16, 2026",
-      "sym": "GNRC",
-      "kind": "note",
-      "sum": "Up 40% after hours on the Amazon data-center deal; he closed the shares and will watch before buying back. Video covers why he was long.",
-      "url": "https://x.com/pdicarlotrader/status/2100340907199308047"
+      "sum": "Public chart note: strong case for $80 by 2028.",
+      "url": "https://x.com/pdicarlotrader/status/2100693805074649360"
     }
   ],
   "perfCompare": {
     "portfolio": {
-      "m1": -0.07,
-      "mtd": 1.14,
-      "ytd": -11.57,
-      "y1": -11.57,
-      "all": -11.57
+      "m1": 4.5,
+      "mtd": 5.71,
+      "ytd": -7.0,
+      "y1": -7.0,
+      "all": -7.0
     },
     "spy": {
-      "m1": -1.81,
-      "mtd": -0.4,
-      "ytd": 11.58,
-      "y1": 20.26,
+      "m1": 1.02,
+      "mtd": 1.54,
+      "ytd": 13.22,
+      "y1": 15.99,
       "all": null
     }
   },
@@ -979,7 +979,8 @@ window.__DATA__ = {
       "09/11",
       "09/14",
       "09/15",
-      "09/16"
+      "09/16",
+      "09/21"
     ],
     "portfolio": [
       0.0,
@@ -1005,7 +1006,8 @@ window.__DATA__ = {
       -20.64,
       -21.84,
       -22.55,
-      -22.52
+      -22.52,
+      -18.98
     ],
     "spy": [
       0.0,
@@ -1031,7 +1033,8 @@ window.__DATA__ = {
       -1.1,
       -1.54,
       -1.99,
-      -1.81
+      -1.81,
+      -0.37
     ]
   },
   "performance": {
@@ -1111,7 +1114,8 @@ window.__DATA__ = {
         "09/11",
         "09/14",
         "09/15",
-        "09/16"
+        "09/16",
+        "09/21"
       ],
       "nav": [
         16522.14,
@@ -1188,7 +1192,8 @@ window.__DATA__ = {
         10446.66,
         10288.65,
         10196.35,
-        10199.92
+        10199.92,
+        10917.32
       ]
     },
     "mtd": {
@@ -1204,7 +1209,8 @@ window.__DATA__ = {
         "09/11",
         "09/14",
         "09/15",
-        "09/16"
+        "09/16",
+        "09/21"
       ],
       "nav": [
         12129.03,
@@ -1218,7 +1224,8 @@ window.__DATA__ = {
         10446.66,
         10288.65,
         10196.35,
-        10199.92
+        10199.92,
+        10917.32
       ]
     }
   }
