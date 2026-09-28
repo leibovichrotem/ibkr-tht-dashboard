@@ -1,19 +1,19 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-09-27 09:31 IDT
+// Generated: 2026-09-28 09:32 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-27T09:31:00+03:00",
-    "generatedAtHuman": "2026-09-27 09:31 IDT",
-    "source": "IBKR last live snapshot 2026-09-16 (connector disconnected — re-auth required) + Yahoo 2026-09-25 close + public @pdicarlotrader X notes 2026-09-27. Closed trades unchanged until IBKR re-auth.",
+    "generatedAt": "2026-09-28T09:32:00+03:00",
+    "generatedAtHuman": "2026-09-28 09:32 IDT",
+    "source": "IBKR last live snapshot 2026-09-16 (connector disconnected \u2014 re-auth required) + Yahoo 2026-09-25 close + public @pdicarlotrader X notes 2026-09-28. Closed trades unchanged until IBKR re-auth.",
     "nav": 10745.68,
     "cash": -917.9,
     "grossPositions": 11663.58,
     "unrealized": -22.64,
     "positionsCount": 15,
-    "note": "YTD closed · 36W / 32L / 1 even · WR 52.9%"
+    "note": "YTD closed \u00b7 36W / 32L / 1 even \u00b7 WR 52.9%"
   },
   "positions": [
     {
@@ -870,14 +870,42 @@ window.__DATA__ = {
     "totalRealized": -318.54,
     "largestWin": 693.19,
     "largestLoss": -391.15,
-    "note": "YTD closed · 36W / 32L / 1 even · WR 52.9%"
+    "note": "YTD closed \u00b7 36W / 32L / 1 even \u00b7 WR 52.9%"
   },
   "recs": [
+    {
+      "date": "Sep 28, 2026",
+      "sym": "AMZN",
+      "kind": "buy",
+      "sum": "Sold in August before the pullback; now an early-buy on his system. Optimal add near $240 daily SMZ. Pattern historically makes a new swing high in 2\u20133 months toward ~$290 by Nov\u2013Dec.",
+      "url": "https://x.com/pdicarlotrader/status/2104376840454357166"
+    },
+    {
+      "date": "Sep 28, 2026",
+      "sym": "IREN",
+      "kind": "watch",
+      "sum": "Bullish structure intact after the July pullback (+45% in 57 days). Expects another dip into $40\u2013$37.50; 60-day target $55, six-month $70. Invalidates below the $30 swing low.",
+      "url": "https://x.com/pdicarlotrader/status/2104376066567463115"
+    },
+    {
+      "date": "Sep 28, 2026",
+      "sym": "FSLR",
+      "kind": "watch",
+      "sum": "Testing a potential structural change this week. Needs to reclaim $180 by week\u2019s end to keep bullish structure; 12-month target $320 if it holds. Could be a stop hunt similar to ORCL in July.",
+      "url": "https://x.com/pdicarlotrader/status/2104373447392436496"
+    },
+    {
+      "date": "Sep 28, 2026",
+      "sym": "TTWO",
+      "kind": "note",
+      "sum": "Down ~25% since his bearish setup. Not shorting here (poor RVR) and not buying GTA-6 hype. Would only consider a long in the $170\u2013$160 monthly IBZ / volume-profile gap.",
+      "url": "https://x.com/pdicarlotrader/status/2104375294471680022"
+    },
     {
       "date": "Sep 27, 2026",
       "sym": "QCOM",
       "kind": "watch",
-      "sum": "Up +40% in under 60 days from the SMZ earnings-gap setup. Expects a short-term rejection at $200 before the next leg; asked for comments if people want a video breakdown.",
+      "sum": "Up +40% in under 60 days from the SMZ earnings-gap setup. Expects a short-term rejection at $200 before the next leg.",
       "url": "https://x.com/pdicarlotrader/status/2104019188415090998"
     },
     {
@@ -886,20 +914,6 @@ window.__DATA__ = {
       "kind": "watch",
       "sum": "Under key short-term support. Needs a weekly close back above $140 or he expects the selloff to continue into the low $120s.",
       "url": "https://x.com/pdicarlotrader/status/2103132469637828638"
-    },
-    {
-      "date": "Sep 22, 2026",
-      "sym": "HIMS",
-      "kind": "watch",
-      "sum": "Called the Smart Money breakout complete. Next target $34; prior note had $27 as the hold-or-fail pivot and $24 as the deeper weekly support.",
-      "url": "https://x.com/pdicarlotrader/status/2102416657851531322"
-    },
-    {
-      "date": "Sep 22, 2026",
-      "sym": "WYFI",
-      "kind": "watch",
-      "sum": "Coming up on short-term resistance. Needs to sweep the Point of Control for the major breakout he is anticipating.",
-      "url": "https://x.com/pdicarlotrader/status/2102421770712297701"
     }
   ],
   "perfCompare": {
