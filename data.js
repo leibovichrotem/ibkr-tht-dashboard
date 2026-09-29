@@ -1,17 +1,17 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-09-28 09:32 IDT
+// Generated: 2026-09-29 09:36 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-28T09:32:00+03:00",
-    "generatedAtHuman": "2026-09-28 09:32 IDT",
-    "source": "IBKR last live snapshot 2026-09-16 (connector disconnected \u2014 re-auth required) + Yahoo 2026-09-25 close + public @pdicarlotrader X notes 2026-09-28. Closed trades unchanged until IBKR re-auth.",
-    "nav": 10745.68,
+    "generatedAt": "2026-09-29T09:36:15+03:00",
+    "generatedAtHuman": "2026-09-29 09:36 IDT",
+    "source": "IBKR last live snapshot 2026-09-16 (connector disconnected \u2014 re-auth required) + Yahoo 2026-09-28 close + public @pdicarlotrader X notes 2026-09-29. Closed trades unchanged until IBKR re-auth.",
+    "nav": 10327.71,
     "cash": -917.9,
-    "grossPositions": 11663.58,
-    "unrealized": -22.64,
+    "grossPositions": 11245.61,
+    "unrealized": -440.61,
     "positionsCount": 15,
     "note": "YTD closed \u00b7 36W / 32L / 1 even \u00b7 WR 52.9%"
   },
@@ -20,26 +20,26 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 148,
       "avg": 7.92579392,
-      "last": 7.77,
-      "upnl": -23.06,
-      "mv": 1149.96,
+      "last": 7.41,
+      "upnl": -76.34,
+      "mv": 1096.68,
       "cost": 1173.02,
-      "upnlPct": -1.97,
-      "pctNet": 10.7,
-      "chg": 0.26,
+      "upnlPct": -6.51,
+      "pctNet": 10.62,
+      "chg": -4.63,
       "peter": null
     },
     {
       "symbol": "CRDO",
       "qty": 7,
       "avg": 153.25714286,
-      "last": 210.97,
-      "upnl": 403.99,
-      "mv": 1476.79,
+      "last": 192.67,
+      "upnl": 275.89,
+      "mv": 1348.69,
       "cost": 1072.8,
-      "upnlPct": 37.66,
-      "pctNet": 13.74,
-      "chg": 7.65,
+      "upnlPct": 25.72,
+      "pctNet": 13.06,
+      "chg": -8.67,
       "peter": {
         "sum": "Bullish structure plus a strong Smart Money discount; as long as $140 holds he expects a full recovery inside 12 months.",
         "url": "https://x.com/pdicarlotrader/status/2099224062744510730",
@@ -50,26 +50,26 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "qty": 26,
       "avg": 39.24444615,
-      "last": 32.4,
-      "upnl": -177.96,
-      "mv": 842.4,
+      "last": 30.91,
+      "upnl": -216.7,
+      "mv": 803.66,
       "cost": 1020.36,
-      "upnlPct": -17.44,
-      "pctNet": 7.84,
-      "chg": -1.28,
+      "upnlPct": -21.24,
+      "pctNet": 7.78,
+      "chg": -4.6,
       "peter": null
     },
     {
       "symbol": "APP",
       "qty": 3,
       "avg": 309.525,
-      "last": 310.75,
-      "upnl": 3.68,
-      "mv": 932.25,
+      "last": 308.24,
+      "upnl": -3.85,
+      "mv": 924.72,
       "cost": 928.57,
-      "upnlPct": 0.4,
-      "pctNet": 8.68,
-      "chg": -0.55,
+      "upnlPct": -0.41,
+      "pctNet": 8.95,
+      "chg": -0.81,
       "peter": {
         "sum": "Back in the 1-hour Smart Money Zone on Sep 23 and bouncing again after the Sep 21 SMZ bounce.",
         "url": "https://x.com/pdicarlotrader/status/2102910106119651374",
@@ -80,39 +80,39 @@ window.__DATA__ = {
       "symbol": "NXT",
       "qty": 10,
       "avg": 92.6595,
-      "last": 80.85,
-      "upnl": -118.09,
-      "mv": 808.5,
+      "last": 79.13,
+      "upnl": -135.29,
+      "mv": 791.3,
       "cost": 926.59,
-      "upnlPct": -12.74,
-      "pctNet": 7.52,
-      "chg": 1.1,
+      "upnlPct": -14.6,
+      "pctNet": 7.66,
+      "chg": -2.13,
       "peter": null
     },
     {
       "symbol": "VST",
       "qty": 6,
       "avg": 149.56,
-      "last": 138.46,
-      "upnl": -66.6,
-      "mv": 830.76,
+      "last": 138.02,
+      "upnl": -69.24,
+      "mv": 828.12,
       "cost": 897.36,
-      "upnlPct": -7.42,
-      "pctNet": 7.73,
-      "chg": 0.38,
+      "upnlPct": -7.72,
+      "pctNet": 8.02,
+      "chg": -0.32,
       "peter": null
     },
     {
       "symbol": "RKLB",
       "qty": 14,
       "avg": 63.35535714,
-      "last": 73.95,
-      "upnl": 148.33,
-      "mv": 1035.3,
+      "last": 72.19,
+      "upnl": 123.69,
+      "mv": 1010.66,
       "cost": 886.97,
-      "upnlPct": 16.72,
-      "pctNet": 9.63,
-      "chg": 0.46,
+      "upnlPct": 13.95,
+      "pctNet": 9.79,
+      "chg": -2.38,
       "peter": {
         "sum": "Watching a sweep of $70 Point of Control resistance. Long-term double-SMZ thesis intact; next short-term targets $72 and $80, weekly close below $56 invalidates.",
         "url": "https://x.com/pdicarlotrader/status/2102113293015880175",
@@ -123,91 +123,91 @@ window.__DATA__ = {
       "symbol": "KTOS",
       "qty": 17,
       "avg": 48.01058824,
-      "last": 45.62,
-      "upnl": -40.64,
-      "mv": 775.54,
+      "last": 44.07,
+      "upnl": -66.99,
+      "mv": 749.19,
       "cost": 816.18,
-      "upnlPct": -4.98,
-      "pctNet": 7.22,
-      "chg": -2.98,
+      "upnlPct": -8.21,
+      "pctNet": 7.25,
+      "chg": -3.4,
       "peter": null
     },
     {
       "symbol": "CELH",
       "qty": 24,
       "avg": 30.33222083,
-      "last": 27.99,
-      "upnl": -56.21,
-      "mv": 671.76,
+      "last": 28.0,
+      "upnl": -55.97,
+      "mv": 672.0,
       "cost": 727.97,
-      "upnlPct": -7.72,
-      "pctNet": 6.25,
-      "chg": -1.55,
+      "upnlPct": -7.69,
+      "pctNet": 6.51,
+      "chg": 0.04,
       "peter": null
     },
     {
       "symbol": "TE",
       "qty": 117,
       "avg": 5.13508547,
-      "last": 3.78,
-      "upnl": -158.54,
-      "mv": 442.26,
+      "last": 3.57,
+      "upnl": -183.11,
+      "mv": 417.69,
       "cost": 600.8,
-      "upnlPct": -26.39,
-      "pctNet": 4.12,
-      "chg": -0.79,
+      "upnlPct": -30.48,
+      "pctNet": 4.04,
+      "chg": -5.56,
       "peter": null
     },
     {
       "symbol": "JOBY",
       "qty": 85,
       "avg": 6.97264706,
-      "last": 6.32,
-      "upnl": -55.48,
-      "mv": 537.2,
+      "last": 6.11,
+      "upnl": -73.33,
+      "mv": 519.35,
       "cost": 592.68,
-      "upnlPct": -9.36,
-      "pctNet": 5.0,
-      "chg": 0.32,
+      "upnlPct": -12.37,
+      "pctNet": 5.03,
+      "chg": -3.32,
       "peter": null
     },
     {
       "symbol": "UBER",
       "qty": 8,
       "avg": 72.9125,
-      "last": 69.62,
-      "upnl": -26.34,
-      "mv": 556.96,
+      "last": 68.16,
+      "upnl": -38.02,
+      "mv": 545.28,
       "cost": 583.3,
-      "upnlPct": -4.52,
-      "pctNet": 5.18,
-      "chg": 0.58,
+      "upnlPct": -6.52,
+      "pctNet": 5.28,
+      "chg": -2.1,
       "peter": null
     },
     {
       "symbol": "CBRS",
       "qty": 3,
       "avg": 183.33333333,
-      "last": 206.75,
-      "upnl": 70.25,
-      "mv": 620.25,
+      "last": 196.74,
+      "upnl": 40.22,
+      "mv": 590.22,
       "cost": 550.0,
-      "upnlPct": 12.77,
-      "pctNet": 5.77,
-      "chg": 0.17,
+      "upnlPct": 7.31,
+      "pctNet": 5.71,
+      "chg": -4.84,
       "peter": null
     },
     {
       "symbol": "ON",
       "qty": 7,
       "avg": 72.26714286,
-      "last": 77.2,
-      "upnl": 34.53,
-      "mv": 540.4,
+      "last": 75.65,
+      "upnl": 23.68,
+      "mv": 529.55,
       "cost": 505.87,
-      "upnlPct": 6.83,
-      "pctNet": 5.03,
-      "chg": 5.54,
+      "upnlPct": 4.68,
+      "pctNet": 5.13,
+      "chg": -2.01,
       "peter": {
         "sum": "Up +17% since his Sep 17 buy video. Expects a short-term pullback into next week to make a higher low, then a $100 target within 90 days.",
         "url": "https://x.com/pdicarlotrader/status/2104018486619972069",
@@ -218,13 +218,13 @@ window.__DATA__ = {
       "symbol": "CIFR",
       "qty": 25,
       "avg": 16.15,
-      "last": 17.73,
-      "upnl": 39.5,
-      "mv": 443.25,
+      "last": 16.74,
+      "upnl": 14.75,
+      "mv": 418.5,
       "cost": 403.75,
-      "upnlPct": 9.78,
-      "pctNet": 4.12,
-      "chg": -2.04,
+      "upnlPct": 3.65,
+      "pctNet": 4.05,
+      "chg": -5.58,
       "peter": {
         "sum": "Hit the short-term target. Longer-term still looking for $30, but he would not be surprised by a short-term dip toward $16 before the next leg up.",
         "url": "https://x.com/pdicarlotrader/status/2102932788722782320",
@@ -874,11 +874,32 @@ window.__DATA__ = {
   },
   "recs": [
     {
-      "date": "Sep 28, 2026",
+      "date": "Sep 29, 2026",
+      "sym": "TSLA",
+      "kind": "watch",
+      "sum": "Back at major support. Calls this a critical level \u2014 if it fails, he sees another 15\u201320% selloff. Video covers the setup, levels that must hold, and what keeps bullish structure intact.",
+      "url": "https://x.com/pdicarlotrader/status/2104748261890494579"
+    },
+    {
+      "date": "Sep 29, 2026",
+      "sym": "META",
+      "kind": "watch",
+      "sum": "Up ~40% since the Smart Money Buy Zone bounce last month. Video covers why the bullish break of structure matters, where he plans to buy back in, and the levels he is watching.",
+      "url": "https://x.com/pdicarlotrader/status/2104748006947918179"
+    },
+    {
+      "date": "Sep 29, 2026",
+      "sym": "NVDA",
+      "kind": "note",
+      "sum": "Bounced off the short-term Smart Money Zone and has now reached his target. Video recaps why he expected the bounce and where he is watching next.",
+      "url": "https://x.com/pdicarlotrader/status/2104747710440165597"
+    },
+    {
+      "date": "Sep 29, 2026",
       "sym": "AMZN",
       "kind": "buy",
-      "sum": "Sold in August before the pullback; now an early-buy on his system. Optimal add near $240 daily SMZ. Pattern historically makes a new swing high in 2\u20133 months toward ~$290 by Nov\u2013Dec.",
-      "url": "https://x.com/pdicarlotrader/status/2104376840454357166"
+      "sum": "Patience setup for another major breakout. Still an early-buy on his system; optimal add near $240 daily SMZ. Pattern historically makes a new swing high in 2\u20133 months toward ~$290 by Nov\u2013Dec.",
+      "url": "https://x.com/pdicarlotrader/status/2104747115087810575"
     },
     {
       "date": "Sep 28, 2026",
@@ -925,10 +946,10 @@ window.__DATA__ = {
       "all": -9.37
     },
     "spy": {
-      "m1": 0.71,
-      "mtd": 0.56,
-      "ytd": 13.11,
-      "y1": 16.55,
+      "m1": -0.49,
+      "mtd": -0.19,
+      "ytd": 12.27,
+      "y1": 15.36,
       "all": null
     }
   },
@@ -962,7 +983,8 @@ window.__DATA__ = {
       "09/22",
       "09/23",
       "09/24",
-      "09/25"
+      "09/25",
+      "09/28"
     ],
     "portfolio": [
       0.0,
@@ -993,7 +1015,8 @@ window.__DATA__ = {
       -18.72,
       -20.79,
       -20.92,
-      -20.21
+      -20.21,
+      -24.1
     ],
     "spy": [
       0.0,
@@ -1024,7 +1047,8 @@ window.__DATA__ = {
       1.16,
       0.43,
       0.35,
-      0.9
+      0.9,
+      0.16
     ]
   },
   "performance": {
@@ -1109,7 +1133,8 @@ window.__DATA__ = {
         "09/22",
         "09/23",
         "09/24",
-        "09/25"
+        "09/25",
+        "09/28"
       ],
       "nav": [
         16522.14,
@@ -1191,7 +1216,8 @@ window.__DATA__ = {
         10945.72,
         10666.92,
         10649.97,
-        10745.68
+        10745.68,
+        10327.71
       ]
     },
     "mtd": {
@@ -1212,7 +1238,8 @@ window.__DATA__ = {
         "09/22",
         "09/23",
         "09/24",
-        "09/25"
+        "09/25",
+        "09/28"
       ],
       "nav": [
         12129.03,
@@ -1231,7 +1258,8 @@ window.__DATA__ = {
         10945.72,
         10666.92,
         10649.97,
-        10745.68
+        10745.68,
+        10327.71
       ]
     }
   }
