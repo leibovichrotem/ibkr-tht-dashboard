@@ -51,6 +51,12 @@
     .kind-watch { background:#1e3a5f; color:#93c5fd; padding:2px 8px; border-radius:6px; font-size:0.68rem; font-weight:600; }
     .kind-note { background:#334155; color:#e2e8f0; padding:2px 8px; border-radius:6px; font-size:0.68rem; font-weight:600; }
     .logo-wrap { width:22px; height:22px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:700; color:#fff; flex-shrink:0; }
+    .kpi-card { position:relative; }
+    .kpi-card .kpi-tip { display:none; position:absolute; top:calc(100% + 6px); left:0; width:260px; z-index:40; padding:10px 12px; background:#0f172a; border:1px solid #475569; border-radius:10px; box-shadow:0 12px 40px #0008; color:#e2e8f0; font-size:0.72rem; line-height:1.45; text-align:left; font-weight:400; text-transform:none; letter-spacing:0; }
+    .kpi-card:hover .kpi-tip { display:block; }
+    .src-fifo { background:#064e3b; color:#6ee7b7; padding:2px 7px; border-radius:6px; font-size:0.66rem; font-weight:600; }
+    .src-est { background:#78350f; color:#fcd34d; padding:2px 7px; border-radius:6px; font-size:0.66rem; font-weight:600; }
+    .recon-ok { color:#6ee7b7; } .recon-bad { color:#fbbf24; }
   </style>
 </head>
 <body class="p-4 md:p-6 lg:p-8">
@@ -120,20 +126,21 @@
       </ul>
     </div>
 
-    <!-- KPIs -->
+    <!-- KPIs: values are computed in the browser from fills/closed. Hover a card for the definition. -->
     <div>
       <h2 class="text-sm font-semibold text-white mb-3 tracking-wide uppercase">Performance & Process KPIs</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Trades History</div><div class="kpi-value num" id="kpi-n">—</div><div class="text-xs text-slate-500 mt-1">Goal: 100+</div></div>
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Win Rate</div><div class="kpi-value num" id="kpi-wr">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-wl">—</div></div>
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Profit Factor</div><div class="kpi-value num" id="kpi-pf">—</div><div class="text-xs text-slate-500 mt-1">Gross Wins ÷ Losses</div></div>
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Total Realized</div><div class="kpi-value num" id="kpi-total">—</div><div class="text-xs text-slate-500 mt-1">YTD closed P&L</div></div>
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Avg Win</div><div class="kpi-value num text-pos" id="kpi-aw">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-awp">—</div></div>
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Avg Loss</div><div class="kpi-value num text-neg" id="kpi-al">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-alp">—</div></div>
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Expectancy / trade</div><div class="kpi-value num" id="kpi-e">—</div><div class="text-xs text-slate-500 mt-1">Avg edge per trade</div></div>
-        <div class="card p-4"><div class="text-xs text-slate-500 mb-1">Largest Win / Loss</div><div class="flex gap-3 mt-1"><div><div class="text-sm font-semibold text-pos num" id="kpi-lw">—</div><div class="text-[0.65rem] text-slate-500">Best</div></div><div><div class="text-sm font-semibold text-neg num" id="kpi-ll">—</div><div class="text-[0.65rem] text-slate-500">Worst</div></div></div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Trades History</div><div class="kpi-value num" id="kpi-n">—</div><div class="text-xs text-slate-500 mt-1">Goal: 100+</div><div class="kpi-tip">Count of closed sell orders. Partial fills of the same IBKR order are one trade. Estimated rows are listed but excluded from win rate until marked ibkr_fifo.</div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Win Rate</div><div class="kpi-value num" id="kpi-wr">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-wl">—</div><div class="kpi-tip">Wins ÷ (wins + losses). Flat trades are excluded. Each closed order counts once — a $20 scalp weighs the same as a $700 winner. Not dollar-weighted.</div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Profit Factor</div><div class="kpi-value num" id="kpi-pf">—</div><div class="text-xs text-slate-500 mt-1">Gross Wins ÷ Losses</div><div class="kpi-tip">Gross winning dollars ÷ gross losing dollars. Above 1 means winners outweigh losers in dollars, even if win rate is under 50%. Under 1 means the opposite.</div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Total Realized</div><div class="kpi-value num" id="kpi-total">—</div><div class="text-xs text-slate-500 mt-1">YTD closed P&L</div><div class="kpi-tip">Sum of IBKR FIFO realized P&L on closed sells. Commissions are already inside IBKR realized_pnl. Open positions are not included.</div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Avg Win</div><div class="kpi-value num text-pos" id="kpi-aw">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-awp">—</div><div class="kpi-tip">Mean dollar P&L of winning orders, and mean percent versus the cost basis implied by exit price and IBKR realized P&L.</div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Avg Loss</div><div class="kpi-value num text-neg" id="kpi-al">—</div><div class="text-xs text-slate-500 mt-1" id="kpi-alp">—</div><div class="kpi-tip">Mean dollar P&L of losing orders (a negative number), and mean percent versus implied cost. Compared with Avg Win, this is the payoff ratio.</div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Expectancy / trade</div><div class="kpi-value num" id="kpi-e">—</div><div class="text-xs text-slate-500 mt-1">Avg edge per trade</div><div class="kpi-tip">Total realized ÷ number of closed orders, including flats. Average dollars the book made or lost per closed order. Not a forecast.</div></div>
+        <div class="card p-4 kpi-card"><div class="text-xs text-slate-500 mb-1">Largest Win / Loss</div><div class="flex gap-3 mt-1"><div><div class="text-sm font-semibold text-pos num" id="kpi-lw">—</div><div class="text-[0.65rem] text-slate-500">Best</div></div><div><div class="text-sm font-semibold text-neg num" id="kpi-ll">—</div><div class="text-[0.65rem] text-slate-500">Worst</div></div></div><div class="kpi-tip">Best and worst single closed order in the sample. One outlier can dominate expectancy — read it next to the averages.</div></div>
       </div>
-      <p class="text-xs text-slate-500 mt-3" id="kpi-note">Derived from closed trades in data.js</p>
+      <p class="text-xs text-slate-500 mt-3" id="kpi-note">Computed in the browser from fills.</p>
+      <p class="text-xs mt-1" id="recon-line">Book check: —</p>
     </div>
 
     <!-- Tabs -->
@@ -174,7 +181,7 @@
       <div class="card">
         <div class="p-4 border-b border-slate-700">
           <h2 class="font-semibold text-white">Trades History (newest first)</h2>
-          <p class="text-xs text-slate-500 mt-1">Closed sell orders with realized P&L vs cost basis</p>
+          <p class="text-xs text-slate-500 mt-1">One row per sell order. P&L is IBKR FIFO realized_pnl (commissions included). Estimated rows are excluded from win rate.</p>
         </div>
         <div class="scroll-box">
           <table>
@@ -187,6 +194,7 @@
                 <th class="text-right">P&L $</th>
                 <th class="text-right">P&L %</th>
                 <th>Result</th>
+                <th>Source</th>
               </tr>
             </thead>
             <tbody id="closed-body"></tbody>
@@ -304,11 +312,11 @@
 
     <footer class="text-center text-slate-500 text-xs py-4">
       Generated by Grok · ibkr-trade-tracker · THT Bull Cycle · Not financial advice<br>
-      Architecture: numbers live only in <code class="text-slate-400">data.js</code> · <code class="text-slate-400">index.html</code> is a pure renderer
+      Architecture: fills in <code class="text-slate-400">data.js</code> are the source · KPIs, % net liq, and the book check are computed here
     </footer>
   </div>
 
-  <script src="data.js?v=20261001-0932"></script>
+  <script src="data.js?v=20261001-1143"></script>
   <script>
     // ——— Data ———
     const DATA = window.__DATA__;
@@ -317,12 +325,54 @@
       throw new Error('no data');
     }
     const m = DATA.meta;
-    const k = DATA.kpis || {};
+    const storedK = DATA.kpis || {};
     let positions = Array.isArray(DATA.positions) ? DATA.positions.map(p => Object.assign({}, p, { chg: p.chg || 0 })) : [];
-    const closed = Array.isArray(DATA.closed) ? DATA.closed : [];
     const recs = Array.isArray(DATA.recs) ? DATA.recs : [];
     const perf = DATA.performance || {};
-    const NET_LIQ = m.nav || 0; // last-run 2026-10-01 09:32 IDT
+    const NET_LIQ = Number(m.nav) || 0;
+
+    function round2(n){ return Math.round((Number(n)||0)*100)/100; }
+    function groupFills(fills){
+      const by={};
+      fills.forEach(f=>{
+        if (String(f.side||'').toUpperCase()!=='SELL') return;
+        if (f.sec && f.sec!=='STK') return;
+        const id=String(f.order_id||f.id||'');
+        if (!by[id]) by[id]=[];
+        by[id].push(f);
+      });
+      return Object.keys(by).map(id=>{
+        const fs=by[id];
+        const qty=fs.reduce((s,f)=>s+Number(f.qty||0),0);
+        const pnl=fs.reduce((s,f)=>s+Number(f.pnl||0),0);
+        const comm=fs.reduce((s,f)=>s+Number(f.comm||0),0);
+        const proceeds=fs.reduce((s,f)=>s+Number(f.price||0)*Number(f.qty||0),0);
+        const costD=proceeds-pnl;
+        const date=fs.map(f=>String(f.time||f.date||'')).sort().slice(-1)[0].slice(0,10);
+        return {
+          date: date,
+          sym: fs[0].sym,
+          qty: qty,
+          exit: qty? proceeds/qty : 0,
+          pnl: pnl,
+          cost: qty? costD/qty : 0,
+          pct: Math.abs(costD)>1e-9 ? pnl/costD*100 : 0,
+          comm: comm,
+          order_id: id,
+          source: 'ibkr_fifo'
+        };
+      }).sort((a,b)=> (a.date<b.date?1:a.date>b.date?-1:0));
+    }
+    const fills=Array.isArray(DATA.fills)?DATA.fills:[];
+    const closed = fills.length ? groupFills(fills) : (Array.isArray(DATA.closed)?DATA.closed:[]);
+    // Derived book figures. Do not trust typed gross / unrealized / % net liq.
+    const derivedGross=round2(positions.reduce((s,p)=>s+(Number(p.mv)||0),0));
+    const derivedUpnl=round2(positions.reduce((s,p)=>s+(Number(p.upnl)||0),0));
+    positions.forEach(p=>{
+      const cost=Number(p.cost)||((Number(p.avg)||0)*(Number(p.qty)||0));
+      p.pctNet = NET_LIQ ? (Number(p.mv)||0)/NET_LIQ*100 : 0;
+      if (cost) p.upnlPct=(Number(p.upnl)||0)/cost*100;
+    });
 
     // Sector map (simple static)
     const SECTOR = {
@@ -336,9 +386,9 @@
     // ——— Header ———
     document.getElementById('hdr-cash').textContent = '$' + Math.round(m.cash||0).toLocaleString();
     document.getElementById('hdr-nav').textContent = '$' + Math.round(m.nav||0).toLocaleString();
-    document.getElementById('hdr-pos').textContent = m.positionsCount || positions.length;
+    document.getElementById('hdr-pos').textContent = positions.length;
     const pcl=document.getElementById('pos-count-label'); if(pcl) pcl.textContent=(positions.length)+' holdings';
-    const upnl = Number(m.unrealized)||0;
+    const upnl = derivedUpnl;
     const upEl = document.getElementById('hdr-upnl');
     upEl.textContent = (upnl>=0?'+$':'-$') + Math.abs(Math.round(upnl)).toLocaleString();
     upEl.className = 'font-medium text-sm ' + (upnl>=0?'text-emerald-400':'text-rose-400');
@@ -358,29 +408,61 @@
     }
     updateMktPill();
 
-    // ——— KPIs from data.js ———
-    document.getElementById('kpi-n').textContent = k.n ?? '—';
-    document.getElementById('kpi-wr').textContent = k.winRate!=null ? k.winRate+'%' : '—';
-    document.getElementById('kpi-wl').textContent = (k.wins!=null&&k.losses!=null) ? (k.wins+'W / '+k.losses+'L') : '—';
-    const pfEl=document.getElementById('kpi-pf');
-    if (k.profitFactor==null) pfEl.textContent='—';
-    else { pfEl.textContent=Number(k.profitFactor).toFixed(2); pfEl.classList.add(k.profitFactor>=1?'text-pos':'text-neg'); }
-    const tot=document.getElementById('kpi-total');
-    if (k.totalRealized!=null){ const t=k.totalRealized; tot.textContent=(t>=0?'+$':'-$')+Math.abs(Math.round(t)).toLocaleString(); tot.classList.add(t>=0?'text-pos':'text-neg'); }
-    document.getElementById('kpi-aw').textContent = k.avgWin!=null ? ('+$'+Math.round(k.avgWin)) : '—';
-    document.getElementById('kpi-awp').textContent = k.avgWinPct!=null ? ('~+'+k.avgWinPct.toFixed(1)+'% vs cost') : '';
-    document.getElementById('kpi-al').textContent = k.avgLoss!=null ? ('–$'+Math.round(Math.abs(k.avgLoss))) : '—';
-    document.getElementById('kpi-alp').textContent = k.avgLossPct!=null ? ('~'+k.avgLossPct.toFixed(1)+'% vs cost') : '';
-    const eEl=document.getElementById('kpi-e');
-    if (k.expectancy!=null){ eEl.textContent=(k.expectancy>=0?'+$':'–$')+Math.round(Math.abs(k.expectancy)); eEl.classList.add(k.expectancy>=0?'text-pos':'text-neg'); }
-    if (closed.length){
-      const wins=closed.filter(t=>t.pnl>0), losses=closed.filter(t=>t.pnl<0);
-      const maxW=wins.length?Math.max(...wins.map(t=>t.pnl)):null;
-      const maxL=losses.length?Math.min(...losses.map(t=>t.pnl)):null;
-      document.getElementById('kpi-lw').textContent = maxW!=null?('+$'+Math.round(maxW)):'—';
-      document.getElementById('kpi-ll').textContent = maxL!=null?('–$'+Math.round(Math.abs(maxL))):'—';
+    // ——— KPIs computed here. stored kpis are a cache and are checked, not trusted. ———
+    function scoredTrades(rows){
+      return rows.filter(t=> t.source!=='estimated');
     }
-    document.getElementById('kpi-note').textContent = k.note || 'Derived from closed trades in data.js';
+    const sample=scoredTrades(closed);
+    const wins=sample.filter(t=>Number(t.pnl)>0);
+    const losses=sample.filter(t=>Number(t.pnl)<0);
+    const flats=sample.filter(t=>Number(t.pnl)===0);
+    const gw=wins.reduce((s,t)=>s+Number(t.pnl),0);
+    const gl=losses.reduce((s,t)=>s+Number(t.pnl),0);
+    const decided=wins.length+losses.length;
+    const wr=decided? (wins.length/decided*100) : null;
+    const pf=gl? gw/Math.abs(gl) : null;
+    const total=gw+gl;
+    const exp=sample.length? total/sample.length : null;
+    const avgWin=wins.length? gw/wins.length : null;
+    const avgLoss=losses.length? gl/losses.length : null;
+    const avgWinPct=wins.length? wins.reduce((s,t)=>s+Number(t.pct||0),0)/wins.length : null;
+    const avgLossPct=losses.length? losses.reduce((s,t)=>s+Number(t.pct||0),0)/losses.length : null;
+    document.getElementById('kpi-n').textContent = sample.length;
+    document.getElementById('kpi-wr').textContent = wr!=null ? wr.toFixed(1)+'%' : '—';
+    document.getElementById('kpi-wl').textContent = wins.length+'W / '+losses.length+'L'+(flats.length?(' / '+flats.length+' even'):'');
+    const pfEl=document.getElementById('kpi-pf');
+    if (pf==null) pfEl.textContent='—';
+    else { pfEl.textContent=pf.toFixed(2); pfEl.classList.add(pf>=1?'text-pos':'text-neg'); }
+    const tot=document.getElementById('kpi-total');
+    tot.textContent=(total>=0?'+$':'-$')+Math.abs(Math.round(total)).toLocaleString();
+    tot.classList.add(total>=0?'text-pos':'text-neg');
+    document.getElementById('kpi-aw').textContent = avgWin!=null ? ('+$'+Math.round(avgWin)) : '—';
+    document.getElementById('kpi-awp').textContent = avgWinPct!=null ? ('~+'+avgWinPct.toFixed(1)+'% vs cost') : '';
+    document.getElementById('kpi-al').textContent = avgLoss!=null ? ('–$'+Math.round(Math.abs(avgLoss))) : '—';
+    document.getElementById('kpi-alp').textContent = avgLossPct!=null ? ('~'+avgLossPct.toFixed(1)+'% vs cost') : '';
+    const eEl=document.getElementById('kpi-e');
+    if (exp!=null){ eEl.textContent=(exp>=0?'+$':'–$')+Math.round(Math.abs(exp)); eEl.classList.add(exp>=0?'text-pos':'text-neg'); }
+    const maxW=wins.length?Math.max(...wins.map(t=>Number(t.pnl))):null;
+    const maxL=losses.length?Math.min(...losses.map(t=>Number(t.pnl))):null;
+    document.getElementById('kpi-lw').textContent = maxW!=null?('+$'+Math.round(maxW)):'—';
+    document.getElementById('kpi-ll').textContent = maxL!=null?('–$'+Math.round(Math.abs(maxL))):'—';
+    const estN=closed.filter(t=>t.source==='estimated').length;
+    const fifoN=closed.filter(t=>t.source==='ibkr_fifo').length;
+    const unlabeled=closed.length-estN-fifoN;
+    let note='Computed here from '+(fills.length?fills.length+' IBKR fills → ':'')+closed.length+' closed orders';
+    if (fifoN) note+=' · '+fifoN+' ibkr_fifo';
+    if (estN) note+=' · '+estN+' estimated excluded from win rate';
+    if (unlabeled) note+=' · '+unlabeled+' unlabeled (counted)';
+    const storedTot=storedK.totalRealized;
+    const mismatch = storedTot!=null && Math.abs(Number(storedTot)-total)>1;
+    if (mismatch) note+=' · stored KPI cache disagrees — showing the computed figure';
+    document.getElementById('kpi-note').textContent=note;
+    const drift=round2((Number(m.cash)||0)+derivedGross-NET_LIQ);
+    const recon=document.getElementById('recon-line');
+    const ok=Math.abs(drift)<=15;
+    recon.className='text-xs mt-1 '+(ok?'recon-ok':'recon-bad');
+    recon.textContent='Book check: cash '+Math.round(m.cash||0).toLocaleString()+' + positions $'+Math.round(derivedGross).toLocaleString()+' − NAV $'+Math.round(NET_LIQ).toLocaleString()+' = '+(drift>=0?'+':'')+drift.toFixed(2)+(ok?' · within rounding / accruals':' · snapshot gap — a position or cash line may be missing');
+    // kpi-note already set by the browser calculator
 
     // ——— Helpers ———
     function fmtDate(s) {
@@ -440,16 +522,21 @@
     // ——— Closed ———
     const cbody=document.getElementById('closed-body');
     closed.forEach(t=>{
-      const isWin=(t.pnl||0)>0; const cls=isWin?'text-emerald-400':'text-red-400';
+      const pnl=Number(t.pnl)||0;
+      const isWin=pnl>0; const isFlat=pnl===0;
+      const cls=isWin?'text-emerald-400':(isFlat?'text-slate-400':'text-red-400');
+      const src=t.source==='ibkr_fifo'?'ibkr_fifo':(t.source==='estimated'?'estimated':'unlabeled');
+      const srcCls=src==='ibkr_fifo'?'src-fifo':'src-est';
       const tr=document.createElement('tr');
       tr.innerHTML =
         '<td class="text-slate-400">'+fmtDate(t.date)+'</td>'+
         '<td><div class="flex items-center gap-2">'+badge(t.sym)+'<span class="font-medium">'+t.sym+'</span></div></td>'+
         '<td class="num text-right">'+t.qty+'</td>'+
-        '<td class="num text-right">$'+(t.exit||0).toFixed(2)+'</td>'+
-        '<td class="num text-right '+cls+'">'+(t.pnl>=0?'+':'')+Math.round(t.pnl)+'</td>'+
-        '<td class="num text-right '+cls+'">'+(t.pct>=0?'+':'')+(t.pct||0).toFixed(1)+'%</td>'+
-        '<td class="'+cls+' font-medium">'+(isWin?'Win':'Loss')+'</td>';
+        '<td class="num text-right">$'+(Number(t.exit)||0).toFixed(2)+'</td>'+
+        '<td class="num text-right '+cls+'">'+(pnl>=0?'+':'')+Math.round(pnl)+'</td>'+
+        '<td class="num text-right '+cls+'">'+(Number(t.pct)>=0?'+':'')+(Number(t.pct)||0).toFixed(1)+'%</td>'+
+        '<td class="'+cls+' font-medium">'+(isWin?'Win':(isFlat?'Even':'Loss'))+'</td>'+
+        '<td><span class="'+srcCls+'" title="'+(src==='ibkr_fifo'?'IBKR FIFO realized_pnl, grouped by order':'Not confirmed against IBKR realized_pnl — excluded from win rate')+'">'+src+'</span></td>';
       cbody.appendChild(tr);
     });
 

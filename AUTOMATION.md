@@ -5,8 +5,8 @@
 
 ## CRITICAL ARCHITECTURE (do not break)
 
-- `index.html` is a **pure renderer**. NEVER edit, patch, or overwrite it.
-- All numbers live only in `data.js` — **single source of truth**.
+- `index.html` computes KPIs, % net liq, and the book check. NEVER overwrite it from automation.
+- `data.js` holds raw `fills` plus positions. The browser is the calculator.
 - Automation **only** writes/overwrites `data.js`, then `git add data.js` + commit + push.
 - Browser Finnhub overlay may update on-screen Last/Chg%/Unrealized; it does **not** write back to data.js.
 
@@ -33,17 +33,16 @@ export GIT_SSH_COMMAND="ssh -i /root/.ssh/grok_deploy_key -o IdentitiesOnly=yes 
 - get_account_trades period=YEAR_TO_DATE
 - get_pa_performance_all_periods (TWR)
 
-## 2) closed[] — deterministic aggregation
-- SELL fills only.
-- Group by order_id: sum realized_pnl, sum size, latest trade_time as date, size-weighted avg exit.
-- Each row: { date:"YYYY-MM-DD", sym, qty, exit, pnl, cost, pct }
-- Sort newest first.
-- n = closed.length MUST equal kpis.n. Never invent trades.
+## 2) fills[] — raw IBKR executions, append the full YTD set every run
+- Every fill: { id, order_id, date, time, sym, side, qty, price, comm, pnl, sec }
+- pnl = IBKR realized_pnl (0 on buys). Do not recompute P&L.
+- Also write closed[] as a cache: SELL stock fills grouped by order_id, source:"ibkr_fifo".
+- If a sell has no realized_pnl, mark that closed row source:"estimated". Estimated rows must not be mixed into fifo rows.
 
-## 3) kpis — compute server-side from closed[] only
-- wins = pnl>0, losses = pnl<0
-- winRate, profitFactor (null if no losses), avgWin, avgLoss, expectancy, avgWinPct, avgLossPct, totalRealized
-- Browser must NOT recalculate KPIs from partial data.
+## 3) kpis — optional cache only
+- The page recomputes win rate, profit factor, expectancy from fills.
+- If you write kpis, they must match that grouping. A mismatch shows a badge.
+- Derive grossPositions and unrealized from position rows. Write meta.reconDrift = cash + sum(mv) - nav.
 
 ## 4) positions[] from IBKR
 - Fields: symbol, qty, avg, last, upnl, upnlPct, cost, mv, pctNet, chg:0, peter:null
