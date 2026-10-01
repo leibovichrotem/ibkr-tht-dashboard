@@ -231,10 +231,10 @@
     <!-- Analytics -->
     <div class="space-y-5 mt-2">
       <!-- Performance vs SPY -->
-      <div class="card overflow-x-auto">
+      <div class="card overflow-x-auto kpi-card">
         <div class="p-4 border-b border-slate-700">
-          <h2 class="font-semibold text-white">Performance</h2>
-          <p class="text-xs text-slate-500 mt-1">Portfolio (IBKR TWR) vs S&amp;P 500 proxy (SPY) · withdrawals mean NAV is not the scorecard</p>
+          <h2 class="font-semibold text-white">Performance</h2><div class="kpi-tip">Portfolio cells are the last point of IBKR TWR (cps) for that window. SPY is the price change of SPY closes on the same dates, not calendar-year YTD. Withdrawals do not change TWR. NAV is not this number.</div>
+          <p class="text-xs text-slate-IBKR time-weighted return vs SPY price return, same dates</p>
         </div>
         <table>
           <thead>
@@ -266,25 +266,25 @@
             </tr>
           </tbody>
         </table>
-        <p class="text-xs text-slate-500 p-3">*Since tracked = IBKR account window (from ~Jun 2026). TWR ignores deposits/withdrawals.</p>
+        <p class="text-xs text-slate-500 p-3" id="perf-note">*Since tracked = IBKR account window (= full IBKR TWR window. Both rows are computed here.</p>
       </div>
 
       <!-- Cumulative return % Portfolio vs SPY -->
-      <div class="card p-4">
+      <div class="card p-4 kpi-card">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <div>
-            <h3 class="text-sm font-semibold text-white">Cumulative Return %</h3>
-            <p class="text-xs text-slate-500">IBKR TWR vs SPY · rebased to 0 at series start</p>
+            <h3 class="text-sm font-semibold text-white">Cumulative Return %</h3><div class="kpi-tip">Portfolio line is IBKR cps x 100 for every day since the account opened. SPY is the close-to-close price return aligned to those dates and rebased to 0 on the first day. Same series as the table, not a NAV chart.</div>
+            <p class="text-xs text-slate-500">IBKR TWR vs SPY · same dates, rebased to 0</p>
           </div>
         </div>
         <div style="height:260px"><canvas id="chartEquity"></canvas></div>
       </div>
 
-      <!-- Allocation<!-- Allocation with % -->
-      <div class="card p-4">
+      <!-- Allocation -->
+      <div class="card p-4 kpi-card"><div class="kpi-tip">Slice size is position market value. Percent is share of gross holdings, not percent of NAV. Margin can make NAV smaller than gross holdings.</div>
         <div class="mb-3">
           <h3 class="text-sm font-semibold text-white tracking-wide uppercase">Holdings allocation</h3>
-          <p class="text-xs text-slate-500">All positions by market value · percentage shown</p>
+          <p class="text-xs text-slate-500">Market value of each open position. Share of gross holdings, not of NAV · percentage shown</p>
         </div>
         <div class="alloc-grid">
           <div class="relative mx-auto" style="width:240px;height:240px">
@@ -316,7 +316,7 @@
     </footer>
   </div>
 
-  <script src="data.js?v=20261001-1143"></script>
+  <script src="data.js?v=20261001-1446"></script>
   <script>
     // ——— Data ———
     const DATA = window.__DATA__;
@@ -624,21 +624,54 @@
       el.classList.remove('text-emerald-400','text-red-400','text-slate-300');
       el.classList.add(val >= 0 ? 'text-emerald-400' : 'text-red-400');
     }
-    const pc = DATA.perfCompare || {};
-    const pp = pc.portfolio || {};
-    const ps = pc.spy || {};
-    setPerf('perf-p-1m', pp.m1); setPerf('perf-p-mtd', pp.mtd);
-    setPerf('perf-p-ytd', pp.ytd); setPerf('perf-p-1y', pp.y1); setPerf('perf-p-all', pp.all);
-    setPerf('perf-s-1m', ps.m1); setPerf('perf-s-mtd', ps.mtd);
-    setPerf('perf-s-ytd', ps.ytd); setPerf('perf-s-1y', ps.y1);
-
-    // Cumulative return chart: Portfolio vs SPY
+        function twrWindow(dates, cps, start){
+      let i=0;
+      for (let n=0;n<dates.length;n++){ if (dates[n]>=start){ i=n; break; } }
+      const base=i>0?cps[i-1]:0;
+      return (cps[cps.length-1]-base)/(1+base)*100;
+    }
+    function spyOnOrBefore(spyMap, d){
+      const keys=Object.keys(spyMap);
+      let v=null;
+      for (let n=0;n<keys.length;n++){ if (keys[n]<=d) v=spyMap[keys[n]]; else break; }
+      return v;
+    }
+    function spyWindow(spyMap, dates, start){
+      const base=spyOnOrBefore(spyMap, start);
+      const last=spyOnOrBefore(spyMap, dates[dates.length-1]);
+      if (base==null || last==null || !base) return null;
+      return (last/base-1)*100;
+    }
+    const twr=DATA.twr||{};
+    const twrDates=twr.dates||[];
+    const twrCps=twr.cps||[];
+    const spyRaw=DATA.spyCloses||{};
+    const spyMap={};
+    (spyRaw.dates||[]).forEach((d,i)=>{ spyMap[String(d)]=Number(spyRaw.close[i]); });
+    if (twrDates.length && twrCps.length===twrDates.length){
+      const end=twrDates[twrDates.length-1];
+      const monthAgo=String(Number(end)-100);
+      const mtdStart=end.slice(0,6)+'01';
+      const pAll=twrCps[twrCps.length-1]*100;
+      setPerf('perf-p-1m', twrWindow(twrDates, twrCps, monthAgo));
+      setPerf('perf-p-mtd', twrWindow(twrDates, twrCps, mtdStart));
+      setPerf('perf-p-ytd', pAll); setPerf('perf-p-1y', pAll); setPerf('perf-p-all', pAll);
+      setPerf('perf-s-1m', spyWindow(spyMap, twrDates, monthAgo));
+      setPerf('perf-s-mtd', spyWindow(spyMap, twrDates, mtdStart));
+      setPerf('perf-s-ytd', spyWindow(spyMap, twrDates, twrDates[0]));
+      setPerf('perf-s-1y', spyWindow(spyMap, twrDates, twrDates[0]));
+      const note=document.getElementById('perf-note');
+      if (note) note.textContent='Computed here from '+twrDates.length+' IBKR TWR points ('+twrDates[0]+'-'+end+'). SPY is price return on those dates. 1 Year equals Since tracked because the account opened in Jun 2026.';
+    }
     let equityChart = null;
     (function renderReturnChart() {
-      const er = DATA.equityReturns || {};
-      const labels = er.labels || [];
-      const port = er.portfolio || [];
-      const spy = er.spy || [];
+      const labels = twrDates.map(d=>d.slice(4,6)+'/'+d.slice(6,8));
+      const port = twrCps.map(x=>Number(x)*100);
+      const base=spyOnOrBefore(spyMap, twrDates[0]||'');
+      const spy = twrDates.map(d=>{
+        const px=spyOnOrBefore(spyMap, d);
+        return (base && px!=null) ? (px/base-1)*100 : null;
+      });
       const ctx = document.getElementById('chartEquity');
       if (!ctx || !window.Chart || !labels.length) return;
       if (equityChart) equityChart.destroy();
