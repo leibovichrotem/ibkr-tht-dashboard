@@ -308,7 +308,7 @@
     </footer>
   </div>
 
-  <script src="data.js"></script>
+  <script src="data.js?v=20261001-0932"></script>
   <script>
     // ——— Data ———
     const DATA = window.__DATA__;
@@ -322,15 +322,15 @@
     const closed = Array.isArray(DATA.closed) ? DATA.closed : [];
     const recs = Array.isArray(DATA.recs) ? DATA.recs : [];
     const perf = DATA.performance || {};
-    const NET_LIQ = m.nav || 0;
+    const NET_LIQ = m.nav || 0; // last-run 2026-10-01 09:32 IDT
 
     // Sector map (simple static)
     const SECTOR = {
       META:'Communication Services', NFLX:'Communication Services', RBLX:'Communication Services',
-      ENPH:'Technology', NOW:'Technology', APP:'Technology', POET:'Technology',
+      ENPH:'Technology', NOW:'Technology', APP:'Technology', POET:'Technology', CBRS:'Technology', CIFR:'Technology',
       HOOD:'Financials', MSTR:'Financials',
-      MMM:'Industrials', RKLB:'Industrials', UBER:'Industrials',
-      TE:'Energy', CELH:'Consumer Staples', NXT:'Industrials'
+      MMM:'Industrials', RKLB:'Industrials', UBER:'Industrials', KTOS:'Industrials',
+      TE:'Energy', CELH:'Consumer Staples', NXT:'Industrials', VST:'Utilities'
     };
 
     // ——— Header ———

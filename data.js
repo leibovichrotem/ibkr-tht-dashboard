@@ -1,31 +1,31 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-09-30 20:49 IDT
+// Generated: 2026-10-01 09:32 IDT
 // This file is the ONLY place numbers live. index.html never hardcodes data.
 // Automation overwrites this file every hour. Never touch index.html structure.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-09-30T20:49:07+03:00",
-    "generatedAtHuman": "2026-09-30 20:49 IDT",
-    "source": "IBKR live 2026-09-30 + public @pdicarlotrader X notes",
-    "nav": 10303.21,
+    "generatedAt": "2026-10-01T09:32:00+03:00",
+    "generatedAtHuman": "2026-10-01 09:32 IDT",
+    "source": "IBKR live 2026-10-01 + public @pdicarlotrader X notes",
+    "nav": 10285.75,
     "cash": -3620.6,
-    "grossPositions": 13929.6,
-    "unrealized": -391.08,
+    "grossPositions": 13914.03,
+    "unrealized": -122.74,
     "positionsCount": 10,
-    "note": "YTD closed · 45W / 38L / 2 even · WR 54.2%"
+    "note": "YTD closed \u00b7 45W / 38L / 2 even \u00b7 WR 54.2%"
   },
   "positions": [
     {
       "symbol": "VST",
       "qty": 22,
-      "avg": 141.63909091,
-      "last": 138.03,
-      "upnl": -79.4,
-      "mv": 3036.66,
+      "avg": 141.63909,
+      "last": 140.66,
+      "upnl": -21.54,
+      "mv": 3094.52,
       "cost": 3116.06,
-      "upnlPct": -2.55,
-      "pctNet": 29.47,
+      "upnlPct": -0.69,
+      "pctNet": 30.09,
       "chg": 0,
       "peter": null
     },
@@ -33,15 +33,15 @@ window.__DATA__ = {
       "symbol": "APP",
       "qty": 7,
       "avg": 306.665,
-      "last": 295.71,
-      "upnl": -76.69,
-      "mv": 2069.97,
+      "last": 292.8,
+      "upnl": -97.06,
+      "mv": 2049.6,
       "cost": 2146.66,
-      "upnlPct": -3.57,
-      "pctNet": 20.09,
+      "upnlPct": -4.52,
+      "pctNet": 19.93,
       "chg": 0,
       "peter": {
-        "sum": "Back in the 1-hour Smart Money Zone on Sep 23 and bouncing again after the Sep 21 SMZ bounce.",
+        "sum": "Back in the 1-hour Smart Money Zone on Sep 23 and bouncing again after the Sep 21 SMZ hold.",
         "url": "https://x.com/pdicarlotrader/status/2102910106119651374",
         "when": "Sep 23"
       }
@@ -49,52 +49,26 @@ window.__DATA__ = {
     {
       "symbol": "KTOS",
       "qty": 46,
-      "avg": 45.36119565,
-      "last": 43.6,
-      "upnl": -81.02,
-      "mv": 2005.6,
+      "avg": 45.3612,
+      "last": 43.16,
+      "upnl": -101.26,
+      "mv": 1985.36,
       "cost": 2086.61,
-      "upnlPct": -3.88,
-      "pctNet": 19.47,
+      "upnlPct": -4.85,
+      "pctNet": 19.3,
       "chg": 0,
       "peter": null
     },
     {
       "symbol": "UBER",
       "qty": 22,
-      "avg": 70.81845455,
-      "last": 68.82,
-      "upnl": -43.97,
-      "mv": 1514.04,
+      "avg": 70.81845,
+      "last": 68.83,
+      "upnl": -43.75,
+      "mv": 1514.26,
       "cost": 1558.01,
-      "upnlPct": -2.82,
-      "pctNet": 14.69,
-      "chg": 0,
-      "peter": null
-    },
-    {
-      "symbol": "TE",
-      "qty": 317,
-      "avg": 3.93843018,
-      "last": 3.85,
-      "upnl": -28.03,
-      "mv": 1220.45,
-      "cost": 1248.48,
-      "upnlPct": -2.25,
-      "pctNet": 11.85,
-      "chg": 0,
-      "peter": null
-    },
-    {
-      "symbol": "ENPH",
-      "qty": 36,
-      "avg": 32.60264706,
-      "last": 33.14,
-      "upnl": 19.34,
-      "mv": 1193.04,
-      "cost": 1173.7,
-      "upnlPct": 1.65,
-      "pctNet": 11.58,
+      "upnlPct": -2.81,
+      "pctNet": 14.72,
       "chg": 0,
       "peter": null
     },
@@ -102,12 +76,38 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 148,
       "avg": 7.92579392,
-      "last": 7.51,
-      "upnl": -61.74,
-      "mv": 1111.27,
+      "last": 7.71,
+      "upnl": -31.94,
+      "mv": 1141.08,
       "cost": 1173.02,
-      "upnlPct": -5.26,
-      "pctNet": 10.79,
+      "upnlPct": -2.72,
+      "pctNet": 11.09,
+      "chg": 0,
+      "peter": null
+    },
+    {
+      "symbol": "TE",
+      "qty": 317,
+      "avg": 3.63,
+      "last": 3.94,
+      "upnl": 98.27,
+      "mv": 1248.98,
+      "cost": 1150.71,
+      "upnlPct": 8.54,
+      "pctNet": 12.14,
+      "chg": 0,
+      "peter": null
+    },
+    {
+      "symbol": "ENPH",
+      "qty": 36,
+      "avg": 31.00944,
+      "last": 33.54,
+      "upnl": 91.1,
+      "mv": 1207.44,
+      "cost": 1116.34,
+      "upnlPct": 8.16,
+      "pctNet": 11.74,
       "chg": 0,
       "peter": null
     },
@@ -115,15 +115,15 @@ window.__DATA__ = {
       "symbol": "CIFR",
       "qty": 40,
       "avg": 16.0725,
-      "last": 16.03,
-      "upnl": -1.5,
-      "mv": 641.4,
+      "last": 16.32,
+      "upnl": 9.9,
+      "mv": 652.8,
       "cost": 642.9,
-      "upnlPct": -0.23,
-      "pctNet": 6.23,
+      "upnlPct": 1.54,
+      "pctNet": 6.35,
       "chg": 0,
       "peter": {
-        "sum": "Hit the short-term target; longer-term still looking for $30, but he would not be surprised by a dip to $16 before the next leg.",
+        "sum": "Short-term target hit Sep 23. Longer-term setup still eyes $30; he would not be surprised by a dip toward $16 before the next leg.",
         "url": "https://x.com/pdicarlotrader/status/2102932788722782320",
         "when": "Sep 24"
       }
@@ -131,26 +131,26 @@ window.__DATA__ = {
     {
       "symbol": "CELH",
       "qty": 22,
-      "avg": 28.76022727,
-      "last": 27.42,
-      "upnl": -29.38,
-      "mv": 603.35,
+      "avg": 28.76023,
+      "last": 27.49,
+      "upnl": -27.95,
+      "mv": 604.78,
       "cost": 632.72,
-      "upnlPct": -4.64,
-      "pctNet": 5.86,
+      "upnlPct": -4.42,
+      "pctNet": 5.88,
       "chg": 0,
       "peter": null
     },
     {
       "symbol": "CBRS",
       "qty": 3,
-      "avg": 182.33333333,
-      "last": 179.43,
-      "upnl": -8.7,
-      "mv": 538.3,
+      "avg": 182.33333,
+      "last": 182.83,
+      "upnl": 1.49,
+      "mv": 548.49,
       "cost": 547.0,
-      "upnlPct": -1.59,
-      "pctNet": 5.22,
+      "upnlPct": 0.27,
+      "pctNet": 5.33,
       "chg": 0,
       "peter": null
     }
@@ -196,7 +196,7 @@ window.__DATA__ = {
       "date": "2026-09-24",
       "sym": "RKLB",
       "qty": 11,
-      "exit": 73.62,
+      "exit": 73.625,
       "pnl": 111.06,
       "cost": 63.53,
       "pct": 15.89
@@ -206,9 +206,9 @@ window.__DATA__ = {
       "sym": "ON",
       "qty": 4,
       "exit": 73.2,
-      "pnl": 9.33,
-      "cost": 70.87,
-      "pct": 3.29
+      "pnl": 1.23,
+      "cost": 72.89,
+      "pct": 0.42
     },
     {
       "date": "2026-09-24",
@@ -230,21 +230,21 @@ window.__DATA__ = {
     },
     {
       "date": "2026-09-22",
-      "sym": "CELH",
-      "qty": 12,
-      "exit": 29.95,
-      "pnl": -22.85,
-      "cost": 31.85,
-      "pct": -5.98
-    },
-    {
-      "date": "2026-09-22",
       "sym": "CIFR",
       "qty": 25,
       "exit": 19.45,
       "pnl": 80.0,
       "cost": 16.25,
       "pct": 19.69
+    },
+    {
+      "date": "2026-09-22",
+      "sym": "CELH",
+      "qty": 12,
+      "exit": 29.95,
+      "pnl": -22.85,
+      "cost": 31.85,
+      "pct": -5.98
     },
     {
       "date": "2026-09-18",
@@ -270,17 +270,8 @@ window.__DATA__ = {
       "qty": 500,
       "exit": 0.8253,
       "pnl": 0.0,
-      "cost": 0.8253,
+      "cost": 0.83,
       "pct": 0.0
-    },
-    {
-      "date": "2026-09-16",
-      "sym": "CRDO",
-      "qty": 4,
-      "exit": 159.1,
-      "pnl": 20.87,
-      "cost": 153.88,
-      "pct": 3.39
     },
     {
       "date": "2026-09-16",
@@ -295,19 +286,19 @@ window.__DATA__ = {
       "date": "2026-09-16",
       "sym": "JOBY",
       "qty": 85,
-      "exit": 6.08,
+      "exit": 6.082,
       "pnl": -78.2,
       "cost": 7.0,
       "pct": -13.14
     },
     {
-      "date": "2026-09-14",
+      "date": "2026-09-16",
       "sym": "CRDO",
-      "qty": 10,
-      "exit": 152.8,
-      "pnl": -2.3,
-      "cost": 153.03,
-      "pct": -0.15
+      "qty": 4,
+      "exit": 159.1,
+      "pnl": 20.87,
+      "cost": 153.88,
+      "pct": 3.39
     },
     {
       "date": "2026-09-14",
@@ -317,6 +308,15 @@ window.__DATA__ = {
       "pnl": 91.07,
       "cost": 73.93,
       "pct": 8.21
+    },
+    {
+      "date": "2026-09-14",
+      "sym": "CRDO",
+      "qty": 10,
+      "exit": 152.8,
+      "pnl": -2.3,
+      "cost": 153.03,
+      "pct": -0.15
     },
     {
       "date": "2026-09-14",
@@ -347,12 +347,12 @@ window.__DATA__ = {
     },
     {
       "date": "2026-09-09",
-      "sym": "CELH",
-      "qty": 12,
-      "exit": 28.07,
-      "pnl": -3.81,
-      "cost": 28.39,
-      "pct": -1.12
+      "sym": "TSLA",
+      "qty": 2,
+      "exit": 370.96,
+      "pnl": 30.46,
+      "cost": 355.73,
+      "pct": 4.28
     },
     {
       "date": "2026-09-09",
@@ -365,21 +365,30 @@ window.__DATA__ = {
     },
     {
       "date": "2026-09-09",
-      "sym": "TSLA",
-      "qty": 2,
-      "exit": 370.96,
-      "pnl": 30.46,
-      "cost": 355.73,
-      "pct": 4.28
-    },
-    {
-      "date": "2026-09-09",
       "sym": "META",
       "qty": 1,
       "exit": 639.96,
       "pnl": 87.87,
       "cost": 552.09,
       "pct": 15.92
+    },
+    {
+      "date": "2026-09-09",
+      "sym": "CELH",
+      "qty": 12,
+      "exit": 28.07,
+      "pnl": -3.81,
+      "cost": 28.39,
+      "pct": -1.12
+    },
+    {
+      "date": "2026-09-08",
+      "sym": "UBER",
+      "qty": 8,
+      "exit": 72.982,
+      "pnl": 34.86,
+      "cost": 68.62,
+      "pct": 6.35
     },
     {
       "date": "2026-09-08",
@@ -389,15 +398,6 @@ window.__DATA__ = {
       "pnl": 105.0,
       "cost": 0.94,
       "pct": 22.34
-    },
-    {
-      "date": "2026-09-08",
-      "sym": "UBER",
-      "qty": 8,
-      "exit": 72.98,
-      "pnl": 34.86,
-      "cost": 68.62,
-      "pct": 6.35
     },
     {
       "date": "2026-09-08",
@@ -455,21 +455,21 @@ window.__DATA__ = {
     },
     {
       "date": "2026-08-27",
+      "sym": "NOW",
+      "qty": 5,
+      "exit": 137.205,
+      "pnl": 106.41,
+      "cost": 115.92,
+      "pct": 18.36
+    },
+    {
+      "date": "2026-08-27",
       "sym": "MSTR",
       "qty": 5,
       "exit": 137.0,
       "pnl": 177.25,
       "cost": 101.55,
       "pct": 34.91
-    },
-    {
-      "date": "2026-08-27",
-      "sym": "NOW",
-      "qty": 5,
-      "exit": 137.21,
-      "pnl": 106.41,
-      "cost": 115.92,
-      "pct": 18.36
     },
     {
       "date": "2026-08-25",
@@ -511,7 +511,7 @@ window.__DATA__ = {
       "date": "2026-08-18",
       "sym": "NOW",
       "qty": 4,
-      "exit": 120.92,
+      "exit": 120.915,
       "pnl": 24.05,
       "cost": 114.9,
       "pct": 5.23
@@ -538,19 +538,19 @@ window.__DATA__ = {
       "date": "2026-08-12",
       "sym": "AVGO",
       "qty": 2.5,
-      "exit": 417.39,
+      "exit": 417.392,
       "pnl": 91.65,
       "cost": 380.73,
       "pct": 9.63
     },
     {
       "date": "2026-08-11",
-      "sym": "AVGO",
-      "qty": 2,
-      "exit": 417.95,
-      "pnl": 19.28,
-      "cost": 408.31,
-      "pct": 2.36
+      "sym": "ZETA",
+      "qty": 100,
+      "exit": 28.535,
+      "pnl": 693.19,
+      "cost": 21.6,
+      "pct": 32.09
     },
     {
       "date": "2026-08-11",
@@ -563,12 +563,12 @@ window.__DATA__ = {
     },
     {
       "date": "2026-08-11",
-      "sym": "ZETA",
-      "qty": 100,
-      "exit": 28.54,
-      "pnl": 693.19,
-      "cost": 21.6,
-      "pct": 32.09
+      "sym": "AVGO",
+      "qty": 2,
+      "exit": 417.95,
+      "pnl": 19.28,
+      "cost": 408.31,
+      "pct": 2.36
     },
     {
       "date": "2026-08-10",
@@ -583,7 +583,7 @@ window.__DATA__ = {
       "date": "2026-08-07",
       "sym": "SPCX",
       "qty": 5,
-      "exit": 129.74,
+      "exit": 129.735,
       "pnl": 98.93,
       "cost": 109.95,
       "pct": 18.0
@@ -592,19 +592,10 @@ window.__DATA__ = {
       "date": "2026-08-07",
       "sym": "GOOGL",
       "qty": 3,
-      "exit": 354.37,
+      "exit": 354.369,
       "pnl": 53.8,
       "cost": 336.44,
       "pct": 5.33
-    },
-    {
-      "date": "2026-08-05",
-      "sym": "GOOGL",
-      "qty": 4,
-      "exit": 362.2,
-      "pnl": 28.32,
-      "cost": 355.12,
-      "pct": 1.99
     },
     {
       "date": "2026-08-05",
@@ -617,6 +608,15 @@ window.__DATA__ = {
     },
     {
       "date": "2026-08-05",
+      "sym": "GOOGL",
+      "qty": 4,
+      "exit": 362.2,
+      "pnl": 28.32,
+      "cost": 355.12,
+      "pct": 1.99
+    },
+    {
+      "date": "2026-08-05",
       "sym": "AMZN",
       "qty": 6,
       "exit": 275.46,
@@ -626,21 +626,21 @@ window.__DATA__ = {
     },
     {
       "date": "2026-08-04",
-      "sym": "MSFT",
-      "qty": 4,
-      "exit": 497.0,
-      "pnl": 432.2,
-      "cost": 388.95,
-      "pct": 27.78
-    },
-    {
-      "date": "2026-08-04",
       "sym": "NVDA",
       "qty": 14,
       "exit": 211.0,
       "pnl": 67.78,
       "cost": 206.16,
       "pct": 2.35
+    },
+    {
+      "date": "2026-08-04",
+      "sym": "MSFT",
+      "qty": 4,
+      "exit": 497.0,
+      "pnl": 432.2,
+      "cost": 388.95,
+      "pct": 27.78
     },
     {
       "date": "2026-08-03",
@@ -680,15 +680,6 @@ window.__DATA__ = {
     },
     {
       "date": "2026-07-28",
-      "sym": "AVGO",
-      "qty": 3,
-      "exit": 372.76,
-      "pnl": -139.91,
-      "cost": 419.4,
-      "pct": -11.12
-    },
-    {
-      "date": "2026-07-28",
       "sym": "BE",
       "qty": 6,
       "exit": 173.11,
@@ -697,49 +688,58 @@ window.__DATA__ = {
       "pct": -5.32
     },
     {
+      "date": "2026-07-28",
+      "sym": "AVGO",
+      "qty": 3,
+      "exit": 372.76,
+      "pnl": -139.91,
+      "cost": 419.4,
+      "pct": -11.12
+    },
+    {
       "date": "2026-07-27",
       "sym": "GLW",
       "qty": 6.5,
-      "exit": 144.28,
+      "exit": 144.2758,
       "pnl": -77.05,
       "cost": 156.13,
       "pct": -7.59
     },
     {
       "date": "2026-07-24",
-      "sym": "BE",
-      "qty": 5,
-      "exit": 191.12,
-      "pnl": -61.79,
-      "cost": 203.48,
-      "pct": -6.07
-    },
-    {
-      "date": "2026-07-24",
-      "sym": "HPQ",
-      "qty": 35,
-      "exit": 25.52,
-      "pnl": 78.12,
-      "cost": 23.29,
-      "pct": 9.58
-    },
-    {
-      "date": "2026-07-24",
       "sym": "TE",
       "qty": 60,
-      "exit": 5.14,
+      "exit": 5.145,
       "pnl": -224.9,
       "cost": 8.89,
       "pct": -42.15
     },
     {
       "date": "2026-07-24",
+      "sym": "HPQ",
+      "qty": 35,
+      "exit": 25.525,
+      "pnl": 78.12,
+      "cost": 23.29,
+      "pct": 9.58
+    },
+    {
+      "date": "2026-07-24",
       "sym": "FSLR",
       "qty": 2,
-      "exit": 203.38,
+      "exit": 203.375,
       "pnl": -93.9,
       "cost": 250.32,
       "pct": -18.76
+    },
+    {
+      "date": "2026-07-24",
+      "sym": "BE",
+      "qty": 5,
+      "exit": 191.1217,
+      "pnl": -61.79,
+      "cost": 203.48,
+      "pct": -6.07
     },
     {
       "date": "2026-07-23",
@@ -763,7 +763,7 @@ window.__DATA__ = {
       "date": "2026-07-20",
       "sym": "TE",
       "qty": 55,
-      "exit": 5.82,
+      "exit": 5.822,
       "pnl": -169.14,
       "cost": 8.9,
       "pct": -34.56
@@ -790,7 +790,7 @@ window.__DATA__ = {
       "date": "2026-07-16",
       "sym": "RDW",
       "qty": 60,
-      "exit": 9.02,
+      "exit": 9.019,
       "pnl": -272.89,
       "cost": 13.57,
       "pct": -33.52
@@ -808,25 +808,16 @@ window.__DATA__ = {
       "date": "2026-07-08",
       "sym": "AVGO",
       "qty": 3.5,
-      "exit": 393.61,
+      "exit": 393.6143,
       "pnl": -104.09,
       "cost": 423.35,
       "pct": -7.02
     },
     {
       "date": "2026-07-02",
-      "sym": "IREN",
-      "qty": 17,
-      "exit": 37.8,
-      "pnl": -389.03,
-      "cost": 60.68,
-      "pct": -37.71
-    },
-    {
-      "date": "2026-07-02",
       "sym": "RDW",
       "qty": 40,
-      "exit": 11.39,
+      "exit": 11.392,
       "pnl": -182.49,
       "cost": 15.95,
       "pct": -28.6
@@ -835,7 +826,7 @@ window.__DATA__ = {
       "date": "2026-07-02",
       "sym": "QCOM",
       "qty": 6,
-      "exit": 179.92,
+      "exit": 179.922,
       "pnl": 0.0,
       "cost": 179.92,
       "pct": 0.0
@@ -850,6 +841,15 @@ window.__DATA__ = {
       "pct": -19.55
     },
     {
+      "date": "2026-07-02",
+      "sym": "IREN",
+      "qty": 17,
+      "exit": 37.8,
+      "pnl": -389.03,
+      "cost": 60.68,
+      "pct": -37.71
+    },
+    {
       "date": "2026-06-30",
       "sym": "CRCL",
       "qty": 10,
@@ -862,7 +862,7 @@ window.__DATA__ = {
       "date": "2026-06-25",
       "sym": "AAPL",
       "qty": 9.5,
-      "exit": 278.54,
+      "exit": 278.5414,
       "pnl": -62.74,
       "cost": 285.15,
       "pct": -2.32
@@ -871,7 +871,7 @@ window.__DATA__ = {
       "date": "2026-06-15",
       "sym": "NVDA",
       "qty": 5,
-      "exit": 212.33,
+      "exit": 212.333,
       "pnl": 64.38,
       "cost": 199.46,
       "pct": 6.46
@@ -880,10 +880,19 @@ window.__DATA__ = {
       "date": "2026-06-09",
       "sym": "ZETA",
       "qty": 40,
-      "exit": 20.19,
+      "exit": 20.1901,
       "pnl": -62.2,
       "cost": 21.75,
       "pct": -7.15
+    },
+    {
+      "date": "2026-06-09",
+      "sym": "ONDS",
+      "qty": 55,
+      "exit": 9.475,
+      "pnl": -157.05,
+      "cost": 12.33,
+      "pct": -23.16
     },
     {
       "date": "2026-06-09",
@@ -895,31 +904,22 @@ window.__DATA__ = {
       "pct": -10.47
     },
     {
-      "date": "2026-06-09",
-      "sym": "ONDS",
-      "qty": 55,
-      "exit": 9.47,
-      "pnl": -157.05,
-      "cost": 12.33,
-      "pct": -23.16
+      "date": "2026-06-05",
+      "sym": "CLSK",
+      "qty": 60,
+      "exit": 15.945,
+      "pnl": -65.0,
+      "cost": 17.03,
+      "pct": -6.36
     },
     {
       "date": "2026-06-05",
       "sym": "CCJ",
       "qty": 6,
-      "exit": 106.19,
+      "exit": 106.195,
       "pnl": -18.54,
       "cost": 109.28,
       "pct": -2.83
-    },
-    {
-      "date": "2026-06-05",
-      "sym": "CLSK",
-      "qty": 60,
-      "exit": 15.95,
-      "pnl": -65.0,
-      "cost": 17.03,
-      "pct": -6.36
     }
   ],
   "kpis": {
@@ -929,36 +929,57 @@ window.__DATA__ = {
     "flats": 2,
     "winRate": 54.2,
     "profitFactor": 0.92,
-    "avgWin": 90.79,
+    "avgWin": 90.61,
     "avgLoss": -116.61,
-    "expectancy": -4.07,
-    "avgWinPct": 12.22,
+    "expectancy": -4.16,
+    "avgWinPct": 12.16,
     "avgLossPct": -14.54,
-    "totalRealized": -345.59,
+    "totalRealized": -353.69,
     "largestWin": 693.19,
     "largestLoss": -391.15,
-    "note": "YTD closed · 45W / 38L / 2 even · WR 54.2%"
+    "note": "YTD closed \u00b7 45W / 38L / 2 even \u00b7 WR 54.2%"
   },
   "recs": [
     {
       "date": "Sep 30, 2026",
-      "sym": "DKNG",
+      "sym": "HIMS",
       "kind": "buy",
-      "sum": "Smart Money Zone alert with wedge support. Next 6–12 months look very strong; upside target $42.50.",
-      "url": "https://x.com/pdicarlotrader/status/2105314899778064891"
+      "sum": "Bullish across every timeframe. Video covers structure, key buy zones, and where he sees it in 3 and 12 months.",
+      "url": "https://x.com/pdicarlotrader/status/2105388540171264411"
     },
     {
       "date": "Sep 30, 2026",
       "sym": "TSLA",
       "kind": "watch",
-      "sum": "Not a good look after failing to bounce at major support / 1-hour SMZ. Needs to reclaim the swing low quickly or the broader 15–20% downside move is favored.",
-      "url": "https://x.com/pdicarlotrader/status/2105313540563419431"
+      "sum": "Broke below $350 support and failed to bounce at the 1-hour SMZ. Needs to reclaim the swing low this week or the broader 15\u201320% downside is favored.",
+      "url": "https://x.com/pdicarlotrader/status/2105386988316602638"
+    },
+    {
+      "date": "Sep 30, 2026",
+      "sym": "DKNG",
+      "kind": "buy",
+      "sum": "Smart Money Zone alert with wedge support. Next 6\u201312 months look very strong; upside target $42.50.",
+      "url": "https://x.com/pdicarlotrader/status/2105314899778064891"
+    },
+    {
+      "date": "Sep 30, 2026",
+      "sym": "SPCX",
+      "kind": "watch",
+      "sum": "Up 40%+ since the bottom call. Video covers SPCX, LUNR, RKLB, and ASTS with 12\u201318 month targets and how he is trading the space sector.",
+      "url": "https://x.com/pdicarlotrader/status/2105385467969733117"
+    },
+    {
+      "date": "Sep 29, 2026",
+      "sym": "AMZN",
+      "kind": "buy",
+      "sum": "Patience setup for another major breakout. Video covers the current Smart Money setup, where he is looking to buy, and the timeframe for the target move.",
+      "url": "https://x.com/pdicarlotrader/status/2104747115087810575"
     },
     {
       "date": "Sep 29, 2026",
       "sym": "META",
       "kind": "watch",
-      "sum": "Up ~40% since the Smart Money Buy Zone bounce last month. Video covers the bullish BoS, where he plans to buy back in, and levels from here.",
+      "sum": "Up ~40% since the Smart Money Buy Zone bounce last month. Video covers the bullish break of structure, where he plans to buy back in, and levels from here.",
       "url": "https://x.com/pdicarlotrader/status/2104748006947918179"
     },
     {
@@ -969,31 +990,24 @@ window.__DATA__ = {
       "url": "https://x.com/pdicarlotrader/status/2104747710440165597"
     },
     {
-      "date": "Sep 29, 2026",
-      "sym": "AMZN",
-      "kind": "buy",
-      "sum": "Patience setup for another major breakout. Video covers the current Smart Money setup, where he is looking to buy, and the timeframe for the target move.",
-      "url": "https://x.com/pdicarlotrader/status/2104747115087810575"
-    },
-    {
       "date": "Sep 28, 2026",
       "sym": "IREN",
       "kind": "watch",
-      "sum": "Bullish structure intact after the July pullback. Expects another dip into $40–$37.50; 60-day target $55, six-month $70. Invalidates below $30.",
+      "sum": "Bullish structure intact after the July pullback. Expects another dip into $40\u2013$37.50; 60-day target $55, six-month $70. Invalidates below $30.",
       "url": "https://x.com/pdicarlotrader/status/2104376066567463115"
     },
     {
       "date": "Sep 28, 2026",
       "sym": "FSLR",
       "kind": "watch",
-      "sum": "Testing a potential structural change. Needs to reclaim $180 by week’s end to keep bullish structure; 12-month target $320 if it holds.",
+      "sum": "Testing a potential structural change. Needs to reclaim $180 by week\u2019s end to keep bullish structure; 12-month target $320 if it holds.",
       "url": "https://x.com/pdicarlotrader/status/2104373447392436496"
     },
     {
       "date": "Sep 28, 2026",
       "sym": "TTWO",
       "kind": "note",
-      "sum": "Down ~25% since his bearish setup. Not shorting (poor RVR) and not buying GTA-6 hype. Would only consider a long in the $170–$160 monthly IBZ.",
+      "sum": "Down ~25% since his bearish setup. Not shorting (poor RVR) and not buying GTA-6 hype. Would only consider a long in the $170\u2013$160 monthly IBZ.",
       "url": "https://x.com/pdicarlotrader/status/2104375294471680022"
     },
     {
@@ -1013,11 +1027,11 @@ window.__DATA__ = {
   ],
   "perfCompare": {
     "portfolio": {
-      "m1": 0.84,
-      "mtd": 2.18,
-      "ytd": -10.66,
-      "y1": -10.66,
-      "all": -10.66
+      "m1": 1.99,
+      "mtd": 1.99,
+      "ytd": -10.83,
+      "y1": -10.83,
+      "all": -10.83
     },
     "spy": {
       "m1": -0.42,
@@ -1062,7 +1076,8 @@ window.__DATA__ = {
       "09/25",
       "09/28",
       "09/29",
-      "09/30"
+      "09/30",
+      "10/01"
     ],
     "portfolio": [
       0.0,
@@ -1098,7 +1113,8 @@ window.__DATA__ = {
       -21.61,
       -24.12,
       -21.72,
-      -21.72
+      -22.48,
+      -21.87
     ],
     "spy": [
       0.0,
@@ -1132,6 +1148,7 @@ window.__DATA__ = {
       0.43,
       0.35,
       0.9,
+      0.16,
       0.16,
       0.16,
       0.16
@@ -1224,7 +1241,8 @@ window.__DATA__ = {
         "09/25",
         "09/28",
         "09/29",
-        "09/30"
+        "09/30",
+        "10/01"
       ],
       "nav": [
         16522.14,
@@ -1249,20 +1267,20 @@ window.__DATA__ = {
         14863.49,
         14341.61,
         14341.61,
-        14799.22,
-        14357.23,
-        14742.04,
+        14799.23,
+        14357.24,
+        14742.05,
         14952.36,
-        14903.4,
-        14432.39,
+        14903.41,
+        14432.4,
         14722.51,
         14740.83,
-        14014.79,
+        14014.8,
         13744.12,
-        13721.3,
+        13721.31,
         14163.59,
         14100.68,
-        13552.15,
+        13552.16,
         13017.78,
         13088.72,
         13074.95,
@@ -1276,25 +1294,25 @@ window.__DATA__ = {
         16057.11,
         16037.14,
         13117.38,
-        12945.21,
-        13185.7,
+        12945.2,
+        13185.69,
         13164.4,
-        12955.87,
-        12724.36,
-        13010.37,
+        12955.86,
+        12724.35,
+        13010.36,
         12915.81,
         13045.34,
         12980.39,
         13199.67,
         13170.43,
-        13325.68,
+        13325.67,
         13179.38,
-        13006.19,
-        12129.03,
-        12349.09,
-        12532.54,
-        12713.62,
-        12713.62,
+        13006.18,
+        12129.02,
+        12349.08,
+        12532.53,
+        12713.61,
+        12713.61,
         12960.87,
         12698.88,
         10281.68,
@@ -1306,12 +1324,13 @@ window.__DATA__ = {
         10262.2,
         10662.88,
         10681.13,
-        10391.95,
+        10391.94,
         10325.94,
         10319.12,
         9989.54,
-        10304.78,
-        10304.43
+        10304.77,
+        10205.33,
+        10285.75
       ]
     },
     "mtd": {
@@ -1337,14 +1356,15 @@ window.__DATA__ = {
         "09/25",
         "09/28",
         "09/29",
-        "09/30"
+        "09/30",
+        "10/01"
       ],
       "nav": [
-        12129.03,
-        12349.09,
-        12532.54,
-        12713.62,
-        12713.62,
+        12129.02,
+        12349.08,
+        12532.53,
+        12713.61,
+        12713.61,
         12960.87,
         12698.88,
         10281.68,
@@ -1356,12 +1376,13 @@ window.__DATA__ = {
         10262.2,
         10662.88,
         10681.13,
-        10391.95,
+        10391.94,
         10325.94,
         10319.12,
         9989.54,
-        10304.78,
-        10304.43
+        10304.77,
+        10205.33,
+        10285.75
       ]
     }
   }
