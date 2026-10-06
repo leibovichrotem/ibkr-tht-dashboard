@@ -53,8 +53,10 @@
     .kind-note { background:#334155; color:#e2e8f0; padding:2px 8px; border-radius:6px; font-size:0.68rem; font-weight:600; }
     .logo-wrap { width:22px; height:22px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem; font-weight:700; color:#fff; flex-shrink:0; }
     .kpi-card { position:relative; }
-    .kpi-card .kpi-tip { display:none; position:absolute; top:calc(100% + 6px); left:0; width:260px; z-index:40; padding:10px 12px; background:#0f172a; border:1px solid #475569; border-radius:10px; box-shadow:0 12px 40px #0008; color:#e2e8f0; font-size:0.72rem; line-height:1.45; text-align:left; font-weight:400; text-transform:none; letter-spacing:0; }
-    .kpi-card:hover .kpi-tip { display:block; }
+    .kpi-tip { display:none; position:absolute; top:calc(100% + 6px); left:0; width:260px; z-index:80; padding:10px 12px; background:#0f172a; border:1px solid #475569; border-radius:10px; box-shadow:0 12px 40px #0008; color:#e2e8f0; font-size:0.72rem; line-height:1.45; text-align:left; font-weight:400; text-transform:none; letter-spacing:0; pointer-events:none; }
+    .kpi-card:hover > .kpi-tip { display:block; }
+    .tip-host { position:relative; display:inline-block; max-width:100%; }
+    .tip-host:hover .kpi-tip { display:block; }
     .src-fifo { background:#064e3b; color:#6ee7b7; padding:2px 7px; border-radius:6px; font-size:0.66rem; font-weight:600; }
     .src-est { background:#78350f; color:#fcd34d; padding:2px 7px; border-radius:6px; font-size:0.66rem; font-weight:600; }
     .recon-ok { color:#6ee7b7; } .recon-bad { color:#fbbf24; }
@@ -234,7 +236,7 @@
       <!-- Performance vs SPY -->
       <div class="card overflow-x-auto kpi-card">
         <div class="p-4 border-b border-slate-700">
-          <h2 class="font-semibold text-white">Performance</h2><div class="kpi-tip">Portfolio cells are the last point of IBKR TWR (cps) for that window. SPY is the price change of SPY closes on the same dates, not calendar-year YTD. Withdrawals do not change TWR. NAV is not this number.</div>
+          <span class="tip-host"><h2 class="font-semibold text-white">Performance</h2><div class="kpi-tip">Portfolio cells are the last point of IBKR TWR (cps) for that window. SPY is the price change of SPY closes on the same dates, not calendar-year YTD. Withdrawals do not change TWR. NAV is not this number.</div></span>
           <p class="text-xs text-slate-IBKR time-weighted return vs SPY price return, same dates</p>
         </div>
         <table>
@@ -274,7 +276,7 @@
       <div class="card p-4 kpi-card">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
           <div>
-            <h3 class="text-sm font-semibold text-white">Cumulative Return %</h3><div class="kpi-tip">Portfolio line is IBKR cps x 100 for every day since the account opened. SPY is the close-to-close price return aligned to those dates and rebased to 0 on the first day. Same series as the table, not a NAV chart.</div>
+            <span class="tip-host"><h3 class="text-sm font-semibold text-white">Cumulative Return %</h3><div class="kpi-tip">Portfolio line is IBKR cps x 100 for every day since the account opened. SPY is the close-to-close price return aligned to those dates and rebased to 0 on the first day. Same series as the table, not a NAV chart.</div></span>
             <p class="text-xs text-slate-500">IBKR TWR vs SPY · same dates, rebased to 0</p>
           </div>
         </div>
@@ -282,9 +284,9 @@
       </div>
 
       <!-- Allocation -->
-      <div class="card p-4 kpi-card"><div class="kpi-tip">Slice size is position market value. Percent is share of gross holdings, not percent of NAV. Margin can make NAV smaller than gross holdings.</div>
+      <div class="card p-4">
         <div class="mb-3">
-          <h3 class="text-sm font-semibold text-white tracking-wide uppercase">Holdings allocation</h3>
+          <span class="tip-host"><h3 class="text-sm font-semibold text-white tracking-wide uppercase">Holdings allocation</h3><div class="kpi-tip">Slice size is position market value. Percent is share of gross holdings, not percent of NAV. Margin can make NAV smaller than gross holdings.</div></span>
           <p class="text-xs text-slate-500">Market value of each open position. Share of gross holdings, not of NAV · percentage shown</p>
         </div>
         <div class="alloc-grid">
@@ -302,7 +304,7 @@
       <!-- Sector map -->
       <div class="card p-4">
         <div class="mb-3">
-          <h3 class="text-sm font-semibold text-white">Exposure breakdowns</h3>
+          <span class="tip-host"><h3 class="text-sm font-semibold text-white">Exposure breakdowns</h3><div class="kpi-tip">Bar length is position market value, grouped by a static sector map. Hover a bar for the tickers. A name not in the map is Other.</div></span>
           <p class="text-xs text-slate-500">Sector · % of position market value · hover for tickers</p>
         </div>
         <div class="relative" style="height:260px">
