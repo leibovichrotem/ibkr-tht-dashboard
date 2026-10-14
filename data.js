@@ -1,149 +1,162 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-13 21:47 IDT
+// Generated: 2026-10-14 09:33 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-13T21:47:00+03:00",
-    "generatedAtHuman": "2026-10-13 21:47 IDT",
+    "generatedAt": "2026-10-14T09:33:44.907149+03:00",
+    "generatedAtHuman": "2026-10-14 09:33 IDT",
     "source": "IBKR fills + TWR cps + SPY closes",
-    "nav": 9597.52,
-    "cash": 206.41,
-    "grossPositions": 9400.67,
-    "unrealized": -840.28,
-    "positionsCount": 9,
-    "reconDrift": 9.56,
-    "note": "YTD closed \u00b7 51W / 46L / 0 even \u00b7 WR 52.6% \u00b7 source ibkr_fifo"
+    "nav": 9600.47,
+    "cash": -612.33,
+    "grossPositions": 10206.07,
+    "unrealized": -853.53,
+    "positionsCount": 10,
+    "reconDrift": -6.73,
+    "note": "YTD closed \u00b7 51W / 46L / 2 even \u00b7 WR 52.6% \u00b7 source ibkr_fifo"
   },
   "positions": [
     {
       "symbol": "APP",
       "qty": 7.0,
       "avg": 306.665,
-      "last": 270.8,
-      "upnl": -251.06,
-      "mv": 1895.6,
-      "cost": 2146.66,
-      "upnlPct": -11.7,
-      "pctNet": 19.75,
+      "last": 271.91000365,
+      "upnl": -243.28497445,
+      "mv": 1903.37002555,
+      "cost": 2146.655,
       "chg": 0,
       "peter": {
         "sum": "Not concerned 12-18m; hold unless $220 swing low breaks; want $270 hold",
         "url": "https://x.com/pdicarlotrader/status/2106044758959247494",
         "when": "2026-10-02"
-      }
+      },
+      "upnlPct": -11.33,
+      "pctNet": 0
     },
     {
       "symbol": "KTOS",
       "qty": 46.0,
-      "avg": 45.3612,
-      "last": 40.555,
-      "upnl": -221.08,
-      "mv": 1865.53,
-      "cost": 2086.61,
-      "upnlPct": -10.6,
-      "pctNet": 19.44,
+      "avg": 45.36119565,
+      "last": 40.56000135,
+      "upnl": -220.8549379,
+      "mv": 1865.7600621,
+      "cost": 2086.615,
       "chg": 0,
-      "peter": null
+      "peter": null,
+      "upnlPct": -10.58,
+      "pctNet": 0
     },
     {
       "symbol": "UBER",
       "qty": 22.0,
-      "avg": 70.8185,
-      "last": 71.19,
-      "upnl": 8.17,
-      "mv": 1566.18,
-      "cost": 1558.01,
-      "upnlPct": 0.52,
-      "pctNet": 16.32,
+      "avg": 70.81845455,
+      "last": 71.33000185,
+      "upnl": 11.2540407,
+      "mv": 1569.2600407,
+      "cost": 1558.006,
       "chg": 0,
-      "peter": null
+      "peter": null,
+      "upnlPct": 0.72,
+      "pctNet": 0
     },
     {
       "symbol": "JPM",
       "qty": 3.0,
-      "avg": 326.9133,
-      "last": 334.795,
-      "upnl": 23.65,
-      "mv": 1004.39,
+      "avg": 326.91333333,
+      "last": 332.0499878,
+      "upnl": 15.4099634,
+      "mv": 996.1499634,
       "cost": 980.74,
-      "upnlPct": 2.41,
-      "pctNet": 10.47,
       "chg": 0,
-      "peter": null
+      "peter": null,
+      "upnlPct": 1.57,
+      "pctNet": 0
     },
     {
       "symbol": "POET",
       "qty": 118.0,
-      "avg": 7.9295,
-      "last": 6.26,
-      "upnl": -197.0,
-      "mv": 738.68,
+      "avg": 7.92949153,
+      "last": 6.26000025,
+      "upnl": -196.9999705,
+      "mv": 738.6800295,
       "cost": 935.68,
-      "upnlPct": -21.05,
-      "pctNet": 7.7,
       "chg": 0,
-      "peter": null
+      "peter": null,
+      "upnlPct": -21.05,
+      "pctNet": 0
+    },
+    {
+      "symbol": "INTC",
+      "qty": 8.0,
+      "avg": 102.3425,
+      "last": 102.0699997,
+      "upnl": -2.1800024,
+      "mv": 816.5599976,
+      "cost": 818.74,
+      "chg": 0,
+      "peter": null,
+      "upnlPct": -0.27,
+      "pctNet": 0
     },
     {
       "symbol": "TE",
       "qty": 197.0,
-      "avg": 3.6903,
-      "last": 3.195,
-      "upnl": -97.57,
-      "mv": 629.41,
-      "cost": 726.98,
-      "upnlPct": -13.42,
-      "pctNet": 6.56,
+      "avg": 3.69025787,
+      "last": 3.19000005,
+      "upnl": -98.55079015,
+      "mv": 628.43000985,
+      "cost": 726.981,
       "chg": 0,
-      "peter": null
+      "peter": null,
+      "upnlPct": -13.56,
+      "pctNet": 0
     },
     {
       "symbol": "CBRS",
       "qty": 4.0,
       "avg": 164.58,
-      "last": 149.07,
-      "upnl": -62.04,
-      "mv": 596.28,
+      "last": 147.0,
+      "upnl": -70.32,
+      "mv": 588.0,
       "cost": 658.32,
-      "upnlPct": -9.42,
-      "pctNet": 6.21,
       "chg": 0,
-      "peter": null
+      "peter": null,
+      "upnlPct": -10.68,
+      "pctNet": 0
     },
     {
       "symbol": "CELH",
       "qty": 22.0,
-      "avg": 28.7602,
-      "last": 28.065,
-      "upnl": -15.29,
-      "mv": 617.43,
-      "cost": 632.72,
-      "upnlPct": -2.42,
-      "pctNet": 6.43,
+      "avg": 28.76022727,
+      "last": 27.9599991,
+      "upnl": -17.6050198,
+      "mv": 615.1199802,
+      "cost": 632.725,
       "chg": 0,
       "peter": {
-        "sum": "Positioning for potential 60% breakout over 6-12 months",
+        "sum": "Positioning for potential 60% breakout over 6-12m; buying",
         "url": "https://x.com/pdicarlotrader/status/2105751502593904661",
         "when": "2026-10-01"
-      }
+      },
+      "upnlPct": -2.78,
+      "pctNet": 0
     },
     {
       "symbol": "VKTX",
       "qty": 18.0,
-      "avg": 28.6189,
-      "last": 27.06,
-      "upnl": -28.06,
-      "mv": 487.08,
+      "avg": 28.61888889,
+      "last": 26.9300003,
+      "upnl": -30.3999946,
+      "mv": 484.7400054,
       "cost": 515.14,
-      "upnlPct": -5.45,
-      "pctNet": 5.07,
       "chg": 0,
       "peter": {
-        "sum": "Back in for the third time after prior 44% gain; setup and key levels",
+        "sum": "Back in for the third time after 44% gain earlier; current setup, key levels, invalidation",
         "url": "https://x.com/pdicarlotrader/status/2105749645347471587",
         "when": "2026-10-01"
-      }
+      },
+      "upnlPct": -5.9,
+      "pctNet": 0
     }
   ],
   "closed": [
@@ -152,7 +165,7 @@ window.__DATA__ = {
       "symbol": "CBRS",
       "source": "ibkr_fifo",
       "realized": -122.52,
-      "size": 8,
+      "size": 8.0,
       "exit": 157.07,
       "date": "2026-10-12"
     },
@@ -161,7 +174,7 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "source": "ibkr_fifo",
       "realized": 24.8,
-      "size": 16,
+      "size": 16.0,
       "exit": 32.62,
       "date": "2026-10-12"
     },
@@ -170,7 +183,7 @@ window.__DATA__ = {
       "symbol": "TE",
       "source": "ibkr_fifo",
       "realized": -51.41,
-      "size": 220,
+      "size": 220.0,
       "exit": 3.4401,
       "date": "2026-10-08"
     },
@@ -179,7 +192,7 @@ window.__DATA__ = {
       "symbol": "POET",
       "source": "ibkr_fifo",
       "realized": -27.27,
-      "size": 30,
+      "size": 30.0,
       "exit": 7.1,
       "date": "2026-10-08"
     },
@@ -188,7 +201,7 @@ window.__DATA__ = {
       "symbol": "CIFR",
       "source": "ibkr_fifo",
       "realized": -16.33,
-      "size": 10,
+      "size": 10.0,
       "exit": 13.435,
       "date": "2026-10-08"
     },
@@ -197,7 +210,7 @@ window.__DATA__ = {
       "symbol": "CIFR",
       "source": "ibkr_fifo",
       "realized": -122.82,
-      "size": 100,
+      "size": 100.0,
       "exit": 13.615,
       "date": "2026-10-08"
     },
@@ -206,16 +219,16 @@ window.__DATA__ = {
       "symbol": "CIFR",
       "source": "ibkr_fifo",
       "realized": -76.75,
-      "size": 80,
+      "size": 80.0,
       "exit": 13.89,
       "date": "2026-10-08"
     },
     {
-      "order_id": 1736083861,
+      "order_id": 5700575718,
       "symbol": "VST",
       "source": "ibkr_fifo",
       "realized": 184.62,
-      "size": 6,
+      "size": 6.0,
       "exit": 167.5,
       "date": "2026-10-07"
     },
@@ -224,8 +237,8 @@ window.__DATA__ = {
       "symbol": "VST",
       "source": "ibkr_fifo",
       "realized": 94.83,
-      "size": 5,
-      "exit": 158,
+      "size": 5.0,
+      "exit": 158.0,
       "date": "2026-10-06"
     },
     {
@@ -233,7 +246,7 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "source": "ibkr_fifo",
       "realized": 8.34,
-      "size": 6,
+      "size": 6.0,
       "exit": 32.72,
       "date": "2026-10-05"
     },
@@ -242,8 +255,8 @@ window.__DATA__ = {
       "symbol": "VST",
       "source": "ibkr_fifo",
       "realized": -46.01,
-      "size": 11,
-      "exit": 142,
+      "size": 11.0,
+      "exit": 142.0,
       "date": "2026-10-05"
     },
     {
@@ -251,7 +264,7 @@ window.__DATA__ = {
       "symbol": "CBRS",
       "source": "ibkr_fifo",
       "realized": 0.18,
-      "size": 2,
+      "size": 2.0,
       "exit": 183.675,
       "date": "2026-10-05"
     },
@@ -260,7 +273,7 @@ window.__DATA__ = {
       "symbol": "TE",
       "source": "ibkr_fifo",
       "realized": 45.5,
-      "size": 120,
+      "size": 120.0,
       "exit": 4.03,
       "date": "2026-10-02"
     },
@@ -269,7 +282,7 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "source": "ibkr_fifo",
       "realized": 36.56,
-      "size": 14,
+      "size": 14.0,
       "exit": 33.95,
       "date": "2026-10-02"
     },
@@ -278,7 +291,7 @@ window.__DATA__ = {
       "symbol": "TE",
       "source": "ibkr_fifo",
       "realized": -171.59,
-      "size": 750,
+      "size": 750.0,
       "exit": 3.85,
       "date": "2026-09-30"
     },
@@ -287,7 +300,7 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "source": "ibkr_fifo",
       "realized": -55.14,
-      "size": 32,
+      "size": 32.0,
       "exit": 32.75,
       "date": "2026-09-30"
     },
@@ -296,7 +309,7 @@ window.__DATA__ = {
       "symbol": "ON",
       "source": "ibkr_fifo",
       "realized": 63.48,
-      "size": 10,
+      "size": 10.0,
       "exit": 76.03,
       "date": "2026-09-29"
     },
@@ -305,7 +318,7 @@ window.__DATA__ = {
       "symbol": "BAC",
       "source": "ibkr_fifo",
       "realized": -13.68,
-      "size": 10,
+      "size": 10.0,
       "exit": 55.49,
       "date": "2026-09-28"
     },
@@ -314,7 +327,7 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "source": "ibkr_fifo",
       "realized": 111.06,
-      "size": 11,
+      "size": 11.0,
       "exit": 73.625,
       "date": "2026-09-24"
     },
@@ -323,7 +336,7 @@ window.__DATA__ = {
       "symbol": "ON",
       "source": "ibkr_fifo",
       "realized": 1.23,
-      "size": 4,
+      "size": 4.0,
       "exit": 73.2,
       "date": "2026-09-24"
     },
@@ -332,8 +345,8 @@ window.__DATA__ = {
       "symbol": "CBRS",
       "source": "ibkr_fifo",
       "realized": 68.5,
-      "size": 3,
-      "exit": 207,
+      "size": 3.0,
+      "exit": 207.0,
       "date": "2026-09-24"
     },
     {
@@ -341,7 +354,7 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "source": "ibkr_fifo",
       "realized": 21.46,
-      "size": 3,
+      "size": 3.0,
       "exit": 71.54,
       "date": "2026-09-23"
     },
@@ -350,7 +363,7 @@ window.__DATA__ = {
       "symbol": "CELH",
       "source": "ibkr_fifo",
       "realized": -22.85,
-      "size": 12,
+      "size": 12.0,
       "exit": 29.95,
       "date": "2026-09-22"
     },
@@ -358,8 +371,8 @@ window.__DATA__ = {
       "order_id": 5647534004,
       "symbol": "CIFR",
       "source": "ibkr_fifo",
-      "realized": 80,
-      "size": 25,
+      "realized": 80.0,
+      "size": 25.0,
       "exit": 19.45,
       "date": "2026-09-22"
     },
@@ -368,7 +381,7 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "source": "ibkr_fifo",
       "realized": -105.06,
-      "size": 10,
+      "size": 10.0,
       "exit": 34.19,
       "date": "2026-09-18"
     },
@@ -377,7 +390,7 @@ window.__DATA__ = {
       "symbol": "CRDO",
       "source": "ibkr_fifo",
       "realized": 39.33,
-      "size": 3,
+      "size": 3.0,
       "exit": 167.2,
       "date": "2026-09-17"
     },
@@ -385,8 +398,8 @@ window.__DATA__ = {
       "order_id": 5630645294,
       "symbol": "ORBS",
       "source": "ibkr_fifo",
-      "realized": 0,
-      "size": 500,
+      "realized": 0.0,
+      "size": 500.0,
       "exit": 0.8253,
       "date": "2026-09-16"
     },
@@ -395,7 +408,7 @@ window.__DATA__ = {
       "symbol": "CRDO",
       "source": "ibkr_fifo",
       "realized": 20.87,
-      "size": 4,
+      "size": 4.0,
       "exit": 159.1,
       "date": "2026-09-16"
     },
@@ -404,7 +417,7 @@ window.__DATA__ = {
       "symbol": "NXT",
       "source": "ibkr_fifo",
       "realized": -149.69,
-      "size": 10,
+      "size": 10.0,
       "exit": 77.94,
       "date": "2026-09-16"
     },
@@ -413,7 +426,7 @@ window.__DATA__ = {
       "symbol": "JOBY",
       "source": "ibkr_fifo",
       "realized": -78.2,
-      "size": 85,
+      "size": 85.0,
       "exit": 6.082,
       "date": "2026-09-16"
     },
@@ -422,7 +435,7 @@ window.__DATA__ = {
       "symbol": "CRDO",
       "source": "ibkr_fifo",
       "realized": -2.3,
-      "size": 10,
+      "size": 10.0,
       "exit": 152.8,
       "date": "2026-09-14"
     },
@@ -431,8 +444,8 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "source": "ibkr_fifo",
       "realized": 91.07,
-      "size": 15,
-      "exit": 80,
+      "size": 15.0,
+      "exit": 80.0,
       "date": "2026-09-14"
     },
     {
@@ -440,7 +453,7 @@ window.__DATA__ = {
       "symbol": "CEG",
       "source": "ibkr_fifo",
       "realized": -46.96,
-      "size": 2,
+      "size": 2.0,
       "exit": 271.52,
       "date": "2026-09-14"
     },
@@ -449,7 +462,7 @@ window.__DATA__ = {
       "symbol": "RBLX",
       "source": "ibkr_fifo",
       "realized": 118.9,
-      "size": 15,
+      "size": 15.0,
       "exit": 45.98,
       "date": "2026-09-11"
     },
@@ -458,7 +471,7 @@ window.__DATA__ = {
       "symbol": "MMM",
       "source": "ibkr_fifo",
       "realized": -48.09,
-      "size": 3,
+      "size": 3.0,
       "exit": 162.83,
       "date": "2026-09-10"
     },
@@ -467,7 +480,7 @@ window.__DATA__ = {
       "symbol": "CELH",
       "source": "ibkr_fifo",
       "realized": -3.81,
-      "size": 12,
+      "size": 12.0,
       "exit": 28.07,
       "date": "2026-09-09"
     },
@@ -476,7 +489,7 @@ window.__DATA__ = {
       "symbol": "META",
       "source": "ibkr_fifo",
       "realized": 98.75,
-      "size": 1,
+      "size": 1.0,
       "exit": 647.5,
       "date": "2026-09-09"
     },
@@ -485,7 +498,7 @@ window.__DATA__ = {
       "symbol": "TSLA",
       "source": "ibkr_fifo",
       "realized": 30.46,
-      "size": 2,
+      "size": 2.0,
       "exit": 370.96,
       "date": "2026-09-09"
     },
@@ -494,7 +507,7 @@ window.__DATA__ = {
       "symbol": "META",
       "source": "ibkr_fifo",
       "realized": 87.87,
-      "size": 1,
+      "size": 1.0,
       "exit": 639.96,
       "date": "2026-09-09"
     },
@@ -502,8 +515,8 @@ window.__DATA__ = {
       "order_id": 5603927551,
       "symbol": "ORBS",
       "source": "ibkr_fifo",
-      "realized": 105,
-      "size": 500,
+      "realized": 105.0,
+      "size": 500.0,
       "exit": 1.15,
       "date": "2026-09-08"
     },
@@ -512,7 +525,7 @@ window.__DATA__ = {
       "symbol": "UBER",
       "source": "ibkr_fifo",
       "realized": 34.86,
-      "size": 8,
+      "size": 8.0,
       "exit": 72.982,
       "date": "2026-09-08"
     },
@@ -521,7 +534,7 @@ window.__DATA__ = {
       "symbol": "AEHR",
       "source": "ibkr_fifo",
       "realized": 80.45,
-      "size": 7,
+      "size": 7.0,
       "exit": 89.84,
       "date": "2026-09-08"
     },
@@ -530,7 +543,7 @@ window.__DATA__ = {
       "symbol": "AEHR",
       "source": "ibkr_fifo",
       "realized": 38.95,
-      "size": 3,
+      "size": 3.0,
       "exit": 93.5,
       "date": "2026-09-08"
     },
@@ -539,7 +552,7 @@ window.__DATA__ = {
       "symbol": "CIFR",
       "source": "ibkr_fifo",
       "realized": 100.4,
-      "size": 40,
+      "size": 40.0,
       "exit": 17.23,
       "date": "2026-09-03"
     },
@@ -548,7 +561,7 @@ window.__DATA__ = {
       "symbol": "META",
       "source": "ibkr_fifo",
       "realized": -14.35,
-      "size": 2,
+      "size": 2.0,
       "exit": 594.7,
       "date": "2026-09-02"
     },
@@ -557,7 +570,7 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "source": "ibkr_fifo",
       "realized": -68.44,
-      "size": 5,
+      "size": 5.0,
       "exit": 62.03,
       "date": "2026-09-01"
     },
@@ -566,7 +579,7 @@ window.__DATA__ = {
       "symbol": "ENPH",
       "source": "ibkr_fifo",
       "realized": -231.8,
-      "size": 14,
+      "size": 14.0,
       "exit": 36.36,
       "date": "2026-08-31"
     },
@@ -575,8 +588,8 @@ window.__DATA__ = {
       "symbol": "MSTR",
       "source": "ibkr_fifo",
       "realized": 177.25,
-      "size": 5,
-      "exit": 137,
+      "size": 5.0,
+      "exit": 137.0,
       "date": "2026-08-27"
     },
     {
@@ -584,7 +597,7 @@ window.__DATA__ = {
       "symbol": "NOW",
       "source": "ibkr_fifo",
       "realized": 106.41,
-      "size": 5,
+      "size": 5.0,
       "exit": 137.205,
       "date": "2026-08-27"
     },
@@ -593,7 +606,7 @@ window.__DATA__ = {
       "symbol": "MMM",
       "source": "ibkr_fifo",
       "realized": 1.31,
-      "size": 4,
+      "size": 4.0,
       "exit": 178.98,
       "date": "2026-08-25"
     },
@@ -602,7 +615,7 @@ window.__DATA__ = {
       "symbol": "RKLB",
       "source": "ibkr_fifo",
       "realized": -44.41,
-      "size": 7,
+      "size": 7.0,
       "exit": 69.8,
       "date": "2026-08-24"
     },
@@ -611,7 +624,7 @@ window.__DATA__ = {
       "symbol": "HOOD",
       "source": "ibkr_fifo",
       "realized": 90.62,
-      "size": 7,
+      "size": 7.0,
       "exit": 108.22,
       "date": "2026-08-21"
     },
@@ -620,7 +633,7 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "source": "ibkr_fifo",
       "realized": 41.48,
-      "size": 7,
+      "size": 7.0,
       "exit": 80.4,
       "date": "2026-08-19"
     },
@@ -629,7 +642,7 @@ window.__DATA__ = {
       "symbol": "NOW",
       "source": "ibkr_fifo",
       "realized": 24.05,
-      "size": 4,
+      "size": 4.0,
       "exit": 120.915,
       "date": "2026-08-18"
     },
@@ -638,7 +651,7 @@ window.__DATA__ = {
       "symbol": "HNST",
       "source": "ibkr_fifo",
       "realized": 103.73,
-      "size": 110,
+      "size": 110.0,
       "exit": 4.78,
       "date": "2026-08-17"
     },
@@ -647,7 +660,7 @@ window.__DATA__ = {
       "symbol": "POET",
       "source": "ibkr_fifo",
       "realized": 70.44,
-      "size": 50,
+      "size": 50.0,
       "exit": 9.37,
       "date": "2026-08-13"
     },
@@ -665,7 +678,7 @@ window.__DATA__ = {
       "symbol": "AVGO",
       "source": "ibkr_fifo",
       "realized": 19.28,
-      "size": 2,
+      "size": 2.0,
       "exit": 417.95,
       "date": "2026-08-11"
     },
@@ -674,7 +687,7 @@ window.__DATA__ = {
       "symbol": "HNST",
       "source": "ibkr_fifo",
       "realized": 162.91,
-      "size": 115,
+      "size": 115.0,
       "exit": 5.14,
       "date": "2026-08-11"
     },
@@ -683,7 +696,7 @@ window.__DATA__ = {
       "symbol": "ZETA",
       "source": "ibkr_fifo",
       "realized": 693.19,
-      "size": 100,
+      "size": 100.0,
       "exit": 28.535,
       "date": "2026-08-11"
     },
@@ -692,7 +705,7 @@ window.__DATA__ = {
       "symbol": "BKNG",
       "source": "ibkr_fifo",
       "realized": 92.58,
-      "size": 6,
+      "size": 6.0,
       "exit": 212.73,
       "date": "2026-08-10"
     },
@@ -701,7 +714,7 @@ window.__DATA__ = {
       "symbol": "SPCX",
       "source": "ibkr_fifo",
       "realized": 98.93,
-      "size": 5,
+      "size": 5.0,
       "exit": 129.735,
       "date": "2026-08-07"
     },
@@ -710,7 +723,7 @@ window.__DATA__ = {
       "symbol": "GOOGL",
       "source": "ibkr_fifo",
       "realized": 53.8,
-      "size": 3,
+      "size": 3.0,
       "exit": 354.369,
       "date": "2026-08-07"
     },
@@ -719,7 +732,7 @@ window.__DATA__ = {
       "symbol": "GOOGL",
       "source": "ibkr_fifo",
       "realized": 28.32,
-      "size": 4,
+      "size": 4.0,
       "exit": 362.2,
       "date": "2026-08-05"
     },
@@ -728,7 +741,7 @@ window.__DATA__ = {
       "symbol": "HNST",
       "source": "ibkr_fifo",
       "realized": 33.46,
-      "size": 155,
+      "size": 155.0,
       "exit": 3.91,
       "date": "2026-08-05"
     },
@@ -737,7 +750,7 @@ window.__DATA__ = {
       "symbol": "AMZN",
       "source": "ibkr_fifo",
       "realized": 67.4,
-      "size": 6,
+      "size": 6.0,
       "exit": 275.46,
       "date": "2026-08-05"
     },
@@ -746,8 +759,8 @@ window.__DATA__ = {
       "symbol": "MSFT",
       "source": "ibkr_fifo",
       "realized": 432.2,
-      "size": 4,
-      "exit": 497,
+      "size": 4.0,
+      "exit": 497.0,
       "date": "2026-08-04"
     },
     {
@@ -755,8 +768,8 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "source": "ibkr_fifo",
       "realized": 67.78,
-      "size": 14,
-      "exit": 211,
+      "size": 14.0,
+      "exit": 211.0,
       "date": "2026-08-04"
     },
     {
@@ -764,8 +777,8 @@ window.__DATA__ = {
       "symbol": "CRWV",
       "source": "ibkr_fifo",
       "realized": 164.26,
-      "size": 22,
-      "exit": 78,
+      "size": 22.0,
+      "exit": 78.0,
       "date": "2026-08-03"
     },
     {
@@ -773,8 +786,8 @@ window.__DATA__ = {
       "symbol": "AMZN",
       "source": "ibkr_fifo",
       "realized": 4.35,
-      "size": 3,
-      "exit": 270,
+      "size": 3.0,
+      "exit": 270.0,
       "date": "2026-07-31"
     },
     {
@@ -782,7 +795,7 @@ window.__DATA__ = {
       "symbol": "CRWV",
       "source": "ibkr_fifo",
       "realized": -391.15,
-      "size": 15,
+      "size": 15.0,
       "exit": 72.8,
       "date": "2026-07-30"
     },
@@ -790,8 +803,8 @@ window.__DATA__ = {
       "order_id": 5467657168,
       "symbol": "KEEL",
       "source": "ibkr_fifo",
-      "realized": -106,
-      "size": 200,
+      "realized": -106.0,
+      "size": 200.0,
       "exit": 3.3,
       "date": "2026-07-29"
     },
@@ -800,7 +813,7 @@ window.__DATA__ = {
       "symbol": "AVGO",
       "source": "ibkr_fifo",
       "realized": -139.91,
-      "size": 3,
+      "size": 3.0,
       "exit": 372.76,
       "date": "2026-07-28"
     },
@@ -809,7 +822,7 @@ window.__DATA__ = {
       "symbol": "BE",
       "source": "ibkr_fifo",
       "realized": -58.34,
-      "size": 6,
+      "size": 6.0,
       "exit": 173.11,
       "date": "2026-07-28"
     },
@@ -827,7 +840,7 @@ window.__DATA__ = {
       "symbol": "BE",
       "source": "ibkr_fifo",
       "realized": -61.79,
-      "size": 5,
+      "size": 5.0,
       "exit": 191.1217,
       "date": "2026-07-24"
     },
@@ -836,7 +849,7 @@ window.__DATA__ = {
       "symbol": "HPQ",
       "source": "ibkr_fifo",
       "realized": 78.12,
-      "size": 35,
+      "size": 35.0,
       "exit": 25.525,
       "date": "2026-07-24"
     },
@@ -845,7 +858,7 @@ window.__DATA__ = {
       "symbol": "TE",
       "source": "ibkr_fifo",
       "realized": -224.9,
-      "size": 60,
+      "size": 60.0,
       "exit": 5.145,
       "date": "2026-07-24"
     },
@@ -854,7 +867,7 @@ window.__DATA__ = {
       "symbol": "FSLR",
       "source": "ibkr_fifo",
       "realized": -93.9,
-      "size": 2,
+      "size": 2.0,
       "exit": 203.375,
       "date": "2026-07-24"
     },
@@ -863,7 +876,7 @@ window.__DATA__ = {
       "symbol": "ZETA",
       "source": "ibkr_fifo",
       "realized": 0.09,
-      "size": 40,
+      "size": 40.0,
       "exit": 19.71,
       "date": "2026-07-23"
     },
@@ -872,7 +885,7 @@ window.__DATA__ = {
       "symbol": "AFRM",
       "source": "ibkr_fifo",
       "realized": -104.08,
-      "size": 13,
+      "size": 13.0,
       "exit": 74.34,
       "date": "2026-07-21"
     },
@@ -881,7 +894,7 @@ window.__DATA__ = {
       "symbol": "TE",
       "source": "ibkr_fifo",
       "realized": -169.14,
-      "size": 55,
+      "size": 55.0,
       "exit": 5.822,
       "date": "2026-07-20"
     },
@@ -890,7 +903,7 @@ window.__DATA__ = {
       "symbol": "FSLR",
       "source": "ibkr_fifo",
       "realized": -83.65,
-      "size": 2,
+      "size": 2.0,
       "exit": 208.5,
       "date": "2026-07-20"
     },
@@ -899,8 +912,8 @@ window.__DATA__ = {
       "symbol": "ZETA",
       "source": "ibkr_fifo",
       "realized": 114.72,
-      "size": 35,
-      "exit": 22,
+      "size": 35.0,
+      "exit": 22.0,
       "date": "2026-07-17"
     },
     {
@@ -908,7 +921,7 @@ window.__DATA__ = {
       "symbol": "RDW",
       "source": "ibkr_fifo",
       "realized": -272.89,
-      "size": 60,
+      "size": 60.0,
       "exit": 9.019,
       "date": "2026-07-16"
     },
@@ -917,7 +930,7 @@ window.__DATA__ = {
       "symbol": "IONQ",
       "source": "ibkr_fifo",
       "realized": -192.12,
-      "size": 15,
+      "size": 15.0,
       "exit": 41.2,
       "date": "2026-07-13"
     },
@@ -935,7 +948,7 @@ window.__DATA__ = {
       "symbol": "IREN",
       "source": "ibkr_fifo",
       "realized": -389.03,
-      "size": 17,
+      "size": 17.0,
       "exit": 37.8,
       "date": "2026-07-02"
     },
@@ -944,7 +957,7 @@ window.__DATA__ = {
       "symbol": "RDW",
       "source": "ibkr_fifo",
       "realized": -182.49,
-      "size": 40,
+      "size": 40.0,
       "exit": 11.392,
       "date": "2026-07-02"
     },
@@ -952,8 +965,8 @@ window.__DATA__ = {
       "order_id": 5380687290,
       "symbol": "QCOM",
       "source": "ibkr_fifo",
-      "realized": 0,
-      "size": 6,
+      "realized": 0.0,
+      "size": 6.0,
       "exit": 179.922,
       "date": "2026-07-02"
     },
@@ -962,7 +975,7 @@ window.__DATA__ = {
       "symbol": "QCOM",
       "source": "ibkr_fifo",
       "realized": -261.74,
-      "size": 6,
+      "size": 6.0,
       "exit": 179.51,
       "date": "2026-07-02"
     },
@@ -970,8 +983,8 @@ window.__DATA__ = {
       "order_id": 5371552870,
       "symbol": "CRCL",
       "source": "ibkr_fifo",
-      "realized": -133,
-      "size": 10,
+      "realized": -133.0,
+      "size": 10.0,
       "exit": 63.5,
       "date": "2026-06-30"
     },
@@ -989,7 +1002,7 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "source": "ibkr_fifo",
       "realized": 64.38,
-      "size": 5,
+      "size": 5.0,
       "exit": 212.333,
       "date": "2026-06-15"
     },
@@ -998,7 +1011,7 @@ window.__DATA__ = {
       "symbol": "ZETA",
       "source": "ibkr_fifo",
       "realized": -62.2,
-      "size": 40,
+      "size": 40.0,
       "exit": 20.1901,
       "date": "2026-06-09"
     },
@@ -1006,9 +1019,9 @@ window.__DATA__ = {
       "order_id": 5291014654,
       "symbol": "ENPH",
       "source": "ibkr_fifo",
-      "realized": -117,
-      "size": 20,
-      "exit": 50,
+      "realized": -117.0,
+      "size": 20.0,
+      "exit": 50.0,
       "date": "2026-06-09"
     },
     {
@@ -1016,7 +1029,7 @@ window.__DATA__ = {
       "symbol": "ONDS",
       "source": "ibkr_fifo",
       "realized": -157.05,
-      "size": 55,
+      "size": 55.0,
       "exit": 9.475,
       "date": "2026-06-09"
     },
@@ -1025,7 +1038,7 @@ window.__DATA__ = {
       "symbol": "CCJ",
       "source": "ibkr_fifo",
       "realized": -18.54,
-      "size": 6,
+      "size": 6.0,
       "exit": 106.195,
       "date": "2026-06-05"
     },
@@ -1033,8 +1046,8 @@ window.__DATA__ = {
       "order_id": 5274161143,
       "symbol": "CLSK",
       "source": "ibkr_fifo",
-      "realized": -65,
-      "size": 60,
+      "realized": -65.0,
+      "size": 60.0,
       "exit": 15.945,
       "date": "2026-06-05"
     }
@@ -4278,35 +4291,42 @@ window.__DATA__ = {
     {
       "symbol": "IREN",
       "kind": "buy",
-      "summary": "Double Smart Money Zone + Anthropic Deal. Send it. Structure bullish, need to hold $35 swing low",
+      "summary": "Double Smart Money Zone + Anthropic Deal. Send it.",
       "url": "https://x.com/pdicarlotrader/status/2109480018543780185",
       "when": "2026-10-12"
     },
     {
-      "symbol": "QCOM",
-      "kind": "watch",
-      "summary": "Broke out 45% after SMZ bounce. Watching for re-entry; pullback as bump in the road 6-12m",
-      "url": "https://x.com/pdicarlotrader/status/2108588178240327886",
-      "when": "2026-10-09"
-    },
-    {
       "symbol": "MU",
       "kind": "note",
-      "summary": "At Institutional Sell Zone / premium. Not the time to be a buyer. Hold $902 for structure; else redistribution to IBZ",
+      "summary": "Daily back to HL support after rejecting Institutional Sell Zone. Hold $902 to keep structure bullish, else redistribute to IBZ.",
       "url": "https://x.com/pdicarlotrader/status/2110008223898247359",
       "when": "2026-10-13"
     },
     {
-      "symbol": "VICR",
-      "kind": "note",
-      "summary": "Rallied 90% after SMZ setup. Expect pullback before next breakout",
-      "url": "https://x.com/pdicarlotrader/status/2108587703470297429",
+      "symbol": "QCOM",
+      "kind": "watch",
+      "summary": "Broke out 45% from SMZ. Watching for re-entry. Pullback as bump in road 6-12m.",
+      "url": "https://x.com/pdicarlotrader/status/2108588178240327886",
       "when": "2026-10-09"
+    },
+    {
+      "symbol": "HIMS",
+      "kind": "watch",
+      "summary": "Coiling tightly. Next 90 days could bring massive breakout with clear invalidation.",
+      "url": "https://x.com/pdicarlotrader/status/2108587234169364841",
+      "when": "2026-10-09"
+    },
+    {
+      "symbol": "CIFR",
+      "kind": "note",
+      "summary": "Down -30% since long. Video on what went wrong and exit plan.",
+      "url": "https://x.com/pdicarlotrader/status/2110119288094994454",
+      "when": "2026-10-13"
     },
     {
       "symbol": "SG",
       "kind": "note",
-      "summary": "Up 87% since change of structure. Now hitting equal high / final target",
+      "summary": "Up 87% since change of structure. Hitting equal high / final target.",
       "url": "https://x.com/pdicarlotrader/status/2110009733553996202",
       "when": "2026-10-13"
     }
