@@ -319,7 +319,7 @@
     </footer>
   </div>
 
-  <script src="data.js?v=20261015-1940"></script>
+  <script src="data.js?v=20261015-1945"></script>
   <script>
     // ——— Data ———
     const DATA = window.__DATA__;
@@ -367,7 +367,20 @@
       }).sort((a,b)=> (a.date<b.date?1:a.date>b.date?-1:0));
     }
     const fills=Array.isArray(DATA.fills)?DATA.fills:[];
-    const closed = fills.length ? groupFills(fills) : (Array.isArray(DATA.closed)?DATA.closed:[]);
+    const fromFills = fills.length ? groupFills(fills) : [];
+    const fromClosed = Array.isArray(DATA.closed) ? DATA.closed : [];
+    // Merge by order_id. Prefer the row with the later date so a stale fills[] cannot hide newer closed trades.
+    const byId = {};
+    [...fromFills, ...fromClosed].forEach(t => {
+      const id = String(t.order_id || t.id || '');
+      if (!id) return;
+      const prev = byId[id];
+      if (!prev || (String(t.date||'') > String(prev.date||''))) byId[id] = t;
+    });
+    const closed = Object.values(byId).sort((a,b) => (a.date<b.date?1:a.date>b.date?-1:0));
+    const fillsMax = fills.reduce((m,f) => String(f.date||'') > m ? String(f.date||'') : m, '');
+    const closedMax = fromClosed.reduce((m,t) => String(t.date||'') > m ? String(t.date||'') : m, '');
+    window.__fillsLag = (fillsMax && closedMax && fillsMax < closedMax);
     // Derived book figures. Do not trust typed gross / unrealized / % net liq.
     const derivedGross=round2(positions.reduce((s,p)=>s+(Number(p.mv)||0),0));
     const derivedUpnl=round2(positions.reduce((s,p)=>s+(Number(p.upnl)||0),0));
@@ -459,6 +472,7 @@
     const storedTot=storedK.totalRealized;
     const mismatch = storedTot!=null && Math.abs(Number(storedTot)-total)>1;
     if (mismatch) note+=' · stored KPI cache disagrees — showing the computed figure';
+    if (window.__fillsLag) note+=' · fills lag closed (using merged) — automation should replace fills[]';
     document.getElementById('kpi-note').textContent=note;
     const drift=round2((Number(m.cash)||0)+derivedGross-NET_LIQ);
     const recon=document.getElementById('recon-line');

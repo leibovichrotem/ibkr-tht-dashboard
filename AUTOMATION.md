@@ -33,9 +33,11 @@ export GIT_SSH_COMMAND="ssh -i /root/.ssh/grok_deploy_key -o IdentitiesOnly=yes 
 - get_account_trades period=YEAR_TO_DATE
 - get_pa_performance_all_periods (TWR)
 
-## 2) fills[] — raw IBKR executions, append the full YTD set every run
+## 2) fills[] — MUST replace with the full YTD set every run (do not leave previous fills)
+- Fetch get_account_trades period=YEAR_TO_DATE and write EVERY fill into fills[].
 - Every fill: { id, order_id, date, time, sym, side, qty, price, comm, pnl, sec }
 - pnl = IBKR realized_pnl (0 on buys). Do not recompute P&L.
+- fills[] is authoritative. The page groups it. A stale fills[] makes KPIs and Trades History wrong even if closed[] is fresh.
 - Also write closed[] as a cache: SELL stock fills grouped by order_id, source:"ibkr_fifo".
 - If a sell has no realized_pnl, mark that closed row source:"estimated". Estimated rows must not be mixed into fifo rows.
 
@@ -77,7 +79,8 @@ export GIT_SSH_COMMAND="ssh -i /root/.ssh/grok_deploy_key -o IdentitiesOnly=yes 
 window.__DATA__ = {
   meta: { ... },
   positions: [ ... ],      // with peter objects where found
-  closed: [ ... ],
+  fills: [ ... ],          // FULL YTD set — required every run, never leave prior fills
+  closed: [ ... ],         // cache only; page merges with fills
   kpis: { ... },
   recs: [ ... ],
   perfCompare: { portfolio:{}, spy:{} },
@@ -106,3 +109,4 @@ Live: https://leibovichrotem.github.io/ibkr-tht-dashboard/
 - Hardcode KPI numbers that disagree with closed[]
 - Drop peter / recs / perfCompare / equityReturns from the schema
 - Leave closed[] incomplete or invent trades / Peter posts
+- Leave fills[] from a previous run — always replace with the full current YEAR_TO_DATE set
