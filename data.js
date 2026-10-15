@@ -4674,39 +4674,39 @@ window.__DATA__ = {
   },
   "recs": [
     {
-      "symbol": "SPCX",
+      "date": "2026-10-15",
+      "sym": "SPCX",
       "kind": "note",
-      "summary": "Needs to hold $145 or the internal structure will flip bearish again for the first time since August. Big moment.",
-      "url": "https://x.com/pdicarlotrader/status/2110740957687664727",
-      "when": "2026-10-15"
+      "sum": "Needs to hold $145 or the internal structure will flip bearish again for the first time since August. Big moment.",
+      "url": "https://x.com/pdicarlotrader/status/2110740957687664727"
     },
     {
-      "symbol": "NBIS",
+      "date": "2026-10-15",
+      "sym": "NBIS",
       "kind": "note",
-      "summary": "Bull trap playing out as anticipated. Next stop should be institutional buy zone and smart money zone. Would flip to bullish outlook from there.",
-      "url": "https://x.com/pdicarlotrader/status/2110738977863163940",
-      "when": "2026-10-15"
+      "sum": "Bull trap playing out as anticipated. Next stop should be institutional buy zone and smart money zone. Would flip to bullish outlook from there.",
+      "url": "https://x.com/pdicarlotrader/status/2110738977863163940"
     },
     {
-      "symbol": "CRWV",
+      "date": "2026-10-14",
+      "sym": "CRWV",
       "kind": "watch",
-      "summary": "Patient since Aug 12 close. Price down -40%, moving back into macro Smart Money Buy zone. Alert set at $60.",
-      "url": "https://x.com/pdicarlotrader/status/2110376380105912519",
-      "when": "2026-10-14"
+      "sum": "Patient since Aug 12 close. Price down -40%, moving back into macro Smart Money Buy zone. Alert set at $60.",
+      "url": "https://x.com/pdicarlotrader/status/2110376380105912519"
     },
     {
-      "symbol": "ASTS",
+      "date": "2026-10-14",
+      "sym": "ASTS",
       "kind": "note",
-      "summary": "Structural break. Sweeping swing low not ideal. Needs to get back above $50 in the next week or officially in bearish structure.",
-      "url": "https://x.com/pdicarlotrader/status/2110376994571481148",
-      "when": "2026-10-14"
+      "sum": "Structural break. Sweeping swing low not ideal. Needs to get back above $50 in the next week or officially in bearish structure.",
+      "url": "https://x.com/pdicarlotrader/status/2110376994571481148"
     },
     {
-      "symbol": "TSLA",
+      "date": "2026-10-14",
+      "sym": "TSLA",
       "kind": "note",
-      "summary": "Rejecting inside 1hr bearish Smart Money Zone. Expectation now is price continues to fade back to $350.",
-      "url": "https://x.com/pdicarlotrader/status/2110375952119410896",
-      "when": "2026-10-14"
+      "sum": "Rejecting inside 1hr bearish Smart Money Zone. Expectation now is price continues to fade back to $350.",
+      "url": "https://x.com/pdicarlotrader/status/2110375952119410896"
     }
   ],
   "perfCompare": {

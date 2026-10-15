@@ -319,7 +319,7 @@
     </footer>
   </div>
 
-  <script src="data.js?v=20261015-1945"></script>
+  <script src="data.js?v=20261015-1950"></script>
   <script>
     // ——— Data ———
     const DATA = window.__DATA__;
@@ -560,18 +560,24 @@
     // ——— Recommendations ———
     const rb=document.getElementById('recs-body');
     const held={}; positions.forEach(p=>held[p.symbol]=true);
-    const rows=recs.filter(r=>!held[r.sym]);
+    const rows=recs.filter(r=>{
+      const sym = r.sym || r.symbol;
+      return sym && !held[sym];
+    });
     if (!rows.length){
       rb.innerHTML='<tr><td colspan="5" class="text-slate-500 text-sm py-6 text-center">No public recommendations right now (or automation has not filled recs yet).</td></tr>';
     } else {
       rows.forEach(r=>{
+        const sym = r.sym || r.symbol || '';
+        const sum = r.sum || r.summary || '';
+        const date = r.date || r.when || '';
         const kindCls = r.kind==='buy'?'kind-buy':(r.kind==='watch'?'kind-watch':'kind-note');
         const tr=document.createElement('tr');
         tr.innerHTML =
-          '<td class="text-slate-400">'+fmtDate(r.date)+'</td>'+
-          '<td><div class="flex items-center gap-2">'+badge(r.sym)+'<span class="font-medium">'+r.sym+'</span></div></td>'+
+          '<td class="text-slate-400">'+fmtDate(date)+'</td>'+
+          '<td><div class="flex items-center gap-2">'+badge(sym)+'<span class="font-medium">'+sym+'</span></div></td>'+
           '<td><span class="'+kindCls+'">'+(r.kind||'note')+'</span></td>'+
-          '<td class="text-sm text-slate-300 max-w-md">'+r.sum+'</td>'+
+          '<td class="text-sm text-slate-300 max-w-md">'+sum+'</td>'+
           '<td><a class="peter-link" href="'+r.url+'" target="_blank" rel="noopener">View ↗</a></td>';
         rb.appendChild(tr);
       });

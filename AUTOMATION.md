@@ -60,7 +60,8 @@ export GIT_SSH_COMMAND="ssh -i /root/.ssh/grok_deploy_key -o IdentitiesOnly=yes 
 ## 6) recs[] — Recommendations (not held)
 - X search: from:pdicarlotrader (buy|watchlist|adding|smart money|zone|structure) last 3-5 days, PUBLIC only.
 - Exclude symbols currently in positions[].
-- Each: { date:"Aug 20, 2026", sym, kind:"buy"|"watch"|"note", sum, url }
+- Each: { date:"2026-10-15", sym:"SPCX", kind:"buy"|"watch"|"note", sum:"...", url:"https://x.com/..." }
+- Use exactly these keys: date, sym, kind, sum, url. Do NOT use symbol/summary/when (page also tolerates them, but prefer short keys).
 - Human-readable date. Empty array is OK if none found.
 
 ## 7) Performance (TWR vs SPY)
