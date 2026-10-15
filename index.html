@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- last-run: 2026-10-15 19:23 IDT | NAV 9279.40 | source data.js -->
+<!-- last-run: 2026-10-15 19:40 IDT | NAV 9283.13 | source data.js -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -319,7 +319,7 @@
     </footer>
   </div>
 
-  <script src="data.js?v=20261015-1923"></script>
+  <script src="data.js?v=20261015-1940"></script>
   <script>
     // ——— Data ———
     const DATA = window.__DATA__;
@@ -351,7 +351,7 @@
         const comm=fs.reduce((s,f)=>s+Number(f.comm||0),0);
         const proceeds=fs.reduce((s,f)=>s+Number(f.price||0)*Number(f.qty||0),0);
         const costD=proceeds-pnl;
-        const date=fs.map(f=>String(f.time||f.date||'')).sort().slice(-1)[0].slice(0,10);
+        const raw=fs.map(f=>String(f.date||f.time||'')).sort().slice(-1)[0]; const date=/^\d{4}-\d{2}-\d{2}/.test(raw)?raw.slice(0,10):raw;
         return {
           date: date,
           sym: fs[0].sym,
