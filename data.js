@@ -1,18 +1,18 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-16 09:34 IDT
+// Generated: 2026-10-17 09:33 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-16T09:34:02.023917+03:00",
-    "generatedAtHuman": "2026-10-16 09:34 IDT",
+    "generatedAt": "2026-10-17T09:33:37.564581+03:00",
+    "generatedAtHuman": "2026-10-17 09:33 IDT",
     "source": "IBKR fills + TWR cps + SPY closes",
-    "nav": 9498.85,
+    "nav": 9110.88,
     "cash": -2152.69,
-    "grossPositions": 11695.87,
-    "unrealized": -367.89,
+    "grossPositions": 11272.92,
+    "unrealized": -790.83,
     "positionsCount": 10,
-    "reconDrift": 12.26,
+    "reconDrift": 9.35,
     "note": "YTD closed \u00b7 51W / 50L / 2 even \u00b7 WR 50.5% \u00b7 source ibkr_fifo"
   },
   "positions": [
@@ -20,11 +20,11 @@ window.__DATA__ = {
       "symbol": "APP",
       "qty": 7.0,
       "avg": 306.665,
-      "last": 278.61,
-      "upnl": -196.39,
-      "mv": 1950.27,
+      "last": 265.97,
+      "upnl": -284.86,
+      "mv": 1861.79,
       "cost": 2146.66,
-      "upnlPct": -9.15,
+      "upnlPct": -13.27,
       "chg": 0,
       "pctNet": 0,
       "peter": {
@@ -36,12 +36,12 @@ window.__DATA__ = {
     {
       "symbol": "KTOS",
       "qty": 46.0,
-      "avg": 45.361196,
-      "last": 41.01,
-      "upnl": -200.16,
-      "mv": 1886.46,
+      "avg": 45.3612,
+      "last": 40.16,
+      "upnl": -239.26,
+      "mv": 1847.36,
       "cost": 2086.61,
-      "upnlPct": -9.59,
+      "upnlPct": -11.47,
       "chg": 0,
       "pctNet": 0,
       "peter": null
@@ -50,11 +50,11 @@ window.__DATA__ = {
       "symbol": "GS",
       "qty": 2.0,
       "avg": 876.035,
-      "last": 891.99,
-      "upnl": 31.91,
-      "mv": 1783.98,
+      "last": 877.712,
+      "upnl": 3.35,
+      "mv": 1755.42,
       "cost": 1752.07,
-      "upnlPct": 1.82,
+      "upnlPct": 0.19,
       "chg": 0,
       "pctNet": 0,
       "peter": null
@@ -62,12 +62,12 @@ window.__DATA__ = {
     {
       "symbol": "UBER",
       "qty": 22.0,
-      "avg": 70.818455,
-      "last": 71.27,
-      "upnl": 9.93,
-      "mv": 1567.94,
+      "avg": 70.8185,
+      "last": 69.97,
+      "upnl": -18.67,
+      "mv": 1539.34,
       "cost": 1558.01,
-      "upnlPct": 0.64,
+      "upnlPct": -1.2,
       "chg": 0,
       "pctNet": 0,
       "peter": null
@@ -76,11 +76,11 @@ window.__DATA__ = {
       "symbol": "TE",
       "qty": 400.0,
       "avg": 2.755,
-      "last": 2.92,
-      "upnl": 66.0,
-      "mv": 1168.0,
+      "last": 2.6128,
+      "upnl": -56.88,
+      "mv": 1045.12,
       "cost": 1102.0,
-      "upnlPct": 5.99,
+      "upnlPct": -5.16,
       "chg": 0,
       "pctNet": 0,
       "peter": null
@@ -88,12 +88,12 @@ window.__DATA__ = {
     {
       "symbol": "JPM",
       "qty": 3.0,
-      "avg": 326.913333,
-      "last": 336.0,
-      "upnl": 27.26,
-      "mv": 1008.0,
+      "avg": 326.9133,
+      "last": 339.4,
+      "upnl": 37.46,
+      "mv": 1018.2,
       "cost": 980.74,
-      "upnlPct": 2.78,
+      "upnlPct": 3.82,
       "chg": 0,
       "pctNet": 0,
       "peter": null
@@ -102,11 +102,11 @@ window.__DATA__ = {
       "symbol": "VRT",
       "qty": 4.0,
       "avg": 210.605,
-      "last": 216.05,
-      "upnl": 21.78,
-      "mv": 864.2,
+      "last": 205.33,
+      "upnl": -21.1,
+      "mv": 821.32,
       "cost": 842.42,
-      "upnlPct": 2.59,
+      "upnlPct": -2.5,
       "chg": 0,
       "pctNet": 0,
       "peter": null
@@ -114,38 +114,46 @@ window.__DATA__ = {
     {
       "symbol": "CELH",
       "qty": 22.0,
-      "avg": 28.760227,
-      "last": 28.2,
-      "upnl": -12.32,
-      "mv": 620.4,
+      "avg": 28.7602,
+      "last": 28.0332,
+      "upnl": -15.99,
+      "mv": 616.73,
       "cost": 632.72,
-      "upnlPct": -1.95,
+      "upnlPct": -2.53,
       "chg": 0,
       "pctNet": 0,
-      "peter": null
+      "peter": {
+        "sum": "Positioning for a potential 60% breakout over the next 6 to 12 months. Buying at long-term smart money zone; targeting +80% back toward $50.",
+        "url": "https://x.com/pdicarlotrader/status/2105751502593904661",
+        "when": "2026-10-01"
+      }
     },
     {
       "symbol": "VKTX",
       "qty": 18.0,
-      "avg": 28.618889,
-      "last": 27.54,
-      "upnl": -19.42,
-      "mv": 495.72,
+      "avg": 28.6189,
+      "last": 25.15,
+      "upnl": -62.44,
+      "mv": 452.7,
       "cost": 515.14,
-      "upnlPct": -3.77,
+      "upnlPct": -12.12,
       "chg": 0,
       "pctNet": 0,
-      "peter": null
+      "peter": {
+        "sum": "Closed earlier this year for 44% gain. Now back in for the third time. Current setup, key levels, invalidation points, and targets over the next few months.",
+        "url": "https://x.com/pdicarlotrader/status/2105749645347471587",
+        "when": "2026-10-01"
+      }
     },
     {
       "symbol": "POET",
       "qty": 58.0,
-      "avg": 7.713448,
-      "last": 6.05,
-      "upnl": -96.48,
-      "mv": 350.9,
+      "avg": 7.7134,
+      "last": 5.43,
+      "upnl": -132.44,
+      "mv": 314.94,
       "cost": 447.38,
-      "upnlPct": -21.57,
+      "upnlPct": -29.6,
       "chg": 0,
       "pctNet": 0,
       "peter": null
@@ -155,660 +163,540 @@ window.__DATA__ = {
     {
       "date": "2026-10-15",
       "sym": "TE",
-      "qty": 197,
+      "qty": 197.0,
       "exit": 2.681,
       "pnl": -201.32,
-      "cost": 3.7029,
-      "pct": -27.6,
       "order_id": 1424054453,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-15",
       "sym": "POET",
-      "qty": 60,
+      "qty": 60.0,
       "exit": 5.572,
       "pnl": -143.95,
-      "cost": 7.9712,
-      "pct": -30.1,
       "order_id": 1424054448,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-15",
       "sym": "INTC",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 93.72,
       "pnl": -83.7,
-      "cost": 102.09,
-      "pct": -8.2,
       "order_id": 590518387,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-14",
       "sym": "CBRS",
-      "qty": 4,
+      "qty": 4.0,
       "exit": 141.53,
       "pnl": -94.7,
-      "cost": 165.205,
-      "pct": -14.3,
       "order_id": 1424054300,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-12",
       "sym": "CBRS",
-      "qty": 8,
+      "qty": 8.0,
       "exit": 157.07,
       "pnl": -122.52,
-      "cost": 172.3853,
-      "pct": -8.9,
       "order_id": 1970530380,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-12",
       "sym": "ENPH",
-      "qty": 16,
+      "qty": 16.0,
       "exit": 32.62,
       "pnl": 24.8,
-      "cost": 31.0698,
-      "pct": 5.0,
       "order_id": 1970530310,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-08",
       "sym": "TE",
-      "qty": 220,
+      "qty": 220.0,
       "exit": 3.4401,
       "pnl": -45.92,
-      "cost": 3.6488,
-      "pct": -5.7,
       "order_id": 5704101590,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-08",
       "sym": "POET",
-      "qty": 30,
+      "qty": 30.0,
       "exit": 7.1,
       "pnl": -26.84,
-      "cost": 7.9946,
-      "pct": -11.2,
       "order_id": 5703255164,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-08",
       "sym": "CIFR",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 13.435,
       "pnl": -8.89,
-      "cost": 14.3237,
-      "pct": -6.2,
       "order_id": 5703096406,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-08",
       "sym": "CIFR",
-      "qty": 100,
+      "qty": 100.0,
       "exit": 13.615,
       "pnl": -71.82,
-      "cost": 14.3332,
-      "pct": -5.0,
       "order_id": 5702517222,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-08",
       "sym": "CIFR",
-      "qty": 80,
+      "qty": 80.0,
       "exit": 13.89,
       "pnl": -135.2,
-      "cost": 15.58,
-      "pct": -10.8,
       "order_id": 5701943737,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-07",
       "sym": "VST",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 167.5,
       "pnl": 184.62,
-      "cost": 136.7292,
-      "pct": 22.5,
       "order_id": 5700575718,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-06",
       "sym": "VST",
-      "qty": 5,
-      "exit": 158,
+      "qty": 5.0,
+      "exit": 158.0,
       "pnl": 94.83,
-      "cost": 139.035,
-      "pct": 13.6,
       "order_id": 5693071884,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-05",
       "sym": "ENPH",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 32.72,
       "pnl": 8.34,
-      "cost": 31.3302,
-      "pct": 4.4,
       "order_id": 5687673540,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-05",
       "sym": "VST",
-      "qty": 11,
-      "exit": 142,
+      "qty": 11.0,
+      "exit": 142.0,
       "pnl": -46.01,
-      "cost": 146.1827,
-      "pct": -2.9,
       "order_id": 5687637555,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-05",
       "sym": "CBRS",
-      "qty": 2,
+      "qty": 2.0,
       "exit": 183.675,
       "pnl": 0.18,
-      "cost": 183.5833,
-      "pct": 0.0,
       "order_id": 5687609435,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-02",
       "sym": "TE",
-      "qty": 120,
+      "qty": 120.0,
       "exit": 4.03,
       "pnl": 45.5,
-      "cost": 3.6508,
-      "pct": 10.4,
       "order_id": 5684375827,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-10-02",
       "sym": "ENPH",
-      "qty": 14,
+      "qty": 14.0,
       "exit": 33.95,
       "pnl": 36.56,
-      "cost": 31.3387,
-      "pct": 8.3,
       "order_id": 5684353869,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-30",
       "sym": "TE",
-      "qty": 750,
+      "qty": 750.0,
       "exit": 3.85,
       "pnl": -171.59,
-      "cost": 4.0788,
-      "pct": -5.6,
       "order_id": 5673753804,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-30",
       "sym": "ENPH",
-      "qty": 32,
+      "qty": 32.0,
       "exit": 32.75,
       "pnl": -55.14,
-      "cost": 34.4731,
-      "pct": -5.0,
       "order_id": 5673005717,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-29",
       "sym": "ON",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 76.03,
       "pnl": 63.48,
-      "cost": 69.6821,
-      "pct": 9.1,
       "order_id": 5670344164,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-28",
       "sym": "BAC",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 55.49,
       "pnl": -13.68,
-      "cost": 56.858,
-      "pct": -2.4,
       "order_id": 5667384845,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-24",
       "sym": "RKLB",
-      "qty": 11,
+      "qty": 11.0,
       "exit": 73.625,
       "pnl": 111.06,
-      "cost": 63.5288,
-      "pct": 15.9,
       "order_id": 5658745630,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-24",
       "sym": "ON",
-      "qty": 4,
+      "qty": 4.0,
       "exit": 73.2,
       "pnl": 1.23,
-      "cost": 72.8921,
-      "pct": 0.4,
       "order_id": 5658656370,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-24",
       "sym": "CBRS",
-      "qty": 3,
-      "exit": 207,
+      "qty": 3.0,
+      "exit": 207.0,
       "pnl": 68.5,
-      "cost": 184.1667,
-      "pct": 12.4,
       "order_id": 5658512454,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-23",
       "sym": "RKLB",
-      "qty": 3,
+      "qty": 3.0,
       "exit": 71.54,
       "pnl": 21.46,
-      "cost": 64.3861,
-      "pct": 11.1,
       "order_id": 5651841845,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-22",
       "sym": "CELH",
-      "qty": 12,
+      "qty": 12.0,
       "exit": 29.95,
       "pnl": -22.85,
-      "cost": 31.854,
-      "pct": -6.0,
       "order_id": 5648691964,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-22",
       "sym": "CIFR",
-      "qty": 25,
+      "qty": 25.0,
       "exit": 19.45,
-      "pnl": 80,
-      "cost": 16.25,
-      "pct": 19.7,
+      "pnl": 80.0,
       "order_id": 5647534004,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-18",
       "sym": "ENPH",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 34.19,
       "pnl": -105.06,
-      "cost": 44.6956,
-      "pct": -23.5,
       "order_id": 5638012338,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-17",
       "sym": "CRDO",
-      "qty": 3,
+      "qty": 3.0,
       "exit": 167.2,
       "pnl": 39.33,
-      "cost": 154.0905,
-      "pct": 8.5,
       "order_id": 5632813799,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-16",
       "sym": "ORBS",
-      "qty": 500,
+      "qty": 500.0,
       "exit": 0.8253,
       "pnl": 0,
-      "cost": 0.8253,
-      "pct": 0.0,
       "order_id": 5630645294,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-16",
       "sym": "CRDO",
-      "qty": 4,
+      "qty": 4.0,
       "exit": 159.1,
       "pnl": 20.87,
-      "cost": 153.8821,
-      "pct": 3.4,
       "order_id": 5630467929,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-16",
       "sym": "NXT",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 77.94,
       "pnl": -149.69,
-      "cost": 92.9095,
-      "pct": -16.1,
       "order_id": 5629084335,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-16",
       "sym": "JOBY",
-      "qty": 85,
+      "qty": 85.0,
       "exit": 6.082,
       "pnl": -78.2,
-      "cost": 7.0021,
-      "pct": -13.1,
       "order_id": 5627652305,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-14",
       "sym": "CRDO",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 152.8,
       "pnl": -2.3,
-      "cost": 153.03,
-      "pct": -0.2,
       "order_id": 5621458024,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-14",
       "sym": "NFLX",
-      "qty": 15,
-      "exit": 80,
+      "qty": 15.0,
+      "exit": 80.0,
       "pnl": 91.07,
-      "cost": 73.9289,
-      "pct": 8.2,
       "order_id": 5620082801,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-14",
       "sym": "CEG",
-      "qty": 2,
+      "qty": 2.0,
       "exit": 271.52,
       "pnl": -46.96,
-      "cost": 295.0,
-      "pct": -8.0,
       "order_id": 5619097735,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-11",
       "sym": "RBLX",
-      "qty": 15,
+      "qty": 15.0,
       "exit": 45.98,
       "pnl": 118.9,
-      "cost": 38.0533,
-      "pct": 20.8,
       "order_id": 5616617735,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-10",
       "sym": "MMM",
-      "qty": 3,
+      "qty": 3.0,
       "exit": 162.83,
       "pnl": -48.09,
-      "cost": 178.8605,
-      "pct": -9.0,
       "order_id": 5610065602,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-09",
       "sym": "CELH",
-      "qty": 12,
+      "qty": 12.0,
       "exit": 28.07,
       "pnl": -3.81,
-      "cost": 28.3872,
-      "pct": -1.1,
       "order_id": 5608407272,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-09",
       "sym": "META",
-      "qty": 1,
+      "qty": 1.0,
       "exit": 647.5,
       "pnl": 98.75,
-      "cost": 548.75,
-      "pct": 18.0,
       "order_id": 5607063290,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-09",
       "sym": "TSLA",
-      "qty": 2,
+      "qty": 2.0,
       "exit": 370.96,
       "pnl": 30.46,
-      "cost": 355.73,
-      "pct": 4.3,
       "order_id": 5607048770,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-09",
       "sym": "META",
-      "qty": 1,
+      "qty": 1.0,
       "exit": 639.96,
       "pnl": 87.87,
-      "cost": 552.09,
-      "pct": 15.9,
       "order_id": 5605693226,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-08",
       "sym": "ORBS",
-      "qty": 500,
+      "qty": 500.0,
       "exit": 1.15,
-      "pnl": 105,
-      "cost": 0.94,
-      "pct": 22.3,
+      "pnl": 105.0,
       "order_id": 5603927551,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-08",
       "sym": "UBER",
-      "qty": 8,
+      "qty": 8.0,
       "exit": 72.982,
       "pnl": 34.86,
-      "cost": 68.625,
-      "pct": 6.3,
       "order_id": 5602067701,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-08",
       "sym": "AEHR",
-      "qty": 7,
+      "qty": 7.0,
       "exit": 89.84,
       "pnl": 80.45,
-      "cost": 78.3471,
-      "pct": 14.7,
       "order_id": 5601196463,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-08",
       "sym": "AEHR",
-      "qty": 3,
+      "qty": 3.0,
       "exit": 93.5,
       "pnl": 38.95,
-      "cost": 80.5167,
-      "pct": 16.1,
       "order_id": 5600466539,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-03",
       "sym": "CIFR",
-      "qty": 40,
+      "qty": 40.0,
       "exit": 17.23,
       "pnl": 100.4,
-      "cost": 14.72,
-      "pct": 17.1,
       "order_id": 5594385064,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-02",
       "sym": "META",
-      "qty": 2,
+      "qty": 2.0,
       "exit": 594.7,
       "pnl": -14.35,
-      "cost": 601.8766,
-      "pct": -1.2,
       "order_id": 5589085645,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-09-01",
       "sym": "RKLB",
-      "qty": 5,
+      "qty": 5.0,
       "exit": 62.03,
       "pnl": -68.44,
-      "cost": 75.718,
-      "pct": -18.1,
       "order_id": 5582943296,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-31",
       "sym": "ENPH",
-      "qty": 14,
+      "qty": 14.0,
       "exit": 36.36,
       "pnl": -231.8,
-      "cost": 52.9175,
-      "pct": -31.3,
       "order_id": 5578506869,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-27",
       "sym": "MSTR",
-      "qty": 5,
-      "exit": 137,
+      "qty": 5.0,
+      "exit": 137.0,
       "pnl": 177.25,
-      "cost": 101.55,
-      "pct": 34.9,
       "order_id": 5570837468,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-27",
       "sym": "NOW",
-      "qty": 5,
+      "qty": 5.0,
       "exit": 137.205,
       "pnl": 106.41,
-      "cost": 115.9237,
-      "pct": 18.4,
       "order_id": 5570638039,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-25",
       "sym": "MMM",
-      "qty": 4,
+      "qty": 4.0,
       "exit": 178.98,
       "pnl": 1.31,
-      "cost": 178.6521,
-      "pct": 0.2,
       "order_id": 5560288039,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-24",
       "sym": "RKLB",
-      "qty": 7,
+      "qty": 7.0,
       "exit": 69.8,
       "pnl": -44.41,
-      "cost": 76.1443,
-      "pct": -8.3,
       "order_id": 5555097907,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-21",
       "sym": "HOOD",
-      "qty": 7,
+      "qty": 7.0,
       "exit": 108.22,
       "pnl": 90.62,
-      "cost": 95.2743,
-      "pct": 13.6,
       "order_id": 5554031063,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-19",
       "sym": "NFLX",
-      "qty": 7,
+      "qty": 7.0,
       "exit": 80.4,
       "pnl": 41.48,
-      "cost": 74.4738,
-      "pct": 8.0,
       "order_id": 5542736447,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-18",
       "sym": "NOW",
-      "qty": 4,
+      "qty": 4.0,
       "exit": 120.915,
       "pnl": 24.05,
-      "cost": 114.9017,
-      "pct": 5.2,
       "order_id": 5537214682,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-17",
       "sym": "HNST",
-      "qty": 110,
+      "qty": 110.0,
       "exit": 4.78,
       "pnl": 103.73,
-      "cost": 3.837,
-      "pct": 24.6,
       "order_id": 5533075687,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-13",
       "sym": "POET",
-      "qty": 50,
+      "qty": 50.0,
       "exit": 9.37,
       "pnl": 70.44,
-      "cost": 7.9612,
-      "pct": 17.7,
       "order_id": 5522452440,
       "source": "ibkr_fifo"
     },
@@ -818,195 +706,159 @@ window.__DATA__ = {
       "qty": 2.5,
       "exit": 417.392,
       "pnl": 91.65,
-      "cost": 380.7333,
-      "pct": 9.6,
       "order_id": 5520057114,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-11",
       "sym": "AVGO",
-      "qty": 2,
+      "qty": 2.0,
       "exit": 417.95,
       "pnl": 19.28,
-      "cost": 408.3108,
-      "pct": 2.4,
       "order_id": 5515393267,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-11",
       "sym": "HNST",
-      "qty": 115,
+      "qty": 115.0,
       "exit": 5.14,
       "pnl": 162.91,
-      "cost": 3.7234,
-      "pct": 38.0,
       "order_id": 5515061157,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-11",
       "sym": "ZETA",
-      "qty": 100,
+      "qty": 100.0,
       "exit": 28.535,
       "pnl": 693.19,
-      "cost": 21.6031,
-      "pct": 32.1,
       "order_id": 5514871927,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-10",
       "sym": "BKNG",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 212.73,
       "pnl": 92.58,
-      "cost": 197.3008,
-      "pct": 7.8,
       "order_id": 5507859909,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-07",
       "sym": "SPCX",
-      "qty": 5,
+      "qty": 5.0,
       "exit": 129.735,
       "pnl": 98.93,
-      "cost": 109.9483,
-      "pct": 18.0,
       "order_id": 5505997522,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-07",
       "sym": "GOOGL",
-      "qty": 3,
+      "qty": 3.0,
       "exit": 354.369,
       "pnl": 53.8,
-      "cost": 336.4367,
-      "pct": 5.3,
       "order_id": 5504754219,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-05",
       "sym": "GOOGL",
-      "qty": 4,
+      "qty": 4.0,
       "exit": 362.2,
       "pnl": 28.32,
-      "cost": 355.1205,
-      "pct": 2.0,
       "order_id": 5497390153,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-05",
       "sym": "HNST",
-      "qty": 155,
+      "qty": 155.0,
       "exit": 3.91,
       "pnl": 33.46,
-      "cost": 3.6941,
-      "pct": 5.8,
       "order_id": 5497089103,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-05",
       "sym": "AMZN",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 275.46,
       "pnl": 67.4,
-      "cost": 264.2267,
-      "pct": 4.3,
       "order_id": 5494150289,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-04",
       "sym": "MSFT",
-      "qty": 4,
-      "exit": 497,
+      "qty": 4.0,
+      "exit": 497.0,
       "pnl": 432.2,
-      "cost": 388.95,
-      "pct": 27.8,
       "order_id": 5491518226,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-04",
       "sym": "NVDA",
-      "qty": 14,
-      "exit": 211,
+      "qty": 14.0,
+      "exit": 211.0,
       "pnl": 67.78,
-      "cost": 206.1587,
-      "pct": 2.3,
       "order_id": 5490608916,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-08-03",
       "sym": "CRWV",
-      "qty": 22,
-      "exit": 78,
+      "qty": 22.0,
+      "exit": 78.0,
       "pnl": 164.26,
-      "cost": 70.5336,
-      "pct": 10.6,
       "order_id": 5482728391,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-31",
       "sym": "AMZN",
-      "qty": 3,
-      "exit": 270,
+      "qty": 3.0,
+      "exit": 270.0,
       "pnl": 4.35,
-      "cost": 268.55,
-      "pct": 0.5,
       "order_id": 5478126099,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-30",
       "sym": "CRWV",
-      "qty": 15,
+      "qty": 15.0,
       "exit": 72.8,
       "pnl": -391.15,
-      "cost": 98.8767,
-      "pct": -26.4,
       "order_id": 5473063143,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-29",
       "sym": "KEEL",
-      "qty": 200,
+      "qty": 200.0,
       "exit": 3.3,
-      "pnl": -106,
-      "cost": 3.83,
-      "pct": -13.8,
+      "pnl": -106.0,
       "order_id": 5467657168,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-28",
       "sym": "AVGO",
-      "qty": 3,
+      "qty": 3.0,
       "exit": 372.76,
       "pnl": -139.91,
-      "cost": 419.395,
-      "pct": -11.1,
       "order_id": 5460980914,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-28",
       "sym": "BE",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 173.11,
       "pnl": -58.34,
-      "cost": 182.8333,
-      "pct": -5.3,
       "order_id": 5460355972,
       "source": "ibkr_fifo"
     },
@@ -1016,129 +868,105 @@ window.__DATA__ = {
       "qty": 6.5,
       "exit": 144.2758,
       "pnl": -77.05,
-      "cost": 156.1292,
-      "pct": -7.6,
       "order_id": 5455388192,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-24",
       "sym": "BE",
-      "qty": 5,
+      "qty": 5.0,
       "exit": 191.1217,
       "pnl": -61.79,
-      "cost": 203.48,
-      "pct": -6.1,
       "order_id": 5453540421,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-24",
       "sym": "HPQ",
-      "qty": 35,
+      "qty": 35.0,
       "exit": 25.525,
       "pnl": 78.12,
-      "cost": 23.2929,
-      "pct": 9.6,
       "order_id": 5452344658,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-24",
       "sym": "TE",
-      "qty": 60,
+      "qty": 60.0,
       "exit": 5.145,
       "pnl": -224.9,
-      "cost": 8.8934,
-      "pct": -42.1,
       "order_id": 5452056807,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-24",
       "sym": "FSLR",
-      "qty": 2,
+      "qty": 2.0,
       "exit": 203.375,
       "pnl": -93.9,
-      "cost": 250.325,
-      "pct": -18.8,
       "order_id": 5451308760,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-23",
       "sym": "ZETA",
-      "qty": 40,
+      "qty": 40.0,
       "exit": 19.71,
       "pnl": 0.09,
-      "cost": 19.7077,
-      "pct": 0.0,
       "order_id": 5446265080,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-21",
       "sym": "AFRM",
-      "qty": 13,
+      "qty": 13.0,
       "exit": 74.34,
       "pnl": -104.08,
-      "cost": 82.3462,
-      "pct": -9.7,
       "order_id": 5437673304,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-20",
       "sym": "TE",
-      "qty": 55,
+      "qty": 55.0,
       "exit": 5.822,
       "pnl": -169.14,
-      "cost": 8.8972,
-      "pct": -34.6,
       "order_id": 5434079772,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-20",
       "sym": "FSLR",
-      "qty": 2,
+      "qty": 2.0,
       "exit": 208.5,
       "pnl": -83.65,
-      "cost": 250.325,
-      "pct": -16.7,
       "order_id": 5434037808,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-17",
       "sym": "ZETA",
-      "qty": 35,
-      "exit": 22,
+      "qty": 35.0,
+      "exit": 22.0,
       "pnl": 114.72,
-      "cost": 18.7224,
-      "pct": 17.5,
       "order_id": 5431243045,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-16",
       "sym": "RDW",
-      "qty": 60,
+      "qty": 60.0,
       "exit": 9.019,
       "pnl": -272.89,
-      "cost": 13.5672,
-      "pct": -33.5,
       "order_id": 5423086847,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-13",
       "sym": "IONQ",
-      "qty": 15,
+      "qty": 15.0,
       "exit": 41.2,
       "pnl": -192.12,
-      "cost": 54.0083,
-      "pct": -23.7,
       "order_id": 5409375968,
       "source": "ibkr_fifo"
     },
@@ -1148,63 +976,51 @@ window.__DATA__ = {
       "qty": 3.5,
       "exit": 393.6143,
       "pnl": -104.09,
-      "cost": 423.3543,
-      "pct": -7.0,
       "order_id": 5398801581,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-02",
       "sym": "IREN",
-      "qty": 17,
+      "qty": 17.0,
       "exit": 37.8,
       "pnl": -389.03,
-      "cost": 60.6841,
-      "pct": -37.7,
       "order_id": 5382820274,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-02",
       "sym": "RDW",
-      "qty": 40,
+      "qty": 40.0,
       "exit": 11.392,
       "pnl": -182.49,
-      "cost": 15.9542,
-      "pct": -28.6,
       "order_id": 5382577548,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-02",
       "sym": "QCOM",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 179.922,
       "pnl": 0,
-      "cost": 179.922,
-      "pct": 0.0,
       "order_id": 5380687290,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-07-02",
       "sym": "QCOM",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 179.51,
       "pnl": -261.74,
-      "cost": 223.1333,
-      "pct": -19.6,
       "order_id": 5378997772,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-06-30",
       "sym": "CRCL",
-      "qty": 10,
+      "qty": 10.0,
       "exit": 63.5,
-      "pnl": -133,
-      "cost": 76.8,
-      "pct": -17.3,
+      "pnl": -133.0,
       "order_id": 5371552870,
       "source": "ibkr_fifo"
     },
@@ -1214,74 +1030,60 @@ window.__DATA__ = {
       "qty": 9.5,
       "exit": 278.5414,
       "pnl": -62.74,
-      "cost": 285.1458,
-      "pct": -2.3,
       "order_id": 5353510396,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-06-15",
       "sym": "NVDA",
-      "qty": 5,
+      "qty": 5.0,
       "exit": 212.333,
       "pnl": 64.38,
-      "cost": 199.4578,
-      "pct": 6.5,
       "order_id": 5315072009,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-06-09",
       "sym": "ZETA",
-      "qty": 40,
+      "qty": 40.0,
       "exit": 20.1901,
       "pnl": -62.2,
-      "cost": 21.745,
-      "pct": -7.2,
       "order_id": 5291057416,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-06-09",
       "sym": "ENPH",
-      "qty": 20,
-      "exit": 50,
-      "pnl": -117,
-      "cost": 55.85,
-      "pct": -10.5,
+      "qty": 20.0,
+      "exit": 50.0,
+      "pnl": -117.0,
       "order_id": 5291014654,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-06-09",
       "sym": "ONDS",
-      "qty": 55,
+      "qty": 55.0,
       "exit": 9.475,
       "pnl": -157.05,
-      "cost": 12.3305,
-      "pct": -23.2,
       "order_id": 5290350929,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-06-05",
       "sym": "CCJ",
-      "qty": 6,
+      "qty": 6.0,
       "exit": 106.195,
       "pnl": -18.54,
-      "cost": 109.285,
-      "pct": -2.8,
       "order_id": 5277179196,
       "source": "ibkr_fifo"
     },
     {
       "date": "2026-06-05",
       "sym": "CLSK",
-      "qty": 60,
+      "qty": 60.0,
       "exit": 15.945,
-      "pnl": -65,
-      "cost": 17.0283,
-      "pct": -6.4,
+      "pnl": -65.0,
       "order_id": 5274161143,
       "source": "ibkr_fifo"
     }
@@ -1297,7 +1099,7 @@ window.__DATA__ = {
       "qty": 400.0,
       "price": 2.745,
       "comm": 4.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1310,7 +1112,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 209.98,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1362,7 +1164,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 874.785,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1388,7 +1190,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 98.58,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1401,7 +1203,7 @@ window.__DATA__ = {
       "qty": 8.0,
       "price": 102.03,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1432,7 +1234,7 @@ window.__DATA__ = {
     },
     {
       "id": "00016e4a.6ac9540b.01.01",
-      "order_id": 785919672,
+      "order_id": 5708872036,
       "date": "2026-10-09",
       "time": "16:44:33",
       "sym": "CBRS",
@@ -1440,7 +1242,7 @@ window.__DATA__ = {
       "qty": 5.0,
       "price": 164.08,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1531,7 +1333,7 @@ window.__DATA__ = {
       "qty": 70.0,
       "price": 14.038,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1557,7 +1359,7 @@ window.__DATA__ = {
       "qty": 60.0,
       "price": 14.6182,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1570,7 +1372,7 @@ window.__DATA__ = {
       "qty": 120.0,
       "price": 3.68,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1583,7 +1385,7 @@ window.__DATA__ = {
       "qty": 100.0,
       "price": 3.68,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1596,7 +1398,7 @@ window.__DATA__ = {
       "qty": 18.0,
       "price": 28.48,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1609,7 +1411,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 326.08,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1622,7 +1424,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 173.51,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1713,7 +1515,7 @@ window.__DATA__ = {
       "qty": 20.0,
       "price": 15.265,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1726,7 +1528,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 180.3,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1739,7 +1541,7 @@ window.__DATA__ = {
       "qty": 40.0,
       "price": 16.01,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1752,7 +1554,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 299.84,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1765,7 +1567,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 181.5,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1804,7 +1606,7 @@ window.__DATA__ = {
       "qty": 12.0,
       "price": 43.24,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1830,7 +1632,7 @@ window.__DATA__ = {
       "qty": 17.0,
       "price": 43.915,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1843,7 +1645,7 @@ window.__DATA__ = {
       "qty": 300.0,
       "price": 3.62,
       "comm": 3.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1856,7 +1658,7 @@ window.__DATA__ = {
       "qty": 200.0,
       "price": 3.62,
       "comm": 2.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1869,7 +1671,7 @@ window.__DATA__ = {
       "qty": 34.0,
       "price": 30.84,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1882,7 +1684,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 68.05,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1921,7 +1723,7 @@ window.__DATA__ = {
       "qty": 186.0,
       "price": 3.83,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1934,7 +1736,7 @@ window.__DATA__ = {
       "qty": 114.0,
       "price": 3.83,
       "comm": 0.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1960,7 +1762,7 @@ window.__DATA__ = {
       "qty": 10.0,
       "price": 32.64,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1973,7 +1775,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 32.64,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1986,7 +1788,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 32.64,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -1999,7 +1801,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 32.64,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2012,7 +1814,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 32.64,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2025,7 +1827,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 32.64,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2051,7 +1853,7 @@ window.__DATA__ = {
       "qty": 8.0,
       "price": 136.0,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2064,7 +1866,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 139.6,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2077,7 +1879,7 @@ window.__DATA__ = {
       "qty": 10.0,
       "price": 56.358,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2103,7 +1905,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 306.7,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2116,7 +1918,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 69.5565,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2142,7 +1944,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 70.17,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2194,7 +1996,7 @@ window.__DATA__ = {
       "qty": 50.0,
       "price": 4.15,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2207,7 +2009,7 @@ window.__DATA__ = {
       "qty": 10.0,
       "price": 28.2,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2233,7 +2035,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 67.86,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2259,7 +2061,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 142.8,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2272,7 +2074,7 @@ window.__DATA__ = {
       "qty": 100.0,
       "price": 4.22,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2285,7 +2087,7 @@ window.__DATA__ = {
       "qty": 500.0,
       "price": 0.8253,
       "comm": 5.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2337,7 +2139,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 152.9,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2363,7 +2165,7 @@ window.__DATA__ = {
       "qty": 10.0,
       "price": 152.53,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2402,7 +2204,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 71.91,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2415,7 +2217,7 @@ window.__DATA__ = {
       "qty": 10.0,
       "price": 27.55,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2428,7 +2230,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 142.8,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2454,7 +2256,7 @@ window.__DATA__ = {
       "qty": 8.0,
       "price": 72.6,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2467,7 +2269,7 @@ window.__DATA__ = {
       "qty": 25.0,
       "price": 16.05,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2480,7 +2282,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 292.5,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2493,7 +2295,7 @@ window.__DATA__ = {
       "qty": 5.0,
       "price": 62.5,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2532,7 +2334,7 @@ window.__DATA__ = {
       "qty": 9.0,
       "price": 63.275,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2571,7 +2373,7 @@ window.__DATA__ = {
       "qty": 25.0,
       "price": 6.755,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2610,7 +2412,7 @@ window.__DATA__ = {
       "qty": 60.0,
       "price": 6.98,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2649,7 +2451,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 151.69,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2675,7 +2477,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 47.82,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2688,7 +2490,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 353.23,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2701,7 +2503,7 @@ window.__DATA__ = {
       "qty": 30.0,
       "price": 7.658,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2727,7 +2529,7 @@ window.__DATA__ = {
       "qty": 500.0,
       "price": 0.92,
       "comm": 5.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2740,7 +2542,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 76.01,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2766,7 +2568,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 78.85,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2779,7 +2581,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 78.85,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2792,7 +2594,7 @@ window.__DATA__ = {
       "qty": 11.0,
       "price": 47.66,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2805,7 +2607,7 @@ window.__DATA__ = {
       "qty": 12.0,
       "price": 34.95,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2818,7 +2620,7 @@ window.__DATA__ = {
       "qty": 40.0,
       "price": 14.595,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2857,7 +2659,7 @@ window.__DATA__ = {
       "qty": 23.0,
       "price": 7.53,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2896,7 +2698,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 182.5,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2909,7 +2711,7 @@ window.__DATA__ = {
       "qty": 8.0,
       "price": 34.8,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2935,7 +2737,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 300.3,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -2948,7 +2750,7 @@ window.__DATA__ = {
       "qty": 25.0,
       "price": 7.79,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3000,7 +2802,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 87.565,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3013,7 +2815,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 87.565,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3026,7 +2828,7 @@ window.__DATA__ = {
       "qty": 22.0,
       "price": 4.39,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3065,7 +2867,7 @@ window.__DATA__ = {
       "qty": 0.3,
       "price": 544.5,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3078,7 +2880,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 544.5,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3091,7 +2893,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 74.95,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3104,7 +2906,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 91.2,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3117,7 +2919,7 @@ window.__DATA__ = {
       "qty": 5.0,
       "price": 94.8,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3143,7 +2945,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 548.2,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3169,7 +2971,7 @@ window.__DATA__ = {
       "qty": 18.0,
       "price": 28.04,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3195,7 +2997,7 @@ window.__DATA__ = {
       "qty": 0.5,
       "price": 306.5,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3234,7 +3036,7 @@ window.__DATA__ = {
       "qty": 0.5,
       "price": 311.65,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3247,7 +3049,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 311.7,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3260,7 +3062,7 @@ window.__DATA__ = {
       "qty": 95.0,
       "price": 5.255,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3325,7 +3127,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 73.73,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3351,7 +3153,7 @@ window.__DATA__ = {
       "qty": 15.0,
       "price": 37.72,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3364,7 +3166,7 @@ window.__DATA__ = {
       "qty": 5.0,
       "price": 100.55,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3429,7 +3231,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 38.5,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3442,7 +3244,7 @@ window.__DATA__ = {
       "qty": 8.0,
       "price": 38.5,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3455,7 +3257,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 38.5,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3468,7 +3270,7 @@ window.__DATA__ = {
       "qty": 40.0,
       "price": 8.2,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3481,7 +3283,7 @@ window.__DATA__ = {
       "qty": 8.0,
       "price": 26.0,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3494,7 +3296,7 @@ window.__DATA__ = {
       "qty": 12.0,
       "price": 26.0,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3507,7 +3309,7 @@ window.__DATA__ = {
       "qty": 80.0,
       "price": 7.88,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3546,7 +3348,7 @@ window.__DATA__ = {
       "qty": 5.0,
       "price": 108.9483,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3572,7 +3374,7 @@ window.__DATA__ = {
       "qty": 8.0,
       "price": 68.0,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3585,7 +3387,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 75.43,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3624,7 +3426,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 73.0,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3650,7 +3452,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 94.56,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3663,7 +3465,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 115.355,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3702,7 +3504,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 192.45,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3754,7 +3556,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 113.86,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3767,7 +3569,7 @@ window.__DATA__ = {
       "qty": 200.0,
       "price": 3.805,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3780,7 +3582,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 195.72,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3793,7 +3595,7 @@ window.__DATA__ = {
       "qty": 0.5,
       "price": 195.76,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3806,7 +3608,7 @@ window.__DATA__ = {
       "qty": 15.0,
       "price": 65.35,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3845,7 +3647,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 182.0,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3858,7 +3660,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 177.67,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3871,7 +3673,7 @@ window.__DATA__ = {
       "qty": 0.7,
       "price": 607.9188,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3884,7 +3686,7 @@ window.__DATA__ = {
       "qty": 1.0,
       "price": 608.0,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -3936,7 +3738,7 @@ window.__DATA__ = {
       "qty": 35.0,
       "price": 19.4493,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4001,7 +3803,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 329.65,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4014,7 +3816,7 @@ window.__DATA__ = {
       "qty": 2.0,
       "price": 343.76,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4040,7 +3842,7 @@ window.__DATA__ = {
       "qty": 5.0,
       "price": 202.48,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4053,7 +3855,7 @@ window.__DATA__ = {
       "qty": 25.0,
       "price": 20.88,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4066,7 +3868,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 155.36,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4079,7 +3881,7 @@ window.__DATA__ = {
       "qty": 0.5,
       "price": 155.36,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4144,7 +3946,7 @@ window.__DATA__ = {
       "qty": 7.0,
       "price": 80.57,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4157,7 +3959,7 @@ window.__DATA__ = {
       "qty": 15.0,
       "price": 73.95,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4170,7 +3972,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 387.7,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4222,7 +4024,7 @@ window.__DATA__ = {
       "qty": 35.0,
       "price": 23.15,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4274,7 +4076,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 179.922,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4300,7 +4102,7 @@ window.__DATA__ = {
       "qty": 15.0,
       "price": 53.675,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4313,7 +4115,7 @@ window.__DATA__ = {
       "qty": 130.0,
       "price": 3.795,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4326,7 +4128,7 @@ window.__DATA__ = {
       "qty": 35.0,
       "price": 21.308,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4352,7 +4154,7 @@ window.__DATA__ = {
       "qty": 40.0,
       "price": 12.28,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4365,7 +4167,7 @@ window.__DATA__ = {
       "qty": 10.0,
       "price": 81.95,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4378,7 +4180,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 82.0,
       "comm": 0.0,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4391,7 +4193,7 @@ window.__DATA__ = {
       "qty": 10.0,
       "price": 76.3,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4404,7 +4206,7 @@ window.__DATA__ = {
       "qty": 5.0,
       "price": 95.55,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4417,7 +4219,7 @@ window.__DATA__ = {
       "qty": 4.0,
       "price": 248.45,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4430,7 +4232,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 378.9,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4469,7 +4271,7 @@ window.__DATA__ = {
       "qty": 115.0,
       "price": 8.83,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4482,7 +4284,7 @@ window.__DATA__ = {
       "qty": 6.0,
       "price": 222.3,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4508,7 +4310,7 @@ window.__DATA__ = {
       "qty": 250.0,
       "price": 3.668,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4521,7 +4323,7 @@ window.__DATA__ = {
       "qty": 18.0,
       "price": 52.6,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4534,7 +4336,7 @@ window.__DATA__ = {
       "qty": 60.0,
       "price": 15.85,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4547,7 +4349,7 @@ window.__DATA__ = {
       "qty": 3.0,
       "price": 289.48,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4599,7 +4401,7 @@ window.__DATA__ = {
       "qty": 20.0,
       "price": 55.6,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4612,7 +4414,7 @@ window.__DATA__ = {
       "qty": 40.0,
       "price": 21.62,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     },
     {
@@ -4651,7 +4453,7 @@ window.__DATA__ = {
       "qty": 60.0,
       "price": 16.945,
       "comm": 2.5,
-      "pnl": 0.0,
+      "pnl": 0,
       "sec": "STK"
     }
   ],
@@ -4680,25 +4482,18 @@ window.__DATA__ = {
       "url": "https://x.com/pdicarlotrader/status/2110823273424375875"
     },
     {
-      "date": "2026-10-15",
-      "sym": "SNDK",
-      "kind": "watch",
-      "sum": "Bubble/bull trap flagged in Aug. Down 30%; revisiting where to start building long-term position.",
-      "url": "https://x.com/pdicarlotrader/status/2110778523350638947"
-    },
-    {
-      "date": "2026-10-15",
-      "sym": "NBIS",
-      "kind": "note",
-      "sum": "Bull trap played out. Rejected in bearish SMZ, down 35%. Needs recovery before considering long.",
-      "url": "https://x.com/pdicarlotrader/status/2110792067555475645"
-    },
-    {
-      "date": "2026-10-15",
+      "date": "2026-10-16",
       "sym": "TSLA",
       "kind": "note",
-      "sum": "Rejected at 1h Smart Money Resistance, approaching key support. Watching next move.",
-      "url": "https://x.com/pdicarlotrader/status/2110776184149872913"
+      "sum": "1HR change of structure created lower high; hitting downside target. Need to hold $350 or risk cascade to $290.",
+      "url": "https://x.com/pdicarlotrader/status/2111220667265798435"
+    },
+    {
+      "date": "2026-10-16",
+      "sym": "CIFR",
+      "kind": "note",
+      "sum": "Down nearly 40% from weekly smart money zone. Worst-case scenario; rolling the position into something else. Proper entry/size, waited for weekly close.",
+      "url": "https://x.com/pdicarlotrader/status/2111209856505979042"
     }
   ],
   "perfCompare": {
@@ -5218,7 +5013,7 @@ window.__DATA__ = {
   "twr": {
     "measure": "TWR",
     "source": "IBKR get_pa_performance_all_periods",
-    "asOf": "20261009",
+    "asOf": "20261017",
     "dates": [
       "20260604",
       "20260605",
@@ -5499,7 +5294,7 @@ window.__DATA__ = {
       10489.4,
       10329.23,
       9989.69,
-      9987.33
+      9110.88
     ]
   },
   "spyCloses": {
