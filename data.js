@@ -1,174 +1,201 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-22 09:33 IDT
+// Generated: 2026-10-23 09:33 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-22T09:33:48.385117+03:00",
-    "generatedAtHuman": "2026-10-22 09:33 IDT",
+    "generatedAt": "2026-10-23T09:33:17.942261+03:00",
+    "generatedAtHuman": "2026-10-23 09:33 IDT",
     "source": "IBKR fills + TWR cps + SPY closes",
-    "nav": 8932.49,
-    "cash": -2721.2,
-    "grossPositions": 11572.77,
-    "unrealized": -1059.51,
+    "nav": 8642.33,
+    "cash": -1534.91,
+    "grossPositions": 10194.38,
+    "unrealized": -619.12,
     "positionsCount": 11,
-    "reconDrift": -80.92,
-    "note": "YTD closed · 51W / 50L · WR 50.5% · source ibkr_fifo"
+    "reconDrift": 17.14,
+    "note": "YTD closed · 51W / 53L · WR 49.0% · source ibkr_fifo"
   },
   "positions": [
     {
       "symbol": "APP",
       "qty": 7.0,
       "avg": 306.665,
-      "last": 263.9,
-      "upnl": -299.36,
-      "mv": 1847.3,
+      "last": 263.28,
+      "upnl": -303.7,
+      "mv": 1842.96,
       "cost": 2146.66,
-      "upnlPct": -13.95,
+      "peter": null,
+      "upnlPct": -14.15,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
-    },
-    {
-      "symbol": "KTOS",
-      "qty": 46.0,
-      "avg": 45.3612,
-      "last": 38.12,
-      "upnl": -333.1,
-      "mv": 1753.52,
-      "cost": 2086.61,
-      "upnlPct": -15.96,
-      "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     },
     {
       "symbol": "GS",
       "qty": 2.0,
       "avg": 876.035,
-      "last": 902.0,
-      "upnl": 51.93,
-      "mv": 1804.0,
+      "last": 891.3,
+      "upnl": 30.53,
+      "mv": 1782.6,
       "cost": 1752.07,
-      "upnlPct": 2.96,
+      "peter": null,
+      "upnlPct": 1.74,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     },
     {
       "symbol": "UBER",
       "qty": 22.0,
       "avg": 70.8185,
-      "last": 67.5,
-      "upnl": -73.01,
-      "mv": 1485.0,
+      "last": 68.73,
+      "upnl": -45.95,
+      "mv": 1512.06,
       "cost": 1558.01,
-      "upnlPct": -4.69,
+      "peter": null,
+      "upnlPct": -2.95,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     },
     {
-      "symbol": "TE",
-      "qty": 400.0,
-      "avg": 2.755,
-      "last": 2.3,
-      "upnl": -182.0,
-      "mv": 920.0,
-      "cost": 1102.0,
-      "upnlPct": -16.52,
+      "symbol": "CRWV",
+      "qty": 17.0,
+      "avg": 60.8994,
+      "last": 57.12,
+      "upnl": -64.25,
+      "mv": 971.04,
+      "cost": 1035.29,
+      "peter": {
+        "sum": "Betting BIG on $CRWV over next 1-2 years. $200 target by Aug 2027. Still holding over swing low; long-term SMZ in play.",
+        "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
+        "when": "2026-10-21"
+      },
+      "upnlPct": -6.21,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     },
     {
       "symbol": "JPM",
       "qty": 3.0,
       "avg": 326.9133,
-      "last": 334.5,
-      "upnl": 22.76,
-      "mv": 1003.5,
+      "last": 336.34,
+      "upnl": 28.28,
+      "mv": 1009.02,
       "cost": 980.74,
-      "upnlPct": 2.32,
+      "peter": null,
+      "upnlPct": 2.88,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     },
     {
-      "symbol": "VRT",
-      "qty": 4.0,
-      "avg": 210.605,
-      "last": 204.83,
-      "upnl": -23.1,
-      "mv": 819.32,
-      "cost": 842.42,
-      "upnlPct": -2.74,
+      "symbol": "KTOS",
+      "qty": 16.0,
+      "avg": 43.6018,
+      "last": 38.31,
+      "upnl": -84.67,
+      "mv": 612.96,
+      "cost": 697.63,
+      "peter": null,
+      "upnlPct": -12.14,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     },
     {
       "symbol": "CELH",
       "qty": 22.0,
       "avg": 28.7602,
-      "last": 28.08,
-      "upnl": -14.97,
-      "mv": 617.76,
+      "last": 28.37,
+      "upnl": -8.58,
+      "mv": 624.14,
       "cost": 632.72,
-      "upnlPct": -2.37,
-      "chg": 0,
-      "pctNet": 0,
       "peter": {
-        "sum": "$CELH starting to gain traction. Full video analysis on 60% breakout potential over 6-12 months.",
+        "sum": "$CELH starting to gain traction. Prior video on potential 60% breakout over 6-12 months.",
         "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
         "when": "2026-10-20"
-      }
+      },
+      "upnlPct": -1.36,
+      "chg": 0,
+      "pctNet": 0
     },
     {
-      "symbol": "CRWV",
-      "qty": 9.0,
-      "avg": 63.1678,
-      "last": 59.25,
-      "upnl": -35.26,
-      "mv": 533.25,
-      "cost": 568.51,
-      "upnlPct": -6.2,
+      "symbol": "VRT",
+      "qty": 3.0,
+      "avg": 196.8483,
+      "last": 200.37,
+      "upnl": 10.56,
+      "mv": 601.11,
+      "cost": 590.54,
+      "peter": null,
+      "upnlPct": 1.79,
       "chg": 0,
-      "pctNet": 0,
-      "peter": {
-        "sum": "Back in. Betting BIG on $CRWV over next 1-2 years; $200 target by Aug 2027. Long-term SMZ: 70% of time price returns to ATH within 12-16 months from this zone.",
-        "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
-        "when": "2026-10-21"
-      }
+      "pctNet": 0
+    },
+    {
+      "symbol": "SKHY",
+      "qty": 4.0,
+      "avg": 138.925,
+      "last": 139.24,
+      "upnl": 1.26,
+      "mv": 556.96,
+      "cost": 555.7,
+      "peter": null,
+      "upnlPct": 0.23,
+      "chg": 0,
+      "pctNet": 0
     },
     {
       "symbol": "VKTX",
       "qty": 18.0,
       "avg": 28.6189,
-      "last": 26.15,
-      "upnl": -44.44,
-      "mv": 470.7,
+      "last": 25.8,
+      "upnl": -50.74,
+      "mv": 464.4,
       "cost": 515.14,
-      "upnlPct": -8.63,
+      "peter": null,
+      "upnlPct": -9.85,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     },
     {
       "symbol": "POET",
       "qty": 58.0,
       "avg": 7.7134,
-      "last": 5.49,
-      "upnl": -128.96,
-      "mv": 318.42,
+      "last": 5.44,
+      "upnl": -131.86,
+      "mv": 315.52,
       "cost": 447.38,
-      "upnlPct": -28.83,
+      "peter": null,
+      "upnlPct": -29.47,
       "chg": 0,
-      "pctNet": 0,
-      "peter": null
+      "pctNet": 0
     }
   ],
   "closed": [
+    {
+      "order_id": 1590697053,
+      "symbol": "TE",
+      "date": "2026-10-22",
+      "qty": 400.0,
+      "exit": 2.255,
+      "pnl": -204.0,
+      "source": "ibkr_fifo"
+    },
+    {
+      "order_id": 1424054547,
+      "symbol": "KTOS",
+      "date": "2026-10-22",
+      "qty": 30.0,
+      "exit": 37.465,
+      "pnl": -239.39,
+      "source": "ibkr_fifo"
+    },
+    {
+      "order_id": 373301788,
+      "symbol": "VRT",
+      "date": "2026-10-22",
+      "qty": 4.0,
+      "exit": 195.59,
+      "pnl": -62.56,
+      "source": "ibkr_fifo"
+    },
     {
       "order_id": 5726141132,
       "symbol": "TE",
@@ -445,7 +472,7 @@ window.__DATA__ = {
       "date": "2026-09-16",
       "qty": 500.0,
       "exit": 0.8253,
-      "pnl": 0,
+      "pnl": 0.0,
       "source": "ibkr_fifo"
     },
     {
@@ -1012,7 +1039,7 @@ window.__DATA__ = {
       "date": "2026-07-02",
       "qty": 6.0,
       "exit": 179.922,
-      "pnl": 0,
+      "pnl": 0.0,
       "source": "ibkr_fifo"
     },
     {
@@ -1099,25 +1126,39 @@ window.__DATA__ = {
   ],
   "recs": [
     {
-      "date": "2026-10-21",
-      "sym": "MSTR",
+      "date": "2026-10-22",
+      "sym": "NBIS",
       "kind": "buy",
-      "sum": "+15% since bouncing on Daily Smart Money Zone. Should see swing high hit within next 30-60 days. Monthly BX Green potential new Bull Cycle.",
-      "url": "https://x.com/pdicarlotrader/status/2112922661596643500"
+      "sum": "$NBIS playing out as anticipated. $120 buy zone 🎯 (higher-TF smart money).",
+      "url": "https://x.com/pdicarlotrader/status/2113403052279619916"
     },
     {
-      "date": "2026-10-21",
-      "sym": "SPCX",
+      "date": "2026-10-22",
+      "sym": "MU",
       "kind": "watch",
-      "sum": "Structure held $145. Still bullish heading into earnings.",
-      "url": "https://x.com/pdicarlotrader/status/2112923350150332537"
+      "sum": "$MU -17% since sell-zone post. Likely retrace to discount Institutional Buy Zone if no bounce above $900.",
+      "url": "https://x.com/pdicarlotrader/status/2113402324412490184"
+    },
+    {
+      "date": "2026-10-22",
+      "sym": "IREN",
+      "kind": "note",
+      "sum": "$IREN swing low broken and holding under. Small chance of recovery; most cases sell off to Monthly SMZ ~$19-20.",
+      "url": "https://x.com/pdicarlotrader/status/2113286229420568860"
     },
     {
       "date": "2026-10-21",
       "sym": "TSLA",
       "kind": "note",
-      "sum": "Not in. Daily/internal structure still bearish, heavy resistance $420, Monthly BX red. Watching for rejection or breakdown to $345/$300 for re-entry.",
+      "sum": "Not in $TSLA. Daily/internal structure still bearish. No short-term discount. Watching $345/$300 for re-entry.",
       "url": "https://x.com/pdicarlotrader/status/2112991406859960684"
+    },
+    {
+      "date": "2026-10-21",
+      "sym": "SPCX",
+      "kind": "watch",
+      "sum": "Structure held $SPCX. Still bullish.",
+      "url": "https://x.com/pdicarlotrader/status/2112923350150332537"
     }
   ],
   "perfCompare": {
