@@ -1,31 +1,31 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-23 09:33 IDT
+// Generated: 2026-10-24 09:33 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-23T09:33:17.942261+03:00",
-    "generatedAtHuman": "2026-10-23 09:33 IDT",
-    "source": "IBKR fills + TWR cps + SPY closes",
-    "nav": 8642.33,
-    "cash": -1534.91,
-    "grossPositions": 10194.38,
-    "unrealized": -619.12,
-    "positionsCount": 11,
-    "reconDrift": 17.14,
-    "note": "YTD closed · 51W / 53L · WR 49.0% · source ibkr_fifo"
+    "generatedAt": "2026-10-24T09:33:00+03:00",
+    "generatedAtHuman": "2026-10-24 09:33 IDT",
+    "source": "IBKR positions + TWR + Peter public X (trades API failed)",
+    "nav": 8542.76,
+    "cash": -2148.24,
+    "grossPositions": 10691.0,
+    "unrealized": -741.6,
+    "positionsCount": 12,
+    "reconDrift": 0,
+    "note": "YTD closed (stale - trades API failed) \u00b7 prior 51W/53L WR 49.0% \u00b7 VKTX closed \u00b7 new ASX/NFLX"
   },
   "positions": [
     {
       "symbol": "APP",
       "qty": 7.0,
       "avg": 306.665,
-      "last": 263.28,
-      "upnl": -303.7,
-      "mv": 1842.96,
-      "cost": 2146.66,
+      "last": 260.6000061,
+      "upnl": -322.4549573,
+      "mv": 1824.2000427,
+      "cost": 2146.655,
       "peter": null,
-      "upnlPct": -14.15,
+      "upnlPct": -15.02,
       "chg": 0,
       "pctNet": 0
     },
@@ -33,98 +33,98 @@ window.__DATA__ = {
       "symbol": "GS",
       "qty": 2.0,
       "avg": 876.035,
-      "last": 891.3,
-      "upnl": 30.53,
-      "mv": 1782.6,
+      "last": 878.81500245,
+      "upnl": 5.5600049,
+      "mv": 1757.6300049,
       "cost": 1752.07,
       "peter": null,
-      "upnlPct": 1.74,
+      "upnlPct": 0.32,
       "chg": 0,
       "pctNet": 0
     },
     {
       "symbol": "UBER",
       "qty": 22.0,
-      "avg": 70.8185,
-      "last": 68.73,
-      "upnl": -45.95,
-      "mv": 1512.06,
-      "cost": 1558.01,
+      "avg": 70.81845455,
+      "last": 67.0,
+      "upnl": -84.006,
+      "mv": 1474.0,
+      "cost": 1558.006,
       "peter": null,
-      "upnlPct": -2.95,
+      "upnlPct": -5.39,
       "chg": 0,
       "pctNet": 0
     },
     {
       "symbol": "CRWV",
       "qty": 17.0,
-      "avg": 60.8994,
-      "last": 57.12,
-      "upnl": -64.25,
-      "mv": 971.04,
+      "avg": 60.89941176,
+      "last": 53.95000075,
+      "upnl": -118.13998725,
+      "mv": 917.15001275,
       "cost": 1035.29,
       "peter": {
         "sum": "Betting BIG on $CRWV over next 1-2 years. $200 target by Aug 2027. Still holding over swing low; long-term SMZ in play.",
         "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
         "when": "2026-10-21"
       },
-      "upnlPct": -6.21,
+      "upnlPct": -11.41,
       "chg": 0,
       "pctNet": 0
     },
     {
       "symbol": "JPM",
       "qty": 3.0,
-      "avg": 326.9133,
-      "last": 336.34,
-      "upnl": 28.28,
-      "mv": 1009.02,
+      "avg": 326.91333333,
+      "last": 331.8500061,
+      "upnl": 14.8100183,
+      "mv": 995.5500183,
       "cost": 980.74,
       "peter": null,
-      "upnlPct": 2.88,
+      "upnlPct": 1.51,
       "chg": 0,
       "pctNet": 0
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
-      "avg": 43.6018,
-      "last": 38.31,
-      "upnl": -84.67,
-      "mv": 612.96,
-      "cost": 697.63,
+      "avg": 43.6017625,
+      "last": 38.75,
+      "upnl": -77.6282,
+      "mv": 620.0,
+      "cost": 697.6282,
       "peter": null,
-      "upnlPct": -12.14,
+      "upnlPct": -11.13,
       "chg": 0,
       "pctNet": 0
     },
     {
       "symbol": "CELH",
       "qty": 22.0,
-      "avg": 28.7602,
-      "last": 28.37,
-      "upnl": -8.58,
-      "mv": 624.14,
-      "cost": 632.72,
+      "avg": 28.76022727,
+      "last": 28.48800085,
+      "upnl": -5.9889813,
+      "mv": 626.7360187,
+      "cost": 632.725,
       "peter": {
         "sum": "$CELH starting to gain traction. Prior video on potential 60% breakout over 6-12 months.",
         "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
         "when": "2026-10-20"
       },
-      "upnlPct": -1.36,
+      "upnlPct": -0.95,
       "chg": 0,
       "pctNet": 0
     },
     {
       "symbol": "VRT",
       "qty": 3.0,
-      "avg": 196.8483,
-      "last": 200.37,
-      "upnl": 10.56,
-      "mv": 601.11,
-      "cost": 590.54,
+      "avg": 196.84833333,
+      "last": 194.4660034,
+      "upnl": -7.1469898,
+      "mv": 583.3980102,
+      "cost": 590.545,
       "peter": null,
-      "upnlPct": 1.79,
+      "upnlPct": -1.21,
       "chg": 0,
       "pctNet": 0
     },
@@ -132,38 +132,55 @@ window.__DATA__ = {
       "symbol": "SKHY",
       "qty": 4.0,
       "avg": 138.925,
-      "last": 139.24,
-      "upnl": 1.26,
-      "mv": 556.96,
+      "last": 136.977005,
+      "upnl": -7.79198,
+      "mv": 547.90802,
       "cost": 555.7,
       "peter": null,
-      "upnlPct": 0.23,
+      "upnlPct": -1.4,
       "chg": 0,
       "pctNet": 0
     },
     {
-      "symbol": "VKTX",
-      "qty": 18.0,
-      "avg": 28.6189,
-      "last": 25.8,
-      "upnl": -50.74,
-      "mv": 464.4,
-      "cost": 515.14,
+      "symbol": "NFLX",
+      "qty": 8.0,
+      "avg": 66.5825,
+      "last": 65.7845001,
+      "upnl": -6.3839992,
+      "mv": 526.2760008,
+      "cost": 532.66,
+      "peter": {
+        "sum": "$NFLX dropping -5% after hours. Numbers don't seem bad, but guidance was on the low end.",
+        "url": "https://x.com/pdicarlotrader/status/2112636404413194735",
+        "when": "2026-10-20"
+      },
+      "upnlPct": -1.2,
+      "chg": 0,
+      "pctNet": 0
+    },
+    {
+      "symbol": "ASX",
+      "qty": 13.0,
+      "avg": 38.70730769,
+      "last": 38.65000155,
+      "upnl": -0.74497985,
+      "mv": 502.45002015,
+      "cost": 503.195,
       "peter": null,
-      "upnlPct": -9.85,
+      "upnlPct": -0.15,
       "chg": 0,
       "pctNet": 0
     },
     {
       "symbol": "POET",
       "qty": 58.0,
-      "avg": 7.7134,
-      "last": 5.44,
-      "upnl": -131.86,
-      "mv": 315.52,
+      "avg": 7.71344828,
+      "last": 5.4431,
+      "upnl": -131.6802,
+      "mv": 315.6998,
       "cost": 447.38,
       "peter": null,
-      "upnlPct": -29.47,
+      "upnlPct": -29.43,
       "chg": 0,
       "pctNet": 0
     }
@@ -1126,39 +1143,39 @@ window.__DATA__ = {
   ],
   "recs": [
     {
+      "date": "2026-10-23",
+      "sym": "NRG",
+      "kind": "buy",
+      "sum": "$NRG back at long-term Smart Money support after ~50% selloff. High chance of bottom; ~100% upside to ATH $188. Stop under swing low $78 (~16.5% risk). Earnings week of Nov 2.",
+      "url": "https://x.com/pdicarlotrader/status/2113638039540887735"
+    },
+    {
+      "date": "2026-10-23",
+      "sym": "WM",
+      "kind": "watch",
+      "sum": "A+ setup. $WM didn't break down with other SM trades. Up 20% in 3 weeks since hitting the zone.",
+      "url": "https://x.com/pdicarlotrader/status/2113670491961544903"
+    },
+    {
+      "date": "2026-10-23",
+      "sym": "CIFR",
+      "kind": "note",
+      "sum": "Was bullish on $CIFR into Weekly SMZ last month. Failed this time; sold out of the trade.",
+      "url": "https://x.com/pdicarlotrader/status/2113669748709810534"
+    },
+    {
+      "date": "2026-10-23",
+      "sym": "TE",
+      "kind": "note",
+      "sum": "$TE pulled into Weekly SMZ in Sep. Failed miserably this time (unlike prior 200% rally). Took the loss and moving on.",
+      "url": "https://x.com/pdicarlotrader/status/2113670177426661609"
+    },
+    {
       "date": "2026-10-22",
       "sym": "NBIS",
       "kind": "buy",
-      "sum": "$NBIS playing out as anticipated. $120 buy zone 🎯 (higher-TF smart money).",
+      "sum": "$NBIS playing out as anticipated. $120 buy zone \ud83c\udfaf (higher-TF smart money).",
       "url": "https://x.com/pdicarlotrader/status/2113403052279619916"
-    },
-    {
-      "date": "2026-10-22",
-      "sym": "MU",
-      "kind": "watch",
-      "sum": "$MU -17% since sell-zone post. Likely retrace to discount Institutional Buy Zone if no bounce above $900.",
-      "url": "https://x.com/pdicarlotrader/status/2113402324412490184"
-    },
-    {
-      "date": "2026-10-22",
-      "sym": "IREN",
-      "kind": "note",
-      "sum": "$IREN swing low broken and holding under. Small chance of recovery; most cases sell off to Monthly SMZ ~$19-20.",
-      "url": "https://x.com/pdicarlotrader/status/2113286229420568860"
-    },
-    {
-      "date": "2026-10-21",
-      "sym": "TSLA",
-      "kind": "note",
-      "sum": "Not in $TSLA. Daily/internal structure still bearish. No short-term discount. Watching $345/$300 for re-entry.",
-      "url": "https://x.com/pdicarlotrader/status/2112991406859960684"
-    },
-    {
-      "date": "2026-10-21",
-      "sym": "SPCX",
-      "kind": "watch",
-      "sum": "Structure held $SPCX. Still bullish.",
-      "url": "https://x.com/pdicarlotrader/status/2112923350150332537"
     }
   ],
   "perfCompare": {
@@ -1176,7 +1193,7 @@ window.__DATA__ = {
       "y1": 2.22,
       "all": null
     },
-    "note": "cache only — page derives both rows from twr.cps and spyCloses"
+    "note": "cache only \u2014 page derives both rows from twr.cps and spyCloses"
   },
   "equityReturns": {
     "labels": [
@@ -1461,12 +1478,12 @@ window.__DATA__ = {
       2.22,
       2.22
     ],
-    "note": "cache only — page derives from twr and spyCloses"
+    "note": "cache only \u2014 page derives from twr and spyCloses"
   },
   "twr": {
     "measure": "TWR",
     "source": "IBKR get_pa_performance_all_periods",
-    "asOf": "20261017",
+    "asOf": "20261024",
     "dates": [
       "20260604",
       "20260605",
