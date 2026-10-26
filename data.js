@@ -1,1196 +1,1160 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-25 09:33 IDT
+// Generated: 2026-10-26 09:46 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-25T09:33:37.465196+02:00",
-    "generatedAtHuman": "2026-10-25 09:33 IDT",
+    "generatedAt": "2026-10-26T09:46:55.748640+02:00",
+    "generatedAtHuman": "2026-10-26 09:46 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
     "nav": 8541.7,
     "cash": -2128.76,
     "grossPositions": 10688.65,
-    "unrealized": -741.59,
+    "unrealized": -772.59,
     "positionsCount": 12,
     "reconDrift": 0,
-    "note": "YTD closed updated \u00b7 51W/54L \u00b7 VKTX closed yesterday"
-  },
+    "note": "YTD closed updated \u00b7 51W/54L \u00b7 Peter notes on 4 holdings"
+},
   "positions": [
     {
-      "symbol": "APP",
-      "qty": 7.0,
-      "avg": 306.665,
-      "last": 260.6,
-      "upnl": -322.45,
-      "mv": 1824.2,
-      "cost": 2146.655,
-      "peter": null,
-      "upnlPct": -15.02,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "APP",
+        "qty": 7.0,
+        "avg": 306.665,
+        "last": 260.03,
+        "upnl": -326.45,
+        "mv": 1820.21,
+        "cost": 2146.655,
+        "peter": null
     },
     {
-      "symbol": "GS",
-      "qty": 2.0,
-      "avg": 876.035,
-      "last": 878.82,
-      "upnl": 5.56,
-      "mv": 1757.63,
-      "cost": 1752.07,
-      "peter": null,
-      "upnlPct": 0.32,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "GS",
+        "qty": 2.0,
+        "avg": 876.035,
+        "last": 879.0,
+        "upnl": 5.93,
+        "mv": 1758.0,
+        "cost": 1752.07,
+        "peter": null
     },
     {
-      "symbol": "UBER",
-      "qty": 22.0,
-      "avg": 70.818,
-      "last": 67.0,
-      "upnl": -84.01,
-      "mv": 1474.0,
-      "cost": 1558.0,
-      "peter": null,
-      "upnlPct": -5.39,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "UBER",
+        "qty": 22.0,
+        "avg": 70.818,
+        "last": 67.07,
+        "upnl": -82.47,
+        "mv": 1475.54,
+        "cost": 1558.0,
+        "peter": null
     },
     {
-      "symbol": "CRWV",
-      "qty": 17.0,
-      "avg": 60.899,
-      "last": 53.95,
-      "upnl": -118.14,
-      "mv": 917.15,
-      "cost": 1035.28,
-      "peter": {
-        "sum": "Betting BIG on $CRWV over next 1-2 years. $200 target by Aug 2027. Still holding over swing low while $IREN broke; long-term SMZ in play. $60 alert hit.",
-        "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
-        "when": "2026-10-21"
-      },
-      "upnlPct": -11.41,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "CRWV",
+        "qty": 17.0,
+        "avg": 60.899,
+        "last": 51.98,
+        "upnl": -151.63,
+        "mv": 883.66,
+        "cost": 1035.29,
+        "peter": {
+            "sum": "Betting BIG on $CRWV over next 1-2 years. $200 target by Aug 2027. Still holding over swing low while $IREN broke; long-term SMZ in play. $60 alert hit.",
+            "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
+            "when": "2026-10-21"
+        }
     },
     {
-      "symbol": "JPM",
-      "qty": 3.0,
-      "avg": 326.913,
-      "last": 331.85,
-      "upnl": 14.81,
-      "mv": 995.55,
-      "cost": 980.74,
-      "peter": null,
-      "upnlPct": 1.51,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "JPM",
+        "qty": 3.0,
+        "avg": 326.913,
+        "last": 332.6,
+        "upnl": 17.06,
+        "mv": 997.8,
+        "cost": 980.74,
+        "peter": null
     },
     {
-      "symbol": "KTOS",
-      "qty": 16.0,
-      "avg": 43.602,
-      "last": 38.75,
-      "upnl": -77.63,
-      "mv": 620.0,
-      "cost": 697.63,
-      "peter": null,
-      "upnlPct": -11.13,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "KTOS",
+        "qty": 16.0,
+        "avg": 43.602,
+        "last": 38.77,
+        "upnl": -77.31,
+        "mv": 620.32,
+        "cost": 697.63,
+        "peter": null
     },
     {
-      "symbol": "CELH",
-      "qty": 22.0,
-      "avg": 28.76,
-      "last": 28.49,
-      "upnl": -5.99,
-      "mv": 626.74,
-      "cost": 632.72,
-      "peter": {
-        "sum": "$CELH starting to gain traction. Positioning for potential 60% breakout over next 6-12 months (prior video).",
-        "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
-        "when": "2026-10-20"
-      },
-      "upnlPct": -0.95,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "CELH",
+        "qty": 22.0,
+        "avg": 28.76,
+        "last": 28.59,
+        "upnl": -3.74,
+        "mv": 628.98,
+        "cost": 632.73,
+        "peter": {
+            "sum": "$CELH starting to gain traction. Positioning for potential 60% breakout over next 6-12 months (prior video).",
+            "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
+            "when": "2026-10-20"
+        }
     },
     {
-      "symbol": "VRT",
-      "qty": 3.0,
-      "avg": 196.848,
-      "last": 194.47,
-      "upnl": -7.15,
-      "mv": 583.4,
-      "cost": 590.54,
-      "peter": {
-        "sum": "Weekly Smart Money Zone. Historically very good buy zone for next 6-12 months. Upside target $380 (~100%). SL close under swing low $147 (~20-25% downside). Not taking yet (capital tied up).",
-        "url": "https://x.com/pdicarlotrader/status/2114033174774784407",
-        "when": "2026-10-24"
-      },
-      "upnlPct": -1.21,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "VRT",
+        "qty": 3.0,
+        "avg": 196.848,
+        "last": 193.27,
+        "upnl": -10.73,
+        "mv": 579.81,
+        "cost": 590.54,
+        "peter": {
+            "sum": "Weekly Smart Money Zone. Historically very good buy zone for next 6-12 months. Upside target $380 (~100%). SL close under swing low $147 (~20-25% downside). Not taking yet (capital tied up).",
+            "url": "https://x.com/pdicarlotrader/status/2114033174774784407",
+            "when": "2026-10-24"
+        }
     },
     {
-      "symbol": "SKHY",
-      "qty": 4.0,
-      "avg": 138.925,
-      "last": 136.98,
-      "upnl": -7.79,
-      "mv": 547.91,
-      "cost": 555.7,
-      "peter": null,
-      "upnlPct": -1.4,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "SKHY",
+        "qty": 4.0,
+        "avg": 138.925,
+        "last": 138.98,
+        "upnl": 0.22,
+        "mv": 555.92,
+        "cost": 555.7,
+        "peter": null
     },
     {
-      "symbol": "NFLX",
-      "qty": 8.0,
-      "avg": 66.583,
-      "last": 65.78,
-      "upnl": -6.38,
-      "mv": 526.28,
-      "cost": 532.66,
-      "peter": {
-        "sum": "$NFLX dropping -5% after hours. Numbers don't seem bad, but guidance was on the low end.",
-        "url": "https://x.com/pdicarlotrader/status/2112636404413194735",
-        "when": "2026-10-20"
-      },
-      "upnlPct": -1.2,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "NFLX",
+        "qty": 8.0,
+        "avg": 66.583,
+        "last": 65.84,
+        "upnl": -5.94,
+        "mv": 526.72,
+        "cost": 532.66,
+        "peter": {
+            "sum": "$NFLX dropping -5% after hours. Numbers don't seem bad, but guidance was on the low end.",
+            "url": "https://x.com/pdicarlotrader/status/2112636404413194735",
+            "when": "2026-10-20"
+        }
     },
     {
-      "symbol": "ASX",
-      "qty": 13.0,
-      "avg": 38.707,
-      "last": 38.65,
-      "upnl": -0.74,
-      "mv": 502.45,
-      "cost": 503.19,
-      "peter": null,
-      "upnlPct": -0.15,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "ASX",
+        "qty": 13.0,
+        "avg": 38.707,
+        "last": 38.36,
+        "upnl": -4.51,
+        "mv": 498.68,
+        "cost": 503.2,
+        "peter": null
     },
     {
-      "symbol": "POET",
-      "qty": 58.0,
-      "avg": 7.713,
-      "last": 5.44,
-      "upnl": -131.68,
-      "mv": 315.7,
-      "cost": 447.35,
-      "peter": null,
-      "upnlPct": -29.44,
-      "chg": 0,
-      "pctNet": 0
+        "symbol": "POET",
+        "qty": 58.0,
+        "avg": 7.713,
+        "last": 5.42,
+        "upnl": -133.02,
+        "mv": 314.36,
+        "cost": 447.38,
+        "peter": null
     }
-  ],
+],
   "closed": [
     {
-      "order_id": 1424054464,
-      "symbol": "VKTX",
-      "date": "2026-10-23",
-      "qty": 18.0,
-      "exit": 24.695,
-      "pnl": -73.13,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 1590697053,
-      "symbol": "TE",
-      "date": "2026-10-22",
-      "qty": 400.0,
-      "exit": 2.255,
-      "pnl": -204.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 1424054547,
-      "symbol": "KTOS",
-      "date": "2026-10-22",
-      "qty": 30.0,
-      "exit": 37.465,
-      "pnl": -239.39,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 373301788,
-      "symbol": "VRT",
-      "date": "2026-10-22",
-      "qty": 4.0,
-      "exit": 195.59,
-      "pnl": -62.56,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5726141132,
-      "symbol": "TE",
-      "date": "2026-10-15",
-      "qty": 197.0,
-      "exit": 2.681,
-      "pnl": -201.32,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5725257431,
-      "symbol": "POET",
-      "date": "2026-10-15",
-      "qty": 60.0,
-      "exit": 5.572,
-      "pnl": -156.48,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5725257338,
-      "symbol": "INTC",
-      "date": "2026-10-15",
-      "qty": 10.0,
-      "exit": 93.72,
-      "pnl": -83.7,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5723363222,
-      "symbol": "CBRS",
-      "date": "2026-10-14",
-      "qty": 4.0,
-      "exit": 141.53,
-      "pnl": -94.7,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5710962420,
-      "symbol": "CBRS",
-      "date": "2026-10-12",
-      "qty": 8.0,
-      "exit": 157.07,
-      "pnl": -152.49,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5710938049,
-      "symbol": "ENPH",
-      "date": "2026-10-12",
-      "qty": 16.0,
-      "exit": 32.62,
-      "pnl": 24.8,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5704101590,
-      "symbol": "TE",
-      "date": "2026-10-08",
-      "qty": 220.0,
-      "exit": 3.4401,
-      "pnl": -45.92,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5703255164,
-      "symbol": "POET",
-      "date": "2026-10-08",
-      "qty": 30.0,
-      "exit": 7.1,
-      "pnl": -26.84,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5703096406,
-      "symbol": "CIFR",
-      "date": "2026-10-08",
-      "qty": 10.0,
-      "exit": 13.435,
-      "pnl": -8.89,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5702517222,
-      "symbol": "CIFR",
-      "date": "2026-10-08",
-      "qty": 100.0,
-      "exit": 13.615,
-      "pnl": -71.82,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5701943737,
-      "symbol": "CIFR",
-      "date": "2026-10-08",
-      "qty": 80.0,
-      "exit": 13.89,
-      "pnl": -135.2,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5700575718,
-      "symbol": "VST",
-      "date": "2026-10-07",
-      "qty": 6.0,
-      "exit": 167.5,
-      "pnl": 184.62,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5693071884,
-      "symbol": "VST",
-      "date": "2026-10-06",
-      "qty": 5.0,
-      "exit": 158.0,
-      "pnl": 94.83,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5687673540,
-      "symbol": "ENPH",
-      "date": "2026-10-05",
-      "qty": 6.0,
-      "exit": 32.72,
-      "pnl": 8.34,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5687637555,
-      "symbol": "VST",
-      "date": "2026-10-05",
-      "qty": 11.0,
-      "exit": 142.0,
-      "pnl": -46.01,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5687609435,
-      "symbol": "CBRS",
-      "date": "2026-10-05",
-      "qty": 2.0,
-      "exit": 183.675,
-      "pnl": 0.18,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5684375827,
-      "symbol": "TE",
-      "date": "2026-10-02",
-      "qty": 120.0,
-      "exit": 4.03,
-      "pnl": 45.5,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5684353869,
-      "symbol": "ENPH",
-      "date": "2026-10-02",
-      "qty": 14.0,
-      "exit": 33.95,
-      "pnl": 36.56,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5673753804,
-      "symbol": "TE",
-      "date": "2026-09-30",
-      "qty": 750.0,
-      "exit": 3.85,
-      "pnl": -171.59,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5673005717,
-      "symbol": "ENPH",
-      "date": "2026-09-30",
-      "qty": 32.0,
-      "exit": 32.75,
-      "pnl": -55.14,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5670344164,
-      "symbol": "ON",
-      "date": "2026-09-29",
-      "qty": 10.0,
-      "exit": 76.03,
-      "pnl": 63.48,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5667384845,
-      "symbol": "BAC",
-      "date": "2026-09-28",
-      "qty": 10.0,
-      "exit": 55.49,
-      "pnl": -13.68,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5658745630,
-      "symbol": "RKLB",
-      "date": "2026-09-24",
-      "qty": 11.0,
-      "exit": 73.625,
-      "pnl": 111.06,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5658656370,
-      "symbol": "ON",
-      "date": "2026-09-24",
-      "qty": 4.0,
-      "exit": 73.2,
-      "pnl": 1.23,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5658512454,
-      "symbol": "CBRS",
-      "date": "2026-09-24",
-      "qty": 3.0,
-      "exit": 207.0,
-      "pnl": 68.5,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5651841845,
-      "symbol": "RKLB",
-      "date": "2026-09-23",
-      "qty": 3.0,
-      "exit": 71.54,
-      "pnl": 21.46,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5648691964,
-      "symbol": "CELH",
-      "date": "2026-09-22",
-      "qty": 12.0,
-      "exit": 29.95,
-      "pnl": -22.85,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5647534004,
-      "symbol": "CIFR",
-      "date": "2026-09-22",
-      "qty": 25.0,
-      "exit": 19.45,
-      "pnl": 80.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5638012338,
-      "symbol": "ENPH",
-      "date": "2026-09-18",
-      "qty": 10.0,
-      "exit": 34.19,
-      "pnl": -105.06,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5632813799,
-      "symbol": "CRDO",
-      "date": "2026-09-17",
-      "qty": 3.0,
-      "exit": 167.2,
-      "pnl": 39.33,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5630645294,
-      "symbol": "ORBS",
-      "date": "2026-09-16",
-      "qty": 500.0,
-      "exit": 0.8253,
-      "pnl": 0.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5630467929,
-      "symbol": "CRDO",
-      "date": "2026-09-16",
-      "qty": 4.0,
-      "exit": 159.1,
-      "pnl": 20.87,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5629084335,
-      "symbol": "NXT",
-      "date": "2026-09-16",
-      "qty": 10.0,
-      "exit": 77.94,
-      "pnl": -149.69,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5627652305,
-      "symbol": "JOBY",
-      "date": "2026-09-16",
-      "qty": 85.0,
-      "exit": 6.082,
-      "pnl": -78.2,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5621458024,
-      "symbol": "CRDO",
-      "date": "2026-09-14",
-      "qty": 10.0,
-      "exit": 152.8,
-      "pnl": -2.3,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5620082801,
-      "symbol": "NFLX",
-      "date": "2026-09-14",
-      "qty": 15.0,
-      "exit": 80.0,
-      "pnl": 91.07,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5619097735,
-      "symbol": "CEG",
-      "date": "2026-09-14",
-      "qty": 2.0,
-      "exit": 271.52,
-      "pnl": -46.96,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5616617735,
-      "symbol": "RBLX",
-      "date": "2026-09-11",
-      "qty": 15.0,
-      "exit": 45.98,
-      "pnl": 118.9,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5610065602,
-      "symbol": "MMM",
-      "date": "2026-09-10",
-      "qty": 3.0,
-      "exit": 162.83,
-      "pnl": -48.09,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5608407272,
-      "symbol": "CELH",
-      "date": "2026-09-09",
-      "qty": 12.0,
-      "exit": 28.07,
-      "pnl": -3.81,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5607063290,
-      "symbol": "META",
-      "date": "2026-09-09",
-      "qty": 1.0,
-      "exit": 647.5,
-      "pnl": 98.75,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5607048770,
-      "symbol": "TSLA",
-      "date": "2026-09-09",
-      "qty": 2.0,
-      "exit": 370.96,
-      "pnl": 30.46,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5605693226,
-      "symbol": "META",
-      "date": "2026-09-09",
-      "qty": 1.0,
-      "exit": 639.96,
-      "pnl": 87.87,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5603927551,
-      "symbol": "ORBS",
-      "date": "2026-09-08",
-      "qty": 500.0,
-      "exit": 1.15,
-      "pnl": 105.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5602067701,
-      "symbol": "UBER",
-      "date": "2026-09-08",
-      "qty": 8.0,
-      "exit": 72.982,
-      "pnl": 34.86,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5601196463,
-      "symbol": "AEHR",
-      "date": "2026-09-08",
-      "qty": 7.0,
-      "exit": 89.84,
-      "pnl": 80.45,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5600466539,
-      "symbol": "AEHR",
-      "date": "2026-09-08",
-      "qty": 3.0,
-      "exit": 93.5,
-      "pnl": 38.95,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5594385064,
-      "symbol": "CIFR",
-      "date": "2026-09-03",
-      "qty": 40.0,
-      "exit": 17.23,
-      "pnl": 100.4,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5589085645,
-      "symbol": "META",
-      "date": "2026-09-02",
-      "qty": 2.0,
-      "exit": 594.7,
-      "pnl": -14.35,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5582943296,
-      "symbol": "RKLB",
-      "date": "2026-09-01",
-      "qty": 5.0,
-      "exit": 62.03,
-      "pnl": -68.44,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5578506869,
-      "symbol": "ENPH",
-      "date": "2026-08-31",
-      "qty": 14.0,
-      "exit": 36.36,
-      "pnl": -231.8,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5570837468,
-      "symbol": "MSTR",
-      "date": "2026-08-27",
-      "qty": 5.0,
-      "exit": 137.0,
-      "pnl": 177.25,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5570638039,
-      "symbol": "NOW",
-      "date": "2026-08-27",
-      "qty": 5.0,
-      "exit": 137.205,
-      "pnl": 106.41,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5560288039,
-      "symbol": "MMM",
-      "date": "2026-08-25",
-      "qty": 4.0,
-      "exit": 178.98,
-      "pnl": 1.31,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5555097907,
-      "symbol": "RKLB",
-      "date": "2026-08-24",
-      "qty": 7.0,
-      "exit": 69.8,
-      "pnl": -44.41,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5554031063,
-      "symbol": "HOOD",
-      "date": "2026-08-21",
-      "qty": 7.0,
-      "exit": 108.22,
-      "pnl": 90.62,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5542736447,
-      "symbol": "NFLX",
-      "date": "2026-08-19",
-      "qty": 7.0,
-      "exit": 80.4,
-      "pnl": 41.48,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5537214682,
-      "symbol": "NOW",
-      "date": "2026-08-18",
-      "qty": 4.0,
-      "exit": 120.915,
-      "pnl": 24.05,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5533075687,
-      "symbol": "HNST",
-      "date": "2026-08-17",
-      "qty": 110.0,
-      "exit": 4.78,
-      "pnl": 103.73,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5522452440,
-      "symbol": "POET",
-      "date": "2026-08-13",
-      "qty": 50.0,
-      "exit": 9.37,
-      "pnl": 70.44,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5520057114,
-      "symbol": "AVGO",
-      "date": "2026-08-12",
-      "qty": 2.5,
-      "exit": 417.392,
-      "pnl": 91.65,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5515393267,
-      "symbol": "AVGO",
-      "date": "2026-08-11",
-      "qty": 2.0,
-      "exit": 417.95,
-      "pnl": 19.28,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5515061157,
-      "symbol": "HNST",
-      "date": "2026-08-11",
-      "qty": 115.0,
-      "exit": 5.14,
-      "pnl": 162.91,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5514871927,
-      "symbol": "ZETA",
-      "date": "2026-08-11",
-      "qty": 100.0,
-      "exit": 28.535,
-      "pnl": 693.19,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5507859909,
-      "symbol": "BKNG",
-      "date": "2026-08-10",
-      "qty": 6.0,
-      "exit": 212.73,
-      "pnl": 92.58,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5505997522,
-      "symbol": "SPCX",
-      "date": "2026-08-07",
-      "qty": 5.0,
-      "exit": 129.735,
-      "pnl": 98.93,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5504754219,
-      "symbol": "GOOGL",
-      "date": "2026-08-07",
-      "qty": 3.0,
-      "exit": 354.369,
-      "pnl": 53.8,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5497390153,
-      "symbol": "GOOGL",
-      "date": "2026-08-05",
-      "qty": 4.0,
-      "exit": 362.2,
-      "pnl": 28.32,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5497089103,
-      "symbol": "HNST",
-      "date": "2026-08-05",
-      "qty": 155.0,
-      "exit": 3.91,
-      "pnl": 33.46,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5494150289,
-      "symbol": "AMZN",
-      "date": "2026-08-05",
-      "qty": 6.0,
-      "exit": 275.46,
-      "pnl": 67.4,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5491518226,
-      "symbol": "MSFT",
-      "date": "2026-08-04",
-      "qty": 4.0,
-      "exit": 497.0,
-      "pnl": 432.2,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5490608916,
-      "symbol": "NVDA",
-      "date": "2026-08-04",
-      "qty": 14.0,
-      "exit": 211.0,
-      "pnl": 67.78,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5482728391,
-      "symbol": "CRWV",
-      "date": "2026-08-03",
-      "qty": 22.0,
-      "exit": 78.0,
-      "pnl": 164.26,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5478126099,
-      "symbol": "AMZN",
-      "date": "2026-07-31",
-      "qty": 3.0,
-      "exit": 270.0,
-      "pnl": 4.35,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5473063143,
-      "symbol": "CRWV",
-      "date": "2026-07-30",
-      "qty": 15.0,
-      "exit": 72.8,
-      "pnl": -391.15,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5467657168,
-      "symbol": "KEEL",
-      "date": "2026-07-29",
-      "qty": 200.0,
-      "exit": 3.3,
-      "pnl": -106.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5460980914,
-      "symbol": "AVGO",
-      "date": "2026-07-28",
-      "qty": 3.0,
-      "exit": 372.76,
-      "pnl": -139.91,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5460355972,
-      "symbol": "BE",
-      "date": "2026-07-28",
-      "qty": 6.0,
-      "exit": 173.11,
-      "pnl": -58.34,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5455388192,
-      "symbol": "GLW",
-      "date": "2026-07-27",
-      "qty": 6.5,
-      "exit": 144.2758,
-      "pnl": -77.05,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5453540421,
-      "symbol": "BE",
-      "date": "2026-07-24",
-      "qty": 5.0,
-      "exit": 191.1217,
-      "pnl": -61.79,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5452344658,
-      "symbol": "HPQ",
-      "date": "2026-07-24",
-      "qty": 35.0,
-      "exit": 25.525,
-      "pnl": 78.12,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5452056807,
-      "symbol": "TE",
-      "date": "2026-07-24",
-      "qty": 60.0,
-      "exit": 5.145,
-      "pnl": -224.9,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5451308760,
-      "symbol": "FSLR",
-      "date": "2026-07-24",
-      "qty": 2.0,
-      "exit": 203.375,
-      "pnl": -93.9,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5446265080,
-      "symbol": "ZETA",
-      "date": "2026-07-23",
-      "qty": 40.0,
-      "exit": 19.71,
-      "pnl": 0.09,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5437673304,
-      "symbol": "AFRM",
-      "date": "2026-07-21",
-      "qty": 13.0,
-      "exit": 74.34,
-      "pnl": -104.08,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5434079772,
-      "symbol": "TE",
-      "date": "2026-07-20",
-      "qty": 55.0,
-      "exit": 5.822,
-      "pnl": -169.14,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5434037808,
-      "symbol": "FSLR",
-      "date": "2026-07-20",
-      "qty": 2.0,
-      "exit": 208.5,
-      "pnl": -83.65,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5431243045,
-      "symbol": "ZETA",
-      "date": "2026-07-17",
-      "qty": 35.0,
-      "exit": 22.0,
-      "pnl": 114.72,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5423086847,
-      "symbol": "RDW",
-      "date": "2026-07-16",
-      "qty": 60.0,
-      "exit": 9.019,
-      "pnl": -272.89,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5409375968,
-      "symbol": "IONQ",
-      "date": "2026-07-13",
-      "qty": 15.0,
-      "exit": 41.2,
-      "pnl": -192.12,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5398801581,
-      "symbol": "AVGO",
-      "date": "2026-07-08",
-      "qty": 3.5,
-      "exit": 393.6143,
-      "pnl": -104.09,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5382820274,
-      "symbol": "IREN",
-      "date": "2026-07-02",
-      "qty": 17.0,
-      "exit": 37.8,
-      "pnl": -389.03,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5382577548,
-      "symbol": "RDW",
-      "date": "2026-07-02",
-      "qty": 40.0,
-      "exit": 11.392,
-      "pnl": -182.49,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5380687290,
-      "symbol": "QCOM",
-      "date": "2026-07-02",
-      "qty": 6.0,
-      "exit": 179.922,
-      "pnl": 0.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5378997772,
-      "symbol": "QCOM",
-      "date": "2026-07-02",
-      "qty": 6.0,
-      "exit": 179.51,
-      "pnl": -261.74,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5371552870,
-      "symbol": "CRCL",
-      "date": "2026-06-30",
-      "qty": 10.0,
-      "exit": 63.5,
-      "pnl": -133.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5353510396,
-      "symbol": "AAPL",
-      "date": "2026-06-25",
-      "qty": 9.5,
-      "exit": 278.5414,
-      "pnl": -62.74,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5315072009,
-      "symbol": "NVDA",
-      "date": "2026-06-15",
-      "qty": 5.0,
-      "exit": 212.333,
-      "pnl": 64.38,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5291057416,
-      "symbol": "ZETA",
-      "date": "2026-06-09",
-      "qty": 40.0,
-      "exit": 20.1901,
-      "pnl": -62.2,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5291014654,
-      "symbol": "ENPH",
-      "date": "2026-06-09",
-      "qty": 20.0,
-      "exit": 50.0,
-      "pnl": -117.0,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5290350929,
-      "symbol": "ONDS",
-      "date": "2026-06-09",
-      "qty": 55.0,
-      "exit": 9.475,
-      "pnl": -157.05,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5277179196,
-      "symbol": "CCJ",
-      "date": "2026-06-05",
-      "qty": 6.0,
-      "exit": 106.195,
-      "pnl": -18.54,
-      "source": "ibkr_fifo"
-    },
-    {
-      "order_id": 5274161143,
-      "symbol": "CLSK",
-      "date": "2026-06-05",
-      "qty": 60.0,
-      "exit": 15.945,
-      "pnl": -65.0,
-      "source": "ibkr_fifo"
+        "order_id": 1424054464,
+        "symbol": "VKTX",
+        "date": "2026-10-23",
+        "qty": 18.0,
+        "exit": 24.695,
+        "pnl": -73.13,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 1590697053,
+        "symbol": "TE",
+        "date": "2026-10-22",
+        "qty": 400.0,
+        "exit": 2.255,
+        "pnl": -204.0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 1424054547,
+        "symbol": "KTOS",
+        "date": "2026-10-22",
+        "qty": 30.0,
+        "exit": 37.465,
+        "pnl": -239.39,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 373301788,
+        "symbol": "VRT",
+        "date": "2026-10-22",
+        "qty": 4.0,
+        "exit": 195.59,
+        "pnl": -62.56,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5726141132,
+        "symbol": "TE",
+        "date": "2026-10-15",
+        "qty": 197.0,
+        "exit": 2.681,
+        "pnl": -201.32,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5725257431,
+        "symbol": "POET",
+        "date": "2026-10-15",
+        "qty": 60.0,
+        "exit": 5.572,
+        "pnl": -156.48,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5725257338,
+        "symbol": "INTC",
+        "date": "2026-10-15",
+        "qty": 10.0,
+        "exit": 93.72,
+        "pnl": -83.7,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5723363222,
+        "symbol": "CBRS",
+        "date": "2026-10-14",
+        "qty": 4.0,
+        "exit": 141.53,
+        "pnl": -94.7,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5710962420,
+        "symbol": "CBRS",
+        "date": "2026-10-12",
+        "qty": 8.0,
+        "exit": 157.07,
+        "pnl": -152.49,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5710938049,
+        "symbol": "ENPH",
+        "date": "2026-10-12",
+        "qty": 16.0,
+        "exit": 32.62,
+        "pnl": 24.8,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5704101590,
+        "symbol": "TE",
+        "date": "2026-10-08",
+        "qty": 220.0,
+        "exit": 3.4401,
+        "pnl": -45.92,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5703255164,
+        "symbol": "POET",
+        "date": "2026-10-08",
+        "qty": 30.0,
+        "exit": 7.1,
+        "pnl": -26.84,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5703096406,
+        "symbol": "CIFR",
+        "date": "2026-10-08",
+        "qty": 10.0,
+        "exit": 13.435,
+        "pnl": -8.89,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5702517222,
+        "symbol": "CIFR",
+        "date": "2026-10-08",
+        "qty": 100.0,
+        "exit": 13.615,
+        "pnl": -71.82,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5701943737,
+        "symbol": "CIFR",
+        "date": "2026-10-08",
+        "qty": 80.0,
+        "exit": 13.89,
+        "pnl": -135.2,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5700575718,
+        "symbol": "VST",
+        "date": "2026-10-07",
+        "qty": 6.0,
+        "exit": 167.5,
+        "pnl": 184.62,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5693071884,
+        "symbol": "VST",
+        "date": "2026-10-06",
+        "qty": 5.0,
+        "exit": 158.0,
+        "pnl": 94.83,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5687673540,
+        "symbol": "ENPH",
+        "date": "2026-10-05",
+        "qty": 6.0,
+        "exit": 32.72,
+        "pnl": 8.34,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5687637555,
+        "symbol": "VST",
+        "date": "2026-10-05",
+        "qty": 11.0,
+        "exit": 142.0,
+        "pnl": -46.01,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5687609435,
+        "symbol": "CBRS",
+        "date": "2026-10-05",
+        "qty": 2.0,
+        "exit": 183.675,
+        "pnl": 0.18,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5684375827,
+        "symbol": "TE",
+        "date": "2026-10-02",
+        "qty": 120.0,
+        "exit": 4.03,
+        "pnl": 45.5,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5684353869,
+        "symbol": "ENPH",
+        "date": "2026-10-02",
+        "qty": 14.0,
+        "exit": 33.95,
+        "pnl": 36.56,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5673753804,
+        "symbol": "TE",
+        "date": "2026-09-30",
+        "qty": 750.0,
+        "exit": 3.85,
+        "pnl": -171.59,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5673005717,
+        "symbol": "ENPH",
+        "date": "2026-09-30",
+        "qty": 32.0,
+        "exit": 32.75,
+        "pnl": -55.14,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5670344164,
+        "symbol": "ON",
+        "date": "2026-09-29",
+        "qty": 10.0,
+        "exit": 76.03,
+        "pnl": 63.48,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5667384845,
+        "symbol": "BAC",
+        "date": "2026-09-28",
+        "qty": 10.0,
+        "exit": 55.49,
+        "pnl": -13.68,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5658745630,
+        "symbol": "RKLB",
+        "date": "2026-09-24",
+        "qty": 11.0,
+        "exit": 73.625,
+        "pnl": 111.06,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5658656370,
+        "symbol": "ON",
+        "date": "2026-09-24",
+        "qty": 4.0,
+        "exit": 73.2,
+        "pnl": 1.23,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5658512454,
+        "symbol": "CBRS",
+        "date": "2026-09-24",
+        "qty": 3.0,
+        "exit": 207.0,
+        "pnl": 68.5,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5651841845,
+        "symbol": "RKLB",
+        "date": "2026-09-23",
+        "qty": 3.0,
+        "exit": 71.54,
+        "pnl": 21.46,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5648691964,
+        "symbol": "CELH",
+        "date": "2026-09-22",
+        "qty": 12.0,
+        "exit": 29.95,
+        "pnl": -22.85,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5647534004,
+        "symbol": "CIFR",
+        "date": "2026-09-22",
+        "qty": 25.0,
+        "exit": 19.45,
+        "pnl": 80.0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5638012338,
+        "symbol": "ENPH",
+        "date": "2026-09-18",
+        "qty": 10.0,
+        "exit": 34.19,
+        "pnl": -105.06,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5632813799,
+        "symbol": "CRDO",
+        "date": "2026-09-17",
+        "qty": 3.0,
+        "exit": 167.2,
+        "pnl": 39.33,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5630645294,
+        "symbol": "ORBS",
+        "date": "2026-09-16",
+        "qty": 500.0,
+        "exit": 0.8253,
+        "pnl": 0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5630467929,
+        "symbol": "CRDO",
+        "date": "2026-09-16",
+        "qty": 4.0,
+        "exit": 159.1,
+        "pnl": 20.87,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5629084335,
+        "symbol": "NXT",
+        "date": "2026-09-16",
+        "qty": 10.0,
+        "exit": 77.94,
+        "pnl": -149.69,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5627652305,
+        "symbol": "JOBY",
+        "date": "2026-09-16",
+        "qty": 85.0,
+        "exit": 6.082,
+        "pnl": -78.2,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5621458024,
+        "symbol": "CRDO",
+        "date": "2026-09-14",
+        "qty": 10.0,
+        "exit": 152.8,
+        "pnl": -2.3,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5620082801,
+        "symbol": "NFLX",
+        "date": "2026-09-14",
+        "qty": 15.0,
+        "exit": 80.0,
+        "pnl": 91.07,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5619097735,
+        "symbol": "CEG",
+        "date": "2026-09-14",
+        "qty": 2.0,
+        "exit": 271.52,
+        "pnl": -46.96,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5616617735,
+        "symbol": "RBLX",
+        "date": "2026-09-11",
+        "qty": 15.0,
+        "exit": 45.98,
+        "pnl": 118.9,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5610065602,
+        "symbol": "MMM",
+        "date": "2026-09-10",
+        "qty": 3.0,
+        "exit": 162.83,
+        "pnl": -48.09,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5608407272,
+        "symbol": "CELH",
+        "date": "2026-09-09",
+        "qty": 12.0,
+        "exit": 28.07,
+        "pnl": -3.81,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5607063290,
+        "symbol": "META",
+        "date": "2026-09-09",
+        "qty": 1.0,
+        "exit": 647.5,
+        "pnl": 98.75,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5607048770,
+        "symbol": "TSLA",
+        "date": "2026-09-09",
+        "qty": 2.0,
+        "exit": 370.96,
+        "pnl": 30.46,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5605693226,
+        "symbol": "META",
+        "date": "2026-09-09",
+        "qty": 1.0,
+        "exit": 639.96,
+        "pnl": 87.87,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5603927551,
+        "symbol": "ORBS",
+        "date": "2026-09-08",
+        "qty": 500.0,
+        "exit": 1.15,
+        "pnl": 105.0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5602067701,
+        "symbol": "UBER",
+        "date": "2026-09-08",
+        "qty": 8.0,
+        "exit": 72.982,
+        "pnl": 34.86,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5601196463,
+        "symbol": "AEHR",
+        "date": "2026-09-08",
+        "qty": 7.0,
+        "exit": 89.84,
+        "pnl": 80.45,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5600466539,
+        "symbol": "AEHR",
+        "date": "2026-09-08",
+        "qty": 3.0,
+        "exit": 93.5,
+        "pnl": 38.95,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5594385064,
+        "symbol": "CIFR",
+        "date": "2026-09-03",
+        "qty": 40.0,
+        "exit": 17.23,
+        "pnl": 100.4,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5589085645,
+        "symbol": "META",
+        "date": "2026-09-02",
+        "qty": 2.0,
+        "exit": 594.7,
+        "pnl": -14.35,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5582943296,
+        "symbol": "RKLB",
+        "date": "2026-09-01",
+        "qty": 5.0,
+        "exit": 62.03,
+        "pnl": -68.44,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5578506869,
+        "symbol": "ENPH",
+        "date": "2026-08-31",
+        "qty": 14.0,
+        "exit": 36.36,
+        "pnl": -231.8,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5570837468,
+        "symbol": "MSTR",
+        "date": "2026-08-27",
+        "qty": 5.0,
+        "exit": 137.0,
+        "pnl": 177.25,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5570638039,
+        "symbol": "NOW",
+        "date": "2026-08-27",
+        "qty": 5.0,
+        "exit": 137.205,
+        "pnl": 106.41,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5560288039,
+        "symbol": "MMM",
+        "date": "2026-08-25",
+        "qty": 4.0,
+        "exit": 178.98,
+        "pnl": 1.31,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5555097907,
+        "symbol": "RKLB",
+        "date": "2026-08-24",
+        "qty": 7.0,
+        "exit": 69.8,
+        "pnl": -44.41,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5554031063,
+        "symbol": "HOOD",
+        "date": "2026-08-21",
+        "qty": 7.0,
+        "exit": 108.22,
+        "pnl": 90.62,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5542736447,
+        "symbol": "NFLX",
+        "date": "2026-08-19",
+        "qty": 7.0,
+        "exit": 80.4,
+        "pnl": 41.48,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5537214682,
+        "symbol": "NOW",
+        "date": "2026-08-18",
+        "qty": 4.0,
+        "exit": 120.915,
+        "pnl": 24.05,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5533075687,
+        "symbol": "HNST",
+        "date": "2026-08-17",
+        "qty": 110.0,
+        "exit": 4.78,
+        "pnl": 103.73,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5522452440,
+        "symbol": "POET",
+        "date": "2026-08-13",
+        "qty": 50.0,
+        "exit": 9.37,
+        "pnl": 70.44,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5520057114,
+        "symbol": "AVGO",
+        "date": "2026-08-12",
+        "qty": 2.5,
+        "exit": 417.392,
+        "pnl": 91.65,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5515393267,
+        "symbol": "AVGO",
+        "date": "2026-08-11",
+        "qty": 2.0,
+        "exit": 417.95,
+        "pnl": 19.28,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5515061157,
+        "symbol": "HNST",
+        "date": "2026-08-11",
+        "qty": 115.0,
+        "exit": 5.14,
+        "pnl": 162.91,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5514871927,
+        "symbol": "ZETA",
+        "date": "2026-08-11",
+        "qty": 100.0,
+        "exit": 28.535,
+        "pnl": 693.19,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5507859909,
+        "symbol": "BKNG",
+        "date": "2026-08-10",
+        "qty": 6.0,
+        "exit": 212.73,
+        "pnl": 92.58,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5505997522,
+        "symbol": "SPCX",
+        "date": "2026-08-07",
+        "qty": 5.0,
+        "exit": 129.735,
+        "pnl": 98.93,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5504754219,
+        "symbol": "GOOGL",
+        "date": "2026-08-07",
+        "qty": 3.0,
+        "exit": 354.369,
+        "pnl": 53.8,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5497390153,
+        "symbol": "GOOGL",
+        "date": "2026-08-05",
+        "qty": 4.0,
+        "exit": 362.2,
+        "pnl": 28.32,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5497089103,
+        "symbol": "HNST",
+        "date": "2026-08-05",
+        "qty": 155.0,
+        "exit": 3.91,
+        "pnl": 33.46,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5494150289,
+        "symbol": "AMZN",
+        "date": "2026-08-05",
+        "qty": 6.0,
+        "exit": 275.46,
+        "pnl": 67.4,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5491518226,
+        "symbol": "MSFT",
+        "date": "2026-08-04",
+        "qty": 4.0,
+        "exit": 497.0,
+        "pnl": 432.2,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5490608916,
+        "symbol": "NVDA",
+        "date": "2026-08-04",
+        "qty": 14.0,
+        "exit": 211.0,
+        "pnl": 67.78,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5482728391,
+        "symbol": "CRWV",
+        "date": "2026-08-03",
+        "qty": 22.0,
+        "exit": 78.0,
+        "pnl": 164.26,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5478126099,
+        "symbol": "AMZN",
+        "date": "2026-07-31",
+        "qty": 3.0,
+        "exit": 270.0,
+        "pnl": 4.35,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5473063143,
+        "symbol": "CRWV",
+        "date": "2026-07-30",
+        "qty": 15.0,
+        "exit": 72.8,
+        "pnl": -391.15,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5467657168,
+        "symbol": "KEEL",
+        "date": "2026-07-29",
+        "qty": 200.0,
+        "exit": 3.3,
+        "pnl": -106.0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5460980914,
+        "symbol": "AVGO",
+        "date": "2026-07-28",
+        "qty": 3.0,
+        "exit": 372.76,
+        "pnl": -139.91,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5460355972,
+        "symbol": "BE",
+        "date": "2026-07-28",
+        "qty": 6.0,
+        "exit": 173.11,
+        "pnl": -58.34,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5455388192,
+        "symbol": "GLW",
+        "date": "2026-07-27",
+        "qty": 6.5,
+        "exit": 144.2758,
+        "pnl": -77.05,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5453540421,
+        "symbol": "BE",
+        "date": "2026-07-24",
+        "qty": 5.0,
+        "exit": 191.1217,
+        "pnl": -61.79,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5452344658,
+        "symbol": "HPQ",
+        "date": "2026-07-24",
+        "qty": 35.0,
+        "exit": 25.525,
+        "pnl": 78.12,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5452056807,
+        "symbol": "TE",
+        "date": "2026-07-24",
+        "qty": 60.0,
+        "exit": 5.145,
+        "pnl": -224.9,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5451308760,
+        "symbol": "FSLR",
+        "date": "2026-07-24",
+        "qty": 2.0,
+        "exit": 203.375,
+        "pnl": -93.9,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5446265080,
+        "symbol": "ZETA",
+        "date": "2026-07-23",
+        "qty": 40.0,
+        "exit": 19.71,
+        "pnl": 0.09,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5437673304,
+        "symbol": "AFRM",
+        "date": "2026-07-21",
+        "qty": 13.0,
+        "exit": 74.34,
+        "pnl": -104.08,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5434079772,
+        "symbol": "TE",
+        "date": "2026-07-20",
+        "qty": 55.0,
+        "exit": 5.822,
+        "pnl": -169.14,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5434037808,
+        "symbol": "FSLR",
+        "date": "2026-07-20",
+        "qty": 2.0,
+        "exit": 208.5,
+        "pnl": -83.65,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5431243045,
+        "symbol": "ZETA",
+        "date": "2026-07-17",
+        "qty": 35.0,
+        "exit": 22.0,
+        "pnl": 114.72,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5423086847,
+        "symbol": "RDW",
+        "date": "2026-07-16",
+        "qty": 60.0,
+        "exit": 9.019,
+        "pnl": -272.89,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5409375968,
+        "symbol": "IONQ",
+        "date": "2026-07-13",
+        "qty": 15.0,
+        "exit": 41.2,
+        "pnl": -192.12,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5398801581,
+        "symbol": "AVGO",
+        "date": "2026-07-08",
+        "qty": 3.5,
+        "exit": 393.6143,
+        "pnl": -104.09,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5382820274,
+        "symbol": "IREN",
+        "date": "2026-07-02",
+        "qty": 17.0,
+        "exit": 37.8,
+        "pnl": -389.03,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5382577548,
+        "symbol": "RDW",
+        "date": "2026-07-02",
+        "qty": 40.0,
+        "exit": 11.392,
+        "pnl": -182.49,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5380687290,
+        "symbol": "QCOM",
+        "date": "2026-07-02",
+        "qty": 6.0,
+        "exit": 179.922,
+        "pnl": 0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5378997772,
+        "symbol": "QCOM",
+        "date": "2026-07-02",
+        "qty": 6.0,
+        "exit": 179.51,
+        "pnl": -261.74,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5371552870,
+        "symbol": "CRCL",
+        "date": "2026-06-30",
+        "qty": 10.0,
+        "exit": 63.5,
+        "pnl": -133.0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5353510396,
+        "symbol": "AAPL",
+        "date": "2026-06-25",
+        "qty": 9.5,
+        "exit": 278.5414,
+        "pnl": -62.74,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5315072009,
+        "symbol": "NVDA",
+        "date": "2026-06-15",
+        "qty": 5.0,
+        "exit": 212.333,
+        "pnl": 64.38,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5291057416,
+        "symbol": "ZETA",
+        "date": "2026-06-09",
+        "qty": 40.0,
+        "exit": 20.1901,
+        "pnl": -62.2,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5291014654,
+        "symbol": "ENPH",
+        "date": "2026-06-09",
+        "qty": 20.0,
+        "exit": 50.0,
+        "pnl": -117.0,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5290350929,
+        "symbol": "ONDS",
+        "date": "2026-06-09",
+        "qty": 55.0,
+        "exit": 9.475,
+        "pnl": -157.05,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5277179196,
+        "symbol": "CCJ",
+        "date": "2026-06-05",
+        "qty": 6.0,
+        "exit": 106.195,
+        "pnl": -18.54,
+        "source": "ibkr_fifo"
+    },
+    {
+        "order_id": 5274161143,
+        "symbol": "CLSK",
+        "date": "2026-06-05",
+        "qty": 60.0,
+        "exit": 15.945,
+        "pnl": -65.0,
+        "source": "ibkr_fifo"
     }
-  ],
+],
   "recs": [
     {
-      "date": "2026-10-24",
-      "sym": "GLXY",
-      "kind": "watch",
-      "sum": "$GLXY Monthly Smart Money Zone. Down >68% from highs, approaching long-term technical buy zone. ~200% upside to $45 within 24m (70% hist). High risk: SL under $8.20 is 44% downside. Not taking now (too many trades). Size carefully \u22645%.",
-      "url": "https://x.com/pdicarlotrader/status/2114016817094304059"
+        "date": "2026-10-24",
+        "sym": "GLXY",
+        "kind": "watch",
+        "sum": "$GLXY Monthly Smart Money Zone. Down >68% from highs, approaching long-term technical buy zone. ~200% upside to $45 within 24m (70% hist). High risk: SL under $8.20 is 44% downside. Not taking now (too many trades). Size carefully \u22645%.",
+        "url": "https://x.com/pdicarlotrader/status/2114016817094304059"
     },
     {
-      "date": "2026-10-23",
-      "sym": "NRG",
-      "kind": "buy",
-      "sum": "$NRG back at long-term Smart Money support after ~50% selloff. High chance of bottom; ~100% upside to ATH $188. Stop under swing low $78 (~16.5% risk). Earnings week of Nov 2.",
-      "url": "https://x.com/pdicarlotrader/status/2113638039540887735"
+        "date": "2026-10-23",
+        "sym": "NRG",
+        "kind": "buy",
+        "sum": "$NRG back at long-term Smart Money support after ~50% selloff. High chance of bottom; ~100% upside to ATH $188. Stop under swing low $78 (~16.5% risk). Earnings week of Nov 2.",
+        "url": "https://x.com/pdicarlotrader/status/2113638039540887735"
     },
     {
-      "date": "2026-10-23",
-      "sym": "HUT",
-      "kind": "buy",
-      "sum": "$HUT at the top of the weekly Smart Money Zone. 70% of time long-term buying signal. Hist reverts to swing high $140 within 8-12m. Optimal buy ~$59, SL under $42.",
-      "url": "https://x.com/pdicarlotrader/status/2113637400773624071"
+        "date": "2026-10-23",
+        "sym": "HUT",
+        "kind": "buy",
+        "sum": "$HUT at the top of the weekly Smart Money Zone. 70% of time long-term buying signal. Hist reverts to swing high $140 within 8-12m. Optimal buy ~$59, SL under $42.",
+        "url": "https://x.com/pdicarlotrader/status/2113637400773624071"
     },
     {
-      "date": "2026-10-22",
-      "sym": "NBIS",
-      "kind": "watch",
-      "sum": "$NBIS playing out as anticipated. $120 buy zone in focus (from prior short-term TP).",
-      "url": "https://x.com/pdicarlotrader/status/2113403052279619916"
+        "date": "2026-10-22",
+        "sym": "NBIS",
+        "kind": "watch",
+        "sum": "$NBIS playing out as anticipated. $120 buy zone in focus (from prior short-term TP).",
+        "url": "https://x.com/pdicarlotrader/status/2113403052279619916"
     },
     {
-      "date": "2026-10-23",
-      "sym": "WM",
-      "kind": "note",
-      "sum": "A+ setup. Many SM trades broke down this month; $WM didn't. Up 20% in 3 weeks since hitting zone. Video breakdown of rally potential.",
-      "url": "https://x.com/pdicarlotrader/status/2113670491961544903"
+        "date": "2026-10-23",
+        "sym": "WM",
+        "kind": "note",
+        "sum": "A+ setup. Many SM trades broke down this month; $WM didn't. Up 20% in 3 weeks since hitting zone. Video breakdown of rally potential.",
+        "url": "https://x.com/pdicarlotrader/status/2113670491961544903"
     }
-  ],
+],
   "perfCompare": {
     "portfolio": {
       "m1": -6.35,
