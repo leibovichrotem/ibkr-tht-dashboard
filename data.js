@@ -1,28 +1,38 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-28 09:32 IDT
+// Generated: 2026-10-29 09:32 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-28T09:32:00+02:00",
-    "generatedAtHuman": "2026-10-28 09:32 IDT",
+    "generatedAt": "2026-10-29T09:32:00+02:00",
+    "generatedAtHuman": "2026-10-29 09:32 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8821.85,
-    "cash": -3349.71,
-    "grossPositions": 12191.52,
-    "unrealized": -409.5,
-    "positionsCount": 14,
-    "reconDrift": 0,
-    "note": "Daily refresh \u00b7 YTD closed \u00b7 Peter notes on 4 holdings \u00b7 4 public recs"
+    "nav": 8995.74,
+    "cash": -2616.79,
+    "grossPositions": 11605.08,
+    "unrealized": -492.51,
+    "positionsCount": 12,
+    "reconDrift": -7.45,
+    "note": "Daily refresh \u00b7 YTD closed \u00b7 Peter notes on 5 holdings \u00b7 3 public recs"
   },
   "positions": [
+    {
+      "symbol": "UBER",
+      "qty": 34.0,
+      "avg": 69.0572,
+      "last": 65.35,
+      "upnl": -126.05,
+      "mv": 2221.9,
+      "cost": 2347.94,
+      "peter": null
+    },
     {
       "symbol": "APP",
       "qty": 7.0,
       "avg": 306.665,
-      "last": 263.0,
-      "upnl": -305.65,
-      "mv": 1841.0,
+      "last": 258.46,
+      "upnl": -337.44,
+      "mv": 1809.22,
       "cost": 2146.66,
       "peter": {
         "sum": "Down but NOT out for $APP. 70% of the time price is back at all time high within 12-18 months. Patience is the game.",
@@ -34,146 +44,156 @@ window.__DATA__ = {
       "symbol": "GS",
       "qty": 2.0,
       "avg": 876.035,
-      "last": 911.78,
-      "upnl": 71.49,
-      "mv": 1823.56,
+      "last": 930.5,
+      "upnl": 108.93,
+      "mv": 1861.0,
       "cost": 1752.07,
       "peter": null
     },
     {
-      "symbol": "UBER",
-      "qty": 22.0,
-      "avg": 70.818,
-      "last": 65.84,
-      "upnl": -109.53,
-      "mv": 1448.48,
-      "cost": 1558.01,
-      "peter": null
-    },
-    {
-      "symbol": "CRWV",
-      "qty": 17.0,
-      "avg": 60.899,
-      "last": 60.17,
-      "upnl": -12.4,
-      "mv": 1022.89,
-      "cost": 1035.29,
+      "symbol": "HOOD",
+      "qty": 12.0,
+      "avg": 91.2025,
+      "last": 89.2,
+      "upnl": -24.03,
+      "mv": 1070.4,
+      "cost": 1094.43,
       "peter": {
-        "sum": "Betting BIG on $CRWV over next 1-2 years. $200 target by August 2027. Still holding over swing low while $IREN broke.",
-        "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
-        "when": "2026-10-21"
+        "sum": "$HOOD gapped down after earnings but nothing to worry about just yet. Smart Money is currently holding and I am still bullish until that low is swept. SMZ triggered; 70% of time hits $136 in 60d.",
+        "url": "https://x.com/pdicarlotrader/status/2115455692274380933",
+        "when": "2026-10-28"
       }
     },
     {
       "symbol": "JPM",
       "qty": 3.0,
-      "avg": 326.913,
-      "last": 335.2,
-      "upnl": 24.86,
-      "mv": 1005.6,
+      "avg": 326.9133,
+      "last": 342.61,
+      "upnl": 47.09,
+      "mv": 1027.83,
       "cost": 980.74,
       "peter": null
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
-      "avg": 43.602,
-      "last": 41.47,
-      "upnl": -34.11,
-      "mv": 663.52,
+      "avg": 43.6018,
+      "last": 40.91,
+      "upnl": -43.07,
+      "mv": 654.56,
       "cost": 697.63,
       "peter": null
     },
     {
-      "symbol": "HOOD",
-      "qty": 7.0,
-      "avg": 93.947,
-      "last": 87.28,
-      "upnl": -46.67,
-      "mv": 610.96,
-      "cost": 657.63,
+      "symbol": "CRWV",
+      "qty": 11.0,
+      "avg": 60.8994,
+      "last": 59.9,
+      "upnl": -10.99,
+      "mv": 658.9,
+      "cost": 669.89,
       "peter": {
-        "sum": "Earnings day $HOOD. System flagging breakout. Daily Smart Money Buy Zone triggered. 70% chance hits $136 within 60 days. Still extremely bullish.",
-        "url": "https://x.com/pdicarlotrader/status/2115156815256121449",
-        "when": "2026-10-27"
+        "sum": "I'm betting BIG on $CRWV over the next 1-2 years. $200 target by August 2027. Still holding over swing low while $IREN broke.",
+        "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
+        "when": "2026-10-21"
       }
     },
     {
       "symbol": "CELH",
       "qty": 22.0,
-      "avg": 28.76,
-      "last": 28.0,
-      "upnl": -16.73,
-      "mv": 616.0,
-      "cost": 632.73,
-      "peter": null
-    },
-    {
-      "symbol": "VRT",
-      "qty": 3.0,
-      "avg": 196.848,
-      "last": 211.41,
-      "upnl": 43.69,
-      "mv": 634.23,
-      "cost": 590.54,
+      "avg": 28.7602,
+      "last": 28.03,
+      "upnl": -16.06,
+      "mv": 616.66,
+      "cost": 632.72,
       "peter": {
-        "sum": "$VRT Weekly Smart Money Zone. Historically good buy zone for 6-12 months. Upside target $380 (~100%). SL close under swing low $147 (~20-25% downside). Solid long-term area.",
-        "url": "https://x.com/pdicarlotrader/status/2114033174774784407",
-        "when": "2026-10-24"
+        "sum": "$CELH starting to gain traction. Full video analysis on the setup.",
+        "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
+        "when": "2026-10-20"
       }
     },
     {
       "symbol": "COIN",
       "qty": 3.5,
       "avg": 160.95,
-      "last": 158.49,
-      "upnl": -8.61,
-      "mv": 554.72,
-      "cost": 563.33,
-      "peter": null
-    },
-    {
-      "symbol": "SKHY",
-      "qty": 4.0,
-      "avg": 138.925,
-      "last": 156.92,
-      "upnl": 71.98,
-      "mv": 627.68,
-      "cost": 555.7,
-      "peter": null
-    },
-    {
-      "symbol": "NFLX",
-      "qty": 8.0,
-      "avg": 66.582,
-      "last": 62.5,
-      "upnl": -32.66,
-      "mv": 500.0,
-      "cost": 532.66,
-      "peter": null
+      "last": 156.98,
+      "upnl": -13.9,
+      "mv": 549.43,
+      "cost": 563.32,
+      "peter": {
+        "sum": "$COIN looking ready for the next leg up.",
+        "url": "https://x.com/pdicarlotrader/status/2112922236231524536",
+        "when": "2026-10-21"
+      }
     },
     {
       "symbol": "ASX",
       "qty": 13.0,
-      "avg": 38.707,
-      "last": 43.09,
-      "upnl": 56.98,
-      "mv": 560.17,
+      "avg": 38.7073,
+      "last": 42.2,
+      "upnl": 45.41,
+      "mv": 548.6,
       "cost": 503.19,
       "peter": null
     },
     {
       "symbol": "POET",
       "qty": 58.0,
-      "avg": 7.713,
-      "last": 5.78,
-      "upnl": -112.14,
-      "mv": 335.24,
+      "avg": 7.7134,
+      "last": 5.81,
+      "upnl": -110.4,
+      "mv": 336.98,
       "cost": 447.38,
+      "peter": null
+    },
+    {
+      "symbol": "NFLX",
+      "qty": 4.0,
+      "avg": 65.4,
+      "last": 62.4,
+      "upnl": -12.0,
+      "mv": 249.6,
+      "cost": 261.6,
       "peter": null
     }
   ],
   "closed": [
+    {
+      "order_id": 1107994937,
+      "symbol": "NFLX",
+      "date": "2026-10-28",
+      "qty": 8.0,
+      "exit": 62.075,
+      "pnl": -29.1,
+      "source": "ibkr_fifo"
+    },
+    {
+      "order_id": 1581201922,
+      "symbol": "CRWV",
+      "date": "2026-10-28",
+      "qty": 6.0,
+      "exit": 62.2,
+      "pnl": 5.3,
+      "source": "ibkr_fifo"
+    },
+    {
+      "order_id": 1581201559,
+      "symbol": "VRT",
+      "date": "2026-10-28",
+      "qty": 3.0,
+      "exit": 241.6,
+      "pnl": 131.75,
+      "source": "ibkr_fifo"
+    },
+    {
+      "order_id": 596557078,
+      "symbol": "SKHY",
+      "date": "2026-10-28",
+      "qty": 4.0,
+      "exit": 156.8,
+      "pnl": 69.0,
+      "source": "ibkr_fifo"
+    },
     {
       "order_id": 1424054464,
       "symbol": "VKTX",
@@ -184,7 +204,7 @@ window.__DATA__ = {
       "source": "ibkr_fifo"
     },
     {
-      "order_id": 1590697053,
+      "order_id": 5752382645,
       "symbol": "TE",
       "date": "2026-10-22",
       "qty": 400.0,
@@ -193,16 +213,16 @@ window.__DATA__ = {
       "source": "ibkr_fifo"
     },
     {
-      "order_id": 1424054547,
+      "order_id": 5752361434,
       "symbol": "KTOS",
       "date": "2026-10-22",
       "qty": 30.0,
       "exit": 37.465,
-      "pnl": -239.39,
+      "pnl": -267.54,
       "source": "ibkr_fifo"
     },
     {
-      "order_id": 373301788,
+      "order_id": 5750531833,
       "symbol": "VRT",
       "date": "2026-10-22",
       "qty": 4.0,
@@ -1140,32 +1160,25 @@ window.__DATA__ = {
   ],
   "recs": [
     {
-      "date": "2026-10-27",
-      "symbol": "AMD",
-      "kind": "buy",
-      "summary": "$AMD bounced massively today inside Institutional Buy Zone. Bull cycle still in play. Plans to buy + targets for next month.",
-      "url": "https://x.com/pdicarlotrader/status/2115206405095366812"
-    },
-    {
-      "date": "2026-10-27",
-      "symbol": "NVDA",
-      "kind": "watch",
-      "summary": "Last time $NVDA set up like this, it ran +15%. Daily Smart Money Zone being tested, expecting breakout. Upside target + stop details.",
-      "url": "https://x.com/pdicarlotrader/status/2115160810276241708"
-    },
-    {
-      "date": "2026-10-27",
-      "symbol": "TSLA",
+      "date": "2026-10-28",
+      "symbol": "VRT",
       "kind": "note",
-      "summary": "$640 $TSLA long-term target. Not buying here. Breaking out into $420 bearish Smart Money Zone. Deep dive on when to buy again.",
-      "url": "https://x.com/pdicarlotrader/status/2115159714304872917"
+      "summary": "$VRT is up 30%+ since hitting our Weekly Smart Money Zone last week. Breakout continues; targets and stops in video.",
+      "url": "https://x.com/pdicarlotrader/status/2115564566650196362"
     },
     {
-      "date": "2026-10-26",
-      "symbol": "AVGO",
+      "date": "2026-10-28",
+      "symbol": "META",
       "kind": "buy",
-      "summary": "Last chance to get $AVGO at Weekly Smart Money Zone. Expect new ATH within 6\u20138 months. SL: break of structure under $290.",
-      "url": "https://x.com/pdicarlotrader/status/2114737690323390851"
+      "summary": "$META is in early buy range. Optimal zone $580\u2013$600. Beautiful level to start a 6-12 month position. Not entering yet (too many trades).",
+      "url": "https://x.com/pdicarlotrader/status/2115454805854331088"
+    },
+    {
+      "date": "2026-10-28",
+      "symbol": "SKHY",
+      "kind": "note",
+      "summary": "$18M in calls on $SKHY. Touched Daily Smart Money Zone and ripped +20%. I\u2019m long. Full setup in video.",
+      "url": "https://x.com/pdicarlotrader/status/2115563156932293052"
     }
   ],
   "perfCompare": {
