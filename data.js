@@ -1,38 +1,38 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-29 09:32 IDT
+// Generated: 2026-10-30 09:32 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-29T09:32:00+02:00",
-    "generatedAtHuman": "2026-10-29 09:32 IDT",
+    "generatedAt": "2026-10-30T09:32:00+02:00",
+    "generatedAtHuman": "2026-10-30 09:32 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8995.74,
-    "cash": -2616.79,
-    "grossPositions": 11605.08,
-    "unrealized": -492.51,
-    "positionsCount": 12,
-    "reconDrift": -7.45,
-    "note": "Daily refresh \u00b7 YTD closed \u00b7 Peter notes on 5 holdings \u00b7 3 public recs"
+    "nav": 8833.29,
+    "cash": -3203.85,
+    "grossPositions": 12030.24,
+    "unrealized": -631.33,
+    "positionsCount": 13,
+    "reconDrift": -6.9,
+    "note": "Daily refresh \u00b7 YTD closed \u00b7 Peter notes on 4 holdings \u00b7 4 public recs"
   },
   "positions": [
     {
       "symbol": "UBER",
       "qty": 34.0,
       "avg": 69.0572,
-      "last": 65.35,
-      "upnl": -126.05,
-      "mv": 2221.9,
-      "cost": 2347.94,
+      "last": 65.53,
+      "upnl": -119.93,
+      "mv": 2228.02,
+      "cost": 2347.95,
       "peter": null
     },
     {
       "symbol": "APP",
       "qty": 7.0,
       "avg": 306.665,
-      "last": 258.46,
-      "upnl": -337.44,
-      "mv": 1809.22,
+      "last": 250.66,
+      "upnl": -392.03,
+      "mv": 1754.62,
       "cost": 2146.66,
       "peter": {
         "sum": "Down but NOT out for $APP. 70% of the time price is back at all time high within 12-18 months. Patience is the game.",
@@ -44,9 +44,9 @@ window.__DATA__ = {
       "symbol": "GS",
       "qty": 2.0,
       "avg": 876.035,
-      "last": 930.5,
-      "upnl": 108.93,
-      "mv": 1861.0,
+      "last": 919.7,
+      "upnl": 87.33,
+      "mv": 1839.4,
       "cost": 1752.07,
       "peter": null
     },
@@ -54,9 +54,9 @@ window.__DATA__ = {
       "symbol": "HOOD",
       "qty": 12.0,
       "avg": 91.2025,
-      "last": 89.2,
-      "upnl": -24.03,
-      "mv": 1070.4,
+      "last": 86.93,
+      "upnl": -51.27,
+      "mv": 1043.16,
       "cost": 1094.43,
       "peter": {
         "sum": "$HOOD gapped down after earnings but nothing to worry about just yet. Smart Money is currently holding and I am still bullish until that low is swept. SMZ triggered; 70% of time hits $136 in 60d.",
@@ -68,9 +68,9 @@ window.__DATA__ = {
       "symbol": "JPM",
       "qty": 3.0,
       "avg": 326.9133,
-      "last": 342.61,
-      "upnl": 47.09,
-      "mv": 1027.83,
+      "last": 344.24,
+      "upnl": 51.98,
+      "mv": 1032.72,
       "cost": 980.74,
       "peter": null
     },
@@ -78,61 +78,67 @@ window.__DATA__ = {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 40.91,
-      "upnl": -43.07,
-      "mv": 654.56,
+      "last": 42.63,
+      "upnl": -15.55,
+      "mv": 682.08,
       "cost": 697.63,
       "peter": null
     },
     {
       "symbol": "CRWV",
       "qty": 11.0,
-      "avg": 60.8994,
-      "last": 59.9,
-      "upnl": -10.99,
-      "mv": 658.9,
-      "cost": 669.89,
+      "avg": 59.6621,
+      "last": 57.44,
+      "upnl": -24.44,
+      "mv": 631.84,
+      "cost": 656.28,
       "peter": {
-        "sum": "I'm betting BIG on $CRWV over the next 1-2 years. $200 target by August 2027. Still holding over swing low while $IREN broke.",
-        "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
-        "when": "2026-10-21"
+        "sum": "$CRWV for now is still holding over swing low while $IREN broke.",
+        "url": "https://x.com/pdicarlotrader/status/2113295243227414713",
+        "when": "2026-10-22"
       }
     },
     {
       "symbol": "CELH",
       "qty": 22.0,
       "avg": 28.7602,
-      "last": 28.03,
-      "upnl": -16.06,
-      "mv": 616.66,
+      "last": 27.98,
+      "upnl": -17.17,
+      "mv": 615.56,
       "cost": 632.72,
+      "peter": null
+    },
+    {
+      "symbol": "GOOGL",
+      "qty": 2.0,
+      "avg": 293.53,
+      "last": 281.33,
+      "upnl": -24.4,
+      "mv": 562.66,
+      "cost": 587.06,
       "peter": {
-        "sum": "$CELH starting to gain traction. Full video analysis on the setup.",
-        "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
-        "when": "2026-10-20"
+        "sum": "$GOOGL is down huge today. Capex = uncertainty. Market hates uncertainty. That said, I bought shares this morning. Weekly structure still bullish as long as we hold $270.",
+        "url": "https://x.com/pdicarlotrader/status/2115923276417609882",
+        "when": "2026-10-29"
       }
     },
     {
       "symbol": "COIN",
       "qty": 3.5,
       "avg": 160.95,
-      "last": 156.98,
-      "upnl": -13.9,
-      "mv": 549.43,
+      "last": 153.75,
+      "upnl": -25.2,
+      "mv": 538.12,
       "cost": 563.32,
-      "peter": {
-        "sum": "$COIN looking ready for the next leg up.",
-        "url": "https://x.com/pdicarlotrader/status/2112922236231524536",
-        "when": "2026-10-21"
-      }
+      "peter": null
     },
     {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 42.2,
-      "upnl": 45.41,
-      "mv": 548.6,
+      "last": 41.52,
+      "upnl": 36.57,
+      "mv": 539.76,
       "cost": 503.19,
       "peter": null
     },
@@ -140,20 +146,20 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 58.0,
       "avg": 7.7134,
-      "last": 5.81,
-      "upnl": -110.4,
-      "mv": 336.98,
+      "last": 5.39,
+      "upnl": -134.76,
+      "mv": 312.62,
       "cost": 447.38,
       "peter": null
     },
     {
       "symbol": "NFLX",
       "qty": 4.0,
-      "avg": 65.4,
-      "last": 62.4,
-      "upnl": -12.0,
-      "mv": 249.6,
-      "cost": 261.6,
+      "avg": 63.035,
+      "last": 62.42,
+      "upnl": -2.46,
+      "mv": 249.68,
+      "cost": 252.14,
       "peter": null
     }
   ],
@@ -162,8 +168,8 @@ window.__DATA__ = {
       "order_id": 1107994937,
       "symbol": "NFLX",
       "date": "2026-10-28",
-      "qty": 8.0,
-      "exit": 62.075,
+      "qty": 8,
+      "exit": 62.08,
       "pnl": -29.1,
       "source": "ibkr_fifo"
     },
@@ -171,7 +177,7 @@ window.__DATA__ = {
       "order_id": 1581201922,
       "symbol": "CRWV",
       "date": "2026-10-28",
-      "qty": 6.0,
+      "qty": 6,
       "exit": 62.2,
       "pnl": 5.3,
       "source": "ibkr_fifo"
@@ -180,26 +186,26 @@ window.__DATA__ = {
       "order_id": 1581201559,
       "symbol": "VRT",
       "date": "2026-10-28",
-      "qty": 3.0,
+      "qty": 3,
       "exit": 241.6,
-      "pnl": 131.75,
+      "pnl": 131.76,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 596557078,
       "symbol": "SKHY",
       "date": "2026-10-28",
-      "qty": 4.0,
+      "qty": 4,
       "exit": 156.8,
-      "pnl": 69.0,
+      "pnl": 69,
       "source": "ibkr_fifo"
     },
     {
-      "order_id": 1424054464,
+      "order_id": 5755377873,
       "symbol": "VKTX",
       "date": "2026-10-23",
-      "qty": 18.0,
-      "exit": 24.695,
+      "qty": 18,
+      "exit": 24.7,
       "pnl": -73.13,
       "source": "ibkr_fifo"
     },
@@ -207,17 +213,17 @@ window.__DATA__ = {
       "order_id": 5752382645,
       "symbol": "TE",
       "date": "2026-10-22",
-      "qty": 400.0,
-      "exit": 2.255,
-      "pnl": -204.0,
+      "qty": 400,
+      "exit": 2.26,
+      "pnl": -204,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5752361434,
       "symbol": "KTOS",
       "date": "2026-10-22",
-      "qty": 30.0,
-      "exit": 37.465,
+      "qty": 30,
+      "exit": 37.47,
       "pnl": -267.54,
       "source": "ibkr_fifo"
     },
@@ -225,7 +231,7 @@ window.__DATA__ = {
       "order_id": 5750531833,
       "symbol": "VRT",
       "date": "2026-10-22",
-      "qty": 4.0,
+      "qty": 4,
       "exit": 195.59,
       "pnl": -62.56,
       "source": "ibkr_fifo"
@@ -234,8 +240,8 @@ window.__DATA__ = {
       "order_id": 5726141132,
       "symbol": "TE",
       "date": "2026-10-15",
-      "qty": 197.0,
-      "exit": 2.681,
+      "qty": 197,
+      "exit": 2.68,
       "pnl": -201.32,
       "source": "ibkr_fifo"
     },
@@ -243,8 +249,8 @@ window.__DATA__ = {
       "order_id": 5725257431,
       "symbol": "POET",
       "date": "2026-10-15",
-      "qty": 60.0,
-      "exit": 5.572,
+      "qty": 60,
+      "exit": 5.57,
       "pnl": -156.48,
       "source": "ibkr_fifo"
     },
@@ -252,7 +258,7 @@ window.__DATA__ = {
       "order_id": 5725257338,
       "symbol": "INTC",
       "date": "2026-10-15",
-      "qty": 10.0,
+      "qty": 10,
       "exit": 93.72,
       "pnl": -83.7,
       "source": "ibkr_fifo"
@@ -261,7 +267,7 @@ window.__DATA__ = {
       "order_id": 5723363222,
       "symbol": "CBRS",
       "date": "2026-10-14",
-      "qty": 4.0,
+      "qty": 4,
       "exit": 141.53,
       "pnl": -94.7,
       "source": "ibkr_fifo"
@@ -270,7 +276,7 @@ window.__DATA__ = {
       "order_id": 5710962420,
       "symbol": "CBRS",
       "date": "2026-10-12",
-      "qty": 8.0,
+      "qty": 8,
       "exit": 157.07,
       "pnl": -152.49,
       "source": "ibkr_fifo"
@@ -279,7 +285,7 @@ window.__DATA__ = {
       "order_id": 5710938049,
       "symbol": "ENPH",
       "date": "2026-10-12",
-      "qty": 16.0,
+      "qty": 16,
       "exit": 32.62,
       "pnl": 24.8,
       "source": "ibkr_fifo"
@@ -288,8 +294,8 @@ window.__DATA__ = {
       "order_id": 5704101590,
       "symbol": "TE",
       "date": "2026-10-08",
-      "qty": 220.0,
-      "exit": 3.4401,
+      "qty": 220,
+      "exit": 3.44,
       "pnl": -45.92,
       "source": "ibkr_fifo"
     },
@@ -297,7 +303,7 @@ window.__DATA__ = {
       "order_id": 5703255164,
       "symbol": "POET",
       "date": "2026-10-08",
-      "qty": 30.0,
+      "qty": 30,
       "exit": 7.1,
       "pnl": -26.84,
       "source": "ibkr_fifo"
@@ -306,8 +312,8 @@ window.__DATA__ = {
       "order_id": 5703096406,
       "symbol": "CIFR",
       "date": "2026-10-08",
-      "qty": 10.0,
-      "exit": 13.435,
+      "qty": 10,
+      "exit": 13.43,
       "pnl": -8.89,
       "source": "ibkr_fifo"
     },
@@ -315,8 +321,8 @@ window.__DATA__ = {
       "order_id": 5702517222,
       "symbol": "CIFR",
       "date": "2026-10-08",
-      "qty": 100.0,
-      "exit": 13.615,
+      "qty": 100,
+      "exit": 13.62,
       "pnl": -71.82,
       "source": "ibkr_fifo"
     },
@@ -324,7 +330,7 @@ window.__DATA__ = {
       "order_id": 5701943737,
       "symbol": "CIFR",
       "date": "2026-10-08",
-      "qty": 80.0,
+      "qty": 80,
       "exit": 13.89,
       "pnl": -135.2,
       "source": "ibkr_fifo"
@@ -333,17 +339,17 @@ window.__DATA__ = {
       "order_id": 5700575718,
       "symbol": "VST",
       "date": "2026-10-07",
-      "qty": 6.0,
+      "qty": 6,
       "exit": 167.5,
-      "pnl": 184.62,
+      "pnl": 184.63,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5693071884,
       "symbol": "VST",
       "date": "2026-10-06",
-      "qty": 5.0,
-      "exit": 158.0,
+      "qty": 5,
+      "exit": 158,
       "pnl": 94.83,
       "source": "ibkr_fifo"
     },
@@ -351,7 +357,7 @@ window.__DATA__ = {
       "order_id": 5687673540,
       "symbol": "ENPH",
       "date": "2026-10-05",
-      "qty": 6.0,
+      "qty": 6,
       "exit": 32.72,
       "pnl": 8.34,
       "source": "ibkr_fifo"
@@ -360,8 +366,8 @@ window.__DATA__ = {
       "order_id": 5687637555,
       "symbol": "VST",
       "date": "2026-10-05",
-      "qty": 11.0,
-      "exit": 142.0,
+      "qty": 11,
+      "exit": 142,
       "pnl": -46.01,
       "source": "ibkr_fifo"
     },
@@ -369,8 +375,8 @@ window.__DATA__ = {
       "order_id": 5687609435,
       "symbol": "CBRS",
       "date": "2026-10-05",
-      "qty": 2.0,
-      "exit": 183.675,
+      "qty": 2,
+      "exit": 183.68,
       "pnl": 0.18,
       "source": "ibkr_fifo"
     },
@@ -378,7 +384,7 @@ window.__DATA__ = {
       "order_id": 5684375827,
       "symbol": "TE",
       "date": "2026-10-02",
-      "qty": 120.0,
+      "qty": 120,
       "exit": 4.03,
       "pnl": 45.5,
       "source": "ibkr_fifo"
@@ -387,7 +393,7 @@ window.__DATA__ = {
       "order_id": 5684353869,
       "symbol": "ENPH",
       "date": "2026-10-02",
-      "qty": 14.0,
+      "qty": 14,
       "exit": 33.95,
       "pnl": 36.56,
       "source": "ibkr_fifo"
@@ -396,16 +402,16 @@ window.__DATA__ = {
       "order_id": 5673753804,
       "symbol": "TE",
       "date": "2026-09-30",
-      "qty": 750.0,
+      "qty": 750,
       "exit": 3.85,
-      "pnl": -171.59,
+      "pnl": -171.6,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5673005717,
       "symbol": "ENPH",
       "date": "2026-09-30",
-      "qty": 32.0,
+      "qty": 32,
       "exit": 32.75,
       "pnl": -55.14,
       "source": "ibkr_fifo"
@@ -414,7 +420,7 @@ window.__DATA__ = {
       "order_id": 5670344164,
       "symbol": "ON",
       "date": "2026-09-29",
-      "qty": 10.0,
+      "qty": 10,
       "exit": 76.03,
       "pnl": 63.48,
       "source": "ibkr_fifo"
@@ -423,7 +429,7 @@ window.__DATA__ = {
       "order_id": 5667384845,
       "symbol": "BAC",
       "date": "2026-09-28",
-      "qty": 10.0,
+      "qty": 10,
       "exit": 55.49,
       "pnl": -13.68,
       "source": "ibkr_fifo"
@@ -432,8 +438,8 @@ window.__DATA__ = {
       "order_id": 5658745630,
       "symbol": "RKLB",
       "date": "2026-09-24",
-      "qty": 11.0,
-      "exit": 73.625,
+      "qty": 11,
+      "exit": 73.63,
       "pnl": 111.06,
       "source": "ibkr_fifo"
     },
@@ -441,7 +447,7 @@ window.__DATA__ = {
       "order_id": 5658656370,
       "symbol": "ON",
       "date": "2026-09-24",
-      "qty": 4.0,
+      "qty": 4,
       "exit": 73.2,
       "pnl": 1.23,
       "source": "ibkr_fifo"
@@ -450,8 +456,8 @@ window.__DATA__ = {
       "order_id": 5658512454,
       "symbol": "CBRS",
       "date": "2026-09-24",
-      "qty": 3.0,
-      "exit": 207.0,
+      "qty": 3,
+      "exit": 207,
       "pnl": 68.5,
       "source": "ibkr_fifo"
     },
@@ -459,7 +465,7 @@ window.__DATA__ = {
       "order_id": 5651841845,
       "symbol": "RKLB",
       "date": "2026-09-23",
-      "qty": 3.0,
+      "qty": 3,
       "exit": 71.54,
       "pnl": 21.46,
       "source": "ibkr_fifo"
@@ -468,7 +474,7 @@ window.__DATA__ = {
       "order_id": 5648691964,
       "symbol": "CELH",
       "date": "2026-09-22",
-      "qty": 12.0,
+      "qty": 12,
       "exit": 29.95,
       "pnl": -22.85,
       "source": "ibkr_fifo"
@@ -477,16 +483,16 @@ window.__DATA__ = {
       "order_id": 5647534004,
       "symbol": "CIFR",
       "date": "2026-09-22",
-      "qty": 25.0,
+      "qty": 25,
       "exit": 19.45,
-      "pnl": 80.0,
+      "pnl": 80,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5638012338,
       "symbol": "ENPH",
       "date": "2026-09-18",
-      "qty": 10.0,
+      "qty": 10,
       "exit": 34.19,
       "pnl": -105.06,
       "source": "ibkr_fifo"
@@ -495,7 +501,7 @@ window.__DATA__ = {
       "order_id": 5632813799,
       "symbol": "CRDO",
       "date": "2026-09-17",
-      "qty": 3.0,
+      "qty": 3,
       "exit": 167.2,
       "pnl": 39.33,
       "source": "ibkr_fifo"
@@ -504,16 +510,16 @@ window.__DATA__ = {
       "order_id": 5630645294,
       "symbol": "ORBS",
       "date": "2026-09-16",
-      "qty": 500.0,
-      "exit": 0.8253,
-      "pnl": 0.0,
+      "qty": 500,
+      "exit": 0.83,
+      "pnl": 0,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5630467929,
       "symbol": "CRDO",
       "date": "2026-09-16",
-      "qty": 4.0,
+      "qty": 4,
       "exit": 159.1,
       "pnl": 20.87,
       "source": "ibkr_fifo"
@@ -522,25 +528,25 @@ window.__DATA__ = {
       "order_id": 5629084335,
       "symbol": "NXT",
       "date": "2026-09-16",
-      "qty": 10.0,
+      "qty": 10,
       "exit": 77.94,
-      "pnl": -149.69,
+      "pnl": -149.7,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5627652305,
       "symbol": "JOBY",
       "date": "2026-09-16",
-      "qty": 85.0,
-      "exit": 6.082,
-      "pnl": -78.2,
+      "qty": 85,
+      "exit": 6.08,
+      "pnl": -78.21,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5621458024,
       "symbol": "CRDO",
       "date": "2026-09-14",
-      "qty": 10.0,
+      "qty": 10,
       "exit": 152.8,
       "pnl": -2.3,
       "source": "ibkr_fifo"
@@ -549,8 +555,8 @@ window.__DATA__ = {
       "order_id": 5620082801,
       "symbol": "NFLX",
       "date": "2026-09-14",
-      "qty": 15.0,
-      "exit": 80.0,
+      "qty": 15,
+      "exit": 80,
       "pnl": 91.07,
       "source": "ibkr_fifo"
     },
@@ -558,7 +564,7 @@ window.__DATA__ = {
       "order_id": 5619097735,
       "symbol": "CEG",
       "date": "2026-09-14",
-      "qty": 2.0,
+      "qty": 2,
       "exit": 271.52,
       "pnl": -46.96,
       "source": "ibkr_fifo"
@@ -567,7 +573,7 @@ window.__DATA__ = {
       "order_id": 5616617735,
       "symbol": "RBLX",
       "date": "2026-09-11",
-      "qty": 15.0,
+      "qty": 15,
       "exit": 45.98,
       "pnl": 118.9,
       "source": "ibkr_fifo"
@@ -576,7 +582,7 @@ window.__DATA__ = {
       "order_id": 5610065602,
       "symbol": "MMM",
       "date": "2026-09-10",
-      "qty": 3.0,
+      "qty": 3,
       "exit": 162.83,
       "pnl": -48.09,
       "source": "ibkr_fifo"
@@ -585,7 +591,7 @@ window.__DATA__ = {
       "order_id": 5608407272,
       "symbol": "CELH",
       "date": "2026-09-09",
-      "qty": 12.0,
+      "qty": 12,
       "exit": 28.07,
       "pnl": -3.81,
       "source": "ibkr_fifo"
@@ -594,7 +600,7 @@ window.__DATA__ = {
       "order_id": 5607063290,
       "symbol": "META",
       "date": "2026-09-09",
-      "qty": 1.0,
+      "qty": 1,
       "exit": 647.5,
       "pnl": 98.75,
       "source": "ibkr_fifo"
@@ -603,7 +609,7 @@ window.__DATA__ = {
       "order_id": 5607048770,
       "symbol": "TSLA",
       "date": "2026-09-09",
-      "qty": 2.0,
+      "qty": 2,
       "exit": 370.96,
       "pnl": 30.46,
       "source": "ibkr_fifo"
@@ -612,7 +618,7 @@ window.__DATA__ = {
       "order_id": 5605693226,
       "symbol": "META",
       "date": "2026-09-09",
-      "qty": 1.0,
+      "qty": 1,
       "exit": 639.96,
       "pnl": 87.87,
       "source": "ibkr_fifo"
@@ -621,17 +627,17 @@ window.__DATA__ = {
       "order_id": 5603927551,
       "symbol": "ORBS",
       "date": "2026-09-08",
-      "qty": 500.0,
+      "qty": 500,
       "exit": 1.15,
-      "pnl": 105.0,
+      "pnl": 105,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5602067701,
       "symbol": "UBER",
       "date": "2026-09-08",
-      "qty": 8.0,
-      "exit": 72.982,
+      "qty": 8,
+      "exit": 72.98,
       "pnl": 34.86,
       "source": "ibkr_fifo"
     },
@@ -639,7 +645,7 @@ window.__DATA__ = {
       "order_id": 5601196463,
       "symbol": "AEHR",
       "date": "2026-09-08",
-      "qty": 7.0,
+      "qty": 7,
       "exit": 89.84,
       "pnl": 80.45,
       "source": "ibkr_fifo"
@@ -648,7 +654,7 @@ window.__DATA__ = {
       "order_id": 5600466539,
       "symbol": "AEHR",
       "date": "2026-09-08",
-      "qty": 3.0,
+      "qty": 3,
       "exit": 93.5,
       "pnl": 38.95,
       "source": "ibkr_fifo"
@@ -657,7 +663,7 @@ window.__DATA__ = {
       "order_id": 5594385064,
       "symbol": "CIFR",
       "date": "2026-09-03",
-      "qty": 40.0,
+      "qty": 40,
       "exit": 17.23,
       "pnl": 100.4,
       "source": "ibkr_fifo"
@@ -666,7 +672,7 @@ window.__DATA__ = {
       "order_id": 5589085645,
       "symbol": "META",
       "date": "2026-09-02",
-      "qty": 2.0,
+      "qty": 2,
       "exit": 594.7,
       "pnl": -14.35,
       "source": "ibkr_fifo"
@@ -675,7 +681,7 @@ window.__DATA__ = {
       "order_id": 5582943296,
       "symbol": "RKLB",
       "date": "2026-09-01",
-      "qty": 5.0,
+      "qty": 5,
       "exit": 62.03,
       "pnl": -68.44,
       "source": "ibkr_fifo"
@@ -684,7 +690,7 @@ window.__DATA__ = {
       "order_id": 5578506869,
       "symbol": "ENPH",
       "date": "2026-08-31",
-      "qty": 14.0,
+      "qty": 14,
       "exit": 36.36,
       "pnl": -231.8,
       "source": "ibkr_fifo"
@@ -693,8 +699,8 @@ window.__DATA__ = {
       "order_id": 5570837468,
       "symbol": "MSTR",
       "date": "2026-08-27",
-      "qty": 5.0,
-      "exit": 137.0,
+      "qty": 5,
+      "exit": 137,
       "pnl": 177.25,
       "source": "ibkr_fifo"
     },
@@ -702,8 +708,8 @@ window.__DATA__ = {
       "order_id": 5570638039,
       "symbol": "NOW",
       "date": "2026-08-27",
-      "qty": 5.0,
-      "exit": 137.205,
+      "qty": 5,
+      "exit": 137.21,
       "pnl": 106.41,
       "source": "ibkr_fifo"
     },
@@ -711,7 +717,7 @@ window.__DATA__ = {
       "order_id": 5560288039,
       "symbol": "MMM",
       "date": "2026-08-25",
-      "qty": 4.0,
+      "qty": 4,
       "exit": 178.98,
       "pnl": 1.31,
       "source": "ibkr_fifo"
@@ -720,7 +726,7 @@ window.__DATA__ = {
       "order_id": 5555097907,
       "symbol": "RKLB",
       "date": "2026-08-24",
-      "qty": 7.0,
+      "qty": 7,
       "exit": 69.8,
       "pnl": -44.41,
       "source": "ibkr_fifo"
@@ -729,7 +735,7 @@ window.__DATA__ = {
       "order_id": 5554031063,
       "symbol": "HOOD",
       "date": "2026-08-21",
-      "qty": 7.0,
+      "qty": 7,
       "exit": 108.22,
       "pnl": 90.62,
       "source": "ibkr_fifo"
@@ -738,7 +744,7 @@ window.__DATA__ = {
       "order_id": 5542736447,
       "symbol": "NFLX",
       "date": "2026-08-19",
-      "qty": 7.0,
+      "qty": 7,
       "exit": 80.4,
       "pnl": 41.48,
       "source": "ibkr_fifo"
@@ -747,8 +753,8 @@ window.__DATA__ = {
       "order_id": 5537214682,
       "symbol": "NOW",
       "date": "2026-08-18",
-      "qty": 4.0,
-      "exit": 120.915,
+      "qty": 4,
+      "exit": 120.92,
       "pnl": 24.05,
       "source": "ibkr_fifo"
     },
@@ -756,7 +762,7 @@ window.__DATA__ = {
       "order_id": 5533075687,
       "symbol": "HNST",
       "date": "2026-08-17",
-      "qty": 110.0,
+      "qty": 110,
       "exit": 4.78,
       "pnl": 103.73,
       "source": "ibkr_fifo"
@@ -765,7 +771,7 @@ window.__DATA__ = {
       "order_id": 5522452440,
       "symbol": "POET",
       "date": "2026-08-13",
-      "qty": 50.0,
+      "qty": 50,
       "exit": 9.37,
       "pnl": 70.44,
       "source": "ibkr_fifo"
@@ -775,7 +781,7 @@ window.__DATA__ = {
       "symbol": "AVGO",
       "date": "2026-08-12",
       "qty": 2.5,
-      "exit": 417.392,
+      "exit": 417.39,
       "pnl": 91.65,
       "source": "ibkr_fifo"
     },
@@ -783,7 +789,7 @@ window.__DATA__ = {
       "order_id": 5515393267,
       "symbol": "AVGO",
       "date": "2026-08-11",
-      "qty": 2.0,
+      "qty": 2,
       "exit": 417.95,
       "pnl": 19.28,
       "source": "ibkr_fifo"
@@ -792,7 +798,7 @@ window.__DATA__ = {
       "order_id": 5515061157,
       "symbol": "HNST",
       "date": "2026-08-11",
-      "qty": 115.0,
+      "qty": 115,
       "exit": 5.14,
       "pnl": 162.91,
       "source": "ibkr_fifo"
@@ -801,8 +807,8 @@ window.__DATA__ = {
       "order_id": 5514871927,
       "symbol": "ZETA",
       "date": "2026-08-11",
-      "qty": 100.0,
-      "exit": 28.535,
+      "qty": 100,
+      "exit": 28.54,
       "pnl": 693.19,
       "source": "ibkr_fifo"
     },
@@ -810,7 +816,7 @@ window.__DATA__ = {
       "order_id": 5507859909,
       "symbol": "BKNG",
       "date": "2026-08-10",
-      "qty": 6.0,
+      "qty": 6,
       "exit": 212.73,
       "pnl": 92.58,
       "source": "ibkr_fifo"
@@ -819,8 +825,8 @@ window.__DATA__ = {
       "order_id": 5505997522,
       "symbol": "SPCX",
       "date": "2026-08-07",
-      "qty": 5.0,
-      "exit": 129.735,
+      "qty": 5,
+      "exit": 129.74,
       "pnl": 98.93,
       "source": "ibkr_fifo"
     },
@@ -828,8 +834,8 @@ window.__DATA__ = {
       "order_id": 5504754219,
       "symbol": "GOOGL",
       "date": "2026-08-07",
-      "qty": 3.0,
-      "exit": 354.369,
+      "qty": 3,
+      "exit": 354.37,
       "pnl": 53.8,
       "source": "ibkr_fifo"
     },
@@ -837,7 +843,7 @@ window.__DATA__ = {
       "order_id": 5497390153,
       "symbol": "GOOGL",
       "date": "2026-08-05",
-      "qty": 4.0,
+      "qty": 4,
       "exit": 362.2,
       "pnl": 28.32,
       "source": "ibkr_fifo"
@@ -846,7 +852,7 @@ window.__DATA__ = {
       "order_id": 5497089103,
       "symbol": "HNST",
       "date": "2026-08-05",
-      "qty": 155.0,
+      "qty": 155,
       "exit": 3.91,
       "pnl": 33.46,
       "source": "ibkr_fifo"
@@ -855,7 +861,7 @@ window.__DATA__ = {
       "order_id": 5494150289,
       "symbol": "AMZN",
       "date": "2026-08-05",
-      "qty": 6.0,
+      "qty": 6,
       "exit": 275.46,
       "pnl": 67.4,
       "source": "ibkr_fifo"
@@ -864,8 +870,8 @@ window.__DATA__ = {
       "order_id": 5491518226,
       "symbol": "MSFT",
       "date": "2026-08-04",
-      "qty": 4.0,
-      "exit": 497.0,
+      "qty": 4,
+      "exit": 497,
       "pnl": 432.2,
       "source": "ibkr_fifo"
     },
@@ -873,8 +879,8 @@ window.__DATA__ = {
       "order_id": 5490608916,
       "symbol": "NVDA",
       "date": "2026-08-04",
-      "qty": 14.0,
-      "exit": 211.0,
+      "qty": 14,
+      "exit": 211,
       "pnl": 67.78,
       "source": "ibkr_fifo"
     },
@@ -882,8 +888,8 @@ window.__DATA__ = {
       "order_id": 5482728391,
       "symbol": "CRWV",
       "date": "2026-08-03",
-      "qty": 22.0,
-      "exit": 78.0,
+      "qty": 22,
+      "exit": 78,
       "pnl": 164.26,
       "source": "ibkr_fifo"
     },
@@ -891,8 +897,8 @@ window.__DATA__ = {
       "order_id": 5478126099,
       "symbol": "AMZN",
       "date": "2026-07-31",
-      "qty": 3.0,
-      "exit": 270.0,
+      "qty": 3,
+      "exit": 270,
       "pnl": 4.35,
       "source": "ibkr_fifo"
     },
@@ -900,7 +906,7 @@ window.__DATA__ = {
       "order_id": 5473063143,
       "symbol": "CRWV",
       "date": "2026-07-30",
-      "qty": 15.0,
+      "qty": 15,
       "exit": 72.8,
       "pnl": -391.15,
       "source": "ibkr_fifo"
@@ -909,16 +915,16 @@ window.__DATA__ = {
       "order_id": 5467657168,
       "symbol": "KEEL",
       "date": "2026-07-29",
-      "qty": 200.0,
+      "qty": 200,
       "exit": 3.3,
-      "pnl": -106.0,
+      "pnl": -106,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5460980914,
       "symbol": "AVGO",
       "date": "2026-07-28",
-      "qty": 3.0,
+      "qty": 3,
       "exit": 372.76,
       "pnl": -139.91,
       "source": "ibkr_fifo"
@@ -927,7 +933,7 @@ window.__DATA__ = {
       "order_id": 5460355972,
       "symbol": "BE",
       "date": "2026-07-28",
-      "qty": 6.0,
+      "qty": 6,
       "exit": 173.11,
       "pnl": -58.34,
       "source": "ibkr_fifo"
@@ -937,7 +943,7 @@ window.__DATA__ = {
       "symbol": "GLW",
       "date": "2026-07-27",
       "qty": 6.5,
-      "exit": 144.2758,
+      "exit": 144.28,
       "pnl": -77.05,
       "source": "ibkr_fifo"
     },
@@ -945,8 +951,8 @@ window.__DATA__ = {
       "order_id": 5453540421,
       "symbol": "BE",
       "date": "2026-07-24",
-      "qty": 5.0,
-      "exit": 191.1217,
+      "qty": 5,
+      "exit": 191.12,
       "pnl": -61.79,
       "source": "ibkr_fifo"
     },
@@ -954,17 +960,17 @@ window.__DATA__ = {
       "order_id": 5452344658,
       "symbol": "HPQ",
       "date": "2026-07-24",
-      "qty": 35.0,
-      "exit": 25.525,
-      "pnl": 78.12,
+      "qty": 35,
+      "exit": 25.53,
+      "pnl": 78.13,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5452056807,
       "symbol": "TE",
       "date": "2026-07-24",
-      "qty": 60.0,
-      "exit": 5.145,
+      "qty": 60,
+      "exit": 5.15,
       "pnl": -224.9,
       "source": "ibkr_fifo"
     },
@@ -972,8 +978,8 @@ window.__DATA__ = {
       "order_id": 5451308760,
       "symbol": "FSLR",
       "date": "2026-07-24",
-      "qty": 2.0,
-      "exit": 203.375,
+      "qty": 2,
+      "exit": 203.38,
       "pnl": -93.9,
       "source": "ibkr_fifo"
     },
@@ -981,7 +987,7 @@ window.__DATA__ = {
       "order_id": 5446265080,
       "symbol": "ZETA",
       "date": "2026-07-23",
-      "qty": 40.0,
+      "qty": 40,
       "exit": 19.71,
       "pnl": 0.09,
       "source": "ibkr_fifo"
@@ -990,7 +996,7 @@ window.__DATA__ = {
       "order_id": 5437673304,
       "symbol": "AFRM",
       "date": "2026-07-21",
-      "qty": 13.0,
+      "qty": 13,
       "exit": 74.34,
       "pnl": -104.08,
       "source": "ibkr_fifo"
@@ -999,8 +1005,8 @@ window.__DATA__ = {
       "order_id": 5434079772,
       "symbol": "TE",
       "date": "2026-07-20",
-      "qty": 55.0,
-      "exit": 5.822,
+      "qty": 55,
+      "exit": 5.82,
       "pnl": -169.14,
       "source": "ibkr_fifo"
     },
@@ -1008,7 +1014,7 @@ window.__DATA__ = {
       "order_id": 5434037808,
       "symbol": "FSLR",
       "date": "2026-07-20",
-      "qty": 2.0,
+      "qty": 2,
       "exit": 208.5,
       "pnl": -83.65,
       "source": "ibkr_fifo"
@@ -1017,8 +1023,8 @@ window.__DATA__ = {
       "order_id": 5431243045,
       "symbol": "ZETA",
       "date": "2026-07-17",
-      "qty": 35.0,
-      "exit": 22.0,
+      "qty": 35,
+      "exit": 22,
       "pnl": 114.72,
       "source": "ibkr_fifo"
     },
@@ -1026,8 +1032,8 @@ window.__DATA__ = {
       "order_id": 5423086847,
       "symbol": "RDW",
       "date": "2026-07-16",
-      "qty": 60.0,
-      "exit": 9.019,
+      "qty": 60,
+      "exit": 9.02,
       "pnl": -272.89,
       "source": "ibkr_fifo"
     },
@@ -1035,9 +1041,9 @@ window.__DATA__ = {
       "order_id": 5409375968,
       "symbol": "IONQ",
       "date": "2026-07-13",
-      "qty": 15.0,
+      "qty": 15,
       "exit": 41.2,
-      "pnl": -192.12,
+      "pnl": -192.13,
       "source": "ibkr_fifo"
     },
     {
@@ -1045,7 +1051,7 @@ window.__DATA__ = {
       "symbol": "AVGO",
       "date": "2026-07-08",
       "qty": 3.5,
-      "exit": 393.6143,
+      "exit": 393.61,
       "pnl": -104.09,
       "source": "ibkr_fifo"
     },
@@ -1053,7 +1059,7 @@ window.__DATA__ = {
       "order_id": 5382820274,
       "symbol": "IREN",
       "date": "2026-07-02",
-      "qty": 17.0,
+      "qty": 17,
       "exit": 37.8,
       "pnl": -389.03,
       "source": "ibkr_fifo"
@@ -1062,8 +1068,8 @@ window.__DATA__ = {
       "order_id": 5382577548,
       "symbol": "RDW",
       "date": "2026-07-02",
-      "qty": 40.0,
-      "exit": 11.392,
+      "qty": 40,
+      "exit": 11.39,
       "pnl": -182.49,
       "source": "ibkr_fifo"
     },
@@ -1071,16 +1077,16 @@ window.__DATA__ = {
       "order_id": 5380687290,
       "symbol": "QCOM",
       "date": "2026-07-02",
-      "qty": 6.0,
-      "exit": 179.922,
-      "pnl": 0.0,
+      "qty": 6,
+      "exit": 179.92,
+      "pnl": 0,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5378997772,
       "symbol": "QCOM",
       "date": "2026-07-02",
-      "qty": 6.0,
+      "qty": 6,
       "exit": 179.51,
       "pnl": -261.74,
       "source": "ibkr_fifo"
@@ -1089,9 +1095,9 @@ window.__DATA__ = {
       "order_id": 5371552870,
       "symbol": "CRCL",
       "date": "2026-06-30",
-      "qty": 10.0,
+      "qty": 10,
       "exit": 63.5,
-      "pnl": -133.0,
+      "pnl": -133,
       "source": "ibkr_fifo"
     },
     {
@@ -1099,7 +1105,7 @@ window.__DATA__ = {
       "symbol": "AAPL",
       "date": "2026-06-25",
       "qty": 9.5,
-      "exit": 278.5414,
+      "exit": 278.54,
       "pnl": -62.74,
       "source": "ibkr_fifo"
     },
@@ -1107,8 +1113,8 @@ window.__DATA__ = {
       "order_id": 5315072009,
       "symbol": "NVDA",
       "date": "2026-06-15",
-      "qty": 5.0,
-      "exit": 212.333,
+      "qty": 5,
+      "exit": 212.33,
       "pnl": 64.38,
       "source": "ibkr_fifo"
     },
@@ -1116,8 +1122,8 @@ window.__DATA__ = {
       "order_id": 5291057416,
       "symbol": "ZETA",
       "date": "2026-06-09",
-      "qty": 40.0,
-      "exit": 20.1901,
+      "qty": 40,
+      "exit": 20.19,
       "pnl": -62.2,
       "source": "ibkr_fifo"
     },
@@ -1125,17 +1131,17 @@ window.__DATA__ = {
       "order_id": 5291014654,
       "symbol": "ENPH",
       "date": "2026-06-09",
-      "qty": 20.0,
-      "exit": 50.0,
-      "pnl": -117.0,
+      "qty": 20,
+      "exit": 50,
+      "pnl": -117,
       "source": "ibkr_fifo"
     },
     {
       "order_id": 5290350929,
       "symbol": "ONDS",
       "date": "2026-06-09",
-      "qty": 55.0,
-      "exit": 9.475,
+      "qty": 55,
+      "exit": 9.48,
       "pnl": -157.05,
       "source": "ibkr_fifo"
     },
@@ -1143,8 +1149,8 @@ window.__DATA__ = {
       "order_id": 5277179196,
       "symbol": "CCJ",
       "date": "2026-06-05",
-      "qty": 6.0,
-      "exit": 106.195,
+      "qty": 6,
+      "exit": 106.2,
       "pnl": -18.54,
       "source": "ibkr_fifo"
     },
@@ -1152,33 +1158,40 @@ window.__DATA__ = {
       "order_id": 5274161143,
       "symbol": "CLSK",
       "date": "2026-06-05",
-      "qty": 60.0,
-      "exit": 15.945,
-      "pnl": -65.0,
+      "qty": 60,
+      "exit": 15.95,
+      "pnl": -65,
       "source": "ibkr_fifo"
     }
   ],
   "recs": [
     {
-      "date": "2026-10-28",
-      "symbol": "VRT",
-      "kind": "note",
-      "summary": "$VRT is up 30%+ since hitting our Weekly Smart Money Zone last week. Breakout continues; targets and stops in video.",
-      "url": "https://x.com/pdicarlotrader/status/2115564566650196362"
-    },
-    {
-      "date": "2026-10-28",
-      "symbol": "META",
+      "date": "2026-10-29",
+      "symbol": "AMZN",
       "kind": "buy",
-      "summary": "$META is in early buy range. Optimal zone $580\u2013$600. Beautiful level to start a 6-12 month position. Not entering yet (too many trades).",
-      "url": "https://x.com/pdicarlotrader/status/2115454805854331088"
+      "summary": "Will all this AI spending actually pay off? That\u2019s why $AMZN is down after earnings. I just bought shares anyway.",
+      "url": "https://x.com/pdicarlotrader/status/2115923684359803048"
     },
     {
-      "date": "2026-10-28",
-      "symbol": "SKHY",
+      "date": "2026-10-29",
+      "symbol": "INTC",
+      "kind": "buy",
+      "summary": "Patience is a position. I\u2019ve been waiting for $INTC to come back to long-term buy ranges. Down 16% on poor guidance, finally getting my shot.",
+      "url": "https://x.com/pdicarlotrader/status/2115922921927721341"
+    },
+    {
+      "date": "2026-10-30",
+      "symbol": "BTC",
+      "kind": "watch",
+      "summary": "Bitcoin back at Daily Smart Money Zone. Amazing short term buying opportunity and bullish next 30-45 days as long as we hold $75k.",
+      "url": "https://x.com/pdicarlotrader/status/2115962120017764495"
+    },
+    {
+      "date": "2026-10-27",
+      "symbol": "TSLA",
       "kind": "note",
-      "summary": "$18M in calls on $SKHY. Touched Daily Smart Money Zone and ripped +20%. I\u2019m long. Full setup in video.",
-      "url": "https://x.com/pdicarlotrader/status/2115563156932293052"
+      "summary": "$640 $TSLA long-term target. But I\u2019m not buying here. It\u2019s breaking out today, right into our $420 bearish Smart Money Zone.",
+      "url": "https://x.com/pdicarlotrader/status/2115159714304872917"
     }
   ],
   "perfCompare": {
