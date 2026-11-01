@@ -1,19 +1,19 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-10-31 09:32 IDT
+// Generated: 2026-11-01 09:32 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-10-31T09:32:00+02:00",
-    "generatedAtHuman": "2026-10-31 09:32 IDT",
+    "generatedAt": "2026-11-01T09:32:00+02:00",
+    "generatedAtHuman": "2026-11-01 09:32 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8556.38,
+    "nav": 8555.37,
     "cash": -1971.49,
     "grossPositions": 10551.24,
     "unrealized": -409.78,
     "positionsCount": 12,
-    "reconDrift": -23.37,
-    "note": "Daily refresh \u00b7 YTD closed \u00b7 Peter notes on 6 holdings \u00b7 4 public recs"
+    "reconDrift": -24.38,
+    "note": "Daily refresh \u00b7 YTD closed \u00b7 Peter notes on 5 holdings \u00b7 5 public recs"
   },
   "positions": [
     {
@@ -69,7 +69,7 @@ window.__DATA__ = {
       "mv": 798.71,
       "cost": 845.11,
       "peter": {
-        "sum": "$COIN looking ready for the next leg up \ud83d\ude80",
+        "sum": "$COIN looking ready for the next leg up.",
         "url": "https://x.com/pdicarlotrader/status/2112922236231524536",
         "when": "2026-10-21"
       }
@@ -93,7 +93,7 @@ window.__DATA__ = {
       "mv": 606.76,
       "cost": 656.28,
       "peter": {
-        "sum": "I'm betting BIG on $CRWV over the next 1 - 2 years. $200 target by August 2027. Long Term Smart Money Zone.",
+        "sum": "I'm betting BIG on $CRWV over the next 1-2 years. $200 target by August 2027. Long Term Smart Money Zone; 70% of time back at ATH within 12-16 months.",
         "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
         "when": "2026-10-21"
       }
@@ -154,11 +154,7 @@ window.__DATA__ = {
       "upnl": -3.82,
       "mv": 248.32,
       "cost": 252.14,
-      "peter": {
-        "sum": "$NFLX dropping -5% after hours. Numbers don't seem bad, but guidance was on the low end.",
-        "url": "https://x.com/pdicarlotrader/status/2112636404413194735",
-        "when": "2026-10-20"
-      }
+      "peter": null
     }
   ],
   "closed": [
@@ -1187,11 +1183,11 @@ window.__DATA__ = {
       "url": "https://x.com/pdicarlotrader/status/2115962120017764495"
     },
     {
-      "date": "2026-10-29",
-      "symbol": "INTC",
-      "kind": "buy",
-      "summary": "Patience is a position. I\u2019ve been waiting for $INTC to come back to long-term buy ranges. Down 16% on poor guidance, finally getting my shot.",
-      "url": "https://x.com/pdicarlotrader/status/2115922921927721341"
+      "date": "2026-10-30",
+      "symbol": "SPY",
+      "kind": "note",
+      "summary": "Last chance for $SPY short term. Daily swing low at $760 just breached. Get back above $760 by next week or next stop is Weekly IBZ/SMZ.",
+      "url": "https://x.com/pdicarlotrader/status/2116175346642887128"
     },
     {
       "date": "2026-10-30",
@@ -1199,6 +1195,13 @@ window.__DATA__ = {
       "kind": "note",
       "summary": "$NVDA is sitting on the Daily swing low. Needs to bounce. No reclaim of $210 by next week? Daily structure breaks.",
       "url": "https://x.com/pdicarlotrader/status/2116174118546776213"
+    },
+    {
+      "date": "2026-10-29",
+      "symbol": "AMZN",
+      "kind": "buy",
+      "summary": "Will all this AI spending actually pay off? That\u2019s why $AMZN is down after earnings. I just bought shares anyway.",
+      "url": "https://x.com/pdicarlotrader/status/2115923684359803048"
     }
   ],
   "perfCompare": {
