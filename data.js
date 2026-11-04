@@ -1,28 +1,28 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-11-03 09:32 IDT
+// Generated: 2026-11-04 09:32 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-11-03T09:32:00+02:00",
-    "generatedAtHuman": "2026-11-03 09:32 IDT",
+    "generatedAt": "2026-11-04T09:32:00+02:00",
+    "generatedAtHuman": "2026-11-04 09:32 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8490.6,
-    "cash": -1971.49,
-    "grossPositions": 10411.87,
-    "unrealized": -555.75,
+    "nav": 8541.21,
+    "cash": -3054.44,
+    "grossPositions": 11623.75,
+    "unrealized": -436.83,
     "positionsCount": 12,
-    "reconDrift": 50.22,
-    "note": "Daily refresh \u00b7 YTD closed \u00b7 Peter notes on 5 holdings \u00b7 4 public recs"
+    "reconDrift": 0,
+    "note": "Daily refresh \u00b7 YTD closed 112 \u00b7 Peter notes on 3 holdings \u00b7 2 public recs"
   },
   "positions": [
     {
       "symbol": "UBER",
       "qty": 34.0,
       "avg": 69.0572,
-      "last": 66.57,
-      "upnl": -84.57,
-      "mv": 2263.38,
+      "last": 66.58,
+      "upnl": -84.23,
+      "mv": 2263.72,
       "cost": 2347.95,
       "peter": null
     },
@@ -30,22 +30,32 @@ window.__DATA__ = {
       "symbol": "GS",
       "qty": 2.0,
       "avg": 876.035,
-      "last": 891.0,
-      "upnl": 29.93,
-      "mv": 1782.0,
+      "last": 895.93,
+      "upnl": 39.79,
+      "mv": 1791.86,
       "cost": 1752.07,
+      "peter": null
+    },
+    {
+      "symbol": "POET",
+      "qty": 268.0,
+      "avg": 5.7102,
+      "last": 5.11,
+      "upnl": -160.85,
+      "mv": 1369.48,
+      "cost": 1530.33,
       "peter": null
     },
     {
       "symbol": "HOOD",
       "qty": 14.0,
       "avg": 90.3821,
-      "last": 83.46,
-      "upnl": -96.91,
-      "mv": 1168.44,
+      "last": 84.6,
+      "upnl": -80.95,
+      "mv": 1184.4,
       "cost": 1265.35,
       "peter": {
-        "sum": "$HOOD gapped down after earnings but nothing to worry about just yet. Smart Money is currently holding and I am still bullish until that low is swept. SMZ triggered; 70% of time hits $136 in 60d.",
+        "sum": "$HOOD gapped down after earnings but nothing to worry about just yet. Smart Money is currently holding and I am still bullish until that low is swept.",
         "url": "https://x.com/pdicarlotrader/status/2115455692274380933",
         "when": "2026-10-28"
       }
@@ -54,9 +64,9 @@ window.__DATA__ = {
       "symbol": "JPM",
       "qty": 3.0,
       "avg": 326.9133,
-      "last": 339.69,
-      "upnl": 38.33,
-      "mv": 1019.07,
+      "last": 337.11,
+      "upnl": 30.59,
+      "mv": 1011.33,
       "cost": 980.74,
       "peter": null
     },
@@ -64,23 +74,23 @@ window.__DATA__ = {
       "symbol": "COIN",
       "qty": 5.5,
       "avg": 153.6555,
-      "last": 136.84,
-      "upnl": -92.49,
-      "mv": 752.62,
+      "last": 144.65,
+      "upnl": -49.53,
+      "mv": 795.57,
       "cost": 845.11,
       "peter": {
-        "sum": "$COIN looking ready for the next leg up.",
-        "url": "https://x.com/pdicarlotrader/status/2112922236231524536",
-        "when": "2026-10-21"
+        "sum": "$COIN long term buy zone is still in effect. $480 target by November 2028. Short-term target $220 over 60-90 days. Invalidation: weekly close below $120. Currently long.",
+        "url": "https://x.com/pdicarlotrader/status/2117654316576047134",
+        "when": "2026-11-03"
       }
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 40.08,
-      "upnl": -56.35,
-      "mv": 641.28,
+      "last": 40.87,
+      "upnl": -43.71,
+      "mv": 653.92,
       "cost": 697.63,
       "peter": null
     },
@@ -88,40 +98,32 @@ window.__DATA__ = {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 49.96,
-      "upnl": -106.72,
-      "mv": 549.56,
+      "last": 51.59,
+      "upnl": -88.79,
+      "mv": 567.49,
       "cost": 656.28,
-      "peter": {
-        "sum": "I'm betting BIG on $CRWV over the next 1-2 years. $200 target by August 2027. Holding over swing low.",
-        "url": "https://x.com/pdicarlotrader/status/2112993102088855871",
-        "when": "2026-10-21"
-      }
+      "peter": null
     },
     {
       "symbol": "CELH",
       "qty": 22.0,
       "avg": 28.7602,
-      "last": 29.93,
-      "upnl": 25.74,
-      "mv": 658.46,
+      "last": 30.02,
+      "upnl": 27.72,
+      "mv": 660.44,
       "cost": 632.72,
-      "peter": {
-        "sum": "$CELH starting to gain traction. Positioning for a potential 60% breakout over the next 6 to 12 months.",
-        "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
-        "when": "2026-10-20"
-      }
+      "peter": null
     },
     {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 278.65,
-      "upnl": -29.76,
-      "mv": 557.3,
+      "last": 277.9,
+      "upnl": -31.26,
+      "mv": 555.8,
       "cost": 587.06,
       "peter": {
-        "sum": "$GOOGL is down huge today. Capex = uncertainty. Market hates uncertainty. That said, I bought shares this morning. Weekly structure still bullish as long as we hold $270.",
+        "sum": "$GOOGL is down huge today. Capex = uncertainty. That said, I bought shares this morning.",
         "url": "https://x.com/pdicarlotrader/status/2115923276417609882",
         "when": "2026-10-29"
       }
@@ -130,29 +132,19 @@ window.__DATA__ = {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 37.9,
-      "upnl": -10.49,
-      "mv": 492.7,
+      "last": 39.0,
+      "upnl": 3.81,
+      "mv": 507.0,
       "cost": 503.19,
-      "peter": null
-    },
-    {
-      "symbol": "POET",
-      "qty": 58.0,
-      "avg": 7.7134,
-      "last": 4.79,
-      "upnl": -169.56,
-      "mv": 277.82,
-      "cost": 447.38,
       "peter": null
     },
     {
       "symbol": "NFLX",
       "qty": 4.0,
       "avg": 63.035,
-      "last": 62.31,
-      "upnl": -2.9,
-      "mv": 249.24,
+      "last": 63.18,
+      "upnl": 0.58,
+      "mv": 252.72,
       "cost": 252.14,
       "peter": null
     }
@@ -171,18 +163,18 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "qty": 8.0,
       "exit": 62.075,
-      "pnl": -29.1,
+      "pnl": -38.56,
       "date": "2026-10-28",
-      "order_id": 1107994937,
+      "order_id": 5767185626,
       "source": "ibkr_fifo"
     },
     {
       "symbol": "CRWV",
       "qty": 6.0,
       "exit": 62.2,
-      "pnl": 5.3,
+      "pnl": -8.31,
       "date": "2026-10-28",
-      "order_id": 1581201922,
+      "order_id": 5766998433,
       "source": "ibkr_fifo"
     },
     {
@@ -191,7 +183,7 @@ window.__DATA__ = {
       "exit": 241.6,
       "pnl": 131.75,
       "date": "2026-10-28",
-      "order_id": 1581201559,
+      "order_id": 5766996907,
       "source": "ibkr_fifo"
     },
     {
@@ -200,7 +192,7 @@ window.__DATA__ = {
       "exit": 156.8,
       "pnl": 69.0,
       "date": "2026-10-28",
-      "order_id": 596557078,
+      "order_id": 5766909945,
       "source": "ibkr_fifo"
     },
     {
@@ -1169,59 +1161,18 @@ window.__DATA__ = {
   ],
   "recs": [
     {
-      "symbol": "CAVA",
+      "symbol": "MDB",
       "kind": "watch",
-      "summary": "Double Smart Money Zone heading into earnings week. Already up over 20% since posted. Extremely bullish for next 6-12 months. Not in it currently.",
-      "url": "https://x.com/pdicarlotrader/status/2117360850990485919",
-      "when": "2026-11-02"
-    },
-    {
-      "symbol": "INTC",
-      "kind": "buy",
-      "summary": "Finally moving into long term buy zone once again. Ideal entry would be $50 due to Volume Profile support block. Should pay BIG over the next 12 months.",
-      "url": "https://x.com/pdicarlotrader/status/2117345798056706526",
-      "when": "2026-11-02"
+      "sum": "Silver Bullet Setup. $MDB bounced cleanly from the Smart Money zone and is now forming a compressed wedge. Short-term target $390, larger $470 over 60 days. Invalidation below ~$280.",
+      "url": "https://x.com/pdicarlotrader/status/2117652704767934501",
+      "when": "2026-11-03"
     },
     {
       "symbol": "AMD",
-      "kind": "note",
-      "summary": "Daily Smart Money Zone. Make or break time as we head into earnings. Structure and BX still bullish. Ugly if $440 breaks.",
-      "url": "https://x.com/pdicarlotrader/status/2117292250434851153",
-      "when": "2026-11-02"
-    },
-    {
-      "symbol": "MRVL",
-      "kind": "note",
-      "summary": "Daily structure is now broken. Should continue to redistribute down towards Weekly SMZ @ $140.",
-      "url": "https://x.com/pdicarlotrader/status/2117343865095004590",
-      "when": "2026-11-02"
+      "kind": "watch",
+      "sum": "Silver Bullet Setup on $AMD headed into earnings. Bounced to perfection.",
+      "url": "https://x.com/pdicarlotrader/status/2117695677668933681",
+      "when": "2026-11-03"
     }
-  ],
-  "performance": {},
-  "fills": [],
-  "twr": {
-    "dates": [
-      "2026-10-28",
-      "2026-10-29",
-      "2026-10-30",
-      "2026-11-02",
-      "2026-11-03"
-    ],
-    "cps": [
-      0.02498845,
-      0.02264321,
-      -0.03625354,
-      -0.04283831,
-      -0.04035941
-    ],
-    "nav": [
-      9068.78,
-      9048.03,
-      8526.93,
-      8468.67,
-      8490.6
-    ]
-  }
+  ]
 };
-
-// Wrote data.js with 112 closed, 5 peter notes, 4 recs
