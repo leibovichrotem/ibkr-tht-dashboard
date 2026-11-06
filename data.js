@@ -1,59 +1,39 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-11-05 09:32 IDT
+// Generated: 2026-11-06 09:32 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-11-05T09:32:00+02:00",
-    "generatedAtHuman": "2026-11-05 09:32 IDT",
+    "generatedAt": "2026-11-06T09:32:00+02:00",
+    "generatedAtHuman": "2026-11-06 09:32 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8678.3,
-    "cash": -3081.3,
-    "grossPositions": 11762.35,
-    "unrealized": -322.44,
-    "positionsCount": 12,
+    "nav": 7921.65,
+    "cash": -1764.87,
+    "grossPositions": 9689.27,
+    "unrealized": -1138.69,
+    "positionsCount": 11,
     "reconDrift": 0,
-    "note": "Daily refresh \u00b7 YTD closed 112 \u00b7 Peter notes on 6 holdings \u00b7 4 public recs"
+    "note": "Daily refresh \u00b7 YTD closed 116 \u00b7 Peter notes on 5 holdings \u00b7 5 public recs"
   },
   "positions": [
     {
       "symbol": "UBER",
       "qty": 34.0,
       "avg": 69.0572,
-      "last": 70.07,
-      "upnl": 34.43,
-      "mv": 2382.38,
+      "last": 67.83,
+      "upnl": -41.73,
+      "mv": 2306.22,
       "cost": 2347.95,
       "peter": null
     },
     {
-      "symbol": "GS",
-      "qty": 2.0,
-      "avg": 876.035,
-      "last": 931.0,
-      "upnl": 109.93,
-      "mv": 1862.0,
-      "cost": 1752.07,
-      "peter": null
-    },
-    {
-      "symbol": "POET",
-      "qty": 268.0,
-      "avg": 5.7102,
-      "last": 4.83,
-      "upnl": -235.89,
-      "mv": 1294.44,
-      "cost": 1530.33,
-      "peter": null
-    },
-    {
       "symbol": "HOOD",
-      "qty": 14.0,
-      "avg": 90.3821,
-      "last": 86.85,
-      "upnl": -49.45,
-      "mv": 1215.9,
-      "cost": 1265.35,
+      "qty": 24.0,
+      "avg": 86.9104,
+      "last": 79.39,
+      "upnl": -180.49,
+      "mv": 1905.36,
+      "cost": 2085.85,
       "peter": {
         "sum": "Structure still bullish. Play $2M calls for next month. Send it $HOOD. Smart Money holding, still bullish until low is swept.",
         "url": "https://x.com/pdicarlotrader/status/2118082186129666250",
@@ -61,22 +41,22 @@ window.__DATA__ = {
       }
     },
     {
-      "symbol": "JPM",
-      "qty": 3.0,
-      "avg": 326.9133,
-      "last": 353.76,
-      "upnl": 80.54,
-      "mv": 1061.28,
-      "cost": 980.74,
+      "symbol": "POET",
+      "qty": 268.0,
+      "avg": 5.7102,
+      "last": 4.32,
+      "upnl": -372.57,
+      "mv": 1157.76,
+      "cost": 1530.33,
       "peter": null
     },
     {
       "symbol": "COIN",
       "qty": 5.5,
       "avg": 153.6555,
-      "last": 151.43,
-      "upnl": -12.24,
-      "mv": 832.86,
+      "last": 135.65,
+      "upnl": -99.03,
+      "mv": 746.07,
       "cost": 845.11,
       "peter": {
         "sum": "$COIN long term buy zone still in effect. $480 target by Nov 2028. Short-term $220 over 60-90d. Invalidation weekly close below $120. Currently long.",
@@ -88,9 +68,9 @@ window.__DATA__ = {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 36.11,
-      "upnl": -119.87,
-      "mv": 577.76,
+      "last": 33.25,
+      "upnl": -165.63,
+      "mv": 532.0,
       "cost": 697.63,
       "peter": null
     },
@@ -98,12 +78,12 @@ window.__DATA__ = {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 47.26,
-      "upnl": -136.42,
-      "mv": 519.86,
+      "last": 44.79,
+      "upnl": -163.59,
+      "mv": 492.69,
       "cost": 656.28,
       "peter": {
-        "sum": "Most people see $CRWV's $35B debt and run. I see a 6.5 to 1 setup. $190 target, $30 invalidation. Full breakdown.",
+        "sum": "Most people see $CRWV's $35B in debt and run. I see a 6.5 to 1 setup. $190 target, $30 invalidation. Full breakdown.",
         "url": "https://x.com/pdicarlotrader/status/2118025210582454781",
         "when": "2026-11-04"
       }
@@ -112,26 +92,36 @@ window.__DATA__ = {
       "symbol": "CELH",
       "qty": 22.0,
       "avg": 28.7602,
-      "last": 30.85,
-      "upnl": 45.98,
-      "mv": 678.7,
-      "cost": 632.72,
+      "last": 29.66,
+      "upnl": 19.79,
+      "mv": 652.52,
+      "cost": 632.73,
+      "peter": null
+    },
+    {
+      "symbol": "AVGO",
+      "qty": 2.0,
+      "avg": 312.005,
+      "last": 299.51,
+      "upnl": -24.99,
+      "mv": 599.02,
+      "cost": 624.01,
       "peter": {
-        "sum": "Positioning for a potential 60% breakout in $CELH over the next 6 to 12 months. Starting to gain traction.",
-        "url": "https://x.com/pdicarlotrader/status/2112630406441042412",
-        "when": "2026-10-20"
+        "sum": "$AVGO needs to hold $200 swing low to keep structure bullish. Still bullish for the next 6 months; if that level breaks, fill the price vacuum down to $200.",
+        "url": "https://x.com/pdicarlotrader/status/2118525658229833868",
+        "when": "2026-11-06"
       }
     },
     {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 289.49,
-      "upnl": -8.08,
-      "mv": 578.98,
+      "last": 281.43,
+      "upnl": -24.2,
+      "mv": 562.86,
       "cost": 587.06,
       "peter": {
-        "sum": "$GOOGL structure still holding and bottom forming. Bought shares on the dip; weekly structure bullish holding $270.",
+        "sum": "$GOOGL structure still holding and bottom forming.",
         "url": "https://x.com/pdicarlotrader/status/2117994041539481772",
         "when": "2026-11-04"
       }
@@ -140,35 +130,67 @@ window.__DATA__ = {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 35.2,
-      "upnl": -45.59,
-      "mv": 457.6,
+      "last": 31.45,
+      "upnl": -94.34,
+      "mv": 408.85,
       "cost": 503.19,
       "peter": null
     },
     {
-      "symbol": "NFLX",
-      "qty": 4.0,
-      "avg": 63.035,
-      "last": 66.59,
-      "upnl": 14.22,
-      "mv": 266.36,
-      "cost": 252.14,
-      "peter": {
-        "sum": "Still bullish longer term. Rejection thesis was right; now at reload zone. Smart Money showing up.",
-        "url": "https://x.com/pdicarlotrader/status/2106516381504078281",
-        "when": "2026-10-03"
-      }
+      "symbol": "JPM",
+      "qty": 1.0,
+      "avg": 326.9133,
+      "last": 335.0,
+      "upnl": 8.09,
+      "mv": 335.0,
+      "cost": 326.91,
+      "peter": null
     }
   ],
   "closed": [
+    {
+      "symbol": "GS",
+      "qty": 1.0,
+      "exit": 855.56,
+      "pnl": -22.98,
+      "date": "2026-11-05",
+      "order_id": 871457748,
+      "source": "ibkr_fifo"
+    },
+    {
+      "symbol": "GS",
+      "qty": 1.0,
+      "exit": 931.5,
+      "pnl": 52.97,
+      "date": "2026-11-05",
+      "order_id": 800839980,
+      "source": "ibkr_fifo"
+    },
+    {
+      "symbol": "JPM",
+      "qty": 2.0,
+      "exit": 358.04,
+      "pnl": 59.75,
+      "date": "2026-11-05",
+      "order_id": 800839910,
+      "source": "ibkr_fifo"
+    },
+    {
+      "symbol": "NFLX",
+      "qty": 4.0,
+      "exit": 66.95,
+      "pnl": 13.16,
+      "date": "2026-11-05",
+      "order_id": 800839771,
+      "source": "ibkr_fifo"
+    },
     {
       "symbol": "APP",
       "qty": 7.0,
       "exit": 241.08,
       "pnl": -461.6,
       "date": "2026-10-30",
-      "order_id": 1424054471,
+      "order_id": 5776641662,
       "source": "ibkr_fifo"
     },
     {
@@ -517,7 +539,7 @@ window.__DATA__ = {
       "symbol": "ORBS",
       "qty": 500.0,
       "exit": 0.8253,
-      "pnl": 0,
+      "pnl": 0.0,
       "date": "2026-09-16",
       "order_id": 5630645294,
       "source": "ibkr_fifo"
@@ -1084,7 +1106,7 @@ window.__DATA__ = {
       "symbol": "QCOM",
       "qty": 6.0,
       "exit": 179.922,
-      "pnl": 0,
+      "pnl": 0.0,
       "date": "2026-07-02",
       "order_id": 5380687290,
       "source": "ibkr_fifo"
@@ -1180,25 +1202,32 @@ window.__DATA__ = {
       "when": "2026-11-04"
     },
     {
-      "symbol": "SITM",
-      "kind": "watch",
-      "sum": "SMART MONEY WEEKLY: $SITM trading in strong discount range on weekly. Path toward $900 over 12-18 months. Invalidation below $300. Monitoring, capital allocated elsewhere.",
-      "url": "https://x.com/pdicarlotrader/status/2118084571707138398",
-      "when": "2026-11-04"
+      "symbol": "NBIS",
+      "kind": "buy",
+      "sum": "This summer we laid out thesis on $NBIS hitting $120. That time is now. Officially in the long-term buy zone.",
+      "url": "https://x.com/pdicarlotrader/status/2118443103518609890",
+      "when": "2026-11-05"
     },
     {
-      "symbol": "MDB",
-      "kind": "watch",
-      "sum": "Silver Bullet Setup. $MDB bounced cleanly from the Smart Money zone and is now forming a compressed wedge. Short-term target $390, larger $470 over 60 days. Invalidation below ~$280.",
-      "url": "https://x.com/pdicarlotrader/status/2117652704767934501",
-      "when": "2026-11-03"
+      "symbol": "ALAB",
+      "kind": "buy",
+      "sum": "Mission accomplished $ALAB. Low $200's hit. Now at long term buy zone.",
+      "url": "https://x.com/pdicarlotrader/status/2118530575510495722",
+      "when": "2026-11-06"
     },
     {
       "symbol": "AMD",
       "kind": "watch",
-      "sum": "Silver Bullet Setup on $AMD headed into earnings. Bounced to perfection.",
-      "url": "https://x.com/pdicarlotrader/status/2117695677668933681",
-      "when": "2026-11-03"
+      "sum": "$AMD needs to get back above $440. If not, expect another 30% drop in next couple months.",
+      "url": "https://x.com/pdicarlotrader/status/2118507154181402748",
+      "when": "2026-11-06"
+    },
+    {
+      "symbol": "AMAT",
+      "kind": "note",
+      "sum": "$AMAT couldn't hold short term support. Structure has shifted. Expect continued sell off to $200-$240.",
+      "url": "https://x.com/pdicarlotrader/status/2118531194006696301",
+      "when": "2026-11-06"
     }
   ]
 };
