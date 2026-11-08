@@ -1,19 +1,19 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-11-07 09:32 IDT
+// Generated: 2026-11-08 09:32 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-11-07T09:32:00+02:00",
-    "generatedAtHuman": "2026-11-07 09:32 IDT",
+    "generatedAt": "2026-11-08T09:32:00+02:00",
+    "generatedAtHuman": "2026-11-08 09:32 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8300.91,
+    "nav": 8299.72,
     "cash": -1764.87,
-    "grossPositions": 10067.2,
+    "grossPositions": 10069.72,
     "unrealized": -769.87,
     "positionsCount": 11,
     "reconDrift": 0,
-    "note": "Daily refresh \u00b7 YTD closed 116 \u00b7 Peter notes on 5 holdings \u00b7 4 public recs"
+    "note": "Daily refresh \u00b7 YTD closed 116 \u00b7 Peter notes on 5 holdings \u00b7 3 public recs"
   },
   "positions": [
     {
@@ -59,7 +59,7 @@ window.__DATA__ = {
       "mv": 738.05,
       "cost": 845.11,
       "peter": {
-        "sum": "Long-term buy zone still in effect. $480 target by Nov 2028. Weekly bullish structure intact. ST target $220 (60-90d). Invalidation: weekly close below $120.",
+        "sum": "Long-term buy zone still in effect. $480 target by Nov 2028. Weekly bullish structure intact. ST target $220 (60-90d). Invalidation: weekly close below $120. Currently long.",
         "url": "https://x.com/pdicarlotrader/status/2117654316576047134",
         "when": "2026-11-03"
       }
@@ -107,7 +107,7 @@ window.__DATA__ = {
       "mv": 590.54,
       "cost": 624.01,
       "peter": {
-        "sum": "$AVGO needs to hold $200 swing low to keep structure bullish. Still bullish next 6 months; if breaks, fill vacuum to $200.",
+        "sum": "Needs to hold $200 swing low to keep structure bullish. Still bullish for next 6 months; if breaks, fills vacuum to $200.",
         "url": "https://x.com/pdicarlotrader/status/2118525658229833868",
         "when": "2026-11-06"
       }
@@ -121,7 +121,7 @@ window.__DATA__ = {
       "mv": 570.82,
       "cost": 587.06,
       "peter": {
-        "sum": "$GOOGL structure still holding and bottom forming.",
+        "sum": "Structure still holding and bottom forming. Bought shares recently on dip.",
         "url": "https://x.com/pdicarlotrader/status/2117994041539481772",
         "when": "2026-11-04"
       }
@@ -1311,31 +1311,24 @@ window.__DATA__ = {
   ],
   "recs": [
     {
-      "symbol": "BE",
-      "kind": "note",
-      "sum": "$BE is back at our long-term Smart Money Zone. And it's already bouncing. From this zone, price has recovered to ATH within 6-12 months 70% of the time.",
-      "url": "https://x.com/pdicarlotrader/status/2118804865896095774",
-      "when": "2026-11-06"
-    },
-    {
-      "symbol": "INTC",
+      "symbol": "ORCL",
       "kind": "buy",
-      "sum": "$INTC is down 60% in 6 months. Approaching strongest long-term buy zone. Cheap can get cheaper \u2014 watch fundamentals.",
-      "url": "https://x.com/pdicarlotrader/status/2118785673146826868",
-      "when": "2026-11-06"
+      "sum": "$ORCL is approaching one of my strongest long-term buy zones. Article breaks down business, cloud growth, why undervalued, technical thesis.",
+      "url": "https://x.com/pdicarlotrader/status/2119261504167932250",
+      "when": "2026-11-08"
     },
     {
-      "symbol": "AMD",
-      "kind": "note",
-      "sum": "$AMD needs to get back above $440. If not, expect another 30% drop in next couple months.",
-      "url": "https://x.com/pdicarlotrader/status/2118507154181402748",
-      "when": "2026-11-06"
+      "symbol": "ALAB",
+      "kind": "buy",
+      "sum": "$ALAB just entered one of my highest-conviction long-term buy zones. Dropped into LT buy zone; last two times rallied 400% within a year.",
+      "url": "https://x.com/pdicarlotrader/status/2119254547747012879",
+      "when": "2026-11-08"
     },
     {
-      "symbol": "AMAT",
+      "symbol": "AAOI",
       "kind": "note",
-      "sum": "$AMAT couldn't hold short term support. Structure has shifted. Expect continued sell off to $200-$240.",
-      "url": "https://x.com/pdicarlotrader/status/2118531194006696301",
+      "sum": "$AAOI is down 70% since Aug call. Approaching the strongest support in the system. Long-term technical + fundamentals breakdown.",
+      "url": "https://x.com/pdicarlotrader/status/2118820217140998313",
       "when": "2026-11-06"
     }
   ]
