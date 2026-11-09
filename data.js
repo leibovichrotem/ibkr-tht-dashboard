@@ -1,28 +1,28 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-11-09 09:36 IDT
+// Generated: 2026-11-09 17:44 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-11-09T09:36:13.523287+02:00",
-    "generatedAtHuman": "2026-11-09 09:36 IDT",
+    "generatedAt": "2026-11-09T17:44:30.915155+02:00",
+    "generatedAtHuman": "2026-11-09 17:44 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8299.72,
-    "cash": -1764.87,
-    "grossPositions": 10069.72,
-    "unrealized": -856.92,
-    "positionsCount": 11,
+    "nav": 8652.64,
+    "cash": -2657.14,
+    "grossPositions": 11314.92,
+    "unrealized": -413.34,
+    "positionsCount": 12,
     "reconDrift": 0,
-    "note": "Daily refresh \u00b7 YTD closed 116 \u00b7 Peter notes on 5 holdings \u00b7 1 public recs"
+    "note": "Daily refresh \u00b7 YTD closed 116 \u00b7 Peter notes on 6 holdings \u00b7 2 public recs"
   },
   "positions": [
     {
       "symbol": "UBER",
       "qty": 34.0,
       "avg": 69.0572,
-      "last": 68.86,
-      "upnl": -6.71,
-      "mv": 2341.24,
+      "last": 69.29,
+      "upnl": 7.91,
+      "mv": 2355.86,
       "cost": 2347.95,
       "peter": null
     },
@@ -30,9 +30,9 @@ window.__DATA__ = {
       "symbol": "HOOD",
       "qty": 24.0,
       "avg": 86.9104,
-      "last": 79.12,
-      "upnl": -186.97,
-      "mv": 1898.88,
+      "last": 84.7635,
+      "upnl": -51.53,
+      "mv": 2034.32,
       "cost": 2085.85,
       "peter": {
         "sum": "Structure still bullish. Play $2M calls for next month. Send it $HOOD. Smart Money holding, still bullish until low is swept.",
@@ -44,33 +44,47 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 268.0,
       "avg": 5.7102,
-      "last": 4.97,
-      "upnl": -198.37,
-      "mv": 1331.96,
+      "last": 5.2786,
+      "upnl": -115.67,
+      "mv": 1414.66,
       "cost": 1530.33,
       "peter": null
+    },
+    {
+      "symbol": "NVDA",
+      "qty": 5.0,
+      "avg": 178.455,
+      "last": 178.22,
+      "upnl": -1.17,
+      "mv": 891.1,
+      "cost": 892.28,
+      "peter": {
+        "sum": "Sub $180 $NVDA. Should bounce. Earlier: discount zone finally here, worst-case buyer zone. Short-term structure risk if no reclaim of 208-210.",
+        "url": "https://x.com/pdicarlotrader/status/2119800205994315984",
+        "when": "2026-11-09"
+      }
     },
     {
       "symbol": "COIN",
       "qty": 5.5,
       "avg": 153.6555,
-      "last": 130.3,
-      "upnl": -128.45,
-      "mv": 716.65,
+      "last": 137.775,
+      "upnl": -87.34,
+      "mv": 757.76,
       "cost": 845.11,
       "peter": {
-        "sum": "Long term buy zone still in effect. Weekly bullish structure intact. Short-term target $220 (60-90d), longer $444. Invalidation weekly close below $120. Currently long.",
-        "url": "https://x.com/pdicarlotrader/status/2117654316576047134",
-        "when": "2026-11-03"
+        "sum": "Long-term buy zone still in effect from prior. Weekly structure notes ongoing. Recent context on crypto bottom thesis.",
+        "url": "https://x.com/pdicarlotrader/status/2118035419690394044",
+        "when": "2026-11-04"
       }
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 35.4,
-      "upnl": -131.23,
-      "mv": 566.4,
+      "last": 37.365,
+      "upnl": -99.79,
+      "mv": 597.84,
       "cost": 697.63,
       "peter": null
     },
@@ -78,23 +92,23 @@ window.__DATA__ = {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 44.74,
-      "upnl": -164.14,
-      "mv": 492.14,
+      "last": 49.01,
+      "upnl": -117.17,
+      "mv": 539.11,
       "cost": 656.28,
       "peter": {
-        "sum": "One of the biggest growth opportunities but debt is a problem. Still extremely bullish; sees 6.5 to 1 setup with $190 target / $30 invalidation. Full breakdown available.",
-        "url": "https://x.com/pdicarlotrader/status/2118025210582454781",
-        "when": "2026-11-04"
+        "sum": "One of the biggest growth opportunities despite debt. Extremely bullish. $190 target, $30 invalidation. Fundamentals deep dive.",
+        "url": "https://x.com/pdicarlotrader/status/2119512299136303128",
+        "when": "2026-11-08"
       }
     },
     {
       "symbol": "CELH",
       "qty": 22.0,
       "avg": 28.7602,
-      "last": 32.22,
-      "upnl": 76.12,
-      "mv": 708.84,
+      "last": 32.76,
+      "upnl": 87.99,
+      "mv": 720.72,
       "cost": 632.72,
       "peter": null
     },
@@ -102,12 +116,12 @@ window.__DATA__ = {
       "symbol": "AVGO",
       "qty": 2.0,
       "avg": 312.005,
-      "last": 293.8,
-      "upnl": -36.41,
-      "mv": 587.6,
+      "last": 317.25,
+      "upnl": 10.49,
+      "mv": 634.5,
       "cost": 624.01,
       "peter": {
-        "sum": "$AVGO is one of the strongest companies and best setups right now. Trading at a steep discount with strong financials. Still bullish for next 6 months but needs to hold $200 swing low to keep structure bullish.",
+        "sum": "One of the strongest companies and best setups. Trading at steep discount with strong financials. Needs to hold $200 swing low to keep structure bullish.",
         "url": "https://x.com/pdicarlotrader/status/2119575695198179347",
         "when": "2026-11-08"
       }
@@ -116,12 +130,12 @@ window.__DATA__ = {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 286.75,
-      "upnl": -13.56,
-      "mv": 573.5,
+      "last": 293.39,
+      "upnl": -0.28,
+      "mv": 586.78,
       "cost": 587.06,
       "peter": {
-        "sum": "Structure still holding and bottom forming. Bought shares recently on dip; Capex uncertainty but bullish setup.",
+        "sum": "Structure still holding and bottom forming. Bought on the dip earlier; weekly structure bullish holding $270.",
         "url": "https://x.com/pdicarlotrader/status/2117994041539481772",
         "when": "2026-11-04"
       }
@@ -130,9 +144,9 @@ window.__DATA__ = {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 32.7,
-      "upnl": -78.09,
-      "mv": 425.1,
+      "last": 34.16,
+      "upnl": -59.12,
+      "mv": 444.08,
       "cost": 503.19,
       "peter": null
     },
@@ -140,9 +154,9 @@ window.__DATA__ = {
       "symbol": "JPM",
       "qty": 1.0,
       "avg": 326.9133,
-      "last": 337.8,
-      "upnl": 10.89,
-      "mv": 337.8,
+      "last": 339.255,
+      "upnl": 12.34,
+      "mv": 339.26,
       "cost": 326.91,
       "peter": null
     }
@@ -156,7 +170,8 @@ window.__DATA__ = {
       "realized_pnl": -22.98,
       "trade_time": "2026-11-05T16:04:49Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "800839980",
@@ -166,7 +181,8 @@ window.__DATA__ = {
       "realized_pnl": 52.97,
       "trade_time": "2026-11-05T14:36:01Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "800839910",
@@ -176,7 +192,8 @@ window.__DATA__ = {
       "realized_pnl": 59.75,
       "trade_time": "2026-11-05T14:33:54Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "800839771",
@@ -186,7 +203,8 @@ window.__DATA__ = {
       "realized_pnl": 13.16,
       "trade_time": "2026-11-05T14:32:58Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5776641662",
@@ -196,7 +214,8 @@ window.__DATA__ = {
       "realized_pnl": -461.6,
       "trade_time": "2026-10-30T13:30:01Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5767185626",
@@ -206,7 +225,8 @@ window.__DATA__ = {
       "realized_pnl": -38.56,
       "trade_time": "2026-10-28T13:30:01Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5766998433",
@@ -216,7 +236,8 @@ window.__DATA__ = {
       "realized_pnl": -8.31,
       "trade_time": "2026-10-28T11:03:52Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5766996907",
@@ -226,7 +247,8 @@ window.__DATA__ = {
       "realized_pnl": 131.75,
       "trade_time": "2026-10-28T11:02:20Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5766909945",
@@ -236,7 +258,8 @@ window.__DATA__ = {
       "realized_pnl": 69.0,
       "trade_time": "2026-10-28T08:55:09Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5755377873",
@@ -246,7 +269,8 @@ window.__DATA__ = {
       "realized_pnl": -73.13,
       "trade_time": "2026-10-23T14:13:51Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5752382645",
@@ -256,7 +280,8 @@ window.__DATA__ = {
       "realized_pnl": -204.0,
       "trade_time": "2026-10-22T18:02:53Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5752361434",
@@ -266,7 +291,8 @@ window.__DATA__ = {
       "realized_pnl": -267.54,
       "trade_time": "2026-10-22T18:02:03Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5750531833",
@@ -276,7 +302,8 @@ window.__DATA__ = {
       "realized_pnl": -62.56,
       "trade_time": "2026-10-22T14:47:37Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5726141132",
@@ -286,7 +313,8 @@ window.__DATA__ = {
       "realized_pnl": -201.32,
       "trade_time": "2026-10-15T13:52:05Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5725257431",
@@ -296,7 +324,8 @@ window.__DATA__ = {
       "realized_pnl": -156.48,
       "trade_time": "2026-10-15T13:30:01Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5725257338",
@@ -306,7 +335,8 @@ window.__DATA__ = {
       "realized_pnl": -83.7,
       "trade_time": "2026-10-15T13:30:00Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5723363222",
@@ -316,7 +346,8 @@ window.__DATA__ = {
       "realized_pnl": -94.7,
       "trade_time": "2026-10-14T18:44:58Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5710962420",
@@ -326,7 +357,8 @@ window.__DATA__ = {
       "realized_pnl": -152.49,
       "trade_time": "2026-10-12T13:34:05Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5710938049",
@@ -336,7 +368,8 @@ window.__DATA__ = {
       "realized_pnl": 24.8,
       "trade_time": "2026-10-12T13:33:27Z",
       "order_type": "MARKET",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5704101590",
@@ -346,7 +379,8 @@ window.__DATA__ = {
       "realized_pnl": -45.92,
       "trade_time": "2026-10-08T16:48:48Z",
       "order_type": "STOP",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5703255164",
@@ -356,7 +390,8 @@ window.__DATA__ = {
       "realized_pnl": -26.84,
       "trade_time": "2026-10-08T15:04:44Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5703096406",
@@ -366,7 +401,8 @@ window.__DATA__ = {
       "realized_pnl": -8.89,
       "trade_time": "2026-10-08T14:50:15Z",
       "order_type": "MARKET",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5702517222",
@@ -376,7 +412,8 @@ window.__DATA__ = {
       "realized_pnl": -71.82,
       "trade_time": "2026-10-08T14:02:09Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5701943737",
@@ -386,7 +423,8 @@ window.__DATA__ = {
       "realized_pnl": -135.2,
       "trade_time": "2026-10-08T13:36:12Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5700575718",
@@ -396,7 +434,8 @@ window.__DATA__ = {
       "realized_pnl": 184.62,
       "trade_time": "2026-10-07T19:35:22Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5693071884",
@@ -406,7 +445,8 @@ window.__DATA__ = {
       "realized_pnl": 94.83,
       "trade_time": "2026-10-06T13:49:23Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5687673540",
@@ -416,7 +456,8 @@ window.__DATA__ = {
       "realized_pnl": 8.34,
       "trade_time": "2026-10-05T13:35:43Z",
       "order_type": "MARKET",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5687637555",
@@ -426,7 +467,8 @@ window.__DATA__ = {
       "realized_pnl": -46.01,
       "trade_time": "2026-10-05T13:35:11Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5687609435",
@@ -436,7 +478,8 @@ window.__DATA__ = {
       "realized_pnl": 0.18,
       "trade_time": "2026-10-05T13:34:27Z",
       "order_type": "MARKET",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5684375827",
@@ -446,7 +489,8 @@ window.__DATA__ = {
       "realized_pnl": 45.5,
       "trade_time": "2026-10-02T15:02:51Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5684353869",
@@ -456,7 +500,8 @@ window.__DATA__ = {
       "realized_pnl": 36.56,
       "trade_time": "2026-10-02T15:01:15Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5673753804",
@@ -466,7 +511,8 @@ window.__DATA__ = {
       "realized_pnl": -171.59,
       "trade_time": "2026-09-30T14:06:09Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5673005717",
@@ -476,7 +522,8 @@ window.__DATA__ = {
       "realized_pnl": -55.14,
       "trade_time": "2026-09-30T13:33:20Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5670344164",
@@ -486,7 +533,8 @@ window.__DATA__ = {
       "realized_pnl": 63.48,
       "trade_time": "2026-09-29T15:08:05Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5667384845",
@@ -496,7 +544,8 @@ window.__DATA__ = {
       "realized_pnl": -13.68,
       "trade_time": "2026-09-28T18:55:08Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5658745630",
@@ -506,7 +555,8 @@ window.__DATA__ = {
       "realized_pnl": 111.06,
       "trade_time": "2026-09-24T19:59:38Z",
       "order_type": "MARKET",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5658656370",
@@ -516,7 +566,8 @@ window.__DATA__ = {
       "realized_pnl": 1.23,
       "trade_time": "2026-09-24T19:52:53Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5658512454",
@@ -526,7 +577,8 @@ window.__DATA__ = {
       "realized_pnl": 68.5,
       "trade_time": "2026-09-24T19:35:22Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5651841845",
@@ -536,7 +588,8 @@ window.__DATA__ = {
       "realized_pnl": 21.46,
       "trade_time": "2026-09-23T14:19:29Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5648691964",
@@ -546,7 +599,8 @@ window.__DATA__ = {
       "realized_pnl": -22.85,
       "trade_time": "2026-09-22T17:26:53Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5647534004",
@@ -556,7 +610,8 @@ window.__DATA__ = {
       "realized_pnl": 80.0,
       "trade_time": "2026-09-22T14:47:52Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5638012338",
@@ -566,7 +621,8 @@ window.__DATA__ = {
       "realized_pnl": -105.06,
       "trade_time": "2026-09-18T15:49:05Z",
       "order_type": "STOP",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5632813799",
@@ -576,7 +632,8 @@ window.__DATA__ = {
       "realized_pnl": 39.33,
       "trade_time": "2026-09-17T14:08:27Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5630645294",
@@ -586,7 +643,8 @@ window.__DATA__ = {
       "realized_pnl": 0.0,
       "trade_time": "2026-09-16T19:30:37Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5630467929",
@@ -596,7 +654,8 @@ window.__DATA__ = {
       "realized_pnl": 20.87,
       "trade_time": "2026-09-16T19:16:33Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5629084335",
@@ -606,7 +665,8 @@ window.__DATA__ = {
       "realized_pnl": -149.69,
       "trade_time": "2026-09-16T15:46:25Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5627652305",
@@ -616,7 +676,8 @@ window.__DATA__ = {
       "realized_pnl": -78.2,
       "trade_time": "2026-09-16T13:34:44Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5621458024",
@@ -626,7 +687,8 @@ window.__DATA__ = {
       "realized_pnl": -2.3,
       "trade_time": "2026-09-14T16:45:09Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5620082801",
@@ -636,7 +698,8 @@ window.__DATA__ = {
       "realized_pnl": 91.07,
       "trade_time": "2026-09-14T14:23:31Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5619097735",
@@ -646,7 +709,8 @@ window.__DATA__ = {
       "realized_pnl": -46.96,
       "trade_time": "2026-09-14T13:40:08Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5616617735",
@@ -656,7 +720,8 @@ window.__DATA__ = {
       "realized_pnl": 118.9,
       "trade_time": "2026-09-11T16:44:35Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5610065602",
@@ -666,7 +731,8 @@ window.__DATA__ = {
       "realized_pnl": -48.09,
       "trade_time": "2026-09-10T13:30:01Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5608407272",
@@ -676,7 +742,8 @@ window.__DATA__ = {
       "realized_pnl": -3.81,
       "trade_time": "2026-09-09T17:50:46Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5607063290",
@@ -686,7 +753,8 @@ window.__DATA__ = {
       "realized_pnl": 98.75,
       "trade_time": "2026-09-09T14:45:25Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5607048770",
@@ -696,7 +764,8 @@ window.__DATA__ = {
       "realized_pnl": 30.46,
       "trade_time": "2026-09-09T14:44:09Z",
       "order_type": "MARKET",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5605693226",
@@ -706,7 +775,8 @@ window.__DATA__ = {
       "realized_pnl": 87.87,
       "trade_time": "2026-09-09T13:33:03Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5603927551",
@@ -716,7 +786,8 @@ window.__DATA__ = {
       "realized_pnl": 105.0,
       "trade_time": "2026-09-08T18:25:29Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5602067701",
@@ -726,7 +797,8 @@ window.__DATA__ = {
       "realized_pnl": 34.86,
       "trade_time": "2026-09-08T14:34:45Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5601196463",
@@ -736,7 +808,8 @@ window.__DATA__ = {
       "realized_pnl": 80.45,
       "trade_time": "2026-09-08T13:55:13Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5600466539",
@@ -746,7 +819,8 @@ window.__DATA__ = {
       "realized_pnl": 38.95,
       "trade_time": "2026-09-08T13:33:47Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5594385064",
@@ -756,7 +830,8 @@ window.__DATA__ = {
       "realized_pnl": 100.4,
       "trade_time": "2026-09-03T22:15:18Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5589085645",
@@ -766,7 +841,8 @@ window.__DATA__ = {
       "realized_pnl": -14.35,
       "trade_time": "2026-09-02T19:09:41Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5582943296",
@@ -776,7 +852,8 @@ window.__DATA__ = {
       "realized_pnl": -68.44,
       "trade_time": "2026-09-01T14:52:21Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5578506869",
@@ -786,7 +863,8 @@ window.__DATA__ = {
       "realized_pnl": -231.8,
       "trade_time": "2026-08-31T15:07:00Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5570837468",
@@ -796,7 +874,8 @@ window.__DATA__ = {
       "realized_pnl": 177.25,
       "trade_time": "2026-08-27T18:59:10Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5570638039",
@@ -806,7 +885,8 @@ window.__DATA__ = {
       "realized_pnl": 106.41,
       "trade_time": "2026-08-27T18:22:12Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5560288039",
@@ -816,7 +896,8 @@ window.__DATA__ = {
       "realized_pnl": 1.31,
       "trade_time": "2026-08-25T13:52:32Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5555097907",
@@ -826,7 +907,8 @@ window.__DATA__ = {
       "realized_pnl": -44.41,
       "trade_time": "2026-08-24T13:30:10Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5554031063",
@@ -836,7 +918,8 @@ window.__DATA__ = {
       "realized_pnl": 90.62,
       "trade_time": "2026-08-21T19:56:35Z",
       "order_type": "LIMIT",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5542736447",
@@ -846,7 +929,8 @@ window.__DATA__ = {
       "realized_pnl": 41.48,
       "trade_time": "2026-08-19T14:42:00Z",
       "order_type": "LIMIT",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5537214682",
@@ -856,7 +940,8 @@ window.__DATA__ = {
       "realized_pnl": 24.05,
       "trade_time": "2026-08-18T14:06:49Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5533075687",
@@ -866,7 +951,8 @@ window.__DATA__ = {
       "realized_pnl": 103.73,
       "trade_time": "2026-08-17T15:12:08Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5522452440",
@@ -876,7 +962,8 @@ window.__DATA__ = {
       "realized_pnl": 70.44,
       "trade_time": "2026-08-13T14:11:48Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5520057114",
@@ -886,7 +973,8 @@ window.__DATA__ = {
       "realized_pnl": 91.65,
       "trade_time": "2026-08-12T18:06:26Z",
       "order_type": "STOP",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5515393267",
@@ -896,7 +984,8 @@ window.__DATA__ = {
       "realized_pnl": 19.28,
       "trade_time": "2026-08-11T17:51:43Z",
       "order_type": "LIMIT",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5515061157",
@@ -906,7 +995,8 @@ window.__DATA__ = {
       "realized_pnl": 162.91,
       "trade_time": "2026-08-11T16:43:42Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5514871927",
@@ -916,7 +1006,8 @@ window.__DATA__ = {
       "realized_pnl": 693.19,
       "trade_time": "2026-08-11T16:08:31Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5507859909",
@@ -926,7 +1017,8 @@ window.__DATA__ = {
       "realized_pnl": 92.58,
       "trade_time": "2026-08-10T08:49:36Z",
       "order_type": "LIMIT",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5505997522",
@@ -936,7 +1028,8 @@ window.__DATA__ = {
       "realized_pnl": 98.93,
       "trade_time": "2026-08-07T16:43:52Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5504754219",
@@ -946,7 +1039,8 @@ window.__DATA__ = {
       "realized_pnl": 53.8,
       "trade_time": "2026-08-07T14:39:33Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5497390153",
@@ -956,7 +1050,8 @@ window.__DATA__ = {
       "realized_pnl": 28.32,
       "trade_time": "2026-08-05T20:04:17Z",
       "order_type": "LIMIT",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5497089103",
@@ -966,7 +1061,8 @@ window.__DATA__ = {
       "realized_pnl": 33.46,
       "trade_time": "2026-08-05T19:40:30Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5494150289",
@@ -976,7 +1072,8 @@ window.__DATA__ = {
       "realized_pnl": 67.4,
       "trade_time": "2026-08-05T13:56:47Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5491518226",
@@ -986,7 +1083,8 @@ window.__DATA__ = {
       "realized_pnl": 432.2,
       "trade_time": "2026-08-04T19:10:31Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5490608916",
@@ -996,7 +1094,8 @@ window.__DATA__ = {
       "realized_pnl": 67.78,
       "trade_time": "2026-08-04T17:04:47Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5482728391",
@@ -1006,7 +1105,8 @@ window.__DATA__ = {
       "realized_pnl": 164.26,
       "trade_time": "2026-08-03T13:53:45Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5478126099",
@@ -1016,7 +1116,8 @@ window.__DATA__ = {
       "realized_pnl": 4.35,
       "trade_time": "2026-07-31T14:26:40Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5473063143",
@@ -1026,7 +1127,8 @@ window.__DATA__ = {
       "realized_pnl": -391.15,
       "trade_time": "2026-07-30T14:58:33Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5467657168",
@@ -1036,7 +1138,8 @@ window.__DATA__ = {
       "realized_pnl": -106.0,
       "trade_time": "2026-07-29T15:56:19Z",
       "order_type": "STOP",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5460980914",
@@ -1046,7 +1149,8 @@ window.__DATA__ = {
       "realized_pnl": -139.91,
       "trade_time": "2026-07-28T13:46:56Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5460355972",
@@ -1056,7 +1160,8 @@ window.__DATA__ = {
       "realized_pnl": -58.34,
       "trade_time": "2026-07-28T13:30:44Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5455388192",
@@ -1066,7 +1171,8 @@ window.__DATA__ = {
       "realized_pnl": -77.05,
       "trade_time": "2026-07-27T13:32:54Z",
       "order_type": "STOP",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5453540421",
@@ -1076,7 +1182,8 @@ window.__DATA__ = {
       "realized_pnl": -61.79,
       "trade_time": "2026-07-24T18:10:43Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5452344658",
@@ -1086,7 +1193,8 @@ window.__DATA__ = {
       "realized_pnl": 78.12,
       "trade_time": "2026-07-24T15:02:52Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5452056807",
@@ -1096,7 +1204,8 @@ window.__DATA__ = {
       "realized_pnl": -224.9,
       "trade_time": "2026-07-24T14:38:48Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5451308760",
@@ -1106,7 +1215,8 @@ window.__DATA__ = {
       "realized_pnl": -93.9,
       "trade_time": "2026-07-24T13:52:00Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5446265080",
@@ -1116,7 +1226,8 @@ window.__DATA__ = {
       "realized_pnl": 0.09,
       "trade_time": "2026-07-23T13:37:27Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5437673304",
@@ -1126,7 +1237,8 @@ window.__DATA__ = {
       "realized_pnl": -104.08,
       "trade_time": "2026-07-21T13:30:07Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5434079772",
@@ -1136,7 +1248,8 @@ window.__DATA__ = {
       "realized_pnl": -169.14,
       "trade_time": "2026-07-20T13:50:08Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5434037808",
@@ -1146,7 +1259,8 @@ window.__DATA__ = {
       "realized_pnl": -83.65,
       "trade_time": "2026-07-20T13:48:57Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5431243045",
@@ -1156,7 +1270,8 @@ window.__DATA__ = {
       "realized_pnl": 114.72,
       "trade_time": "2026-07-17T16:35:20Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5423086847",
@@ -1166,7 +1281,8 @@ window.__DATA__ = {
       "realized_pnl": -272.89,
       "trade_time": "2026-07-16T13:30:01Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5409375968",
@@ -1176,7 +1292,8 @@ window.__DATA__ = {
       "realized_pnl": -192.12,
       "trade_time": "2026-07-13T13:31:53Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5398801581",
@@ -1186,7 +1303,8 @@ window.__DATA__ = {
       "realized_pnl": -104.09,
       "trade_time": "2026-07-08T16:52:38Z",
       "order_type": "LIMIT",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5382820274",
@@ -1196,7 +1314,8 @@ window.__DATA__ = {
       "realized_pnl": -389.03,
       "trade_time": "2026-07-02T16:55:36Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5382577548",
@@ -1206,7 +1325,8 @@ window.__DATA__ = {
       "realized_pnl": -182.49,
       "trade_time": "2026-07-02T16:30:52Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5380687290",
@@ -1216,7 +1336,8 @@ window.__DATA__ = {
       "realized_pnl": 0.0,
       "trade_time": "2026-07-02T14:25:47Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5378997772",
@@ -1226,7 +1347,8 @@ window.__DATA__ = {
       "realized_pnl": -261.74,
       "trade_time": "2026-07-02T10:31:05Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5371552870",
@@ -1236,7 +1358,8 @@ window.__DATA__ = {
       "realized_pnl": -133.0,
       "trade_time": "2026-06-30T17:31:50Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5353510396",
@@ -1246,7 +1369,8 @@ window.__DATA__ = {
       "realized_pnl": -62.74,
       "trade_time": "2026-06-25T14:13:36Z",
       "order_type": "LIMIT",
-      "fills": 2
+      "fills": 2,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5315072009",
@@ -1256,7 +1380,8 @@ window.__DATA__ = {
       "realized_pnl": 64.38,
       "trade_time": "2026-06-15T16:29:44Z",
       "order_type": "LIMIT",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5291057416",
@@ -1266,7 +1391,8 @@ window.__DATA__ = {
       "realized_pnl": -62.2,
       "trade_time": "2026-06-09T16:08:59Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5291014654",
@@ -1276,7 +1402,8 @@ window.__DATA__ = {
       "realized_pnl": -117.0,
       "trade_time": "2026-06-09T16:07:37Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5290350929",
@@ -1286,7 +1413,8 @@ window.__DATA__ = {
       "realized_pnl": -157.05,
       "trade_time": "2026-06-09T15:29:09Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5277179196",
@@ -1296,7 +1424,8 @@ window.__DATA__ = {
       "realized_pnl": -18.54,
       "trade_time": "2026-06-05T15:40:13Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     },
     {
       "order_id": "5274161143",
@@ -1306,7 +1435,8 @@ window.__DATA__ = {
       "realized_pnl": -65.0,
       "trade_time": "2026-06-05T13:30:04Z",
       "order_type": "STOP",
-      "fills": 1
+      "fills": 1,
+      "source": "ibkr_fifo"
     }
   ],
   "recs": [
@@ -1316,6 +1446,14 @@ window.__DATA__ = {
       "summary": "$ORCL is back near a long-term buy zone. Core business strong but AI buildout has massive spending/debt. Deep dive on bull case, risks, financials, key levels.",
       "url": "https://x.com/pdicarlotrader/status/2119596834712904057",
       "when": "2026-11-09",
+      "status": "public"
+    },
+    {
+      "symbol": "INTC",
+      "kind": "note",
+      "summary": "Fallen off cliff, broke internal structure, redistributing into weekly SMZ. Technical long-term buy for 6-12m but weakest chip fundies. Look $55-50 if wanting to own.",
+      "url": "https://x.com/pdicarlotrader/status/2119526016414617857",
+      "when": "2026-11-08",
       "status": "public"
     }
   ]
