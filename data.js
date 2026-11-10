@@ -1,28 +1,28 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-11-09 17:44 IDT
+// Generated: 2026-11-10 09:33 IDT
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-11-09T17:44:30.915155+02:00",
-    "generatedAtHuman": "2026-11-09 17:44 IDT",
+    "generatedAt": "2026-11-10T09:33:26.583015+02:00",
+    "generatedAtHuman": "2026-11-10 09:33 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8652.64,
-    "cash": -2657.14,
-    "grossPositions": 11314.92,
-    "unrealized": -413.34,
+    "nav": 8687.23,
+    "cash": -3298.47,
+    "grossPositions": 11992.84,
+    "unrealized": -370.03,
     "positionsCount": 12,
     "reconDrift": 0,
-    "note": "Daily refresh \u00b7 YTD closed 116 \u00b7 Peter notes on 6 holdings \u00b7 2 public recs"
+    "note": "Daily refresh \u00b7 YTD closed 116 \u00b7 Peter notes on 5 holdings \u00b7 2 public recs"
   },
   "positions": [
     {
       "symbol": "UBER",
       "qty": 34.0,
       "avg": 69.0572,
-      "last": 69.29,
-      "upnl": 7.91,
-      "mv": 2355.86,
+      "last": 71.28,
+      "upnl": 75.57,
+      "mv": 2423.52,
       "cost": 2347.95,
       "peter": null
     },
@@ -30,37 +30,51 @@ window.__DATA__ = {
       "symbol": "HOOD",
       "qty": 24.0,
       "avg": 86.9104,
-      "last": 84.7635,
-      "upnl": -51.53,
-      "mv": 2034.32,
+      "last": 83.22,
+      "upnl": -88.57,
+      "mv": 1997.28,
       "cost": 2085.85,
       "peter": {
-        "sum": "Structure still bullish. Play $2M calls for next month. Send it $HOOD. Smart Money holding, still bullish until low is swept.",
-        "url": "https://x.com/pdicarlotrader/status/2118082186129666250",
-        "when": "2026-11-04"
+        "sum": "Profits highest ever, stock down 42% from high. Great company, expensive stock. Both can be true. Breakdown of business, 90-day trade, long-term buy price.",
+        "url": "https://x.com/pdicarlotrader/status/2119869280506306630",
+        "when": "2026-11-09"
       }
     },
     {
       "symbol": "POET",
       "qty": 268.0,
       "avg": 5.7102,
-      "last": 5.2786,
-      "upnl": -115.67,
-      "mv": 1414.66,
+      "last": 5.22,
+      "upnl": -131.37,
+      "mv": 1398.96,
       "cost": 1530.33,
       "peter": null
+    },
+    {
+      "symbol": "AVGO",
+      "qty": 4.0,
+      "avg": 316.3325,
+      "last": 317.97,
+      "upnl": 6.55,
+      "mv": 1271.88,
+      "cost": 1265.33,
+      "peter": {
+        "sum": "One of the strongest companies and best setups right now. Trading at a steep discount with strong financials. Bullish thesis and price targets.",
+        "url": "https://x.com/pdicarlotrader/status/2119825620352061672",
+        "when": "2026-11-09"
+      }
     },
     {
       "symbol": "NVDA",
       "qty": 5.0,
       "avg": 178.455,
-      "last": 178.22,
-      "upnl": -1.17,
-      "mv": 891.1,
+      "last": 180.09,
+      "upnl": 8.17,
+      "mv": 900.45,
       "cost": 892.28,
       "peter": {
-        "sum": "Sub $180 $NVDA. Should bounce. Earlier: discount zone finally here, worst-case buyer zone. Short-term structure risk if no reclaim of 208-210.",
-        "url": "https://x.com/pdicarlotrader/status/2119800205994315984",
+        "sum": "Serious buying opportunity sub $180. Should bounce. We will look back at this as a buy.",
+        "url": "https://x.com/pdicarlotrader/status/2119881647864553709",
         "when": "2026-11-09"
       }
     },
@@ -68,23 +82,19 @@ window.__DATA__ = {
       "symbol": "COIN",
       "qty": 5.5,
       "avg": 153.6555,
-      "last": 137.775,
-      "upnl": -87.34,
-      "mv": 757.76,
-      "cost": 845.11,
-      "peter": {
-        "sum": "Long-term buy zone still in effect from prior. Weekly structure notes ongoing. Recent context on crypto bottom thesis.",
-        "url": "https://x.com/pdicarlotrader/status/2118035419690394044",
-        "when": "2026-11-04"
-      }
+      "last": 135.8,
+      "upnl": -98.2,
+      "mv": 746.9,
+      "cost": 845.1,
+      "peter": null
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 37.365,
-      "upnl": -99.79,
-      "mv": 597.84,
+      "last": 37.61,
+      "upnl": -95.87,
+      "mv": 601.76,
       "cost": 697.63,
       "peter": null
     },
@@ -92,12 +102,12 @@ window.__DATA__ = {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 49.01,
-      "upnl": -117.17,
-      "mv": 539.11,
+      "last": 49.03,
+      "upnl": -116.95,
+      "mv": 539.33,
       "cost": 656.28,
       "peter": {
-        "sum": "One of the biggest growth opportunities despite debt. Extremely bullish. $190 target, $30 invalidation. Fundamentals deep dive.",
+        "sum": "One of the biggest growth opportunities despite debt. Extremely bullish. Fundamentals deep dive, not worried about debt.",
         "url": "https://x.com/pdicarlotrader/status/2119512299136303128",
         "when": "2026-11-08"
       }
@@ -106,36 +116,22 @@ window.__DATA__ = {
       "symbol": "CELH",
       "qty": 22.0,
       "avg": 28.7602,
-      "last": 32.76,
-      "upnl": 87.99,
-      "mv": 720.72,
+      "last": 33.18,
+      "upnl": 97.24,
+      "mv": 729.96,
       "cost": 632.72,
       "peter": null
-    },
-    {
-      "symbol": "AVGO",
-      "qty": 2.0,
-      "avg": 312.005,
-      "last": 317.25,
-      "upnl": 10.49,
-      "mv": 634.5,
-      "cost": 624.01,
-      "peter": {
-        "sum": "One of the strongest companies and best setups. Trading at steep discount with strong financials. Needs to hold $200 swing low to keep structure bullish.",
-        "url": "https://x.com/pdicarlotrader/status/2119575695198179347",
-        "when": "2026-11-08"
-      }
     },
     {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 293.39,
-      "upnl": -0.28,
-      "mv": 586.78,
+      "last": 291.01,
+      "upnl": -5.04,
+      "mv": 582.02,
       "cost": 587.06,
       "peter": {
-        "sum": "Structure still holding and bottom forming. Bought on the dip earlier; weekly structure bullish holding $270.",
+        "sum": "Structure still holding and bottom forming. Prior buy on dip, weekly structure bullish holding $270.",
         "url": "https://x.com/pdicarlotrader/status/2117994041539481772",
         "when": "2026-11-04"
       }
@@ -144,9 +140,9 @@ window.__DATA__ = {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 34.16,
-      "upnl": -59.12,
-      "mv": 444.08,
+      "last": 35.88,
+      "upnl": -36.75,
+      "mv": 466.44,
       "cost": 503.19,
       "peter": null
     },
@@ -154,9 +150,9 @@ window.__DATA__ = {
       "symbol": "JPM",
       "qty": 1.0,
       "avg": 326.9133,
-      "last": 339.255,
-      "upnl": 12.34,
-      "mv": 339.26,
+      "last": 342.1,
+      "upnl": 15.19,
+      "mv": 342.1,
       "cost": 326.91,
       "peter": null
     }
@@ -165,7 +161,7 @@ window.__DATA__ = {
     {
       "order_id": "871457748",
       "symbol": "GS",
-      "size": 1.0,
+      "size": 1,
       "exit_price": 855.56,
       "realized_pnl": -22.98,
       "trade_time": "2026-11-05T16:04:49Z",
@@ -176,7 +172,7 @@ window.__DATA__ = {
     {
       "order_id": "800839980",
       "symbol": "GS",
-      "size": 1.0,
+      "size": 1,
       "exit_price": 931.5,
       "realized_pnl": 52.97,
       "trade_time": "2026-11-05T14:36:01Z",
@@ -187,7 +183,7 @@ window.__DATA__ = {
     {
       "order_id": "800839910",
       "symbol": "JPM",
-      "size": 2.0,
+      "size": 2,
       "exit_price": 358.04,
       "realized_pnl": 59.75,
       "trade_time": "2026-11-05T14:33:54Z",
@@ -198,7 +194,7 @@ window.__DATA__ = {
     {
       "order_id": "800839771",
       "symbol": "NFLX",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 66.95,
       "realized_pnl": 13.16,
       "trade_time": "2026-11-05T14:32:58Z",
@@ -209,7 +205,7 @@ window.__DATA__ = {
     {
       "order_id": "5776641662",
       "symbol": "APP",
-      "size": 7.0,
+      "size": 7,
       "exit_price": 241.08,
       "realized_pnl": -461.6,
       "trade_time": "2026-10-30T13:30:01Z",
@@ -220,8 +216,8 @@ window.__DATA__ = {
     {
       "order_id": "5767185626",
       "symbol": "NFLX",
-      "size": 8.0,
-      "exit_price": 62.075,
+      "size": 8,
+      "exit_price": 62.08,
       "realized_pnl": -38.56,
       "trade_time": "2026-10-28T13:30:01Z",
       "order_type": "STOP",
@@ -231,7 +227,7 @@ window.__DATA__ = {
     {
       "order_id": "5766998433",
       "symbol": "CRWV",
-      "size": 6.0,
+      "size": 6,
       "exit_price": 62.2,
       "realized_pnl": -8.31,
       "trade_time": "2026-10-28T11:03:52Z",
@@ -242,9 +238,9 @@ window.__DATA__ = {
     {
       "order_id": "5766996907",
       "symbol": "VRT",
-      "size": 3.0,
+      "size": 3,
       "exit_price": 241.6,
-      "realized_pnl": 131.75,
+      "realized_pnl": 131.76,
       "trade_time": "2026-10-28T11:02:20Z",
       "order_type": "LIMIT",
       "fills": 1,
@@ -253,9 +249,9 @@ window.__DATA__ = {
     {
       "order_id": "5766909945",
       "symbol": "SKHY",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 156.8,
-      "realized_pnl": 69.0,
+      "realized_pnl": 69,
       "trade_time": "2026-10-28T08:55:09Z",
       "order_type": "LIMIT",
       "fills": 1,
@@ -264,8 +260,8 @@ window.__DATA__ = {
     {
       "order_id": "5755377873",
       "symbol": "VKTX",
-      "size": 18.0,
-      "exit_price": 24.695,
+      "size": 18,
+      "exit_price": 24.7,
       "realized_pnl": -73.13,
       "trade_time": "2026-10-23T14:13:51Z",
       "order_type": "STOP",
@@ -275,9 +271,9 @@ window.__DATA__ = {
     {
       "order_id": "5752382645",
       "symbol": "TE",
-      "size": 400.0,
-      "exit_price": 2.255,
-      "realized_pnl": -204.0,
+      "size": 400,
+      "exit_price": 2.26,
+      "realized_pnl": -204,
       "trade_time": "2026-10-22T18:02:53Z",
       "order_type": "STOP",
       "fills": 1,
@@ -286,8 +282,8 @@ window.__DATA__ = {
     {
       "order_id": "5752361434",
       "symbol": "KTOS",
-      "size": 30.0,
-      "exit_price": 37.465,
+      "size": 30,
+      "exit_price": 37.47,
       "realized_pnl": -267.54,
       "trade_time": "2026-10-22T18:02:03Z",
       "order_type": "STOP",
@@ -297,7 +293,7 @@ window.__DATA__ = {
     {
       "order_id": "5750531833",
       "symbol": "VRT",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 195.59,
       "realized_pnl": -62.56,
       "trade_time": "2026-10-22T14:47:37Z",
@@ -308,8 +304,8 @@ window.__DATA__ = {
     {
       "order_id": "5726141132",
       "symbol": "TE",
-      "size": 197.0,
-      "exit_price": 2.681,
+      "size": 197,
+      "exit_price": 2.68,
       "realized_pnl": -201.32,
       "trade_time": "2026-10-15T13:52:05Z",
       "order_type": "STOP",
@@ -319,8 +315,8 @@ window.__DATA__ = {
     {
       "order_id": "5725257431",
       "symbol": "POET",
-      "size": 60.0,
-      "exit_price": 5.572,
+      "size": 60,
+      "exit_price": 5.57,
       "realized_pnl": -156.48,
       "trade_time": "2026-10-15T13:30:01Z",
       "order_type": "STOP",
@@ -330,7 +326,7 @@ window.__DATA__ = {
     {
       "order_id": "5725257338",
       "symbol": "INTC",
-      "size": 10.0,
+      "size": 10,
       "exit_price": 93.72,
       "realized_pnl": -83.7,
       "trade_time": "2026-10-15T13:30:00Z",
@@ -341,7 +337,7 @@ window.__DATA__ = {
     {
       "order_id": "5723363222",
       "symbol": "CBRS",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 141.53,
       "realized_pnl": -94.7,
       "trade_time": "2026-10-14T18:44:58Z",
@@ -352,7 +348,7 @@ window.__DATA__ = {
     {
       "order_id": "5710962420",
       "symbol": "CBRS",
-      "size": 8.0,
+      "size": 8,
       "exit_price": 157.07,
       "realized_pnl": -152.49,
       "trade_time": "2026-10-12T13:34:05Z",
@@ -363,7 +359,7 @@ window.__DATA__ = {
     {
       "order_id": "5710938049",
       "symbol": "ENPH",
-      "size": 16.0,
+      "size": 16,
       "exit_price": 32.62,
       "realized_pnl": 24.8,
       "trade_time": "2026-10-12T13:33:27Z",
@@ -374,8 +370,8 @@ window.__DATA__ = {
     {
       "order_id": "5704101590",
       "symbol": "TE",
-      "size": 220.0,
-      "exit_price": 3.4401,
+      "size": 220,
+      "exit_price": 3.44,
       "realized_pnl": -45.92,
       "trade_time": "2026-10-08T16:48:48Z",
       "order_type": "STOP",
@@ -385,7 +381,7 @@ window.__DATA__ = {
     {
       "order_id": "5703255164",
       "symbol": "POET",
-      "size": 30.0,
+      "size": 30,
       "exit_price": 7.1,
       "realized_pnl": -26.84,
       "trade_time": "2026-10-08T15:04:44Z",
@@ -396,8 +392,8 @@ window.__DATA__ = {
     {
       "order_id": "5703096406",
       "symbol": "CIFR",
-      "size": 10.0,
-      "exit_price": 13.435,
+      "size": 10,
+      "exit_price": 13.43,
       "realized_pnl": -8.89,
       "trade_time": "2026-10-08T14:50:15Z",
       "order_type": "MARKET",
@@ -407,8 +403,8 @@ window.__DATA__ = {
     {
       "order_id": "5702517222",
       "symbol": "CIFR",
-      "size": 100.0,
-      "exit_price": 13.615,
+      "size": 100,
+      "exit_price": 13.62,
       "realized_pnl": -71.82,
       "trade_time": "2026-10-08T14:02:09Z",
       "order_type": "STOP",
@@ -418,7 +414,7 @@ window.__DATA__ = {
     {
       "order_id": "5701943737",
       "symbol": "CIFR",
-      "size": 80.0,
+      "size": 80,
       "exit_price": 13.89,
       "realized_pnl": -135.2,
       "trade_time": "2026-10-08T13:36:12Z",
@@ -429,9 +425,9 @@ window.__DATA__ = {
     {
       "order_id": "5700575718",
       "symbol": "VST",
-      "size": 6.0,
+      "size": 6,
       "exit_price": 167.5,
-      "realized_pnl": 184.62,
+      "realized_pnl": 184.63,
       "trade_time": "2026-10-07T19:35:22Z",
       "order_type": "LIMIT",
       "fills": 1,
@@ -440,8 +436,8 @@ window.__DATA__ = {
     {
       "order_id": "5693071884",
       "symbol": "VST",
-      "size": 5.0,
-      "exit_price": 158.0,
+      "size": 5,
+      "exit_price": 158,
       "realized_pnl": 94.83,
       "trade_time": "2026-10-06T13:49:23Z",
       "order_type": "LIMIT",
@@ -451,7 +447,7 @@ window.__DATA__ = {
     {
       "order_id": "5687673540",
       "symbol": "ENPH",
-      "size": 6.0,
+      "size": 6,
       "exit_price": 32.72,
       "realized_pnl": 8.34,
       "trade_time": "2026-10-05T13:35:43Z",
@@ -462,8 +458,8 @@ window.__DATA__ = {
     {
       "order_id": "5687637555",
       "symbol": "VST",
-      "size": 11.0,
-      "exit_price": 142.0,
+      "size": 11,
+      "exit_price": 142,
       "realized_pnl": -46.01,
       "trade_time": "2026-10-05T13:35:11Z",
       "order_type": "LIMIT",
@@ -473,8 +469,8 @@ window.__DATA__ = {
     {
       "order_id": "5687609435",
       "symbol": "CBRS",
-      "size": 2.0,
-      "exit_price": 183.675,
+      "size": 2,
+      "exit_price": 183.68,
       "realized_pnl": 0.18,
       "trade_time": "2026-10-05T13:34:27Z",
       "order_type": "MARKET",
@@ -484,7 +480,7 @@ window.__DATA__ = {
     {
       "order_id": "5684375827",
       "symbol": "TE",
-      "size": 120.0,
+      "size": 120,
       "exit_price": 4.03,
       "realized_pnl": 45.5,
       "trade_time": "2026-10-02T15:02:51Z",
@@ -495,7 +491,7 @@ window.__DATA__ = {
     {
       "order_id": "5684353869",
       "symbol": "ENPH",
-      "size": 14.0,
+      "size": 14,
       "exit_price": 33.95,
       "realized_pnl": 36.56,
       "trade_time": "2026-10-02T15:01:15Z",
@@ -506,9 +502,9 @@ window.__DATA__ = {
     {
       "order_id": "5673753804",
       "symbol": "TE",
-      "size": 750.0,
+      "size": 750,
       "exit_price": 3.85,
-      "realized_pnl": -171.59,
+      "realized_pnl": -171.6,
       "trade_time": "2026-09-30T14:06:09Z",
       "order_type": "LIMIT",
       "fills": 1,
@@ -517,7 +513,7 @@ window.__DATA__ = {
     {
       "order_id": "5673005717",
       "symbol": "ENPH",
-      "size": 32.0,
+      "size": 32,
       "exit_price": 32.75,
       "realized_pnl": -55.14,
       "trade_time": "2026-09-30T13:33:20Z",
@@ -528,7 +524,7 @@ window.__DATA__ = {
     {
       "order_id": "5670344164",
       "symbol": "ON",
-      "size": 10.0,
+      "size": 10,
       "exit_price": 76.03,
       "realized_pnl": 63.48,
       "trade_time": "2026-09-29T15:08:05Z",
@@ -539,7 +535,7 @@ window.__DATA__ = {
     {
       "order_id": "5667384845",
       "symbol": "BAC",
-      "size": 10.0,
+      "size": 10,
       "exit_price": 55.49,
       "realized_pnl": -13.68,
       "trade_time": "2026-09-28T18:55:08Z",
@@ -550,8 +546,8 @@ window.__DATA__ = {
     {
       "order_id": "5658745630",
       "symbol": "RKLB",
-      "size": 11.0,
-      "exit_price": 73.625,
+      "size": 11,
+      "exit_price": 73.63,
       "realized_pnl": 111.06,
       "trade_time": "2026-09-24T19:59:38Z",
       "order_type": "MARKET",
@@ -561,7 +557,7 @@ window.__DATA__ = {
     {
       "order_id": "5658656370",
       "symbol": "ON",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 73.2,
       "realized_pnl": 1.23,
       "trade_time": "2026-09-24T19:52:53Z",
@@ -572,8 +568,8 @@ window.__DATA__ = {
     {
       "order_id": "5658512454",
       "symbol": "CBRS",
-      "size": 3.0,
-      "exit_price": 207.0,
+      "size": 3,
+      "exit_price": 207,
       "realized_pnl": 68.5,
       "trade_time": "2026-09-24T19:35:22Z",
       "order_type": "LIMIT",
@@ -583,7 +579,7 @@ window.__DATA__ = {
     {
       "order_id": "5651841845",
       "symbol": "RKLB",
-      "size": 3.0,
+      "size": 3,
       "exit_price": 71.54,
       "realized_pnl": 21.46,
       "trade_time": "2026-09-23T14:19:29Z",
@@ -594,7 +590,7 @@ window.__DATA__ = {
     {
       "order_id": "5648691964",
       "symbol": "CELH",
-      "size": 12.0,
+      "size": 12,
       "exit_price": 29.95,
       "realized_pnl": -22.85,
       "trade_time": "2026-09-22T17:26:53Z",
@@ -605,9 +601,9 @@ window.__DATA__ = {
     {
       "order_id": "5647534004",
       "symbol": "CIFR",
-      "size": 25.0,
+      "size": 25,
       "exit_price": 19.45,
-      "realized_pnl": 80.0,
+      "realized_pnl": 80,
       "trade_time": "2026-09-22T14:47:52Z",
       "order_type": "LIMIT",
       "fills": 1,
@@ -616,7 +612,7 @@ window.__DATA__ = {
     {
       "order_id": "5638012338",
       "symbol": "ENPH",
-      "size": 10.0,
+      "size": 10,
       "exit_price": 34.19,
       "realized_pnl": -105.06,
       "trade_time": "2026-09-18T15:49:05Z",
@@ -627,7 +623,7 @@ window.__DATA__ = {
     {
       "order_id": "5632813799",
       "symbol": "CRDO",
-      "size": 3.0,
+      "size": 3,
       "exit_price": 167.2,
       "realized_pnl": 39.33,
       "trade_time": "2026-09-17T14:08:27Z",
@@ -638,9 +634,9 @@ window.__DATA__ = {
     {
       "order_id": "5630645294",
       "symbol": "ORBS",
-      "size": 500.0,
-      "exit_price": 0.8253,
-      "realized_pnl": 0.0,
+      "size": 500,
+      "exit_price": 0.83,
+      "realized_pnl": 0,
       "trade_time": "2026-09-16T19:30:37Z",
       "order_type": "STOP",
       "fills": 1,
@@ -649,7 +645,7 @@ window.__DATA__ = {
     {
       "order_id": "5630467929",
       "symbol": "CRDO",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 159.1,
       "realized_pnl": 20.87,
       "trade_time": "2026-09-16T19:16:33Z",
@@ -660,9 +656,9 @@ window.__DATA__ = {
     {
       "order_id": "5629084335",
       "symbol": "NXT",
-      "size": 10.0,
+      "size": 10,
       "exit_price": 77.94,
-      "realized_pnl": -149.69,
+      "realized_pnl": -149.7,
       "trade_time": "2026-09-16T15:46:25Z",
       "order_type": "STOP",
       "fills": 1,
@@ -671,9 +667,9 @@ window.__DATA__ = {
     {
       "order_id": "5627652305",
       "symbol": "JOBY",
-      "size": 85.0,
-      "exit_price": 6.082,
-      "realized_pnl": -78.2,
+      "size": 85,
+      "exit_price": 6.08,
+      "realized_pnl": -78.21,
       "trade_time": "2026-09-16T13:34:44Z",
       "order_type": "STOP",
       "fills": 1,
@@ -682,7 +678,7 @@ window.__DATA__ = {
     {
       "order_id": "5621458024",
       "symbol": "CRDO",
-      "size": 10.0,
+      "size": 10,
       "exit_price": 152.8,
       "realized_pnl": -2.3,
       "trade_time": "2026-09-14T16:45:09Z",
@@ -693,8 +689,8 @@ window.__DATA__ = {
     {
       "order_id": "5620082801",
       "symbol": "NFLX",
-      "size": 15.0,
-      "exit_price": 80.0,
+      "size": 15,
+      "exit_price": 80,
       "realized_pnl": 91.07,
       "trade_time": "2026-09-14T14:23:31Z",
       "order_type": "LIMIT",
@@ -704,7 +700,7 @@ window.__DATA__ = {
     {
       "order_id": "5619097735",
       "symbol": "CEG",
-      "size": 2.0,
+      "size": 2,
       "exit_price": 271.52,
       "realized_pnl": -46.96,
       "trade_time": "2026-09-14T13:40:08Z",
@@ -715,7 +711,7 @@ window.__DATA__ = {
     {
       "order_id": "5616617735",
       "symbol": "RBLX",
-      "size": 15.0,
+      "size": 15,
       "exit_price": 45.98,
       "realized_pnl": 118.9,
       "trade_time": "2026-09-11T16:44:35Z",
@@ -726,7 +722,7 @@ window.__DATA__ = {
     {
       "order_id": "5610065602",
       "symbol": "MMM",
-      "size": 3.0,
+      "size": 3,
       "exit_price": 162.83,
       "realized_pnl": -48.09,
       "trade_time": "2026-09-10T13:30:01Z",
@@ -737,7 +733,7 @@ window.__DATA__ = {
     {
       "order_id": "5608407272",
       "symbol": "CELH",
-      "size": 12.0,
+      "size": 12,
       "exit_price": 28.07,
       "realized_pnl": -3.81,
       "trade_time": "2026-09-09T17:50:46Z",
@@ -748,7 +744,7 @@ window.__DATA__ = {
     {
       "order_id": "5607063290",
       "symbol": "META",
-      "size": 1.0,
+      "size": 1,
       "exit_price": 647.5,
       "realized_pnl": 98.75,
       "trade_time": "2026-09-09T14:45:25Z",
@@ -759,7 +755,7 @@ window.__DATA__ = {
     {
       "order_id": "5607048770",
       "symbol": "TSLA",
-      "size": 2.0,
+      "size": 2,
       "exit_price": 370.96,
       "realized_pnl": 30.46,
       "trade_time": "2026-09-09T14:44:09Z",
@@ -770,7 +766,7 @@ window.__DATA__ = {
     {
       "order_id": "5605693226",
       "symbol": "META",
-      "size": 1.0,
+      "size": 1,
       "exit_price": 639.96,
       "realized_pnl": 87.87,
       "trade_time": "2026-09-09T13:33:03Z",
@@ -781,9 +777,9 @@ window.__DATA__ = {
     {
       "order_id": "5603927551",
       "symbol": "ORBS",
-      "size": 500.0,
+      "size": 500,
       "exit_price": 1.15,
-      "realized_pnl": 105.0,
+      "realized_pnl": 105,
       "trade_time": "2026-09-08T18:25:29Z",
       "order_type": "LIMIT",
       "fills": 1,
@@ -792,8 +788,8 @@ window.__DATA__ = {
     {
       "order_id": "5602067701",
       "symbol": "UBER",
-      "size": 8.0,
-      "exit_price": 72.982,
+      "size": 8,
+      "exit_price": 72.98,
       "realized_pnl": 34.86,
       "trade_time": "2026-09-08T14:34:45Z",
       "order_type": "STOP",
@@ -803,7 +799,7 @@ window.__DATA__ = {
     {
       "order_id": "5601196463",
       "symbol": "AEHR",
-      "size": 7.0,
+      "size": 7,
       "exit_price": 89.84,
       "realized_pnl": 80.45,
       "trade_time": "2026-09-08T13:55:13Z",
@@ -814,7 +810,7 @@ window.__DATA__ = {
     {
       "order_id": "5600466539",
       "symbol": "AEHR",
-      "size": 3.0,
+      "size": 3,
       "exit_price": 93.5,
       "realized_pnl": 38.95,
       "trade_time": "2026-09-08T13:33:47Z",
@@ -825,7 +821,7 @@ window.__DATA__ = {
     {
       "order_id": "5594385064",
       "symbol": "CIFR",
-      "size": 40.0,
+      "size": 40,
       "exit_price": 17.23,
       "realized_pnl": 100.4,
       "trade_time": "2026-09-03T22:15:18Z",
@@ -836,7 +832,7 @@ window.__DATA__ = {
     {
       "order_id": "5589085645",
       "symbol": "META",
-      "size": 2.0,
+      "size": 2,
       "exit_price": 594.7,
       "realized_pnl": -14.35,
       "trade_time": "2026-09-02T19:09:41Z",
@@ -847,7 +843,7 @@ window.__DATA__ = {
     {
       "order_id": "5582943296",
       "symbol": "RKLB",
-      "size": 5.0,
+      "size": 5,
       "exit_price": 62.03,
       "realized_pnl": -68.44,
       "trade_time": "2026-09-01T14:52:21Z",
@@ -858,7 +854,7 @@ window.__DATA__ = {
     {
       "order_id": "5578506869",
       "symbol": "ENPH",
-      "size": 14.0,
+      "size": 14,
       "exit_price": 36.36,
       "realized_pnl": -231.8,
       "trade_time": "2026-08-31T15:07:00Z",
@@ -869,8 +865,8 @@ window.__DATA__ = {
     {
       "order_id": "5570837468",
       "symbol": "MSTR",
-      "size": 5.0,
-      "exit_price": 137.0,
+      "size": 5,
+      "exit_price": 137,
       "realized_pnl": 177.25,
       "trade_time": "2026-08-27T18:59:10Z",
       "order_type": "LIMIT",
@@ -880,8 +876,8 @@ window.__DATA__ = {
     {
       "order_id": "5570638039",
       "symbol": "NOW",
-      "size": 5.0,
-      "exit_price": 137.205,
+      "size": 5,
+      "exit_price": 137.21,
       "realized_pnl": 106.41,
       "trade_time": "2026-08-27T18:22:12Z",
       "order_type": "LIMIT",
@@ -891,7 +887,7 @@ window.__DATA__ = {
     {
       "order_id": "5560288039",
       "symbol": "MMM",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 178.98,
       "realized_pnl": 1.31,
       "trade_time": "2026-08-25T13:52:32Z",
@@ -902,7 +898,7 @@ window.__DATA__ = {
     {
       "order_id": "5555097907",
       "symbol": "RKLB",
-      "size": 7.0,
+      "size": 7,
       "exit_price": 69.8,
       "realized_pnl": -44.41,
       "trade_time": "2026-08-24T13:30:10Z",
@@ -913,7 +909,7 @@ window.__DATA__ = {
     {
       "order_id": "5554031063",
       "symbol": "HOOD",
-      "size": 7.0,
+      "size": 7,
       "exit_price": 108.22,
       "realized_pnl": 90.62,
       "trade_time": "2026-08-21T19:56:35Z",
@@ -924,7 +920,7 @@ window.__DATA__ = {
     {
       "order_id": "5542736447",
       "symbol": "NFLX",
-      "size": 7.0,
+      "size": 7,
       "exit_price": 80.4,
       "realized_pnl": 41.48,
       "trade_time": "2026-08-19T14:42:00Z",
@@ -935,8 +931,8 @@ window.__DATA__ = {
     {
       "order_id": "5537214682",
       "symbol": "NOW",
-      "size": 4.0,
-      "exit_price": 120.915,
+      "size": 4,
+      "exit_price": 120.92,
       "realized_pnl": 24.05,
       "trade_time": "2026-08-18T14:06:49Z",
       "order_type": "LIMIT",
@@ -946,7 +942,7 @@ window.__DATA__ = {
     {
       "order_id": "5533075687",
       "symbol": "HNST",
-      "size": 110.0,
+      "size": 110,
       "exit_price": 4.78,
       "realized_pnl": 103.73,
       "trade_time": "2026-08-17T15:12:08Z",
@@ -957,7 +953,7 @@ window.__DATA__ = {
     {
       "order_id": "5522452440",
       "symbol": "POET",
-      "size": 50.0,
+      "size": 50,
       "exit_price": 9.37,
       "realized_pnl": 70.44,
       "trade_time": "2026-08-13T14:11:48Z",
@@ -969,7 +965,7 @@ window.__DATA__ = {
       "order_id": "5520057114",
       "symbol": "AVGO",
       "size": 2.5,
-      "exit_price": 417.392,
+      "exit_price": 417.39,
       "realized_pnl": 91.65,
       "trade_time": "2026-08-12T18:06:26Z",
       "order_type": "STOP",
@@ -979,7 +975,7 @@ window.__DATA__ = {
     {
       "order_id": "5515393267",
       "symbol": "AVGO",
-      "size": 2.0,
+      "size": 2,
       "exit_price": 417.95,
       "realized_pnl": 19.28,
       "trade_time": "2026-08-11T17:51:43Z",
@@ -990,7 +986,7 @@ window.__DATA__ = {
     {
       "order_id": "5515061157",
       "symbol": "HNST",
-      "size": 115.0,
+      "size": 115,
       "exit_price": 5.14,
       "realized_pnl": 162.91,
       "trade_time": "2026-08-11T16:43:42Z",
@@ -1001,8 +997,8 @@ window.__DATA__ = {
     {
       "order_id": "5514871927",
       "symbol": "ZETA",
-      "size": 100.0,
-      "exit_price": 28.535,
+      "size": 100,
+      "exit_price": 28.54,
       "realized_pnl": 693.19,
       "trade_time": "2026-08-11T16:08:31Z",
       "order_type": "LIMIT",
@@ -1012,7 +1008,7 @@ window.__DATA__ = {
     {
       "order_id": "5507859909",
       "symbol": "BKNG",
-      "size": 6.0,
+      "size": 6,
       "exit_price": 212.73,
       "realized_pnl": 92.58,
       "trade_time": "2026-08-10T08:49:36Z",
@@ -1023,8 +1019,8 @@ window.__DATA__ = {
     {
       "order_id": "5505997522",
       "symbol": "SPCX",
-      "size": 5.0,
-      "exit_price": 129.735,
+      "size": 5,
+      "exit_price": 129.74,
       "realized_pnl": 98.93,
       "trade_time": "2026-08-07T16:43:52Z",
       "order_type": "LIMIT",
@@ -1034,8 +1030,8 @@ window.__DATA__ = {
     {
       "order_id": "5504754219",
       "symbol": "GOOGL",
-      "size": 3.0,
-      "exit_price": 354.369,
+      "size": 3,
+      "exit_price": 354.37,
       "realized_pnl": 53.8,
       "trade_time": "2026-08-07T14:39:33Z",
       "order_type": "STOP",
@@ -1045,7 +1041,7 @@ window.__DATA__ = {
     {
       "order_id": "5497390153",
       "symbol": "GOOGL",
-      "size": 4.0,
+      "size": 4,
       "exit_price": 362.2,
       "realized_pnl": 28.32,
       "trade_time": "2026-08-05T20:04:17Z",
@@ -1056,7 +1052,7 @@ window.__DATA__ = {
     {
       "order_id": "5497089103",
       "symbol": "HNST",
-      "size": 155.0,
+      "size": 155,
       "exit_price": 3.91,
       "realized_pnl": 33.46,
       "trade_time": "2026-08-05T19:40:30Z",
@@ -1067,7 +1063,7 @@ window.__DATA__ = {
     {
       "order_id": "5494150289",
       "symbol": "AMZN",
-      "size": 6.0,
+      "size": 6,
       "exit_price": 275.46,
       "realized_pnl": 67.4,
       "trade_time": "2026-08-05T13:56:47Z",
@@ -1078,8 +1074,8 @@ window.__DATA__ = {
     {
       "order_id": "5491518226",
       "symbol": "MSFT",
-      "size": 4.0,
-      "exit_price": 497.0,
+      "size": 4,
+      "exit_price": 497,
       "realized_pnl": 432.2,
       "trade_time": "2026-08-04T19:10:31Z",
       "order_type": "LIMIT",
@@ -1089,8 +1085,8 @@ window.__DATA__ = {
     {
       "order_id": "5490608916",
       "symbol": "NVDA",
-      "size": 14.0,
-      "exit_price": 211.0,
+      "size": 14,
+      "exit_price": 211,
       "realized_pnl": 67.78,
       "trade_time": "2026-08-04T17:04:47Z",
       "order_type": "LIMIT",
@@ -1100,8 +1096,8 @@ window.__DATA__ = {
     {
       "order_id": "5482728391",
       "symbol": "CRWV",
-      "size": 22.0,
-      "exit_price": 78.0,
+      "size": 22,
+      "exit_price": 78,
       "realized_pnl": 164.26,
       "trade_time": "2026-08-03T13:53:45Z",
       "order_type": "LIMIT",
@@ -1111,8 +1107,8 @@ window.__DATA__ = {
     {
       "order_id": "5478126099",
       "symbol": "AMZN",
-      "size": 3.0,
-      "exit_price": 270.0,
+      "size": 3,
+      "exit_price": 270,
       "realized_pnl": 4.35,
       "trade_time": "2026-07-31T14:26:40Z",
       "order_type": "LIMIT",
@@ -1122,7 +1118,7 @@ window.__DATA__ = {
     {
       "order_id": "5473063143",
       "symbol": "CRWV",
-      "size": 15.0,
+      "size": 15,
       "exit_price": 72.8,
       "realized_pnl": -391.15,
       "trade_time": "2026-07-30T14:58:33Z",
@@ -1133,9 +1129,9 @@ window.__DATA__ = {
     {
       "order_id": "5467657168",
       "symbol": "KEEL",
-      "size": 200.0,
+      "size": 200,
       "exit_price": 3.3,
-      "realized_pnl": -106.0,
+      "realized_pnl": -106,
       "trade_time": "2026-07-29T15:56:19Z",
       "order_type": "STOP",
       "fills": 2,
@@ -1144,7 +1140,7 @@ window.__DATA__ = {
     {
       "order_id": "5460980914",
       "symbol": "AVGO",
-      "size": 3.0,
+      "size": 3,
       "exit_price": 372.76,
       "realized_pnl": -139.91,
       "trade_time": "2026-07-28T13:46:56Z",
@@ -1155,7 +1151,7 @@ window.__DATA__ = {
     {
       "order_id": "5460355972",
       "symbol": "BE",
-      "size": 6.0,
+      "size": 6,
       "exit_price": 173.11,
       "realized_pnl": -58.34,
       "trade_time": "2026-07-28T13:30:44Z",
@@ -1167,7 +1163,7 @@ window.__DATA__ = {
       "order_id": "5455388192",
       "symbol": "GLW",
       "size": 6.5,
-      "exit_price": 144.2758,
+      "exit_price": 144.28,
       "realized_pnl": -77.05,
       "trade_time": "2026-07-27T13:32:54Z",
       "order_type": "STOP",
@@ -1177,8 +1173,8 @@ window.__DATA__ = {
     {
       "order_id": "5453540421",
       "symbol": "BE",
-      "size": 5.0,
-      "exit_price": 191.1217,
+      "size": 5,
+      "exit_price": 191.12,
       "realized_pnl": -61.79,
       "trade_time": "2026-07-24T18:10:43Z",
       "order_type": "STOP",
@@ -1188,9 +1184,9 @@ window.__DATA__ = {
     {
       "order_id": "5452344658",
       "symbol": "HPQ",
-      "size": 35.0,
-      "exit_price": 25.525,
-      "realized_pnl": 78.12,
+      "size": 35,
+      "exit_price": 25.53,
+      "realized_pnl": 78.13,
       "trade_time": "2026-07-24T15:02:52Z",
       "order_type": "LIMIT",
       "fills": 1,
@@ -1199,8 +1195,8 @@ window.__DATA__ = {
     {
       "order_id": "5452056807",
       "symbol": "TE",
-      "size": 60.0,
-      "exit_price": 5.145,
+      "size": 60,
+      "exit_price": 5.15,
       "realized_pnl": -224.9,
       "trade_time": "2026-07-24T14:38:48Z",
       "order_type": "STOP",
@@ -1210,8 +1206,8 @@ window.__DATA__ = {
     {
       "order_id": "5451308760",
       "symbol": "FSLR",
-      "size": 2.0,
-      "exit_price": 203.375,
+      "size": 2,
+      "exit_price": 203.38,
       "realized_pnl": -93.9,
       "trade_time": "2026-07-24T13:52:00Z",
       "order_type": "STOP",
@@ -1221,7 +1217,7 @@ window.__DATA__ = {
     {
       "order_id": "5446265080",
       "symbol": "ZETA",
-      "size": 40.0,
+      "size": 40,
       "exit_price": 19.71,
       "realized_pnl": 0.09,
       "trade_time": "2026-07-23T13:37:27Z",
@@ -1232,7 +1228,7 @@ window.__DATA__ = {
     {
       "order_id": "5437673304",
       "symbol": "AFRM",
-      "size": 13.0,
+      "size": 13,
       "exit_price": 74.34,
       "realized_pnl": -104.08,
       "trade_time": "2026-07-21T13:30:07Z",
@@ -1243,8 +1239,8 @@ window.__DATA__ = {
     {
       "order_id": "5434079772",
       "symbol": "TE",
-      "size": 55.0,
-      "exit_price": 5.822,
+      "size": 55,
+      "exit_price": 5.82,
       "realized_pnl": -169.14,
       "trade_time": "2026-07-20T13:50:08Z",
       "order_type": "LIMIT",
@@ -1254,7 +1250,7 @@ window.__DATA__ = {
     {
       "order_id": "5434037808",
       "symbol": "FSLR",
-      "size": 2.0,
+      "size": 2,
       "exit_price": 208.5,
       "realized_pnl": -83.65,
       "trade_time": "2026-07-20T13:48:57Z",
@@ -1265,8 +1261,8 @@ window.__DATA__ = {
     {
       "order_id": "5431243045",
       "symbol": "ZETA",
-      "size": 35.0,
-      "exit_price": 22.0,
+      "size": 35,
+      "exit_price": 22,
       "realized_pnl": 114.72,
       "trade_time": "2026-07-17T16:35:20Z",
       "order_type": "LIMIT",
@@ -1276,8 +1272,8 @@ window.__DATA__ = {
     {
       "order_id": "5423086847",
       "symbol": "RDW",
-      "size": 60.0,
-      "exit_price": 9.019,
+      "size": 60,
+      "exit_price": 9.02,
       "realized_pnl": -272.89,
       "trade_time": "2026-07-16T13:30:01Z",
       "order_type": "STOP",
@@ -1287,9 +1283,9 @@ window.__DATA__ = {
     {
       "order_id": "5409375968",
       "symbol": "IONQ",
-      "size": 15.0,
+      "size": 15,
       "exit_price": 41.2,
-      "realized_pnl": -192.12,
+      "realized_pnl": -192.13,
       "trade_time": "2026-07-13T13:31:53Z",
       "order_type": "STOP",
       "fills": 1,
@@ -1299,7 +1295,7 @@ window.__DATA__ = {
       "order_id": "5398801581",
       "symbol": "AVGO",
       "size": 3.5,
-      "exit_price": 393.6143,
+      "exit_price": 393.61,
       "realized_pnl": -104.09,
       "trade_time": "2026-07-08T16:52:38Z",
       "order_type": "LIMIT",
@@ -1309,7 +1305,7 @@ window.__DATA__ = {
     {
       "order_id": "5382820274",
       "symbol": "IREN",
-      "size": 17.0,
+      "size": 17,
       "exit_price": 37.8,
       "realized_pnl": -389.03,
       "trade_time": "2026-07-02T16:55:36Z",
@@ -1320,8 +1316,8 @@ window.__DATA__ = {
     {
       "order_id": "5382577548",
       "symbol": "RDW",
-      "size": 40.0,
-      "exit_price": 11.392,
+      "size": 40,
+      "exit_price": 11.39,
       "realized_pnl": -182.49,
       "trade_time": "2026-07-02T16:30:52Z",
       "order_type": "STOP",
@@ -1331,9 +1327,9 @@ window.__DATA__ = {
     {
       "order_id": "5380687290",
       "symbol": "QCOM",
-      "size": 6.0,
-      "exit_price": 179.922,
-      "realized_pnl": 0.0,
+      "size": 6,
+      "exit_price": 179.92,
+      "realized_pnl": 0,
       "trade_time": "2026-07-02T14:25:47Z",
       "order_type": "STOP",
       "fills": 1,
@@ -1342,7 +1338,7 @@ window.__DATA__ = {
     {
       "order_id": "5378997772",
       "symbol": "QCOM",
-      "size": 6.0,
+      "size": 6,
       "exit_price": 179.51,
       "realized_pnl": -261.74,
       "trade_time": "2026-07-02T10:31:05Z",
@@ -1353,9 +1349,9 @@ window.__DATA__ = {
     {
       "order_id": "5371552870",
       "symbol": "CRCL",
-      "size": 10.0,
+      "size": 10,
       "exit_price": 63.5,
-      "realized_pnl": -133.0,
+      "realized_pnl": -133,
       "trade_time": "2026-06-30T17:31:50Z",
       "order_type": "STOP",
       "fills": 1,
@@ -1365,7 +1361,7 @@ window.__DATA__ = {
       "order_id": "5353510396",
       "symbol": "AAPL",
       "size": 9.5,
-      "exit_price": 278.5414,
+      "exit_price": 278.54,
       "realized_pnl": -62.74,
       "trade_time": "2026-06-25T14:13:36Z",
       "order_type": "LIMIT",
@@ -1375,8 +1371,8 @@ window.__DATA__ = {
     {
       "order_id": "5315072009",
       "symbol": "NVDA",
-      "size": 5.0,
-      "exit_price": 212.333,
+      "size": 5,
+      "exit_price": 212.33,
       "realized_pnl": 64.38,
       "trade_time": "2026-06-15T16:29:44Z",
       "order_type": "LIMIT",
@@ -1386,8 +1382,8 @@ window.__DATA__ = {
     {
       "order_id": "5291057416",
       "symbol": "ZETA",
-      "size": 40.0,
-      "exit_price": 20.1901,
+      "size": 40,
+      "exit_price": 20.19,
       "realized_pnl": -62.2,
       "trade_time": "2026-06-09T16:08:59Z",
       "order_type": "STOP",
@@ -1397,9 +1393,9 @@ window.__DATA__ = {
     {
       "order_id": "5291014654",
       "symbol": "ENPH",
-      "size": 20.0,
-      "exit_price": 50.0,
-      "realized_pnl": -117.0,
+      "size": 20,
+      "exit_price": 50,
+      "realized_pnl": -117,
       "trade_time": "2026-06-09T16:07:37Z",
       "order_type": "STOP",
       "fills": 1,
@@ -1408,8 +1404,8 @@ window.__DATA__ = {
     {
       "order_id": "5290350929",
       "symbol": "ONDS",
-      "size": 55.0,
-      "exit_price": 9.475,
+      "size": 55,
+      "exit_price": 9.48,
       "realized_pnl": -157.05,
       "trade_time": "2026-06-09T15:29:09Z",
       "order_type": "STOP",
@@ -1419,8 +1415,8 @@ window.__DATA__ = {
     {
       "order_id": "5277179196",
       "symbol": "CCJ",
-      "size": 6.0,
-      "exit_price": 106.195,
+      "size": 6,
+      "exit_price": 106.2,
       "realized_pnl": -18.54,
       "trade_time": "2026-06-05T15:40:13Z",
       "order_type": "STOP",
@@ -1430,9 +1426,9 @@ window.__DATA__ = {
     {
       "order_id": "5274161143",
       "symbol": "CLSK",
-      "size": 60.0,
-      "exit_price": 15.945,
-      "realized_pnl": -65.0,
+      "size": 60,
+      "exit_price": 15.95,
+      "realized_pnl": -65,
       "trade_time": "2026-06-05T13:30:04Z",
       "order_type": "STOP",
       "fills": 1,
