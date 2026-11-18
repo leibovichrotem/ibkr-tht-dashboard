@@ -1,42 +1,38 @@
 // IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-11-17 09:38 IDT | NAV 8000.41 | source data.js
+// Generated: 2026-11-18 09:34 IDT | NAV 8118.14 | source data.js
 // Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
 
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-11-17T09:38:00+02:00",
-    "generatedAtHuman": "2026-11-17 09:38 IDT",
+    "generatedAt": "2026-11-18T09:34:00+02:00",
+    "generatedAtHuman": "2026-11-18 09:34 IDT",
     "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8000.41,
-    "cash": -4595.84,
-    "grossPositions": 13094.83,
-    "unrealized": -948.97,
-    "positionsCount": 16,
+    "nav": 8118.14,
+    "cash": -3917.66,
+    "grossPositions": 12529.83,
+    "unrealized": -1048.91,
+    "positionsCount": 15,
     "reconDrift": 0,
-    "note": "Daily refresh · YTD closed 118 · Peter notes on 6 holdings · 6 public recs"
+    "note": "Daily refresh \u00b7 YTD closed 119 \u00b7 Peter notes on 4 holdings \u00b7 5 public recs"
   },
   "positions": [
     {
       "symbol": "HOOD",
       "qty": 24,
       "avg": 86.9104,
-      "last": 71.95,
-      "upnl": -359.05,
-      "mv": 1726.8,
+      "last": 70.5,
+      "upnl": -393.85,
+      "mv": 1692.0,
       "cost": 2085.85,
-      "peter": {
-        "sum": "Profits: highest ever. Stock down 42% from high. Great company, expensive stock. Exact long-term buy price in breakdown.",
-        "url": "https://x.com/pdicarlotrader/status/2119869280506306630",
-        "when": "2026-11-09"
-      }
+      "peter": null
     },
     {
       "symbol": "COIN",
       "qty": 13.5,
       "avg": 132.7707,
-      "last": 119.5,
-      "upnl": -179.16,
-      "mv": 1613.25,
+      "last": 117.09,
+      "upnl": -211.69,
+      "mv": 1580.71,
       "cost": 1792.4,
       "peter": {
         "sum": "Mentioned as a way to trade the new Bitcoin Bull Cycle. This weekend was the buy; 71% of the time BTC runs 150-300% in 18 months.",
@@ -48,23 +44,23 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "qty": 9,
       "avg": 171.8257,
-      "last": 157.2,
-      "upnl": -131.63,
-      "mv": 1414.8,
+      "last": 160.01,
+      "upnl": -106.34,
+      "mv": 1440.09,
       "cost": 1546.43,
       "peter": {
-        "sum": "Sitting on one of the strongest supports. Extremely oversold. Bounces here 80% of the time. Bullish into earnings. Structure holds above $160 swing low.",
-        "url": "https://x.com/pdicarlotrader/status/2122442835358052409",
-        "when": "2026-11-16"
+        "sum": "Just crushed earnings and guidance. All week I said this was the bottom. Still stand by it. Targets and why a huge rebound is next.",
+        "url": "https://x.com/pdicarlotrader/status/2122829785076543902",
+        "when": "2026-11-17"
       }
     },
     {
       "symbol": "UBER",
       "qty": 19,
       "avg": 66.8906,
-      "last": 69.68,
-      "upnl": 53.0,
-      "mv": 1323.92,
+      "last": 68.73,
+      "upnl": 34.95,
+      "mv": 1305.87,
       "cost": 1270.92,
       "peter": null
     },
@@ -72,9 +68,9 @@ window.__DATA__ = {
       "symbol": "AVGO",
       "qty": 4,
       "avg": 316.3325,
-      "last": 337.25,
-      "upnl": 83.67,
-      "mv": 1349.0,
+      "last": 347.18,
+      "upnl": 123.39,
+      "mv": 1388.72,
       "cost": 1265.33,
       "peter": {
         "sum": "Still the best setup in the market. Stand by it 100%. Update after the bounce + targets for the next 6-12 months.",
@@ -86,9 +82,9 @@ window.__DATA__ = {
       "symbol": "XLF",
       "qty": 15,
       "avg": 58.4667,
-      "last": 57.94,
-      "upnl": -7.9,
-      "mv": 869.1,
+      "last": 57.05,
+      "upnl": -21.25,
+      "mv": 855.75,
       "cost": 877.0,
       "peter": null
     },
@@ -96,9 +92,9 @@ window.__DATA__ = {
       "symbol": "KTOS",
       "qty": 16,
       "avg": 43.6018,
-      "last": 31.75,
-      "upnl": -189.63,
-      "mv": 508.0,
+      "last": 31.11,
+      "upnl": -199.87,
+      "mv": 497.76,
       "cost": 697.63,
       "peter": null
     },
@@ -106,33 +102,19 @@ window.__DATA__ = {
       "symbol": "CRWV",
       "qty": 11,
       "avg": 59.6621,
-      "last": 50.0,
-      "upnl": -106.28,
-      "mv": 550.0,
+      "last": 53.14,
+      "upnl": -71.74,
+      "mv": 584.54,
       "cost": 656.28,
-      "peter": {
-        "sum": "Up 25% today. Fundamentals analysis and bullish thesis — just getting started. Earnings crushed with strong backlog.",
-        "url": "https://x.com/pdicarlotrader/status/2120555845146886364",
-        "when": "2026-11-11"
-      }
-    },
-    {
-      "symbol": "CELH",
-      "qty": 22,
-      "avg": 28.7602,
-      "last": 31.57,
-      "upnl": 61.81,
-      "mv": 694.54,
-      "cost": 632.72,
       "peter": null
     },
     {
       "symbol": "GOOGL",
       "qty": 2,
       "avg": 293.53,
-      "last": 283.8,
-      "upnl": -19.46,
-      "mv": 567.6,
+      "last": 281.13,
+      "upnl": -24.8,
+      "mv": 562.26,
       "cost": 587.06,
       "peter": null
     },
@@ -140,9 +122,9 @@ window.__DATA__ = {
       "symbol": "SNOW",
       "qty": 2,
       "avg": 292.44,
-      "last": 280.54,
-      "upnl": -23.8,
-      "mv": 561.08,
+      "last": 277.0,
+      "upnl": -30.88,
+      "mv": 554.0,
       "cost": 584.88,
       "peter": null
     },
@@ -150,9 +132,9 @@ window.__DATA__ = {
       "symbol": "SLV",
       "qty": 12,
       "avg": 42.847,
-      "last": 42.91,
-      "upnl": 0.76,
-      "mv": 514.92,
+      "last": 41.45,
+      "upnl": -16.76,
+      "mv": 497.4,
       "cost": 514.16,
       "peter": {
         "sum": "It's almost time. Precious metals trading in a discount zone. Watching closely over coming months.",
@@ -164,9 +146,9 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 98,
       "avg": 5.1569,
-      "last": 4.65,
-      "upnl": -49.68,
-      "mv": 455.7,
+      "last": 4.52,
+      "upnl": -62.42,
+      "mv": 442.96,
       "cost": 505.38,
       "peter": null
     },
@@ -174,9 +156,9 @@ window.__DATA__ = {
       "symbol": "ASX",
       "qty": 13,
       "avg": 38.7073,
-      "last": 31.79,
-      "upnl": -89.92,
-      "mv": 413.27,
+      "last": 33.01,
+      "upnl": -74.07,
+      "mv": 429.13,
       "cost": 503.19,
       "peter": null
     },
@@ -184,9 +166,9 @@ window.__DATA__ = {
       "symbol": "JPM",
       "qty": 1,
       "avg": 326.9133,
-      "last": 336.67,
-      "upnl": 9.76,
-      "mv": 336.67,
+      "last": 330.95,
+      "upnl": 4.04,
+      "mv": 330.95,
       "cost": 326.91,
       "peter": null
     },
@@ -194,29 +176,38 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "qty": -4,
       "avg": 60.295,
-      "last": 60.66,
-      "upnl": -1.46,
-      "mv": -242.64,
+      "last": 59.7,
+      "upnl": 2.38,
+      "mv": -238.8,
       "cost": 241.18,
       "peter": null
     }
   ],
   "closed": [
     {
-      "order_id": "950818182",
+      "order_id": "1263908671",
+      "symbol": "CELH",
+      "qty": 22,
+      "exit": 30.94,
+      "pnl": 45.46,
+      "date": "2026-11-17",
+      "source": "ibkr_fifo"
+    },
+    {
+      "order_id": "5827984526",
       "symbol": "POET",
       "qty": 170,
       "exit": 5.76,
-      "pnl": 5.97,
+      "pnl": -48.25,
       "date": "2026-11-11",
       "source": "ibkr_fifo"
     },
     {
-      "order_id": "950818252",
+      "order_id": "5827970562",
       "symbol": "UBER",
       "qty": 15,
       "exit": 70.98,
-      "pnl": 26.39,
+      "pnl": -14.77,
       "date": "2026-11-11",
       "source": "ibkr_fifo"
     },
@@ -1267,6 +1258,14 @@ window.__DATA__ = {
   ],
   "recs": [
     {
+      "symbol": "NBIS",
+      "kind": "buy",
+      "summary": "The 3 strongest technical signs of a bottom: Extremely oversold, Smart Money Zone, Fair Value Support. All three right now. Bottom is in. Full setup + targets.",
+      "url": "https://x.com/pdicarlotrader/status/2122837057307365670",
+      "when": "2026-11-17",
+      "status": "public"
+    },
+    {
       "symbol": "ADBE",
       "kind": "buy",
       "summary": "Sales up 65% since 2021. Stock down 65%. Weekly chart showing first bullish sign in almost 2 years. $355 target.",
@@ -1293,23 +1292,7 @@ window.__DATA__ = {
     {
       "symbol": "BTC",
       "kind": "buy",
-      "summary": "New Bitcoin Bull Cycle. This weekend was the buy. 71% of the time BTC runs 150–300% in 18 months. Trade via $CRCL $MSTR $COIN and more.",
-      "url": "https://x.com/pdicarlotrader/status/2122120715902288259",
-      "when": "2026-11-16",
-      "status": "public"
-    },
-    {
-      "symbol": "CRCL",
-      "kind": "watch",
-      "summary": "Mentioned as vehicle to trade the Bitcoin Bull Cycle alongside MSTR and COIN.",
-      "url": "https://x.com/pdicarlotrader/status/2122120715902288259",
-      "when": "2026-11-16",
-      "status": "public"
-    },
-    {
-      "symbol": "MSTR",
-      "kind": "watch",
-      "summary": "Mentioned as vehicle to trade the Bitcoin Bull Cycle alongside CRCL and COIN.",
+      "summary": "New Bitcoin Bull Cycle. This weekend was the buy. 71% of the time BTC runs 150\u2013300% in 18 months. Trade via $CRCL $MSTR $COIN and more.",
       "url": "https://x.com/pdicarlotrader/status/2122120715902288259",
       "when": "2026-11-16",
       "status": "public"
