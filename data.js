@@ -1,28 +1,17 @@
-// IBKR THT Dashboard — Single Source of Truth
-// Generated: 2026-11-18 09:33 IDT | NAV 8118.14 | source data.js
-// Fills, TWR cps, and SPY closes are authoritative. index.html computes KPIs and charts.
-
 window.__DATA__ = {
   "meta": {
-    "generatedAt": "2026-11-18T09:33:00+02:00",
-    "generatedAtHuman": "2026-11-18 09:33 IDT",
-    "source": "IBKR positions + YTD trades + Peter public X",
-    "nav": 8118.14,
-    "cash": -3917.66,
-    "grossPositions": 12529.83,
-    "unrealized": -1051.32,
-    "positionsCount": 15,
-    "reconDrift": 0,
-    "note": "Daily refresh \u00b7 YTD closed 123 \u00b7 Peter notes on 6 holdings \u00b7 4 public recs"
+    "lastRun": "2026-11-19 09:32 IDT",
+    "nav": 7848.6,
+    "source": "IBKR + public X"
   },
   "positions": [
     {
       "symbol": "HOOD",
       "qty": 24,
       "avg": 86.9104,
-      "last": 70.5,
-      "upnl": -393.85,
-      "mv": 1692.0,
+      "last": 71.66,
+      "upnl": -366.01,
+      "mv": 1719.84,
       "cost": 2085.85,
       "peter": {
         "sum": "Profits: highest ever. Stock down 42% from high. Great company, expensive stock.",
@@ -34,12 +23,12 @@ window.__DATA__ = {
       "symbol": "COIN",
       "qty": 13.5,
       "avg": 132.7707,
-      "last": 117.09,
-      "upnl": -211.69,
-      "mv": 1580.71,
+      "last": 113.56,
+      "upnl": -259.35,
+      "mv": 1533.06,
       "cost": 1792.4,
       "peter": {
-        "sum": "How to trade the new Bitcoin Bull Cycle through $COIN.",
+        "sum": "BTC bull cycle buy this weekend; trade via $COIN among others.",
         "url": "https://x.com/pdicarlotrader/status/2122120715902288259",
         "when": "2026-11-16"
       }
@@ -48,12 +37,12 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "qty": 9,
       "avg": 171.8257,
-      "last": 159.78,
-      "upnl": -108.41,
-      "mv": 1438.02,
+      "last": 152.96,
+      "upnl": -169.79,
+      "mv": 1376.64,
       "cost": 1546.43,
       "peter": {
-        "sum": "Just crushed earnings and guidance. Bottom still in. Huge rebound next.",
+        "sum": "Crushed earnings & guidance. Bottom holds; huge rebound expected. Targets in video.",
         "url": "https://x.com/pdicarlotrader/status/2122829785076543902",
         "when": "2026-11-17"
       }
@@ -62,18 +51,18 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 19,
       "avg": 66.8906,
-      "last": 68.73,
-      "upnl": 34.95,
-      "mv": 1305.87,
+      "last": 69.05,
+      "upnl": 41.03,
+      "mv": 1311.95,
       "cost": 1270.92
     },
     {
       "symbol": "AVGO",
       "qty": 4,
       "avg": 316.3325,
-      "last": 347.18,
-      "upnl": 123.39,
-      "mv": 1388.72,
+      "last": 361.7,
+      "upnl": 181.47,
+      "mv": 1446.8,
       "cost": 1265.33,
       "peter": {
         "sum": "Still the best setup in the market. Targets for the next 6-12 months.",
@@ -85,27 +74,27 @@ window.__DATA__ = {
       "symbol": "XLF",
       "qty": 15,
       "avg": 58.4667,
-      "last": 57.05,
-      "upnl": -21.25,
-      "mv": 855.75,
-      "cost": 877.0
+      "last": 56.67,
+      "upnl": -26.95,
+      "mv": 850.05,
+      "cost": 877
     },
     {
       "symbol": "KTOS",
       "qty": 16,
       "avg": 43.6018,
-      "last": 31.11,
-      "upnl": -199.87,
-      "mv": 497.76,
+      "last": 30.75,
+      "upnl": -205.63,
+      "mv": 492,
       "cost": 697.63
     },
     {
       "symbol": "CRWV",
       "qty": 11,
       "avg": 59.6621,
-      "last": 53.1,
-      "upnl": -72.18,
-      "mv": 584.1,
+      "last": 49.38,
+      "upnl": -113.1,
+      "mv": 543.18,
       "cost": 656.28,
       "peter": {
         "sum": "Up 25% today. Just getting started. Bullish thesis holds.",
@@ -117,27 +106,27 @@ window.__DATA__ = {
       "symbol": "GOOGL",
       "qty": 2,
       "avg": 293.53,
-      "last": 281.12,
-      "upnl": -24.82,
-      "mv": 562.24,
+      "last": 289.19,
+      "upnl": -8.68,
+      "mv": 578.38,
       "cost": 587.06
     },
     {
       "symbol": "SNOW",
       "qty": 2,
       "avg": 292.44,
-      "last": 277.0,
-      "upnl": -30.88,
-      "mv": 554.0,
+      "last": 285.5,
+      "upnl": -13.88,
+      "mv": 571,
       "cost": 584.88
     },
     {
       "symbol": "SLV",
       "qty": 12,
       "avg": 42.847,
-      "last": 41.46,
-      "upnl": -16.64,
-      "mv": 497.52,
+      "last": 41,
+      "upnl": -22.16,
+      "mv": 492,
       "cost": 514.16,
       "peter": {
         "sum": "It's almost time. Discount zone setup with $GLD.",
@@ -149,36 +138,36 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 98,
       "avg": 5.1569,
-      "last": 4.52,
-      "upnl": -62.42,
-      "mv": 442.96,
+      "last": 4.38,
+      "upnl": -76.14,
+      "mv": 429.24,
       "cost": 505.38
     },
     {
       "symbol": "ASX",
       "qty": 13,
       "avg": 38.7073,
-      "last": 33.01,
-      "upnl": -74.07,
-      "mv": 429.13,
+      "last": 31.65,
+      "upnl": -91.75,
+      "mv": 411.45,
       "cost": 503.19
     },
     {
       "symbol": "JPM",
       "qty": 1,
       "avg": 326.9133,
-      "last": 330.95,
-      "upnl": 4.04,
-      "mv": 330.95,
+      "last": 326.33,
+      "upnl": -0.58,
+      "mv": 326.33,
       "cost": 326.91
     },
     {
       "symbol": "NFLX",
       "qty": -4,
       "avg": 60.295,
-      "last": 59.7,
-      "upnl": 2.38,
-      "mv": -238.8,
+      "last": 60.27,
+      "upnl": 0.1,
+      "mv": -241.08,
       "cost": 241.18
     }
   ],
@@ -197,7 +186,7 @@ window.__DATA__ = {
       "symbol": "NFLX",
       "qty": 4,
       "exit": 60.92,
-      "pnl": 0.0,
+      "pnl": 0,
       "date": "2026-11-16",
       "source": "ibkr_fifo"
     },
@@ -1292,6 +1281,13 @@ window.__DATA__ = {
     }
   ],
   "recs": [
+    {
+      "symbol": "ASTS",
+      "kind": "note",
+      "summary": "NOT buying (better setups elsewhere). Back to largest TF Smart Money Zone, -80% from ATH. Wild time for long-term believers.",
+      "status": "https://x.com/pdicarlotrader/status/2123155840983343288",
+      "when": "2026-11-18"
+    },
     {
       "symbol": "NBIS",
       "kind": "buy",
