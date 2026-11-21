@@ -1,7 +1,7 @@
 window.__DATA__ = {
   "meta": {
-    "lastRun": "2026-11-20 09:36 IDT",
-    "nav": 7254.12,
+    "lastRun": "2026-11-21 09:32 IDT",
+    "nav": 6628.33,
     "source": "IBKR + public X"
   },
   "positions": [
@@ -9,12 +9,12 @@ window.__DATA__ = {
       "symbol": "HOOD",
       "qty": 24.0,
       "avg": 86.9104,
-      "last": 66.81,
-      "upnl": -482.41,
-      "mv": 1603.44,
+      "last": 64.2,
+      "upnl": -545.05,
+      "mv": 1540.8,
       "cost": 2085.85,
       "peter": {
-        "sum": "Profits: highest ever. Stock down 42% from high. Great company, expensive stock.",
+        "sum": "Profits highest ever. Stock down 42% from high. Great company, expensive stock.",
         "url": "https://x.com/pdicarlotrader/status/2119869280506306630",
         "when": "2026-11-09"
       }
@@ -23,9 +23,9 @@ window.__DATA__ = {
       "symbol": "COIN",
       "qty": 13.5,
       "avg": 132.7707,
-      "last": 106.6,
-      "upnl": -353.31,
-      "mv": 1439.1,
+      "last": 102.3,
+      "upnl": -411.35,
+      "mv": 1381.05,
       "cost": 1792.4,
       "peter": {
         "sum": "BTC bull cycle buy this weekend; trade via $COIN among others.",
@@ -37,32 +37,32 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "qty": 9.0,
       "avg": 171.8257,
-      "last": 143.19,
-      "upnl": -257.72,
-      "mv": 1288.71,
+      "last": 130.01,
+      "upnl": -376.34,
+      "mv": 1170.09,
       "cost": 1546.43,
       "peter": {
-        "sum": "Crushed earnings & guidance. Bottom holds; huge rebound expected. Targets in video.",
-        "url": "https://x.com/pdicarlotrader/status/2122829785076543902",
-        "when": "2026-11-17"
+        "sum": "Lost half its value in 6 weeks. Worst-case ~$120 near; still long-term buy. Crushed earnings.",
+        "url": "https://x.com/pdicarlotrader/status/2123900052921848200",
+        "when": "2026-11-20"
       }
     },
     {
       "symbol": "UBER",
       "qty": 19.0,
       "avg": 66.8906,
-      "last": 65.22,
-      "upnl": -31.74,
-      "mv": 1239.18,
+      "last": 64.41,
+      "upnl": -47.18,
+      "mv": 1223.74,
       "cost": 1270.92
     },
     {
       "symbol": "AVGO",
       "qty": 4.0,
       "avg": 316.3325,
-      "last": 337.09,
-      "upnl": 83.03,
-      "mv": 1348.36,
+      "last": 311.5,
+      "upnl": -19.33,
+      "mv": 1246.0,
       "cost": 1265.33,
       "peter": {
         "sum": "Still the best setup in the market. Targets for the next 6-12 months.",
@@ -74,30 +74,30 @@ window.__DATA__ = {
       "symbol": "XLF",
       "qty": 15.0,
       "avg": 58.4667,
-      "last": 55.59,
-      "upnl": -43.15,
-      "mv": 833.85,
+      "last": 54.89,
+      "upnl": -53.65,
+      "mv": 823.35,
       "cost": 877.0
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 29.28,
-      "upnl": -229.15,
-      "mv": 468.48,
+      "last": 27.78,
+      "upnl": -253.15,
+      "mv": 444.48,
       "cost": 697.63
     },
     {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 43.3,
-      "upnl": -179.98,
-      "mv": 476.3,
+      "last": 40.95,
+      "upnl": -205.88,
+      "mv": 450.4,
       "cost": 656.28,
       "peter": {
-        "sum": "Up 25% today. Just getting started. Bullish thesis holds.",
+        "sum": "Up 25% today. Just getting started. Bullish thesis holds despite debt.",
         "url": "https://x.com/pdicarlotrader/status/2120555845146886364",
         "when": "2026-11-11"
       }
@@ -106,30 +106,30 @@ window.__DATA__ = {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 270.7,
-      "upnl": -45.66,
-      "mv": 541.4,
+      "last": 270.18,
+      "upnl": -46.7,
+      "mv": 540.36,
       "cost": 587.06
     },
     {
       "symbol": "SNOW",
       "qty": 2.0,
       "avg": 292.44,
-      "last": 264.93,
-      "upnl": -55.02,
-      "mv": 529.86,
+      "last": 259.5,
+      "upnl": -65.88,
+      "mv": 519.0,
       "cost": 584.88
     },
     {
       "symbol": "SLV",
       "qty": 12.0,
       "avg": 42.847,
-      "last": 37.64,
-      "upnl": -62.48,
-      "mv": 451.68,
+      "last": 37.22,
+      "upnl": -67.53,
+      "mv": 446.63,
       "cost": 514.16,
       "peter": {
-        "sum": "It's almost time. Discount zone setup with $GLD.",
+        "sum": "It's almost time. Precious metals in discount zone.",
         "url": "https://x.com/pdicarlotrader/status/2122054657279447367",
         "when": "2026-11-15"
       }
@@ -138,27 +138,27 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 98.0,
       "avg": 5.1569,
-      "last": 3.94,
-      "upnl": -119.26,
-      "mv": 386.12,
+      "last": 3.54,
+      "upnl": -158.46,
+      "mv": 346.92,
       "cost": 505.38
     },
     {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 28.16,
-      "upnl": -137.12,
-      "mv": 366.08,
+      "last": 27.38,
+      "upnl": -147.26,
+      "mv": 355.94,
       "cost": 503.19
     },
     {
       "symbol": "NFLX",
       "qty": -4.0,
       "avg": 60.295,
-      "last": 58.54,
-      "upnl": 7.02,
-      "mv": -234.16,
+      "last": 57.03,
+      "upnl": 13.06,
+      "mv": -228.12,
       "cost": 241.18
     }
   ],
@@ -1282,6 +1282,22 @@ window.__DATA__ = {
   ],
   "recs": [
     {
+      "symbol": "META",
+      "kind": "watch",
+      "summary": "Insane discount. Testing Weekly SMZ & Monthly Smart Money Band. Stop under $520 swing low.",
+      "url": "https://x.com/pdicarlotrader/status/2123902823616421957",
+      "when": "2026-11-20",
+      "status": "public"
+    },
+    {
+      "symbol": "TSLA",
+      "kind": "note",
+      "summary": "Still making lower highs on Weekly. Structure bearish. Watch $350 support.",
+      "url": "https://x.com/pdicarlotrader/status/2123902315673301289",
+      "when": "2026-11-20",
+      "status": "public"
+    },
+    {
       "symbol": "SOFI",
       "kind": "watch",
       "summary": "Just tagged Smart Money Zone. Patience pays. Video this week.",
@@ -1298,26 +1314,10 @@ window.__DATA__ = {
       "status": "public"
     },
     {
-      "symbol": "ASTS",
-      "kind": "note",
-      "summary": "NOT buying (better setups elsewhere). Back to largest TF Smart Money Zone, -80% from ATH.",
-      "url": "https://x.com/pdicarlotrader/status/2123155840983343288",
-      "when": "2026-11-18",
-      "status": "public"
-    },
-    {
       "symbol": "NBIS",
       "kind": "buy",
       "summary": "Extremely oversold + Smart Money Zone + Fair Value Support. Bottom is in.",
       "url": "https://x.com/pdicarlotrader/status/2122837057307365670",
-      "when": "2026-11-17",
-      "status": "public"
-    },
-    {
-      "symbol": "ADBE",
-      "kind": "buy",
-      "summary": "Sales up 65% since 2021. Stock down 65%. Weekly chart first bullish sign in almost 2 years.",
-      "url": "https://x.com/pdicarlotrader/status/2122528573168791815",
       "when": "2026-11-17",
       "status": "public"
     }
