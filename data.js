@@ -1,7 +1,7 @@
 window.__DATA__ = {
   "meta": {
-    "lastRun": "2026-11-21 09:32 IDT",
-    "nav": 6628.33,
+    "lastRun": "2026-11-22 09:32 IDT",
+    "nav": 6626.72,
     "source": "IBKR + public X"
   },
   "positions": [
@@ -129,7 +129,7 @@ window.__DATA__ = {
       "mv": 446.63,
       "cost": 514.16,
       "peter": {
-        "sum": "It's almost time. Precious metals in discount zone.",
+        "sum": "Precious metals in discount zone. Almost time for $GLD $SLV.",
         "url": "https://x.com/pdicarlotrader/status/2122054657279447367",
         "when": "2026-11-15"
       }
@@ -159,7 +159,7 @@ window.__DATA__ = {
       "last": 57.03,
       "upnl": 13.06,
       "mv": -228.12,
-      "cost": 241.18
+      "cost": -241.18
     }
   ],
   "closed": [
