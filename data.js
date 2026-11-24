@@ -1,33 +1,28 @@
 window.__DATA__ = {
   "meta": {
-    "lastRun": "2026-11-23 09:32 IDT",
-    "nav": 6626.72,
+    "lastRun": "2026-11-24 09:37 IDT",
+    "nav": 7460.52,
     "source": "IBKR + public X",
     "cash": -3598.74,
-    "equity": 6626.72
+    "equity": 7460.52
   },
   "positions": [
     {
       "symbol": "HOOD",
       "qty": 24.0,
       "avg": 86.9104,
-      "last": 65.98,
-      "upnl": -502.33,
-      "mv": 1583.52,
-      "cost": 2085.85,
-      "peter": {
-        "sum": "Profits highest ever. Stock down 42% from high. Great company, expensive stock.",
-        "url": "https://x.com/pdicarlotrader/status/2119869280506306630",
-        "when": "2026-11-09"
-      }
+      "last": 67.03,
+      "upnl": -477.13,
+      "mv": 1608.72,
+      "cost": 2085.85
     },
     {
       "symbol": "COIN",
       "qty": 13.5,
       "avg": 132.7707,
-      "last": 106.84,
-      "upnl": -350.07,
-      "mv": 1442.34,
+      "last": 106.97,
+      "upnl": -348.31,
+      "mv": 1444.1,
       "cost": 1792.4,
       "peter": {
         "sum": "BTC bull cycle buy this weekend; trade via $COIN among others.",
@@ -39,9 +34,9 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "qty": 9.0,
       "avg": 171.8257,
-      "last": 134.72,
-      "upnl": -333.95,
-      "mv": 1212.48,
+      "last": 163.2,
+      "upnl": -77.63,
+      "mv": 1468.8,
       "cost": 1546.43,
       "peter": {
         "sum": "Where I was wrong: $160 broke faster. Worst-case $110-120 weekly SMZ now in play. Long-term buy zone; relief rally to $170 possible.",
@@ -53,18 +48,18 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 19.0,
       "avg": 66.8906,
-      "last": 64.77,
-      "upnl": -40.29,
-      "mv": 1230.63,
+      "last": 64.51,
+      "upnl": -45.23,
+      "mv": 1225.69,
       "cost": 1270.92
     },
     {
       "symbol": "AVGO",
       "qty": 4.0,
       "avg": 316.3325,
-      "last": 319.29,
-      "upnl": 11.83,
-      "mv": 1277.16,
+      "last": 311.91,
+      "upnl": -17.69,
+      "mv": 1247.64,
       "cost": 1265.33,
       "peter": {
         "sum": "Still the best setup in the market. Targets for the next 6-12 months.",
@@ -76,27 +71,27 @@ window.__DATA__ = {
       "symbol": "XLF",
       "qty": 15.0,
       "avg": 58.4667,
-      "last": 55.22,
-      "upnl": -48.7,
-      "mv": 828.3,
+      "last": 55.87,
+      "upnl": -38.95,
+      "mv": 838.05,
       "cost": 877.0
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 27.99,
-      "upnl": -249.79,
-      "mv": 447.84,
+      "last": 28.45,
+      "upnl": -242.43,
+      "mv": 455.2,
       "cost": 697.63
     },
     {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 42.72,
-      "upnl": -186.36,
-      "mv": 469.92,
+      "last": 47.82,
+      "upnl": -130.26,
+      "mv": 526.02,
       "cost": 656.28,
       "peter": {
         "sum": "Up 25% today. Just getting started. Bullish thesis holds.",
@@ -108,27 +103,27 @@ window.__DATA__ = {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 276.35,
-      "upnl": -34.36,
-      "mv": 552.7,
+      "last": 285.3,
+      "upnl": -16.46,
+      "mv": 570.6,
       "cost": 587.06
     },
     {
       "symbol": "SNOW",
       "qty": 2.0,
       "avg": 292.44,
-      "last": 264.4,
-      "upnl": -56.08,
-      "mv": 528.8,
+      "last": 272.98,
+      "upnl": -38.92,
+      "mv": 545.96,
       "cost": 584.88
     },
     {
       "symbol": "SLV",
       "qty": 12.0,
       "avg": 42.847,
-      "last": 38.63,
-      "upnl": -50.6,
-      "mv": 463.56,
+      "last": 38.22,
+      "upnl": -55.52,
+      "mv": 458.64,
       "cost": 514.16,
       "peter": {
         "sum": "It's almost time. Precious metals in discount zone.",
@@ -140,27 +135,27 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 98.0,
       "avg": 5.1569,
-      "last": 3.69,
-      "upnl": -143.76,
-      "mv": 361.62,
+      "last": 3.92,
+      "upnl": -121.22,
+      "mv": 384.16,
       "cost": 505.38
     },
     {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 28.82,
-      "upnl": -128.54,
-      "mv": 374.66,
+      "last": 32.15,
+      "upnl": -85.24,
+      "mv": 417.95,
       "cost": 503.19
     },
     {
       "symbol": "NFLX",
       "qty": -4.0,
       "avg": 60.295,
-      "last": 57.43,
-      "upnl": 11.46,
-      "mv": -229.72,
+      "last": 58.25,
+      "upnl": 8.18,
+      "mv": -233.0,
       "cost": -241.18
     }
   ],
