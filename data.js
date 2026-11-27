@@ -1,33 +1,33 @@
 window.__DATA__ = {
   "meta": {
-    "lastRun": "2026-11-26 09:32 IDT",
+    "lastRun": "2026-11-27 09:45 IDT",
     "nav": 7123.61,
     "source": "IBKR + public X",
     "cash": -3598.74,
     "equity": 7123.61,
-    "generatedAt": "2026-11-26T04:02:00Z",
-    "generatedAtHuman": "2026-11-26 09:32 IDT"
+    "generatedAt": "2026-11-27T04:15:00Z",
+    "generatedAtHuman": "2026-11-27 09:45 IDT"
   },
   "positions": [
     {
       "symbol": "HOOD",
       "qty": 24.0,
       "avg": 86.9104,
-      "last": 67.56,
-      "upnl": -464.41,
-      "mv": 1621.44,
+      "last": 68.67,
+      "upnl": -437.77,
+      "mv": 1648.08,
       "cost": 2085.85
     },
     {
       "symbol": "COIN",
       "qty": 13.5,
       "avg": 132.7707,
-      "last": 106.907,
-      "upnl": -349.16,
-      "mv": 1443.24,
+      "last": 107.79,
+      "upnl": -337.24,
+      "mv": 1455.17,
       "cost": 1792.4,
       "peter": {
-        "sum": "New Bitcoin bull cycle \u2014 this weekend was the buy. Trade via $COIN among others.",
+        "sum": "New Bitcoin bull cycle — this weekend was the buy. Trade via $COIN among others.",
         "url": "https://x.com/pdicarlotrader/status/2122120715902288259",
         "when": "2026-11-16"
       }
@@ -36,9 +36,9 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "qty": 9.0,
       "avg": 171.8257,
-      "last": 151.22,
-      "upnl": -185.45,
-      "mv": 1360.98,
+      "last": 153.91,
+      "upnl": -161.24,
+      "mv": 1385.19,
       "cost": 1546.43,
       "peter": {
         "sum": "Monthly SM Band support still holding; still expecting recovery. If band closes month red, will change outlook. LT (12m+) still great buy.",
@@ -50,21 +50,21 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 19.0,
       "avg": 66.8906,
-      "last": 66.62,
-      "upnl": -5.14,
-      "mv": 1265.78,
+      "last": 67.21,
+      "upnl": 6.07,
+      "mv": 1276.99,
       "cost": 1270.92
     },
     {
       "symbol": "AVGO",
       "qty": 4.0,
       "avg": 316.3325,
-      "last": 303.99,
-      "upnl": -49.37,
-      "mv": 1215.96,
+      "last": 310.1,
+      "upnl": -24.93,
+      "mv": 1240.4,
       "cost": 1265.33,
       "peter": {
-        "sum": "EXTREMELY strong fundamental co at biggest long-term discount. Monthly SM Band low tested \u2014 bottomed here every time since IPO. Amazing LT entry zone.",
+        "sum": "EXTREMELY strong fundamental co at biggest long-term discount. Monthly SM Band low tested — bottomed here every time since IPO. Amazing LT entry zone.",
         "url": "https://x.com/pdicarlotrader/status/2125696165920596190",
         "when": "2026-11-25"
       }
@@ -73,54 +73,54 @@ window.__DATA__ = {
       "symbol": "XLF",
       "qty": 15.0,
       "avg": 58.4667,
-      "last": 56.7499,
-      "upnl": -25.75,
-      "mv": 851.25,
+      "last": 56.85,
+      "upnl": -24.25,
+      "mv": 852.75,
       "cost": 877.0
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 29.35,
-      "upnl": -228.03,
-      "mv": 469.6,
+      "last": 30.0,
+      "upnl": -217.63,
+      "mv": 480.0,
       "cost": 697.63
     },
     {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 43.5599,
-      "upnl": -177.12,
-      "mv": 479.16,
+      "last": 45.1,
+      "upnl": -160.18,
+      "mv": 496.1,
       "cost": 656.28
     },
     {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 274.99,
-      "upnl": -37.08,
-      "mv": 549.98,
+      "last": 279.35,
+      "upnl": -28.36,
+      "mv": 558.7,
       "cost": 587.06
     },
     {
       "symbol": "SNOW",
       "qty": 2.0,
       "avg": 292.44,
-      "last": 271.99,
-      "upnl": -40.9,
-      "mv": 543.98,
+      "last": 276.02,
+      "upnl": -32.84,
+      "mv": 552.04,
       "cost": 584.88
     },
     {
       "symbol": "SLV",
       "qty": 12.0,
       "avg": 42.847,
-      "last": 37.25,
-      "upnl": -67.16,
-      "mv": 447.0,
+      "last": 39.72,
+      "upnl": -37.52,
+      "mv": 476.64,
       "cost": 514.16,
       "peter": {
         "sum": "It's almost time $GLD $SLV. Precious metals in discount zone.",
@@ -132,27 +132,27 @@ window.__DATA__ = {
       "symbol": "POET",
       "qty": 98.0,
       "avg": 5.1569,
-      "last": 3.6754,
-      "upnl": -145.19,
-      "mv": 360.19,
+      "last": 3.79,
+      "upnl": -133.96,
+      "mv": 371.42,
       "cost": 505.38
     },
     {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 30.0,
-      "upnl": -113.19,
-      "mv": 390.0,
+      "last": 31.14,
+      "upnl": -98.38,
+      "mv": 404.82,
       "cost": 503.19
     },
     {
       "symbol": "NFLX",
       "qty": -4.0,
       "avg": 60.295,
-      "last": 59.25,
-      "upnl": 4.18,
-      "mv": -237.0,
+      "last": 59.96,
+      "upnl": 1.34,
+      "mv": -239.84,
       "cost": 241.18
     }
   ],
@@ -1755,7 +1755,14 @@ window.__DATA__ = {
       "url": "https://x.com/pdicarlotrader/status/2125695155227197822",
       "when": "2026-11-25",
       "status": "public"
+    },
+    {
+      "symbol": "META",
+      "kind": "watch",
+      "summary": "Insane discount again. Testing Weekly SMZ & Monthly SM Band. Set stop if closes multiple weeks under $520 swing low. Band held every pullback past years.",
+      "url": "https://x.com/pdicarlotrader/status/2123902823616421957",
+      "when": "2026-11-20",
+      "status": "public"
     }
-  ],
-  "fills": []
+  ]
 };
