@@ -1,33 +1,41 @@
 window.__DATA__ = {
   "meta": {
-    "lastRun": "2026-11-27 09:45 IDT",
-    "nav": 7123.61,
+    "lastRun": "2026-11-28 07:32 IDT",
+    "nav": 7269.1,
     "source": "IBKR + public X",
     "cash": -3598.74,
-    "equity": 7123.61,
-    "generatedAt": "2026-11-27T04:15:00Z",
-    "generatedAtHuman": "2026-11-27 09:45 IDT"
+    "equity": 7269.1,
+    "generatedAt": "2026-11-28T04:32:00Z",
+    "generatedAtHuman": "2026-11-28 07:32 IDT",
+    "grossPositions": 10901.29,
+    "unrealized": -1744.05,
+    "positionsCount": 14
   },
   "positions": [
     {
       "symbol": "HOOD",
       "qty": 24.0,
       "avg": 86.9104,
-      "last": 68.67,
-      "upnl": -437.77,
-      "mv": 1648.08,
-      "cost": 2085.85
+      "last": 68.19,
+      "upnl": -449.38,
+      "upnlPct": -21.54,
+      "cost": 2085.85,
+      "mv": 1636.47,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "COIN",
       "qty": 13.5,
       "avg": 132.7707,
-      "last": 107.79,
-      "upnl": -337.24,
-      "mv": 1455.17,
+      "last": 107.64,
+      "upnl": -339.27,
+      "upnlPct": -18.93,
       "cost": 1792.4,
+      "mv": 1453.14,
+      "chg": 0,
       "peter": {
-        "sum": "New Bitcoin bull cycle — this weekend was the buy. Trade via $COIN among others.",
+        "sum": "New Bitcoin bull cycle \u2014 this weekend was the buy. Trade via $COIN among others.",
         "url": "https://x.com/pdicarlotrader/status/2122120715902288259",
         "when": "2026-11-16"
       }
@@ -36,10 +44,12 @@ window.__DATA__ = {
       "symbol": "NVDA",
       "qty": 9.0,
       "avg": 171.8257,
-      "last": 153.91,
-      "upnl": -161.24,
-      "mv": 1385.19,
+      "last": 149.8,
+      "upnl": -198.23,
+      "upnlPct": -12.82,
       "cost": 1546.43,
+      "mv": 1348.2,
+      "chg": 0,
       "peter": {
         "sum": "Monthly SM Band support still holding; still expecting recovery. If band closes month red, will change outlook. LT (12m+) still great buy.",
         "url": "https://x.com/pdicarlotrader/status/2125644944278770108",
@@ -50,21 +60,26 @@ window.__DATA__ = {
       "symbol": "UBER",
       "qty": 19.0,
       "avg": 66.8906,
-      "last": 67.21,
-      "upnl": 6.07,
-      "mv": 1276.99,
-      "cost": 1270.92
+      "last": 66.8,
+      "upnl": -1.71,
+      "upnlPct": -0.13,
+      "cost": 1270.92,
+      "mv": 1269.21,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "AVGO",
       "qty": 4.0,
       "avg": 316.3325,
-      "last": 310.1,
-      "upnl": -24.93,
-      "mv": 1240.4,
+      "last": 311.67,
+      "upnl": -18.65,
+      "upnlPct": -1.47,
       "cost": 1265.33,
+      "mv": 1246.68,
+      "chg": 0,
       "peter": {
-        "sum": "EXTREMELY strong fundamental co at biggest long-term discount. Monthly SM Band low tested — bottomed here every time since IPO. Amazing LT entry zone.",
+        "sum": "Extremely strong fundamental company at biggest discount in LT system. Monthly SM Band low tested \u2014 bottomed here every time since IPO. Amazing long-term entry zone.",
         "url": "https://x.com/pdicarlotrader/status/2125696165920596190",
         "when": "2026-11-25"
       }
@@ -73,87 +88,113 @@ window.__DATA__ = {
       "symbol": "XLF",
       "qty": 15.0,
       "avg": 58.4667,
-      "last": 56.85,
-      "upnl": -24.25,
-      "mv": 852.75,
-      "cost": 877.0
+      "last": 57.48,
+      "upnl": -14.8,
+      "upnlPct": -1.69,
+      "cost": 877.0,
+      "mv": 862.2,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "KTOS",
       "qty": 16.0,
       "avg": 43.6018,
-      "last": 30.0,
-      "upnl": -217.63,
-      "mv": 480.0,
-      "cost": 697.63
+      "last": 30.34,
+      "upnl": -212.25,
+      "upnlPct": -30.42,
+      "cost": 697.63,
+      "mv": 485.38,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "CRWV",
       "qty": 11.0,
       "avg": 59.6621,
-      "last": 45.1,
-      "upnl": -160.18,
-      "mv": 496.1,
-      "cost": 656.28
+      "last": 43.72,
+      "upnl": -175.36,
+      "upnlPct": -26.72,
+      "cost": 656.28,
+      "mv": 480.92,
+      "chg": 0,
+      "peter": {
+        "sum": "Neoclouds at the strongest long-term buy zone in the system. Deep dive on $CRWV $NBIS $IREN for 18-month technical buy zones.",
+        "url": "https://x.com/pdicarlotrader/status/2126430362356023682",
+        "when": "2026-11-27"
+      }
     },
     {
       "symbol": "GOOGL",
       "qty": 2.0,
       "avg": 293.53,
-      "last": 279.35,
-      "upnl": -28.36,
-      "mv": 558.7,
-      "cost": 587.06
+      "last": 275.95,
+      "upnl": -35.15,
+      "upnlPct": -5.99,
+      "cost": 587.06,
+      "mv": 551.91,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "SNOW",
       "qty": 2.0,
       "avg": 292.44,
-      "last": 276.02,
-      "upnl": -32.84,
-      "mv": 552.04,
-      "cost": 584.88
+      "last": 276.5,
+      "upnl": -31.88,
+      "upnlPct": -5.45,
+      "cost": 584.88,
+      "mv": 553.0,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "SLV",
       "qty": 12.0,
       "avg": 42.847,
-      "last": 39.72,
-      "upnl": -37.52,
-      "mv": 476.64,
+      "last": 39.54,
+      "upnl": -39.68,
+      "upnlPct": -7.72,
       "cost": 514.16,
-      "peter": {
-        "sum": "It's almost time $GLD $SLV. Precious metals in discount zone.",
-        "url": "https://x.com/pdicarlotrader/status/2122054657279447367",
-        "when": "2026-11-15"
-      }
+      "mv": 474.48,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "POET",
       "qty": 98.0,
       "avg": 5.1569,
-      "last": 3.79,
-      "upnl": -133.96,
-      "mv": 371.42,
-      "cost": 505.38
+      "last": 3.86,
+      "upnl": -127.1,
+      "upnlPct": -25.15,
+      "cost": 505.38,
+      "mv": 378.28,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "ASX",
       "qty": 13.0,
       "avg": 38.7073,
-      "last": 31.14,
-      "upnl": -98.38,
-      "mv": 404.82,
-      "cost": 503.19
+      "last": 31.1,
+      "upnl": -98.89,
+      "upnlPct": -19.65,
+      "cost": 503.19,
+      "mv": 404.3,
+      "chg": 0,
+      "peter": null
     },
     {
       "symbol": "NFLX",
       "qty": -4.0,
       "avg": 60.295,
-      "last": 59.96,
-      "upnl": 1.34,
-      "mv": -239.84,
-      "cost": 241.18
+      "last": 60.72,
+      "upnl": -1.7,
+      "upnlPct": -0.7,
+      "cost": 241.18,
+      "mv": -242.88,
+      "chg": 0,
+      "peter": null
     }
   ],
   "closed": [
@@ -1733,36 +1774,39 @@ window.__DATA__ = {
   ],
   "recs": [
     {
-      "symbol": "BE",
-      "kind": "watch",
-      "summary": "Long-term $BE bulls: make or break. Monthly SM Band tested (strongest support, 80% bounce hist). If fundamentals believed, $150 no brainer; else possible $40.",
-      "url": "https://x.com/pdicarlotrader/status/2125696598542000326",
-      "when": "2026-11-25",
-      "status": "public"
-    },
-    {
-      "symbol": "ARM",
+      "date": "2026-11-27",
+      "sym": "SNDK",
       "kind": "buy",
-      "summary": "Bottom looks in. Strongest LT support, Monthly SM Band green testing lowest discount + VP support. Amazing spot for 12-24m hold.",
-      "url": "https://x.com/pdicarlotrader/status/2125695651186933895",
-      "when": "2026-11-25",
-      "status": "public"
+      "sum": "Called bubble top Aug 17, now -60%. Moving into the strongest long-term buy zone in the system.",
+      "url": "https://x.com/pdicarlotrader/status/2126445965057872147"
     },
     {
-      "symbol": "AAOI",
-      "kind": "note",
-      "summary": "Trading at strongest LT support, Monthly SM Band green, VP holding. Amazing 12m spot, but skipping for now (focus shorter TF).",
-      "url": "https://x.com/pdicarlotrader/status/2125695155227197822",
-      "when": "2026-11-25",
-      "status": "public"
+      "date": "2026-11-27",
+      "sym": "NBIS",
+      "kind": "buy",
+      "sum": "Neoclouds at strongest LT buy zone. Deep dive on $CRWV $NBIS $IREN for 18-month technical setups.",
+      "url": "https://x.com/pdicarlotrader/status/2126430362356023682"
     },
     {
-      "symbol": "META",
+      "date": "2026-11-27",
+      "sym": "IREN",
+      "kind": "buy",
+      "sum": "Neoclouds at strongest LT buy zone. Deep dive on $CRWV $NBIS $IREN for 18-month technical setups.",
+      "url": "https://x.com/pdicarlotrader/status/2126430362356023682"
+    },
+    {
+      "date": "2026-11-25",
+      "sym": "ARM",
+      "kind": "buy",
+      "sum": "Bottom looks in. Strongest LT support, Monthly SM Band green testing lowest discount + VP support. Amazing spot for 12-24m hold.",
+      "url": "https://x.com/pdicarlotrader/status/2125695651186933895"
+    },
+    {
+      "date": "2026-11-25",
+      "sym": "BE",
       "kind": "watch",
-      "summary": "Insane discount again. Testing Weekly SMZ & Monthly SM Band. Set stop if closes multiple weeks under $520 swing low. Band held every pullback past years.",
-      "url": "https://x.com/pdicarlotrader/status/2123902823616421957",
-      "when": "2026-11-20",
-      "status": "public"
+      "sum": "Long-term $BE bulls: make or break. Monthly SM Band tested (strongest support, 80% bounce hist). If fundamentals believed, $150 no brainer; else possible $40.",
+      "url": "https://x.com/pdicarlotrader/status/2125696598542000326"
     }
   ]
 };
